@@ -26,9 +26,23 @@
     <link rel="stylesheet" href="methodology-mobile.css">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="performance.css">
+    <link rel="stylesheet" href="css/auth-app.css">
 </head>
 
 <body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splash">
+        <div class="face-logo-animated">
+            <span class="letter">F</span>
+            <span class="letter">A</span>
+            <span class="letter">C</span>
+            <span class="letter">E</span>
+        </div>
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+    </div>
+
     <!-- Skeleton Loader -->
     <div id="skeleton-loader" class="skeleton-loader">
         <div class="skeleton-face">
@@ -548,8 +562,21 @@
         </div>
     </footer>
 
+    <script src="js/mockAuth.js"></script>
+    <script src="js/authUI.js"></script>
     <script src="script.js"></script>
     <script src="mobile.js"></script>
+
+    <!-- Splash screen auto-hide -->
+    <script>
+        setTimeout(() => {
+            const splash = document.getElementById('splash');
+            if (splash) {
+                splash.classList.add('fade-out');
+                setTimeout(() => splash.remove(), 500);
+            }
+        }, 2000);
+    </script>
 </body>
 
 </html>
