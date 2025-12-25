@@ -1,4 +1,8 @@
 /* ====================================
+   GOOGLE-INSPIRED VIDEO PLAYER & SEARCH
+   ==================================== */
+
+/* ====================================
    VIDEO PLAYER MODAL
    ==================================== */
 
@@ -8,12 +12,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 10000;
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 24px;
+    backdrop-filter: blur(4px);
 }
 
 .video-modal.active {
@@ -22,25 +27,26 @@
 
 .video-modal-content {
     background: white;
-    border-radius: 20px;
+    border-radius: 16px;
     max-width: 900px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
+    box-shadow: 0 8px 16px rgba(60, 64, 67, 0.3);
 }
 
 .video-modal-close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 16px;
+    right: 16px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
-    font-size: 1.5rem;
+    font-size: 24px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -58,9 +64,8 @@
     position: relative;
     width: 100%;
     padding-top: 56.25%;
-    /* 16:9 */
     background: #000;
-    border-radius: 20px 20px 0 0;
+    border-radius: 16px 16px 0 0;
     overflow: hidden;
 }
 
@@ -74,178 +79,270 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 1rem;
+    gap: 16px;
     color: white;
 }
 
 .play-button {
-    width: 80px;
-    height: 80px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
+    background: white;
     border: none;
-    color: white;
-    font-size: 2rem;
+    color: #1a73e8;
+    font-size: 28px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
-    box-shadow: 0 8px 30px rgba(0, 102, 255, 0.4);
+    padding-left: 4px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .play-button:hover {
     transform: scale(1.1);
-    box-shadow: 0 12px 40px rgba(0, 102, 255, 0.6);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.play-button:active {
+    transform: scale(0.95);
 }
 
 .video-modal-info {
-    padding: 2rem;
+    padding: 24px;
 }
 
 .video-modal-info h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: #202124;
+    letter-spacing: -0.5px;
 }
 
 .video-modal-meta {
     display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 24px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 
 .meta-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    color: var(--text-gray);
-    font-size: 0.9rem;
+    gap: 8px;
+    color: #5f6368;
+    font-size: 14px;
 }
 
 .video-modal-description {
-    color: var(--text-carbon);
-    line-height: 1.8;
-    margin-bottom: 2rem;
+    color: #5f6368;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    font-size: 14px;
 }
 
 .video-actions {
     display: flex;
-    gap: 1rem;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
-/* Search Bar */
+/* ====================================
+   SEARCH BAR - Google Style
+   ==================================== */
+
 .search-container {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 24px;
 }
 
 .search-input {
     width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 16px;
-    font-size: 1rem;
-    font-family: var(--font-body);
-    transition: all 0.3s;
+    padding: 14px 16px 14px 48px;
+    border: 1px solid #e8eaed;
+    border-radius: 24px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+    background: white;
+}
+
+.search-input:hover {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
 }
 
 .search-input:focus {
     outline: none;
-    border-color: var(--accent-blue);
-    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+    border-color: #1a73e8;
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
 }
 
 .search-icon {
     position: absolute;
-    left: 1rem;
+    left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-gray);
-    font-size: 1.25rem;
+    color: #5f6368;
+    font-size: 20px;
 }
 
-/* Filters */
+/* ====================================
+   FILTERS - Chip Design
+   ==================================== */
+
 .filters-container {
     display: flex;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
+    gap: 8px;
+    margin-bottom: 32px;
     flex-wrap: wrap;
 }
 
 .filter-btn {
-    padding: 0.625rem 1.25rem;
-    border: 2px solid #e0e0e0;
+    padding: 8px 16px;
+    border: 1px solid #dadce0;
     background: white;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    border-radius: 16px;
+    font-weight: 500;
+    font-size: 13px;
     cursor: pointer;
     transition: all 0.2s;
-    color: var(--text-gray);
+    color: #5f6368;
 }
 
 .filter-btn:hover {
-    border-color: var(--accent-blue);
-    color: var(--accent-blue);
+    background: #f1f3f4;
+    border-color: #dadce0;
 }
 
 .filter-btn.active {
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
-    color: white;
-    border-color: transparent;
+    background: #e8f0fe;
+    color: #1967d2;
+    border-color: #e8f0fe;
 }
 
-/* Empty State */
+.filter-btn:active {
+    transform: scale(0.95);
+}
+
+/* ====================================
+   EMPTY STATE
+   ==================================== */
+
 .empty-state {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 64px 24px;
 }
 
 .empty-state-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    opacity: 0.5;
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.4;
 }
 
 .empty-state h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-carbon);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: #202124;
 }
 
 .empty-state p {
-    color: var(--text-gray);
+    color: #5f6368;
+    font-size: 14px;
 }
 
-/* Mobile Responsive */
+/* ====================================
+   BUTTONS - Material Design
+   ==================================== */
+
+.btn {
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.25px;
+}
+
+.btn-primary {
+    background: #1a73e8;
+    color: white;
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px rgba(60, 64, 67, 0.15);
+}
+
+.btn-primary:hover {
+    background: #1765cc;
+    box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3), 0 4px 8px rgba(60, 64, 67, 0.15);
+}
+
+.btn-primary:active {
+    background: #1557b0;
+    transform: scale(0.98);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #1a73e8;
+    border: 1px solid #dadce0;
+}
+
+.btn-outline:hover {
+    background: #f1f3f4;
+}
+
+.btn-outline:active {
+    background: #e8eaed;
+}
+
+/* ====================================
+   MOBILE RESPONSIVE
+   ==================================== */
+
 @media (max-width: 768px) {
+    .video-modal {
+        padding: 16px;
+    }
+
     .video-modal-content {
         max-height: 95vh;
+        border-radius: 12px;
     }
 
     .video-modal-info {
-        padding: 1.5rem;
+        padding: 20px;
     }
 
     .video-modal-info h2 {
-        font-size: 1.5rem;
+        font-size: 20px;
     }
 
     .play-button {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
+        width: 64px;
+        height: 64px;
+        font-size: 24px;
     }
 
     .filters-container {
         overflow-x: auto;
         flex-wrap: nowrap;
         -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
     }
 
     .filter-btn {
         white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .search-input {
+        font-size: 16px;
+        /* Prevent zoom on iOS */
     }
 }
