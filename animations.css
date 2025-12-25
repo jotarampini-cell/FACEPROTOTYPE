@@ -74,8 +74,8 @@
 /* Floating Action Button */
 .fab {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: 90px;
+    right: 20px;
     width: 60px;
     height: 60px;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
@@ -85,7 +85,7 @@
     justify-content: center;
     box-shadow: 0 8px 25px rgba(0, 102, 255, 0.4);
     cursor: pointer;
-    z-index: 1000;
+    z-index: 998;
     transition: all 0.3s ease;
     opacity: 0;
     transform: scale(0);
