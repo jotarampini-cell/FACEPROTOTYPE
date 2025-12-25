@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0066FF">
+    <title>FACE - Mi Dashboard</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body class="app-body">
+    <!-- App Header -->
+    <header class="app-header">
+        <div class="app-header-container">
+            <div class="logo">FACE</div>
+            <div class="user-info">
+                <img src="" id="user-avatar" class="user-avatar" alt="User">
+                <span id="user-name-header">Usuario</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="app-main" id="app-content">
+        <!-- Dynamic content loaded by router -->
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Cargando...</p>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#home" class="nav-item active" data-page="home">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Inicio</span>
+        </a>
+        <a href="#library" class="nav-item" data-page="library">
+            <span class="nav-icon">📚</span>
+            <span class="nav-label">Biblioteca</span>
+        </a>
+        <a href="#challenges" class="nav-item" data-page="challenges">
+            <span class="nav-icon">🎯</span>
+            <span class="nav-label">Retos</span>
+        </a>
+        <a href="#profile" class="nav-item" data-page="profile">
+            <span class="nav-icon">👤</span>
+            <span class="nav-label">Perfil</span>
+        </a>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="js/auth/mockAuth.js"></script>
+    <script src="js/auth/authGuard.js"></script>
+    <script src="js/data/mockVideos.js"></script>
+    <script src="js/data/mockChallenges.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
