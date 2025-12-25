@@ -38,6 +38,7 @@
 
     .hero-subtitle {
         font-size: clamp(1rem, 4vw, 1.2rem);
+        margin-top: var(--spacing-md);
     }
 
     .section-title {
@@ -57,6 +58,27 @@
     .metro-card {
         max-width: 100%;
         min-width: 100%;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .card-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .card-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .card-info h4 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .card-info p {
+        font-size: 1rem;
+        line-height: 1.7;
     }
 
     .flow-arrow {
@@ -72,45 +94,75 @@
 
     .metro-foundation {
         margin-top: var(--spacing-md);
+        padding: var(--spacing-lg);
     }
 
     .foundation-header {
         flex-direction: column;
         text-align: center;
+        gap: var(--spacing-md);
     }
 
-    .foundation-letter {
-        font-size: 3.5rem;
+    .foundation-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .foundation-icon svg {
+        width: 45px;
+        height: 45px;
+    }
+
+    .foundation-text {
+        min-width: auto;
+    }
+
+    .foundation-text h4 {
+        font-size: 1.8rem;
+    }
+
+    .foundation-text p {
+        font-size: 1rem;
     }
 
     /* FACE Cards Mobile */
-    .face-cards {
+    .face-cards,
+    .face-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
 
     .face-card {
         max-width: 100%;
+        padding: var(--spacing-lg);
     }
 
     /* Manifesto Mobile */
-    .manifesto-grid {
+    .manifesto-grid,
+    .principles-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-sm);
     }
 
-    .manifesto-item {
+    .manifesto-item,
+    .principle-item {
         padding: var(--spacing-md);
     }
 
     /* Services Mobile */
-    .services-grid {
+    .services-grid,
+    .services-split {
         grid-template-columns: 1fr;
     }
 
     .service-block {
         min-height: auto;
         padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .service-icon {
+        width: 80px;
+        height: 80px;
     }
 
     /* Navigation Mobile */
@@ -125,6 +177,10 @@
         min-height: 80vh;
     }
 
+    .hero-container {
+        padding-top: var(--spacing-lg);
+    }
+
     .cta-buttons {
         flex-direction: column;
         gap: var(--spacing-sm);
@@ -134,11 +190,40 @@
     .btn {
         width: 100%;
         text-align: center;
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
 
     /* Video Grid Mobile */
     .video-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Improve touch targets */
+    .service-btn,
+    .btn {
+        min-height: 50px;
+        font-size: 1.05rem;
+    }
+
+    /* Better spacing for sections */
+    .methodology,
+    .about-face,
+    .education,
+    .manifesto,
+    .services {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    /* Diagram caption */
+    .diagram-caption {
+        padding: var(--spacing-md);
+        margin-top: var(--spacing-md);
+    }
+
+    .diagram-caption p {
+        font-size: 0.95rem;
     }
 }
 

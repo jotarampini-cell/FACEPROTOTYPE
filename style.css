@@ -677,14 +677,8 @@ body {
 }
 
 .card-letter {
-    font-family: var(--font-title);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--accent-blue);
-    opacity: 0.1;
-    line-height: 1;
-    display: block;
-    margin-bottom: var(--spacing-xs);
+    display: none;
+    /* Removed for cleaner design */
 }
 
 .card-info h4 {
@@ -783,13 +777,8 @@ body {
 }
 
 .foundation-letter {
-    font-family: var(--font-title);
-    font-size: 5rem;
-    font-weight: 700;
-    color: white;
-    line-height: 1;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    flex-shrink: 0;
+    display: none;
+    /* Removed for cleaner design */
 }
 
 .foundation-text h4 {
