@@ -1,0 +1,176 @@
+/* ====================================
+   MOBILE-FIRST RESPONSIVE DESIGN
+   ==================================== */
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+    :root {
+        --spacing-xl: 4rem;
+        --spacing-lg: 3rem;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .metro-flow-row {
+        gap: var(--spacing-sm);
+    }
+
+    .metro-card {
+        min-width: 200px;
+    }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+    :root {
+        --spacing-xl: 3rem;
+        --spacing-lg: 2.5rem;
+        --spacing-md: 1.5rem;
+    }
+
+    /* Typography Scaling */
+    .hero-title {
+        font-size: clamp(2.5rem, 8vw, 3rem);
+        line-height: 1.1;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+
+    .subsection-title {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+    }
+
+    /* Metro Diagram Mobile */
+    .metro-flow-row {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .metro-card {
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .flow-arrow {
+        transform: rotate(90deg);
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .connection-line {
+        display: none;
+        /* Hide connection lines on mobile */
+    }
+
+    .metro-foundation {
+        margin-top: var(--spacing-md);
+    }
+
+    .foundation-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .foundation-letter {
+        font-size: 3.5rem;
+    }
+
+    /* FACE Cards Mobile */
+    .face-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .face-card {
+        max-width: 100%;
+    }
+
+    /* Manifesto Mobile */
+    .manifesto-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .manifesto-item {
+        padding: var(--spacing-md);
+    }
+
+    /* Services Mobile */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-block {
+        min-height: auto;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    /* Navigation Mobile */
+    .nav-links {
+        display: none;
+        /* Will be replaced with hamburger menu */
+    }
+
+    /* Hero Mobile */
+    .hero {
+        padding: var(--spacing-xl) var(--spacing-md);
+        min-height: 80vh;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Video Grid Mobile */
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    :root {
+        --spacing-xl: 2rem;
+        --spacing-lg: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .face-letter {
+        font-size: 4rem;
+    }
+
+    .card-letter,
+    .layer-letter {
+        font-size: 2.5rem;
+    }
+
+    .foundation-letter {
+        font-size: 3rem;
+    }
+
+    .skeleton-letter {
+        font-size: 3rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+}

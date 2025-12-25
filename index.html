@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description"
+        content="FACE Innovation - Metodología para innovar sin inventar. Transformamos ideas en resultados mediante Foco, Adaptación, Cultura y Ejecución.">
+    <meta name="theme-color" content="#0066FF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="FACE">
+    <title>FACE - Innovación sin Inventar</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="performance.css">
+</head>
+
+<body>
+    <!-- Skeleton Loader -->
+    <div id="skeleton-loader" class="skeleton-loader">
+        <div class="skeleton-face">
+            <span class="skeleton-letter">F</span>
+            <span class="skeleton-letter">A</span>
+            <span class="skeleton-letter">C</span>
+            <span class="skeleton-letter">E</span>
+        </div>
+    </div>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress" class="reading-progress"></div>
+
+    <!-- Header -->
+    <header id="main-header" class="main-header">
+        <div class="header-container">
+            <div class="logo">FACE</div>
+            <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full Screen Menu -->
+    <div id="fullscreen-menu" class="fullscreen-menu">
+        <button class="menu-close" id="menu-close" aria-label="Cerrar menú">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#methodology">Metodología</a></li>
+                <li><a href="#about-face">¿Qué es FACE?</a></li>
+                <li><a href="#education">Aprende</a></li>
+                <li><a href="#manifesto">Manifiesto</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="kinetic-text">
+                <h1 class="hero-title">
+                    <span class="fixed-text">INNOVAR ES...</span>
+                    <span class="rotating-text" id="rotating-word">RESOLVER</span>
+                </h1>
+            </div>
+            <p class="hero-subtitle" id="hero-subtitle">El método para innovar sin inventar</p>
+            <div class="hero-input-container">
+                <input type="text" class="hero-input" placeholder="¿Qué reto tiene tu empresa hoy?"
+                    aria-label="Ingrese su reto empresarial">
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section - FACE Cards -->
+    <section id="methodology" class="methodology">
+        <div class="section-header">
+            <h2 class="section-title-main">La Metodología FACE</h2>
+            <p class="section-description">Cuatro pilares que transforman ideas en resultados</p>
+        </div>
+        <div class="face-grid">
+            <!-- F Card -->
+            <div class="face-card" data-letter="F">
+                <div class="card-letter">F</div>
+                <div class="card-content">
+                    <h3>Foco</h3>
+                    <p>Define el dolor crítico</p>
+                </div>
+            </div>
+
+            <!-- A Card -->
+            <div class="face-card" data-letter="A">
+                <div class="card-letter">A</div>
+                <div class="card-content">
+                    <h3>Adaptación</h3>
+                    <p>Observa lo que funciona</p>
+                </div>
+            </div>
+
+            <!-- C Card -->
+            <div class="face-card" data-letter="C">
+                <div class="card-letter">C</div>
+                <div class="card-content">
+                    <h3>Cultura</h3>
+                    <p>Celebra la creatividad</p>
+                </div>
+            </div>
+
+            <!-- E Card -->
+            <div class="face-card" data-letter="E">
+                <div class="card-letter">E</div>
+                <div class="card-content">
+                    <h3>Ejecución</h3>
+                    <p>Actúa con velocidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is FACE Section -->
+    <section id="about-face" class="about-face">
+        <div class="about-container">
+            <h2 class="about-title">El Método del Ingenio Venezolano</h2>
+
+            <div class="about-content">
+                <div class="about-intro">
+                    <p class="intro-text">
+                        FACE nace de una verdad sencilla: <strong>El empresario venezolano ya está innovando, pero lo
+                            hace de manera informal.</strong>
+                    </p>
+                    <p class="intro-text">
+                        Creamos FACE para darle estructura a ese instinto. Es una metodología diseñada para que la
+                        innovación deje de ser un dolor de cabeza y se convierta en <strong>un proceso divertido y
+                            lógico</strong>.
+                    </p>
+                </div>
+
+                <div class="how-it-works">
+                    <h3 class="subsection-title">¿Cómo funciona?</h3>
+                    <p class="process-intro">En lugar de buscar ideas abstractas, partimos de un <strong>dolor
+                            real</strong>. Miramos cómo el mundo ha resuelto problemas similares y, con ingenio,
+                        adaptamos esas soluciones al contexto venezolano.</p>
+
+                    <!-- Metro/Transit Style FACE Diagram -->
+                    <div class="face-metro-diagram">
+                        <!-- Process Flow Row -->
+                        <div class="metro-flow-row">
+                            <!-- Foco -->
+                            <div class="metro-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" />
+                                        <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"
+                                            stroke-dasharray="2 2" />
+                                        <path d="M12 2V4M12 20V22M22 12H20M4 12H2" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                </div>
+                                <div class="card-info">
+                                    <span class="card-letter">F</span>
+                                    <h4>Foco</h4>
+                                    <p>Partimos de un dolor real y concreto</p>
+                                </div>
+                                <div class="connection-line"></div>
+                            </div>
+
+                            <div class="flow-arrow">→</div>
+
+                            <!-- Adaptación -->
+                            <div class="metro-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M17 3L21 3L21 7" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M21 3L15 9" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </svg>
+                                </div>
+                                <div class="card-info">
+                                    <span class="card-letter">A</span>
+                                    <h4>Adaptación</h4>
+                                    <p>Observamos el mundo y adaptamos con ingenio</p>
+                                </div>
+                                <div class="connection-line"></div>
+                            </div>
+
+                            <div class="flow-arrow">→</div>
+
+                            <!-- Ejecución -->
+                            <div class="metro-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M22 11.08V12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C14.663 2 17.105 3.036 18.946 4.722"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="card-info">
+                                    <span class="card-letter">E</span>
+                                    <h4>Ejecución</h4>
+                                    <p>Medimos, aprendemos y perfeccionamos</p>
+                                </div>
+                                <div class="connection-line"></div>
+                            </div>
+                        </div>
+
+                        <!-- Cultura Foundation Platform -->
+                        <div class="metro-foundation">
+                            <div class="foundation-header">
+                                <div class="foundation-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="foundation-text">
+                                    <span class="foundation-letter">C</span>
+                                    <div>
+                                        <h4>Cultura</h4>
+                                        <p>La base que impulsa y sostiene todo el proceso de innovación</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diagram-caption">
+                        <p>La <strong>Cultura</strong> es el cimiento sobre el cual construimos. Sin una cultura que
+                            celebre la creatividad y el ingenio, los pasos de Foco, Adaptación y Ejecución no pueden
+                            prosperar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-conclusion">
+                <p class="conclusion-text">
+                    <strong>FACE es el puente entre "tener una buena idea" y "construir un gran negocio".</strong>
+                </p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Section Transition -->
+    <div class="section-transition">
+        <div class="transition-line"></div>
+    </div>
+
+    <!-- Education Section - Videos -->
+    <section id="education" class="education">
+        <div class="education-container">
+            <h2 class="section-title">Aprende la Metodología FACE</h2>
+            <p class="section-subtitle">Descubre cómo innovar sin inventar a través de nuestros videos educativos</p>
+
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        <div class="video-duration">5:30</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Introducción a FACE</h3>
+                        <p>Conoce los fundamentos del método y por qué funciona</p>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        <div class="video-duration">8:15</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Foco: Encontrar el Problema Real</h3>
+                        <p>Aprende a identificar el dolor crítico que debes resolver</p>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        <div class="video-duration">6:45</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Adaptación: Observa y Aprende</h3>
+                        <p>Descubre cómo identificar soluciones exitosas existentes</p>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        <div class="video-duration">7:20</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Creatividad: Combinar Ideas</h3>
+                        <p>Técnicas para crear soluciones únicas a partir de lo conocido</p>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        <div class="video-duration">9:00</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Ejecución: Acción Rápida</h3>
+                        <p>Implementa tus ideas con velocidad y eficiencia</p>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        <div class="video-duration">12:30</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Casos de Éxito FACE</h3>
+                        <p>Empresas que transformaron su cultura con esta metodología</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Transition -->
+    <div class="section-transition">
+        <div class="transition-line"></div>
+    </div>
+
+    <!-- Manifesto Section - Compact Grid -->
+    <section id="manifesto" class="manifesto">
+        <div class="manifesto-container">
+            <h2 class="manifesto-title">Nuestro Manifiesto</h2>
+            <p class="manifesto-subtitle">Los principios que guían nuestra forma de innovar</p>
+
+            <div class="principles-grid">
+                <div class="principle-item">
+                    <span class="principle-number">1</span>
+                    <p class="principle-text">Gente sobre proceso</p>
+                </div>
+                <div class="principle-item">
+                    <span class="principle-number">2</span>
+                    <p class="principle-text">Resiliencia sobre resignación</p>
+                </div>
+                <div class="principle-item">
+                    <span class="principle-number">3</span>
+                    <p class="principle-text">Acción sobre perfección</p>
+                </div>
+                <div class="principle-item">
+                    <span class="principle-number">4</span>
+                    <p class="principle-text">Aprendizaje sobre fracaso</p>
+                </div>
+                <div class="principle-item">
+                    <span class="principle-number">5</span>
+                    <p class="principle-text">Colaboración sobre competencia</p>
+                </div>
+                <div class="principle-item">
+                    <span class="principle-number">6</span>
+                    <p class="principle-text">Soluciones sobre problemas</p>
+                </div>
+                <div class="principle-item">
+                    <span class="principle-number">7</span>
+                    <p class="principle-text">Simplicidad sobre complejidad</p>
+                </div>
+                <div class="principle-item">
+                    <span class="principle-number">8</span>
+                    <p class="principle-text">Impacto sobre intención</p>
+                </div>
+                <div class="principle-item">
+                    <span class="principle-number">9</span>
+                    <p class="principle-text">Valor sobre volumen</p>
+                </div>
+                <div class="principle-item">
+                    <span class="principle-number">10</span>
+                    <p class="principle-text">Experimentación sobre especulación</p>
+                </div>
+                <div class="principle-item">
+                    <span class="principle-number">11</span>
+                    <p class="principle-text">Transformación sobre tradición</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Transition -->
+    <div class="section-transition">
+        <div class="transition-line"></div>
+    </div>
+
+    <!-- Services Section - Split Screen -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <h2 class="section-title-main">Comienza tu Transformación</h2>
+            <p class="section-description">Elige el camino que se adapte a tus necesidades</p>
+        </div>
+        <div class="services-split">
+            <!-- Public Block -->
+            <div class="service-block public-block">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="30" r="15" fill="none" stroke="currentColor" stroke-width="2" />
+                            <path d="M 30 50 Q 50 45 70 50" fill="none" stroke="currentColor" stroke-width="2" />
+                            <path d="M 50 45 L 50 70" stroke="currentColor" stroke-width="2" />
+                            <circle cx="50" cy="75" r="10" fill="currentColor" />
+                            <path d="M 40 75 L 35 85 M 60 75 L 65 85" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <h3>Inicia un Reto Personal</h3>
+                    <p>Descubre tu potencial innovador con desafíos diseñados para transformar ideas en acción</p>
+                    <button class="service-btn">Entrar</button>
+                </div>
+            </div>
+
+            <!-- Business Block -->
+            <div class="service-block business-block">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="30" r="8" fill="none" stroke="currentColor" stroke-width="2" />
+                            <circle cx="70" cy="30" r="8" fill="none" stroke="currentColor" stroke-width="2" />
+                            <circle cx="50" cy="60" r="8" fill="none" stroke="currentColor" stroke-width="2" />
+                            <line x1="30" y1="30" x2="70" y2="30" stroke="currentColor" stroke-width="2" />
+                            <line x1="30" y1="30" x2="50" y2="60" stroke="currentColor" stroke-width="2" />
+                            <line x1="70" y1="30" x2="50" y2="60" stroke="currentColor" stroke-width="2" />
+                            <circle cx="50" cy="60" r="15" fill="currentColor" opacity="0.2" />
+                        </svg>
+                    </div>
+                    <h3>Transforma tu Cultura</h3>
+                    <p>Implementa la metodología FACE en tu organización y crea una cultura de innovación sostenible</p>
+                    <button class="service-btn">Agendar Demo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2025 FACE Innovation. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="mobile.js"></script>
+</body>
+
+</html>

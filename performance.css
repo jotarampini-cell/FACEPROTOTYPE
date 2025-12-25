@@ -1,0 +1,135 @@
+/* ====================================
+   PERFORMANCE OPTIMIZATIONS
+   ==================================== */
+
+/* Lazy Loading Images */
+img {
+    loading: lazy;
+}
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Font Loading Optimization */
+@font-face {
+    font-family: 'Space Grotesk';
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+}
+
+/* Optimize for high resolution screens */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+    /* Use higher quality assets on retina displays */
+    .hero {
+        background-image: none;
+        /* Can add high-res background here */
+    }
+}
+
+/* Smooth scrolling with GPU acceleration */
+* {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Optimize SVG rendering */
+svg {
+    shape-rendering: geometricPrecision;
+}
+
+/* Prevent font flickering */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Hardware acceleration for animations */
+.fade-in,
+.slide-in-left,
+.slide-in-right,
+.scale-in,
+.fab,
+.metro-card,
+.face-card {
+    will-change: transform, opacity;
+}
+
+/* Optimize touch interactions */
+a,
+button,
+.btn,
+.service-btn {
+    -webkit-tap-highlight-color: rgba(0, 102, 255, 0.2);
+    touch-action: manipulation;
+}
+
+/* Prevent text selection on touch */
+.fab,
+.hamburger,
+.nav-links a {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Critical CSS - Above the Fold */
+.hero {
+    contain: layout style paint;
+}
+
+/* Defer non-critical animations */
+@media (max-width: 768px) {
+    .manifesto-item:hover {
+        transform: none;
+        /* Disable complex hover effects on mobile */
+    }
+}
+
+/* Battery Saver Mode - Reduce animations */
+@media (prefers-reduced-motion: reduce) {
+    .fab {
+        animation: none;
+    }
+
+    .skeleton-letter {
+        animation: none;
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1a1a1a;
+        --bg-white: #2d2d2d;
+        --text-carbon: #e0e0e0;
+    }
+
+    body {
+        background: var(--bg-primary);
+        color: var(--text-carbon);
+    }
+}
