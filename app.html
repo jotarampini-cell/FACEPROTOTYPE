@@ -17,6 +17,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/shared.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/video-player.css">
 </head>
 
 <body class="app-body">
@@ -59,6 +60,49 @@
             <span class="nav-label">Perfil</span>
         </a>
     </nav>
+
+    <!-- Video Player Modal -->
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            <div class="video-player-container">
+                <div class="video-player-placeholder" id="video-placeholder">
+                    <button class="play-button" onclick="playVideoInModal()">
+                        ▶
+                    </button>
+                    <p style="opacity: 0.7;">Demo: Click para reproducir</p>
+                </div>
+            </div>
+            <div class="video-modal-info">
+                <h2 id="modal-video-title">Título del Video</h2>
+                <div class="video-modal-meta">
+                    <span class="meta-item">
+                        <span>⏱️</span>
+                        <span id="modal-video-duration">0:00</span>
+                    </span>
+                    <span class="meta-item">
+                        <span>👁️</span>
+                        <span id="modal-video-views">0 vistas</span>
+                    </span>
+                    <span class="meta-item">
+                        <span>❤️</span>
+                        <span id="modal-video-likes">0 likes</span>
+                    </span>
+                </div>
+                <p class="video-modal-description" id="modal-video-description">
+                    Descripción del video
+                </p>
+                <div class="video-actions">
+                    <button class="btn btn-primary" onclick="markAsCompleted()">
+                        ✓ Marcar como completado
+                    </button>
+                    <button class="btn btn-outline" onclick="addToFavorites()">
+                        ⭐ Añadir a favoritos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="js/mockAuth.js"></script>

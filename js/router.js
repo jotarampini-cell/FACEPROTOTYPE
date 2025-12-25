@@ -256,6 +256,57 @@ class Router {
         const content = document.getElementById('app-content');
         content.innerHTML = html;
     }
+
+    // Filter and search functions
+    filterVideos(filter) {
+        this.activeFilter = filter;
+        const videos = getVideos(filter);
+        return this.applySearch(videos);
+    }
+
+    applySearch(videos) {
+        if (!this.searchQuery) return videos;
+        return videos.filter(v =>
+            v.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+            v.description.toLowerCase().includes(this.searchQuery.toLowerCase())
+        );
+    }
+
+    updateLibraryContent() {
+        const videos = this.filterVideos(this.activeFilter);
+        const container = document.getElementById('library-content');
+
+        if (videos.length === 0) {
+            container.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-state-icon">🔍</div>
+                    <h3>No se encontraron videos</h3>
+                    <p>Intenta con otros términos de búsqueda</p>
+                </div>
+            `;
+            return;
+        }
+
+        const categories = {
+            'fundamentos': 'Fundamentos',
+            'metodologia': 'Metodología',
+            'avanzado': 'Avanzado'
+        };
+
+        container.innerHTML = Object.entries(categories).map(([key, label]) => {
+            const categoryVideos = videos.filter(v => v.category === key);
+            if (categoryVideos.length === 0) return '';
+
+            return `
+                <section class="content-section">
+                    <h2>${label}</h2>
+                    <div class="video-grid">
+                        ${categoryVideos.map(v => this.createVideoCard(v)).join('')}
+                    </div>
+                </section>
+            `;
+        }).join('');
+    }
 }
 
 // Initialize router when DOM is ready
@@ -266,3 +317,79 @@ if (document.readyState === 'loading') {
 } else {
     window.router = new Router();
 }
+
+// Global functions for search and filter
+function handleSearch(event) {
+    if (window.router) {
+        window.router.searchQuery = event.target.value;
+        window.router.updateLibraryContent();
+    }
+}
+
+function handleFilter(filter) {
+    if (window.router) {
+        // Update button states
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+
+        window.router.activeFilter = filter;
+        window.router.updateLibraryContent();
+    }
+}
+
+// Video modal functions
+let currentVideo = null;
+
+function playVideo(videoId) {
+    const video = getVideoById(videoId);
+    if (!video) return;
+
+    currentVideo = video;
+
+    // Update modal content
+    document.getElementById('modal-video-title').textContent = video.title;
+    document.getElementById('modal-video-duration').textContent = video.duration;
+    document.getElementById('modal-video-views').textContent = `${video.views} vistas`;
+    document.getElementById('modal-video-likes').textContent = `${video.likes} likes`;
+    document.getElementById('modal-video-description').textContent = video.description;
+
+    // Show modal
+    document.getElementById('video-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+    document.getElementById('video-modal').classList.remove('active');
+    document.body.style.overflow = '';
+    currentVideo = null;
+}
+
+function playVideoInModal() {
+    if (currentVideo) {
+        alert(`▶️ Reproduciendo: ${currentVideo.title}\n\nEn producción, aquí se cargaría el video real.`);
+    }
+}
+
+function markAsCompleted() {
+    if (currentVideo) {
+        alert(`✓ Video "${currentVideo.title}" marcado como completado!`);
+        closeVideoModal();
+    }
+}
+
+function addToFavorites() {
+    if (currentVideo) {
+        alert(`⭐ Video "${currentVideo.title}" añadido a favoritos!`);
+    }
+}
+
+// Make functions globally available
+window.handleSearch = handleSearch;
+window.handleFilter = handleFilter;
+window.playVideo = playVideo;
+window.closeVideoModal = closeVideoModal;
+window.playVideoInModal = playVideoInModal;
+window.markAsCompleted = markAsCompleted;
+window.addToFavorites = addToFavorites;
