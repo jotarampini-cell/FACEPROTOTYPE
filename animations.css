@@ -266,6 +266,7 @@
     gap: 6px;
     cursor: pointer;
     z-index: 10000;
+    position: relative;
 }
 
 .hamburger span {
@@ -290,7 +291,7 @@
 
 @media (max-width: 768px) {
     .hamburger {
-        display: flex;
+        display: flex !important;
     }
 
     .fab {
@@ -299,4 +300,12 @@
         width: 56px;
         height: 56px;
     }
+
+    /* Ensure menu icon is visible */
+    .menu-icon {
+        display: flex !important;
+        z-index: 10001;
+    }
 }
+
+```
