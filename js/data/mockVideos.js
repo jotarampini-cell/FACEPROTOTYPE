@@ -84,16 +84,17 @@ const MOCK_VIDEOS = [
 
 // Helper functions
 function getVideos(filter = 'all') {
-    switch (filter) {
-        case 'completed':
-            return MOCK_VIDEOS.filter(v => v.completed);
-        case 'in-progress':
-            return MOCK_VIDEOS.filter(v => v.progress > 0 && !v.completed);
-        case 'new':
-            return MOCK_VIDEOS.filter(v => v.progress === 0);
-        default:
-            return MOCK_VIDEOS;
+    // Standard filters
+    if (filter === 'completed') return MOCK_VIDEOS.filter(v => v.completed);
+    if (filter === 'in-progress') return MOCK_VIDEOS.filter(v => v.progress > 0 && !v.completed);
+    if (filter === 'new') return MOCK_VIDEOS.filter(v => v.progress === 0);
+
+    // Category filters
+    if (['fundamentos', 'metodologia', 'avanzado'].includes(filter)) {
+        return MOCK_VIDEOS.filter(v => v.category === filter);
     }
+
+    return MOCK_VIDEOS;
 }
 
 function getVideosByCategory(category) {

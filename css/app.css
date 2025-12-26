@@ -8,6 +8,14 @@
     padding-bottom: 72px;
     background: #fafafa;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transform: none !important;
+    /* Fix for fixed header */
+}
+
+html,
+body {
+    transform: none !important;
+    /* Critical for position: fixed header */
 }
 
 /* ====================================
@@ -246,6 +254,8 @@
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
+    /* Standard property for compatibility */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

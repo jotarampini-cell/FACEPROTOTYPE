@@ -3,13 +3,12 @@
 // Keeps header always visible and centered
 
 (function () {
-    const header = document.querySelector('header');
+    const header = document.querySelector('header') || document.querySelector('.main-header');
     if (!header) return;
 
-    let lastScrollTop = 0;
-    let ticking = false;
+    function updateHeader() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    function updateHeader(scrollTop) {
         // Add shadow when scrolled
         if (scrollTop > 10) {
             header.classList.add('scrolled');
@@ -17,28 +16,18 @@
             header.classList.remove('scrolled');
         }
 
-        // Keep header visible and centered
-        // Preserve translateX(-50%) for centering, only manage translateY
-        header.style.transform = 'translateX(-50%) translateY(0)';
-
-        lastScrollTop = scrollTop;
-    }
-
-    function onScroll() {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                updateHeader(window.pageYOffset || document.documentElement.scrollTop);
-                ticking = false;
-            });
-            ticking = true;
-        }
+        // CRITICAL: Ensure we keep the horizontal centering translateX(-50%)
+        // that is defined in CSS, but handle any additional JS transforms here.
+        // We use inline style only for translateY if we really needed it for hiding,
+        // but since we want it ALWAYS VISIBLE, we just ensure transform is stable.
+        header.style.transform = 'translateX(-50%)';
     }
 
     // Listen to scroll events
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', updateHeader, { passive: true });
 
     // Initial check
-    updateHeader(window.pageYOffset || document.documentElement.scrollTop);
+    updateHeader();
 })();
 
 // Toggle hamburger menu animation

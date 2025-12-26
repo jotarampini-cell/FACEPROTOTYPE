@@ -49,6 +49,8 @@ body {
     background-color: var(--bg-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    transform: none !important;
+    /* Critical for position: fixed header */
 }
 
 /* ====================================
@@ -213,11 +215,15 @@ body {
     transform: translateX(-50%);
     width: calc(100% - 40px);
     max-width: 1200px;
-    z-index: 1000;
+    z-index: 2000;
+    /* Higher z-index to stay above everything */
 
-    background: white;
+    background: rgba(255, 255, 255, 0.85);
+    /* Glassmorphism */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
 
     box-shadow:
         0 10px 40px rgba(0, 0, 0, 0.08),
@@ -228,15 +234,12 @@ body {
 
 .main-header.scrolled {
     top: 10px;
-    width: calc(100% - 60px);
+    width: calc(100% - 24px);
+    /* Tighter fit on scroll */
+    background: rgba(255, 255, 255, 0.95);
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.12),
         0 0 0 1px rgba(0, 0, 0, 0.03);
-}
-
-.main-header.hidden {
-    transform: translateX(-50%) translateY(-150%);
-    opacity: 0;
 }
 
 .header-container {

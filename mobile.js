@@ -30,9 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Add fade-in class to sections
-    document.querySelectorAll('.face-card, .metro-card, .manifesto-item, .service-block').forEach(el => {
-        el.classList.add('fade-in');
+    // Add fade-in and reveal classes to sections
+    document.querySelectorAll('.face-card, .metro-card, .manifesto-item, .service-block, .reveal').forEach(el => {
         observer.observe(el);
     });
 
@@ -148,25 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
     images.forEach(img => imgObserver.observe(img));
 
     // ==========================================
-    // SMOOTH HEADER HIDE ON SCROLL
+    // SMOOTH HEADER STABILITY
     // ==========================================
 
-    let lastScroll = 0;
-    const header = document.querySelector('header');
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            // Scrolling down
-            if (header) header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            if (header) header.style.transform = 'translateY(0)';
-        }
-
-        lastScroll = currentScroll;
-    });
+    // Header hiding logic removed as per Expert Audit.
+    // Fixed positioning is now stable and handled by header-scroll.js.
 
     // ==========================================
     // PROGRESS INDICATOR UPDATE

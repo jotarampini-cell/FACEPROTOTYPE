@@ -85,7 +85,7 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero reveal">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
@@ -506,8 +506,8 @@
     </div>
 
     <!-- Services Section - Split Screen -->
-    <section id="services" class="services">
-        <div class="section-header">
+    <section id="services" class="services reveal">
+        <div class="section-header reveal-delay-1">
             <h2 class="section-title-main">Comienza tu Transformación</h2>
             <p class="section-description">Elige el camino que se adapte a tus necesidades</p>
         </div>
@@ -584,8 +584,20 @@
     <script src="js/mockAuth.js"></script>
     <script src="js/authUI.js"></script>
     <script src="js/header-scroll.js"></script>
+    <script src="js/demo-guide.js"></script>
     <script src="script.js"></script>
     <script src="mobile.js"></script>
+
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('SW Registered', reg))
+                    .catch(err => console.log('SW Error', err));
+            });
+        }
+    </script>
 
     <!-- Splash screen auto-hide -->
     <script>

@@ -107,34 +107,84 @@ class Router {
     }
 
     renderLibrary() {
-        const allVideos = getVideos();
+        this.activeFilter = this.activeFilter || 'all';
+        this.searchQuery = this.searchQuery || '';
+
+        const content = `
+            <div class="library-view">
+                <header class="view-header">
+                    <h1>Mi Biblioteca</h1>
+                    
+                    <div class="search-container">
+                        <div class="search-bar">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" placeholder="Buscar habilidades o videos..." 
+                                   oninput="handleSearch(event)" 
+                                   value="${this.searchQuery}"
+                                   class="search-input">
+                        </div>
+                    </div>
+
+                    <div class="filters-container">
+                        <button class="filter-btn ${this.activeFilter === 'all' ? 'active' : ''}" 
+                                onclick="handleFilter('all')">Todos</button>
+                        <button class="filter-btn ${this.activeFilter === 'fundamentos' ? 'active' : ''}" 
+                                onclick="handleFilter('fundamentos')">Fundamentos</button>
+                        <button class="filter-btn ${this.activeFilter === 'metodologia' ? 'active' : ''}" 
+                                onclick="handleFilter('metodologia')">Metodología</button>
+                        <button class="filter-btn ${this.activeFilter === 'avanzado' ? 'active' : ''}" 
+                                onclick="handleFilter('avanzado')">Avanzado</button>
+                    </div>
+                </header>
+
+                <div id="library-content">
+                    ${this.getLibraryHTML()}
+                </div>
+            </div>
+        `;
+
+        this.updateContent(content);
+    }
+
+    getLibraryHTML() {
+        const videos = this.filterVideos(this.activeFilter);
+
+        if (videos.length === 0) {
+            return `
+                <div class="empty-state">
+                    <div class="empty-state-icon">🔎</div>
+                    <h3>No encontramos videos</h3>
+                    <p>Prueba con otros términos de búsqueda.</p>
+                </div>
+            `;
+        }
+
         const categories = {
             'fundamentos': 'Fundamentos',
             'metodologia': 'Metodología',
             'avanzado': 'Avanzado'
         };
 
-        const content = `
-            <div class="library-view">
-                <header class="view-header">
-                    <h1>Mi Biblioteca</h1>
-                </header>
+        return Object.entries(categories).map(([key, label]) => {
+            const categoryVideos = videos.filter(v => v.category === key);
+            if (categoryVideos.length === 0) return '';
 
-                ${Object.entries(categories).map(([key, label]) => {
-            const videos = getVideosByCategory(key);
             return `
-                        <section class="content-section">
-                            <h2>${label}</h2>
-                            <div class="video-grid">
-                                ${videos.map(v => this.createVideoCard(v)).join('')}
-                            </div>
-                        </section>
-                    `;
-        }).join('')}
-            </div>
-        `;
+                <section class="content-section">
+                    <h2>${label}</h2>
+                    <div class="video-grid">
+                        ${categoryVideos.map(v => this.createVideoCard(v)).join('')}
+                    </div>
+                </section>
+            `;
+        }).join('');
+    }
 
-        this.updateContent(content);
+    updateLibraryContent() {
+        const container = document.getElementById('library-content');
+        if (container) {
+            container.innerHTML = this.getLibraryHTML();
+        }
     }
 
     renderChallenges() {

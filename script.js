@@ -33,27 +33,9 @@ function initSkeletonLoader() {
 // ====================================
 
 function initHeader() {
-    const header = document.getElementById('main-header');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll <= 0) {
-            header.classList.remove('hidden');
-            return;
-        }
-
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            // Scrolling down
-            header.classList.add('hidden');
-        } else {
-            // Scrolling up
-            header.classList.remove('hidden');
-        }
-
-        lastScroll = currentScroll;
-    });
+    // Header stability is now managed by js/header-scroll.js
+    // to ensure centered and fixed positioning for the Investor Demo.
+    console.log('Header initialization delegated to header-scroll.js');
 }
 
 // ====================================
