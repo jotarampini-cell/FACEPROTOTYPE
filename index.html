@@ -19,14 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mobile.css">
-    <link rel="stylesheet" href="methodology-mobile.css">
-    <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="performance.css">
-    <link rel="stylesheet" href="css/auth-app.css">
 </head>
 
 <body>
@@ -84,35 +79,44 @@
         </nav>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero reveal">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="kinetic-text">Innovar</span>
-                    <span class="kinetic-text delay-1">sin</span>
-                    <span class="kinetic-text delay-2">Inventar</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Aprende a innovar gratis desde hoy uniéndote a nuestra comunidad
-                </p>
+    <!-- Hero Section "The Robbins Authority" -->
+    <section id="hero" class="tr-hero reveal">
+        <div class="tr-hero-video-container">
+            <div class="tr-overlay"></div>
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
+                class="tr-hero-img" alt="FACE Innovation Team">
+        </div>
 
-                <!-- CTA Buttons -->
-                <div class="hero-cta">
-                    <button class="cta-button primary" onclick="showLoginModal()">
-                        <span>Iniciar Sesión</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <button class="cta-button secondary" onclick="showSignupModal()">
-                        Crear Cuenta
-                    </button>
-                </div>
+        <div class="tr-content">
+            <h4 class="tr-badge">EL MANIFIESTO DE LA INNOVACIÓN</h4>
+
+            <h1 class="tr-title">
+                ¿TU EMPRESA ESTÁ <span class="tr-italic">SOBREVIVIENDO</span> <br>
+                O ESTÁ LIDERANDO?
+            </h1>
+
+            <p class="tr-subtitle">
+                Rompe el ciclo del cortoplacismo. Implementa la metodología <span class="tr-bold">FACE</span> para
+                transformar el ingenio de tus colaboradores en una ventaja competitiva inalcanzable.
+            </p>
+
+            <div class="tr-cta-group">
+                <button class="tr-btn-blue" onclick="showSignupModal()">EMPIEZA EL RETO DE INGENIO</button>
+                <button class="tr-btn-outline" href="#manifesto">VER EL MANIFIESTO</button>
             </div>
         </div>
     </section>
+
+    <!-- Social Proof Bar -->
+    <div class="tr-social-proof">
+        <div class="tr-container">
+            <span>ADAPTACIÓN INTELIGENTE</span>
+            <span class="tr-divider">|</span>
+            <span>RESILIENCIA ACTIVA</span>
+            <span class="tr-divider">|</span>
+            <span>VALOR COMPARTIDO</span>
+        </div>
+    </div>
 
     <!-- Methodology Section - FACE Cards -->
     <section id="methodology" class="methodology">

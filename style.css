@@ -3,23 +3,23 @@
    ==================================== */
 
 :root {
-    /* Color Palette */
-    --bg-primary: #F8F9FA;
+    /* Color Palette - True Robbins Authority */
+    --tr-dark-blue: #040b15;
+    --tr-blue: #0077ff;
+    --tr-gold: #b89650;
+    --tr-white: #ffffff;
+
+    /* Legacy Map for compatibility */
+    --bg-primary: var(--tr-dark-blue);
     --bg-white: #FFFFFF;
-    --text-carbon: #333333;
-    --accent-blue: #0066FF;
-    --accent-orange: #FF6B35;
-    --shadow-subtle: rgba(0, 0, 0, 0.05);
-    --shadow-medium: rgba(0, 0, 0, 0.1);
+    --text-carbon: #E5E7EB;
+    --accent-blue: var(--tr-blue);
+    --accent-orange: var(--tr-gold);
 
     /* Typography */
-    --font-title: 'Space Grotesk', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-italic: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
-
-    /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-medium: 0.4s ease;
-    --transition-slow: 0.6s ease;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -45,8 +45,8 @@ html {
 
 body {
     font-family: var(--font-body);
-    color: var(--text-carbon);
-    background-color: var(--bg-primary);
+    color: var(--text-white);
+    background-color: var(--bg-deep);
     line-height: 1.6;
     overflow-x: hidden;
     transform: none !important;
@@ -503,113 +503,167 @@ body {
     margin-bottom: var(--spacing-md);
 }
 
-.hero-title {
-    font-family: var(--font-title);
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    font-weight: 700;
-    line-height: 1.2;
-}
+/* ====================================
+   TRUE ROBBINS AUTHORITY HERO
+   ==================================== */
 
-.fixed-text {
-    display: block;
-    margin-bottom: var(--spacing-sm);
-}
-
-.rotating-text {
-    display: block;
-    color: var(--accent-blue);
-    min-height: 1.2em;
-    animation: text-flash 0.5s ease;
-}
-
-@keyframes text-flash {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    color: #666;
-    margin-bottom: var(--spacing-md);
-    opacity: 0;
-    animation: fade-in-up 0.8s ease forwards;
-    animation-delay: 0.5s;
-}
-
-.hero-subtitle strong {
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-/* Hero CTA Buttons */
-.hero-cta {
+.tr-hero {
+    position: relative;
+    height: 100vh;
     display: flex;
-    gap: 16px;
-    margin-top: 40px;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    opacity: 0;
-    animation: fade-in-up 0.8s ease forwards;
-    animation-delay: 0.8s;
+    background-color: var(--tr-dark-blue);
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
 }
 
-.cta-button {
-    padding: 14px 32px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
+.tr-hero-video-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.tr-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+/* El tinte azul profundo característico */
+.tr-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(4, 11, 21, 0.4) 0%, rgba(4, 11, 21, 0.95) 100%);
+    z-index: 1;
+}
+
+.tr-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+.tr-badge {
+    font-family: var(--font-heading);
+    color: var(--tr-gold);
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: block;
+}
+
+.tr-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+}
+
+.tr-italic {
+    font-family: var(--font-italic);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--tr-white);
+}
+
+.tr-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: #E0E0E0;
+    font-family: var(--font-body);
+}
+
+.tr-bold {
+    font-weight: 700;
+    color: white;
+}
+
+.tr-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Botón Estilo Tony Robbins */
+.tr-btn-blue {
+    background-color: var(--tr-blue);
+    color: white;
+    padding: 18px 40px;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-weight: 800;
     border: none;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 160px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 14px 0 rgba(0, 118, 255, 0.39);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.tr-btn-blue:hover {
+    background-color: #005fcc;
+    transform: translateY(-2px);
+}
+
+.tr-btn-outline {
+    background: transparent;
+    color: white;
+    padding: 18px 40px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.tr-btn-outline:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ====================================
+   TR SOCIAL PROOF
+   ==================================== */
+
+.tr-social-proof {
+    background-color: #0b1421;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px 0;
+    text-align: center;
+}
+
+.tr-container {
+    display: flex;
     justify-content: center;
-    letter-spacing: 0.25px;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
-.cta-button.primary {
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
-}
-
-.cta-button.primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
-}
-
-.cta-button.primary:active {
-    transform: translateY(0);
-}
-
-.cta-button.secondary {
-    background: white;
-    color: var(--accent-blue);
-    border: 2px solid var(--accent-blue);
-}
-
-.cta-button.secondary:hover {
-    background: var(--accent-blue);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
-}
-
-.cta-button svg {
-    transition: transform 0.3s;
+.tr-divider {
+    color: var(--tr-gold);
+    opacity: 0.5;
 }
 
 .cta-button.primary:hover svg {
