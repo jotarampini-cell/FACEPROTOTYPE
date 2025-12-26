@@ -639,6 +639,254 @@ body {
 
 
 /* ====================================
+   TR PROBLEM SECTION (WHITE CONTRAST)
+   ==================================== */
+
+.tr-problem-section {
+    background: #fff;
+    color: #000;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.tr-section-title-dark {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    margin-bottom: 50px;
+    line-height: 1.2;
+}
+
+.tr-italic-dark {
+    font-family: var(--font-italic);
+    font-style: italic;
+    color: var(--tr-gold);
+}
+
+.tr-problem-grid {
+    display: grid;
+    /* Reduced minmax to 280px to fit mobile screens (320px + gap was overflowing 375px viewport) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.tr-problem-item h3 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--tr-dark-blue);
+}
+
+.tr-problem-item p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: #4B5563;
+    line-height: 1.7;
+}
+
+
+/* ====================================
+   TR MANIFESTO SECTION (LAWS) - MOBILE OPTIMIZED
+   ==================================== */
+
+.tr-manifesto-section {
+    padding: 80px 20px;
+    background-color: var(--tr-dark-blue);
+}
+
+.tr-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tr-gold-title {
+    color: var(--tr-gold);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 900;
+    margin-bottom: 20px;
+    /* Reduced margin to accommodate intro */
+}
+
+/* Introducción del Manifiesto */
+.tr-manifesto-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+    font-size: 1.2rem;
+    color: var(--tr-text-gray);
+    font-weight: 300;
+    font-family: var(--font-body);
+}
+
+/* Contenedor de la Cuadrícula RESPONSIVO */
+.manifesto-grid {
+    display: grid;
+    /* En móviles 1 columna, en tablets 2, en desktop 3 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 50px;
+}
+
+/* Tarjeta Individual Estilo Robbins */
+.manifesto-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(184, 150, 80, 0.2);
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.manifesto-card:hover {
+    background: rgba(184, 150, 80, 0.05);
+    border-color: #b89650;
+    transform: translateY(-5px);
+}
+
+/* Número Gigante al Fondo (OPTIMIZADO MÓVIL) */
+.card-number {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(184, 150, 80, 0.1);
+    line-height: 1;
+    z-index: 0;
+}
+
+/* Contenido de la Tarjeta */
+.card-content {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    z-index: 2;
+    /* Increased to ensure it sits above the number */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--tr-gold);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.card-content p {
+    font-family: 'Inter', sans-serif;
+    color: #d1d5db;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- AJUSTES MÓVILES ESPECÍFICOS --- */
+@media (max-width: 768px) {
+    .tr-title {
+        font-size: 3rem !important;
+        /* El título del hero se ajusta */
+    }
+
+    .tr-gold-title {
+        font-size: 2rem !important;
+    }
+
+    .manifesto-card {
+        padding: 30px 20px;
+        min-height: auto;
+        /* Evita espacios vacíos innecesarios */
+    }
+
+    .card-number {
+        font-size: 3rem;
+        /* Número más pequeño en móvil */
+    }
+
+    /* Mobile Typography Fix for Pain Section */
+    .tr-section-title-dark {
+        font-size: 1.75rem !important;
+        margin-bottom: 30px;
+    }
+
+    /* Force Single Column for Pain Grid on Mobile */
+    .tr-problem-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    /* Ensure Container doesn't overflow */
+    .tr-container {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ====================================
+   TR CULTURE SECTION (SOLUTION)
+   ==================================== */
+
+.tr-culture-section {
+    padding: 100px 20px;
+    background: linear-gradient(to right, #040b15, #0a1423);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tr-culture-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tr-list {
+    list-style: none;
+    margin: 30px 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.tr-list li {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-family: var(--font-body);
+    color: #E5E7EB;
+}
+
+.tr-list li span {
+    margin-right: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+
+/* ====================================
    TR SOCIAL PROOF
    ==================================== */
 
@@ -1364,23 +1612,6 @@ body {
     gap: 0;
 }
 
-.methodology {
-    min-height: 100vh;
-    background: var(--bg-primary);
-    padding: var(--spacing-xl) var(--spacing-md) calc(var(--spacing-xl) * 1.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.service-block {
-    padding: var(--spacing-xl) var(--spacing-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color var(--transition-medium);
-}
 
 .public-block {
     background: var(--bg-white);
