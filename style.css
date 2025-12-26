@@ -275,24 +275,24 @@ body {
 }
 
 .menu-icon {
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: 3.5px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
 }
 
 .menu-icon span {
-    width: 20px;
-    height: 2px;
+    width: 18px;
+    height: 1.8px;
     background: white;
     border-radius: 2px;
     transition: all 0.3s ease;
