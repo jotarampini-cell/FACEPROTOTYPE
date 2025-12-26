@@ -335,24 +335,9 @@ body {
     }
 }
 
-padding: 0;
-}
-
-.menu-icon span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--text-carbon);
-    transition: var(--transition-fast);
-}
-
-.menu-icon:hover span {
-    background: var(--accent-blue);
-}
-
 /* ====================================
    FULLSCREEN MENU
-   ====================================*/
+   ==================================== */
 /* Full Screen Menu */
 .fullscreen-menu {
     position: fixed;
@@ -553,10 +538,79 @@ padding: 0;
 .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.5rem);
     color: #666;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
     opacity: 0;
     animation: fade-in-up 0.8s ease forwards;
     animation-delay: 0.5s;
+}
+
+.hero-subtitle strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Hero CTA Buttons */
+.hero-cta {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fade-in-up 0.8s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.cta-button {
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 160px;
+    justify-content: center;
+    letter-spacing: 0.25px;
+}
+
+.cta-button.primary {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+}
+
+.cta-button.primary:active {
+    transform: translateY(0);
+}
+
+.cta-button.secondary {
+    background: white;
+    color: var(--accent-blue);
+    border: 2px solid var(--accent-blue);
+}
+
+.cta-button.secondary:hover {
+    background: var(--accent-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
+}
+
+.cta-button svg {
+    transition: transform 0.3s;
+}
+
+.cta-button.primary:hover svg {
+    transform: translateX(4px);
 }
 
 @keyframes fade-in-up {
