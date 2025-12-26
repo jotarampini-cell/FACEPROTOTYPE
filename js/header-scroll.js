@@ -1,6 +1,6 @@
 // Header Scroll Enhancement
 // Adds shadow on scroll for better visual hierarchy
-// Keeps header always visible (no auto-hide)
+// Keeps header always visible and centered
 
 (function () {
     const header = document.querySelector('header');
@@ -17,8 +17,9 @@
             header.classList.remove('scrolled');
         }
 
-        // Always keep header visible - no hiding behavior
-        header.style.transform = 'translateY(0)';
+        // Keep header visible and centered
+        // Preserve translateX(-50%) for centering, only manage translateY
+        header.style.transform = 'translateX(-50%) translateY(0)';
 
         lastScrollTop = scrollTop;
     }

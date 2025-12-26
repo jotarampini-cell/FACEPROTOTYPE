@@ -295,9 +295,8 @@ function handleNavClick(e) {
 
 // Redirect to dashboard
 function redirectToDashboard() {
-    // For now, reload and show dashboard
-    window.location.href = '#dashboard';
-    window.location.reload();
+    // Redirect to the actual dashboard app
+    window.location.href = 'app.html';
 }
 
 // Make functions global
