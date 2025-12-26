@@ -85,15 +85,34 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-container">
-            <div class="kinetic-text">
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="fixed-text">INNOVAR ES...</span>
-                    <span class="rotating-text" id="rotating-word">RESOLVER</span>
+                    <span class="kinetic-text">Innovación</span>
+                    <span class="kinetic-text delay-1">sin</span>
+                    <span class="kinetic-text delay-2">Inventar</span>
                 </h1>
+                <p class="hero-subtitle">
+                    Transforma tu empresa con la metodología FACE:
+                    <strong>F</strong>oco, <strong>A</strong>daptación, <strong>C</strong>ultura y
+                    <strong>E</strong>jecución
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="hero-cta">
+                    <button class="cta-button primary" onclick="showAuthModal('login')">
+                        <span>Iniciar Sesión</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="cta-button secondary" onclick="showAuthModal('signup')">
+                        Crear Cuenta
+                    </button>
+                </div>
             </div>
-            <p class="hero-subtitle" id="hero-subtitle">El método para innovar sin inventar</p>
         </div>
     </section>
 

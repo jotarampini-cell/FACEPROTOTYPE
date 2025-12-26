@@ -1,32 +1,44 @@
-// Header Scroll Behavior Enhancement
-// Adds scroll class and hide/show behavior
+// Header Scroll Enhancement
+// Adds shadow on scroll for better visual hierarchy
+// Keeps header always visible (no auto-hide)
 
-let lastScroll = 0;
-const header = document.querySelector('.main-header');
+(function () {
+    const header = document.querySelector('header');
+    if (!header) return;
 
-if (header) {
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
+    let lastScrollTop = 0;
+    let ticking = false;
 
-        // Add scrolled class for styling
-        if (currentScroll > 50) {
+    function updateHeader(scrollTop) {
+        // Add shadow when scrolled
+        if (scrollTop > 10) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
 
-        // Hide on scroll down, show on scroll up
-        if (currentScroll > lastScroll && currentScroll > 150) {
-            // Scrolling down
-            header.classList.add('hidden');
-        } else {
-            // Scrolling up
-            header.classList.remove('hidden');
-        }
+        // Always keep header visible - no hiding behavior
+        header.style.transform = 'translateY(0)';
 
-        lastScroll = currentScroll;
-    });
-}
+        lastScrollTop = scrollTop;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateHeader(window.pageYOffset || document.documentElement.scrollTop);
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    // Listen to scroll events
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Initial check
+    updateHeader(window.pageYOffset || document.documentElement.scrollTop);
+})();
 
 // Toggle hamburger menu animation
 const menuToggle = document.getElementById('menu-toggle');
