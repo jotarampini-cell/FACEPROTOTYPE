@@ -2502,6 +2502,31 @@ body {
     font-size: 1.2rem;
 }
 
+/* Nuclear Option CTA */
+.disruption-cta {
+    background-color: #0077ff;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    margin-top: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 119, 255, 0.4);
+    transition: all 0.3s ease;
+    width: 100%;
+    /* Mobile full width */
+    letter-spacing: 1px;
+}
+
+.disruption-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 119, 255, 0.6);
+    background-color: #0066cc;
+}
+
 /* Chart Styles */
 .disruption-chart {
     width: 100%;
@@ -2568,6 +2593,11 @@ body {
     .disruption-content {
         width: 40%;
         margin-bottom: 0;
+    }
+
+    .disruption-cta {
+        width: auto;
+        /* Desktop auto width */
     }
 
     .disruption-chart {
