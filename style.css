@@ -2597,14 +2597,27 @@ body {
 /* --- HIGHLIGHT SUPERIOR DERECHO --- */
 .tr-floating-highlight {
     position: absolute;
-    top: 0;
-    /* Alineado a la cima de la curva */
-    right: 0;
-    /* Alineado a la derecha */
+    right: 1.25%;
+    /* SVG x=790/800 */
+    top: 2.5%;
+    /* SVG y=10/400 */
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    /* Text Left, Dot Right */
+    align-items: center;
+    gap: 10px;
     z-index: 10;
+    /* Center the DOT (14px) on the anchor point.
+       Anchor is at the Container's Top-Right (top:2.5%, right:1.25%).
+       The Dot is the rightmost element.
+       Its center is 7px to the left and 7px down from Top-Right.
+       So we need to move the container:
+       Right by 7px (to align dot center X)
+       Up by 7px (to align dot center Y, assuming center alignment)
+       Actually, align-items: center means Y is centered.
+       So just translate(50% of dot, -50% of dot). */
+    transform: translate(7px, -50%);
+    pointer-events: none;
 }
 
 .highlight-text {
@@ -2612,8 +2625,12 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 0.85rem;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    /* Remove bottom margin since we are in row */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: right;
+    white-space: nowrap;
+    /* Prevent wrapping */
 }
 
 .pulse-dot {
@@ -2621,6 +2638,11 @@ body {
     height: 14px;
     background-color: #fff;
     border-radius: 50%;
+    flex-shrink: 0;
+    /* Prevent collapsing */
+    display: block;
+    /* Ensure box model */
+    /* Transform managed by container now */
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
     animation: pulse-white 2s infinite;
 }
@@ -2636,6 +2658,39 @@ body {
 
     100% {
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+/* Desktop Layout - Side by Side */
+@media (min-width: 992px) {
+    .tr-disruption-data {
+        flex-direction: row;
+        /* Horizontal layout */
+        align-items: center;
+        /* Vertically center */
+        justify-content: space-between;
+        padding: 120px 5%;
+        min-height: 80vh;
+        gap: 5%;
+    }
+
+    .disruption-content {
+        width: 40%;
+        margin-bottom: 0;
+        padding-right: 40px;
+    }
+
+    .disruption-cta {
+        width: auto;
+    }
+
+    .disruption-chart {
+        width: 55%;
+        min-height: 500px;
+    }
+
+    .disruption-title {
+        font-size: 3rem;
     }
 }
 
