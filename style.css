@@ -2609,3 +2609,30 @@ body {
         font-size: 3rem;
     }
 }
+
+/* Mobile Data Visualization Optimization */
+@media (max-width: 768px) {
+    .tr-disruption-data {
+        padding: 40px 20px;
+    }
+
+    .disruption-chart {
+        min-height: 65vh;
+        /* Massive vertical dominance */
+        width: 100%;
+    }
+
+    .chart-line {
+        stroke-width: 7px;
+        /* Thicker for impact when stretched */
+    }
+
+    .chart-label {
+        font-size: 16px;
+        /* Larger readability */
+    }
+
+    .chart-label-highlight {
+        font-size: 14px;
+    }
+}
