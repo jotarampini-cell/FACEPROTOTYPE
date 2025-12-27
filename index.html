@@ -451,26 +451,27 @@
         </div>
 
         <div class="disruption-chart">
-            <svg viewBox="0 0 800 400" preserveAspectRatio="none" class="hockey-stick-chart">
-                <!-- Axes -->
-                <line x1="50" y1="350" x2="750" y2="350" stroke="#333" stroke-width="1" /> <!-- X Axis -->
-                <line x1="50" y1="50" x2="50" y2="350" stroke="#333" stroke-width="1" /> <!-- Y Axis -->
+            <div class="tr-chart-container">
+                <div class="tr-axis-label label-start">1500 DC</div>
+                <div class="tr-axis-label label-end">HOY</div>
 
-                <!-- Data Line (The Hockey Stick) -->
-                <path d="M50,340 C400,340 600,340 650,300 Q700,250 720,50" fill="none" stroke="#b89650" stroke-width="5"
-                    class="chart-line" />
+                <div class="tr-floating-highlight">
+                    <span class="highlight-text">TU REALIDAD ACTUAL</span>
+                    <div class="pulse-dot"></div>
+                </div>
 
-                <!-- Pulsing Point -->
-                <circle cx="720" cy="50" r="8" fill="white" class="pulsing-dot" />
+                <div class="tr-svg-wrapper">
+                    <svg viewBox="0 0 800 400" preserveAspectRatio="none" class="tr-hockey-svg">
+                        <line x1="0" y1="398" x2="800" y2="398" stroke="#333" stroke-width="1"
+                            vector-effect="non-scaling-stroke" />
+                        <line x1="2" y1="0" x2="2" y2="400" stroke="#333" stroke-width="1"
+                            vector-effect="non-scaling-stroke" />
 
-                <!-- Labels -->
-                <text x="50" y="380" fill="#666" font-family="Inter, sans-serif" font-size="14" class="chart-label">1500
-                    DC</text>
-                <text x="720" y="380" fill="#666" font-family="Inter, sans-serif" font-size="14" text-anchor="middle"
-                    class="chart-label">HOY</text>
-                <text x="680" y="40" fill="white" font-family="Montserrat, sans-serif" font-size="12" font-weight="bold"
-                    text-anchor="end" class="chart-label-highlight">TU REALIDAD ACTUAL</text>
-            </svg>
+                        <path d="M0,390 C400,390 600,390 650,350 Q750,300 790,10" fill="none" stroke="#b89650"
+                            class="tr-gold-line" />
+                    </svg>
+                </div>
+            </div>
         </div>
     </section>
 

@@ -2527,112 +2527,140 @@ body {
     background-color: #0066cc;
 }
 
-/* Chart Styles */
+/* Chart Styles - DECOUPLED & OPTIMIZED */
 .disruption-chart {
-    width: 100%;
+    width: 60%;
+    min-height: 500px;
     position: relative;
-    /* ensure SVG takes height */
-    min-height: 300px;
+    /* This container holds the responsive internal container */
 }
 
-.hockey-stick-chart {
+/* --- CONTENEDOR MAESTRO --- */
+.tr-chart-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    /* Altura base para desktop */
+    margin-top: 40px;
+}
+
+/* --- SVG QUE SE ESTIRA --- */
+.tr-svg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.tr-hockey-svg {
     width: 100%;
     height: 100%;
     overflow: visible;
 }
 
-.chart-line {
+.tr-gold-line {
+    stroke-width: 4px;
+    /* Grosor fijo y elegante */
+    vector-effect: non-scaling-stroke;
+    /* TRUCO MAGICO: No engorda al estirarse */
+    filter: drop-shadow(0 0 10px rgba(184, 150, 80, 0.6));
+    stroke-linecap: round;
     /* Animation setup */
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: drawLine 2.5s ease-out forwards;
-    /* Aesthetic */
-    filter: drop-shadow(0 0 8px rgba(184, 150, 80, 0.6));
+    /* Animation removed to ensure visibility */
+    /* stroke-dasharray: 1000; */
+    /* stroke-dashoffset: 1000; */
+    /* animation: drawLine 2.5s ease-out forwards; */
+    stroke: #b89650;
+    /* Explicit color */
 }
 
-@keyframes drawLine {
-    to {
-        stroke-dashoffset: 0;
-    }
+/* --- ETIQUETAS FLOTANTES --- */
+.tr-axis-label {
+    position: absolute;
+    bottom: -30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #6b7280;
+    z-index: 2;
 }
 
-.pulsing-dot {
-    animation: pulse 2s infinite;
-    transform-origin: 720px 50px;
+.label-start {
+    left: 0;
 }
 
-@keyframes pulse {
+.label-end {
+    right: 0;
+}
+
+/* --- HIGHLIGHT SUPERIOR DERECHO --- */
+.tr-floating-highlight {
+    position: absolute;
+    top: 0;
+    /* Alineado a la cima de la curva */
+    right: 0;
+    /* Alineado a la derecha */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 10;
+}
+
+.highlight-text {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.pulse-dot {
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    animation: pulse-white 2s infinite;
+}
+
+@keyframes pulse-white {
     0% {
-        transform: scale(1);
-        opacity: 1;
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
     }
 
     70% {
-        transform: scale(1.5);
-        opacity: 0;
-        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
     }
 
     100% {
-        transform: scale(1);
-        opacity: 0;
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
 }
 
-/* Desktop Layout */
-@media (min-width: 992px) {
-    .tr-disruption-data {
-        flex-direction: row;
-        align-items: center;
-        padding: 120px 5%;
-        min-height: 80vh;
-        gap: 5%;
-    }
-
-    .disruption-content {
-        width: 40%;
-        margin-bottom: 0;
-    }
-
-    .disruption-cta {
-        width: auto;
-        /* Desktop auto width */
-    }
-
-    .disruption-chart {
-        width: 60%;
-        min-height: 500px;
-    }
-
-    .disruption-title {
-        font-size: 3rem;
-    }
-}
-
-/* Mobile Data Visualization Optimization */
+/* --- MEDIA QUERY MÓVIL (EL IMPACTO) --- */
 @media (max-width: 768px) {
-    .tr-disruption-data {
-        padding: 40px 20px;
-    }
-
     .disruption-chart {
-        min-height: 65vh;
-        /* Massive vertical dominance */
         width: 100%;
+        min-height: auto;
+        /* Allow container to adapt */
     }
 
-    .chart-line {
-        stroke-width: 7px;
-        /* Thicker for impact when stretched */
+    .tr-chart-container {
+        height: 60vh;
+        /* Altura masiva dinámica en móvil */
+        min-height: 500px;
+        margin-top: 20px;
     }
 
-    .chart-label {
-        font-size: 16px;
-        /* Larger readability */
+    .highlight-text {
+        font-size: 1rem;
+        /* Texto más grande en móvil para leer bien */
     }
 
-    .chart-label-highlight {
-        font-size: 14px;
+    /* La línea se mantiene fina gracias a vector-effect, pero podemos subirla a 5px si queremos más visibilidad */
+    .tr-gold-line {
+        stroke-width: 5px;
     }
 }
