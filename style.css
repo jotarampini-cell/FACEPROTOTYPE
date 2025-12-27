@@ -2719,3 +2719,79 @@ body {
         stroke-width: 5px;
     }
 }
+
+/* --- GOLDEN MANIFESTO SECCIÓN (AWWWARDS STYLE) --- */
+.tr-golden-manifesto {
+    background-color: #02060c;
+    background-image: radial-gradient(circle at center, rgba(20, 30, 50, 0.4) 0%, #000000 100%);
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.manifesto-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.manifesto-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 2.5rem;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* Liquid Gold Effect */
+.gold-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 130%;
+    /* Relative directly to parent size */
+    background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: goldShimmer 4s linear infinite;
+    padding: 0 5px;
+    /* Prevent clipping of italic edges */
+}
+
+@keyframes goldShimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Gold Divider */
+.gold-divider {
+    height: 60px;
+    width: 1px;
+    background: linear-gradient(to bottom, #b89650, transparent);
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .tr-golden-manifesto {
+        padding: 80px 20px;
+    }
+
+    .manifesto-text {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+}
