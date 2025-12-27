@@ -211,6 +211,212 @@ serviceButtons.forEach(button => {
     });
 });
 
+
+
+/* =========================================
+   LÓGICA DEL WIDGET "ADN INNOVADOR"
+   ========================================= */
+
+// 1. Base de Datos de Preguntas y Resultados (FACT-BASED)
+const dnaData = {
+    A: { // Héroe Solitario
+        name: "EL HÉROE SOLITARIO",
+        questions: [
+            "¿En la última semana, bloqueaste 4 horas en tu agenda que NADIE interrumpió?",
+            "¿En los últimos 30 días, lanzaste algún prototipo que costara menos de $50?",
+            "La última vez que tomaste vacaciones, ¿te llamaron por problemas operativos?"
+        ],
+        pain: "Tienes potencia, pero eres el cuello de botella. Crees que si sueltas el control, la calidad caerá. Tu negocio no es escalable porque depende 100% de tu presencia física y mental.",
+        recipe: [
+            "<strong>Metodología:</strong> Estandarización y Delegación Radical.",
+            "<strong>Acción Inmediata:</strong> Graba en video un proceso repetitivo que haces hoy y entrégalo a un asistente esta misma semana.",
+            "<strong>Misión:</strong> Crear sistemas que funcionen sin ti. Pasar de 'Operador' a 'Dueño'."
+        ]
+    },
+    B: { // Gigante Atado
+        name: "EL GIGANTE ATADO",
+        questions: [
+            "¿Tienen tus gerentes presupuesto autónomo para probar mejoras sin tu firma?",
+            "¿Se ha implementado alguna idea de un empleado de base en el último trimestre?",
+            "¿Mides el ROI (Retorno de Inversión) exacto de las innovaciones, o solo si 'se ve bonito'?"
+        ],
+        pain: "Tienes el músculo financiero, pero la burocracia te hace lento. Tu equipo tiene miedo a proponer porque el proceso de aprobación es doloroso o inexistente.",
+        recipe: [
+            "<strong>Metodología:</strong> Intraemprendimiento (Corporate Venturing).",
+            "<strong>Acción Inmediata:</strong> Asigna un pequeño 'Presupuesto de Guerra' (ej. $1,000) que un gerente pueda usar sin pedir permiso para un experimento.",
+            "<strong>Misión:</strong> Descentralizar la toma de decisiones pequeñas."
+        ]
+    },
+    C: { // Guardián Dinástico
+        name: "EL GUARDIÁN DINÁSTICO",
+        questions: [
+            "¿Existe un presupuesto definido de 'pérdida aceptable' para nuevos inventos?",
+            "¿Lideró la nueva generación (hijos/sobrinos) algún proyecto propio el último año?",
+            "¿Han rechazado una idea rentable solo porque 'aquí siempre se ha hecho así'?"
+        ],
+        pain: "El peso del apellido te frena. Por proteger el pasado glorioso, estás poniendo en riesgo el futuro. La tradición se ha convertido en una jaula.",
+        recipe: [
+            "<strong>Metodología:</strong> Innovación Dual (Ambidextreza Organizacional).",
+            "<strong>Acción Inmediata:</strong> Crea una 'Sandbox' (Caja de Arena): un proyecto pequeño separado de la marca principal donde la nueva generación pueda fallar sin riesgo.",
+            "<strong>Misión:</strong> Honrar los valores, pero modernizar los métodos."
+        ]
+    },
+    D: { // Visionario Cauteloso
+        name: "EL VISIONARIO CAUTELOSO",
+        questions: [
+            "¿Existe un protocolo escrito que permita fallar en pruebas piloto sin castigo político?",
+            "¿Lanzaron algún proyecto que diera resultados visibles en menos de 90 días?",
+            "¿Colaboran actualmente con alguna Startup para agilizar procesos?"
+        ],
+        pain: "Quieres impacto, pero el sistema te castiga por intentarlo. El miedo al 'qué dirán' o al error público te paraliza en la etapa de planificación eterna.",
+        recipe: [
+            "<strong>Metodología:</strong> Victorias Rápidas (Quick Wins) y Alianzas.",
+            "<strong>Acción Inmediata:</strong> No construyas la solución in-house. Busca una Startup que ya lo tenga y lanza una prueba piloto de 60 días.",
+            "<strong>Misión:</strong> Ganar capital político con resultados pequeños pero rápidos."
+        ]
+    }
+};
+
+// 2. Variables de Estado
+let currentPath = null;
+let currentQIndex = 0;
+
+// 3. Funciones de Navegación (Core)
+function switchScreen(fromId, toId) {
+    const fromScreen = document.getElementById(fromId);
+    const toScreen = document.getElementById(toId);
+
+    fromScreen.classList.remove('active');
+    // Esperar a que termine la transición de opacidad antes de ocultar
+    setTimeout(() => {
+        fromScreen.style.display = 'none';
+        toScreen.style.display = 'block';
+        // Forzar reflow para que la animación de entrada funcione
+        void toScreen.offsetWidth;
+        toScreen.classList.add('active');
+    }, 500);
+}
+
+// --- PASO 1: Selección del Camino ---
+function selectPath(pathChar) {
+    currentPath = pathChar;
+    currentQIndex = 0;
+    // Prepara la primera pregunta
+    loadQuestion();
+    // Cambia de pantalla
+    switchScreen('screen-filter', 'screen-questions');
+}
+
+// --- PASO 2: Manejo de Preguntas ---
+function loadQuestion() {
+    const data = dnaData[currentPath];
+    const questionEl = document.getElementById('question-text-dynamic');
+    const progressEl = document.getElementById('progress-bar-fill');
+
+    questionEl.innerText = data.questions[currentQIndex];
+
+    // Actualizar barra de progreso (33%, 66%, 100%)
+    const progressPercentage = ((currentQIndex + 1) / 3) * 100;
+    progressEl.style.width = `${progressPercentage}%`;
+}
+
+function handleAnswer(answer) {
+    // Aquí podrías guardar la respuesta si quisieras (answer = 'SI' o 'NO')
+
+    if (currentQIndex < 2) {
+        currentQIndex++;
+        loadQuestion();
+    } else {
+        // Fin de las preguntas, iniciar loader
+        startLoader();
+    }
+}
+
+// --- PASO 3: Loader Psicológico ---
+function startLoader() {
+    switchScreen('screen-questions', 'screen-loader');
+
+    const loaderTextEl = document.getElementById('loader-text-dynamic');
+    const messages = [
+        "Analizando tus respuestas...",
+        "Comparando con patrones de mercado...",
+        "Identificando bloqueos críticos...",
+        "Generando tu Hoja de Ruta F.A.C.E..."
+    ];
+    let msgIndex = 0;
+
+    // Cambiar mensajes cada 800ms
+    const intervalId = setInterval(() => {
+        msgIndex++;
+        if (msgIndex < messages.length) {
+            loaderTextEl.innerText = messages[msgIndex];
+        } else {
+            clearInterval(intervalId);
+            // Termina la carga, ir al Email Gate
+            switchScreen('screen-loader', 'screen-email');
+        }
+    }, 800);
+}
+
+// --- PASO 4: Simulación de Email ---
+function simulateSubmit(e) {
+    e.preventDefault(); // Evita recarga de página
+
+    const btnSubmit = document.getElementById('btn-submit-email');
+    const userName = document.getElementById('user-name').value;
+    const originalBtnText = btnSubmit.innerText;
+
+    // 1. Feedback inmediato de "Procesando"
+    btnSubmit.disabled = true;
+    btnSubmit.innerHTML = "PROCESANDO... <svg class='tr-spinner-svg' style='width:20px;height:20px;margin-left:10px;vertical-align:middle;' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'><circle class='opacity-25' cx='12' cy='12' r='10' stroke='currentColor' stroke-width='4'></circle><path class='opacity-75' fill='currentColor' d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'></path></svg>";
+    btnSubmit.style.backgroundColor = "#444";
+
+    console.log(`[DEMO] Simulando envío para: ${userName}. Arquetipo: ${currentPath}`);
+
+    // 2. Simular espera de red (2 segundos)
+    setTimeout(() => {
+        // 3. Feedback de Éxito
+        btnSubmit.innerHTML = "¡ACCESO CONCEDIDO! ✅";
+        btnSubmit.style.backgroundColor = "#28a745"; // Verde éxito
+
+        // 4. Esperar brevemente y mostrar resultado
+        setTimeout(() => {
+            prepareResultScreen();
+            switchScreen('screen-email', 'screen-result');
+        }, 1000);
+
+    }, 2000);
+}
+
+// --- PASO 5: Mostrar Resultado Final ---
+function prepareResultScreen() {
+    const data = dnaData[currentPath];
+    const recipeListEl = document.getElementById('result-recipe-dynamic');
+
+    // Llenar textos
+    document.getElementById('result-title-dynamic').innerText = data.name;
+    document.getElementById('result-pain-dynamic').innerText = data.pain;
+
+    // Llenar lista de receta
+    recipeListEl.innerHTML = ''; // Limpiar
+    data.recipe.forEach(itemHtml => {
+        const li = document.createElement('li');
+        li.innerHTML = itemHtml;
+        recipeListEl.appendChild(li);
+    });
+}
+
+// Función para el botón del header (debe estar accesible globalmente)
+window.scrollToWidget = function () {
+    const widgetSection = document.getElementById('adn-innovador-section');
+    if (widgetSection) {
+        widgetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+        console.warn("No se encontró la sección con ID 'adn-innovador-section'");
+    }
+};
+
+
 // ====================================
 // HERO INPUT INTERACTION
 // ====================================
@@ -245,3 +451,6 @@ function debounce(func, wait) {
 window.addEventListener('scroll', debounce(() => {
     // Any additional scroll-based logic can go here
 }, 10));
+
+
+// End of Script
