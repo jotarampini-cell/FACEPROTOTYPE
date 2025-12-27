@@ -2071,3 +2071,158 @@ body {
 .desktop-only {
     display: none;
 }
+
+/* --- SECCIÓN INMERSIVA (GLOW ENGINE) --- */
+.tr-cycle-immersive {
+    position: relative;
+    padding: 120px 20px;
+    background: linear-gradient(180deg, #040b15 0%, #0a1e3d 100%);
+    overflow: hidden;
+    /* Divisor Visual Dorado Superior */
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(to right, transparent, #b89650, transparent) 1;
+}
+
+/* El resplandor azul detrás de las tarjetas */
+.tr-glow-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 119, 255, 0.15) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.relative {
+    position: relative;
+    z-index: 1;
+}
+
+.tr-title-impact {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+    line-height: 1.1;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+.tr-text-center {
+    text-align: center;
+}
+
+
+/* --- PASOS FLOTANTES (ESTILO GLASS) --- */
+.tr-steps-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 60px;
+}
+
+.tr-step-floating {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    /* Borde sutil dorado */
+    border: 1px solid rgba(184, 150, 80, 0.4);
+    backdrop-filter: blur(15px);
+    padding: 40px 30px;
+    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tr-step-floating:hover {
+    transform: translateY(-15px);
+    border-color: #0077ff;
+    background: rgba(0, 119, 255, 0.05);
+    /* Glow Eléctrico Azul */
+    box-shadow: 0 0 30px rgba(0, 119, 255, 0.3);
+}
+
+.step-letter {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    /* Power Typography: Masiva y Blanca */
+    font-size: 5rem;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 20px;
+    opacity: 1;
+}
+
+.tr-step-floating h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.tr-step-floating p {
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+
+/* Conectores */
+.tr-step-connector {
+    display: flex;
+    align-items: center;
+    color: var(--tr-gold);
+    opacity: 0.4;
+}
+
+.tr-step-connector svg {
+    width: 40px;
+}
+
+/* --- RESPONSIVIDAD (MÓVIL) --- */
+@media (max-width: 968px) {
+    .tr-cycle-immersive {
+        padding: 60px 20px;
+    }
+
+    .mb-60 {
+        margin-bottom: 40px;
+        /* Reducido a 40px máximo */
+    }
+
+    .tr-steps-wrapper {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+        gap: 40px;
+        /* Espacio reducido entre bloques */
+    }
+
+    .tr-step-connector {
+        transform: rotate(90deg);
+        padding: 10px 0;
+        /* Menos espacio en conectores */
+    }
+
+    .tr-step-floating {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .tr-glow-bg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .tr-title-impact {
+        font-size: 2.5rem;
+    }
+}
