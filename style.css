@@ -881,72 +881,131 @@ body {
 
 
 /* ====================================
-   TR CULTURE SECTION (SOLUTION) - CINEMATIC UPGRADE
+   TR CULTURE SECTION (OPTION A - WHITE ROBBINS CONTRAST)
    ==================================== */
 
-.tr-culture-section {
+.tr-culture-light {
+    background-color: #FFFFFF;
+    /* Contraste total con el azul anterior */
     padding: 120px 20px;
-    background: linear-gradient(rgba(4, 11, 21, 0.85), rgba(4, 11, 21, 0.9)),
-        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80');
-    /* Professional Team/Innovation Background */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    /* Parallax feel */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    color: white;
-    text-align: center;
+    color: #040b15;
 }
 
-.tr-culture-text {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
+.tr-culture-image {
+    flex: 1;
+    min-width: 300px;
 }
 
-.tr-culture-section .tr-gold-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    margin-bottom: 30px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+.tr-culture-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.tr-culture-section p {
-    font-family: var(--font-body);
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: #f3f4f6;
-    /* Off-white for readability */
-    margin-bottom: 40px;
-}
-
-.tr-list {
-    list-style: none;
-    margin: 0 auto 50px;
+.tr-culture-content {
+    flex: 1;
     text-align: left;
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 40px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
 }
 
-.tr-list li {
-    margin-bottom: 20px;
-    font-size: 1.3rem;
+.tr-badge-dark {
     font-family: var(--font-heading);
-    font-weight: 600;
-    color: white;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--tr-gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.tr-section-title-dark {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: #040b15;
+}
+
+.tr-italic-gold {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #b89650;
+}
+
+.tr-text-dark {
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin-bottom: 30px;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.tr-check-list {
+    list-style: none;
+    margin-bottom: 30px;
+    display: block;
+    padding: 0;
+}
+
+.tr-check-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    color: #1f2937;
+    font-size: 1.1rem;
+}
+
+.gold-check {
+    color: #b89650;
+    font-weight: 900;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    /* Ensures checkmark stays fixed width */
+    margin-top: 2px;
+    /* Optical alignment with text */
+}
+
+/* Layout responsivo */
+.flex-row-responsive {
     display: flex;
     align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.tr-list li span {
-    margin-right: 15px;
-    font-size: 1.5rem;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+@media (max-width: 968px) {
+    .flex-row-responsive {
+        flex-direction: column-reverse;
+        /* Imagen arriba en móvil? O abajo? Usually image top or bottom. Let's keep standard stack: content top? User said flex-direction column. Let's stick to user request but check flow. If column, image comes first if it is first in DOM. */
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tr-culture-content {
+        text-align: center;
+    }
+
+    .tr-text-dark {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tr-check-list li {
+        justify-content: center;
+        text-align: left;
+        /* Keep text left aligned even if centered block? User said justify-center. */
+    }
+
+    .tr-culture-image {
+        width: 100%;
+        max-width: 500px;
+    }
 }
 
 .tr-list li:last-child {
@@ -1780,4 +1839,235 @@ body {
     .face-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+/* --- BLOQUE OSCURO (EL CICLO) --- */
+.tr-cycle-dark {
+    background-color: #040b15;
+    padding: 100px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tr-steps-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.tr-step-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px 30px;
+    border: 1px solid rgba(184, 150, 80, 0.2);
+    flex: 1;
+    text-align: center;
+}
+
+.tr-step-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #b89650;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tr-step-arrow {
+    color: #b89650;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* --- BLOQUE BLANCO (EL CIMIENTO) --- */
+.tr-foundation-light {
+    background-color: #FFFFFF;
+    padding: 120px 20px;
+    color: #040b15;
+}
+
+.giant-letter-gold {
+    font-size: 15rem;
+    font-weight: 900;
+    color: rgba(184, 150, 80, 0.15);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+}
+
+.flex-row-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tr-description-dark {
+    font-size: 1.2rem;
+    color: #4b5563;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.tr-cta-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 968px) {
+
+    .tr-steps-horizontal,
+    .flex-row-center {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tr-step-arrow {
+        transform: rotate(90deg);
+    }
+
+    .giant-letter-gold {
+        font-size: 10rem;
+        line-height: 0.8;
+    }
+
+    .tr-cta-wrapper {
+        justify-content: center;
+    }
+}
+
+/* --- BASE DE LA SECCIÓN --- */
+.tr-split-innovation {
+    background-color: #040b15;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tr-split-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* Móvil por defecto */
+    min-height: 100vh;
+}
+
+/* --- OPTIMIZACIÓN LADO VISUAL --- */
+.tr-split-visual {
+    position: relative;
+    height: 40vh;
+    /* Altura reducida en móvil para no desplazar el texto */
+    width: 100%;
+}
+
+.tr-img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%) brightness(0.6);
+}
+
+.tr-visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, #040b15);
+}
+
+/* --- OPTIMIZACIÓN LADO TEXTO --- */
+.tr-split-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #040b15;
+}
+
+.tr-text-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tr-main-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    /* Ajustado para móvil */
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.tr-italic-gold {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #b89650;
+    text-transform: lowercase;
+}
+
+.tr-lead-text {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.tr-body-text {
+    color: #9ca3af;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* --- BOTÓN FULL WIDTH EN MÓVIL --- */
+.tr-btn-blue-full {
+    width: 100%;
+    background-color: #0077ff;
+    color: white;
+    padding: 20px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* --- QUERIES PARA DESKTOP (PC) --- */
+@media (min-width: 992px) {
+    .tr-split-wrapper {
+        flex-direction: row;
+        /* Cambio a Pantalla Partida */
+    }
+
+    .tr-split-visual {
+        width: 50%;
+        height: 100vh;
+    }
+
+    .tr-visual-overlay {
+        background: linear-gradient(to right, transparent, #040b15);
+    }
+
+    .tr-split-text {
+        width: 50%;
+        padding: 0 80px;
+    }
+
+    .tr-main-headline {
+        font-size: 4.5rem;
+        /* Tamaño Robbins para PC */
+    }
+
+    .tr-btn-blue-full {
+        width: auto;
+        /* Botón normal en PC */
+        padding: 20px 60px;
+    }
+
+    .desktop-only {
+        display: block !important;
+    }
+}
+
+/* Ocultar elementos innecesarios en móvil */
+.desktop-only {
+    display: none;
 }
