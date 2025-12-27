@@ -558,3 +558,65 @@ body {
         font-size: 18px;
     }
 }
+
+/* ====================================
+   SEARCH BAR FIXED & CENTERED (User Request)
+   ==================================== */
+.search-container {
+    /* 1. Ensure absolute/fixed position relative to window */
+    position: fixed;
+    left: 0;
+    right: 0;
+    /* Anchor to both sides forces centering context */
+    width: 100%;
+
+    /* 2. Flexible Centering */
+    display: flex;
+    justify-content: center;
+    /* Horizontally center the child (.search-bar) */
+    align-items: center;
+
+    /* 3. Scrollbar & Padding safety */
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 9999;
+    /* Float above everything */
+
+    /* Positioning */
+    top: 64px;
+    /* Matching app-header height */
+    margin-top: 10px;
+    /* Slight gap */
+    pointer-events: none;
+    /* Allow clicking through empty space */
+}
+
+.search-bar {
+    pointer-events: auto;
+    /* Re-enable clicking on the bar itself */
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+
+    /* Visual Styles (Inherited or added here) */
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border: 1px solid #dfe1e5;
+}
+
+.search-icon {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    font-family: inherit;
+}
