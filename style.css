@@ -3544,4 +3544,11 @@ body {
         flex-direction: column;
         gap: 15px;
     }
+
+    /* Fix for mobile button sizing */
+    .tr-header-cta {
+        padding: 8px 20px !important;
+        font-size: 0.8rem !important;
+        min-width: auto;
+    }
 }

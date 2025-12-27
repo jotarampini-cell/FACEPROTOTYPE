@@ -290,7 +290,11 @@ function switchScreen(fromId, toId) {
     // Esperar a que termine la transición de opacidad antes de ocultar
     setTimeout(() => {
         fromScreen.style.display = 'none';
+
+        // Remove hidden class if present to prevent display issues
+        toScreen.classList.remove('hidden');
         toScreen.style.display = 'block';
+        
         // Forzar reflow para que la animación de entrada funcione
         void toScreen.offsetWidth;
         toScreen.classList.add('active');
