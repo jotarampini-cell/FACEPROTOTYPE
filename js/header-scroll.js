@@ -9,18 +9,14 @@
     function updateHeader() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Add shadow when scrolled
-        if (scrollTop > 10) {
+        // Add shadow/color when scrolled past 50px
+        if (scrollTop > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
 
-        // CRITICAL: Ensure we keep the horizontal centering translateX(-50%)
-        // that is defined in CSS, but handle any additional JS transforms here.
-        // We use inline style only for translateY if we really needed it for hiding,
-        // but since we want it ALWAYS VISIBLE, we just ensure transform is stable.
-        header.style.transform = 'translateX(-50%)';
+        // Removed legacy translateX(-50%) as we are now using width: 100% left: 0
     }
 
     // Listen to scroll events

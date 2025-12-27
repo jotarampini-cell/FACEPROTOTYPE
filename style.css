@@ -205,46 +205,35 @@ body {
 }
 
 /* ====================================
-   HEADER - Minimal Floating Design
+   HEADER - Tony Robbins Authority Style
    ==================================== */
 
 .main-header {
     position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-    max-width: 1200px;
-    z-index: 2000;
-    /* Higher z-index to stay above everything */
-
-    background: rgba(255, 255, 255, 0.85);
-    /* Glassmorphism */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 0.8rem 2rem;
-
-    box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(0, 0, 0, 0.02);
-
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 20px 0;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-header.scrolled {
-    top: 10px;
-    width: calc(100% - 24px);
-    /* Tighter fit on scroll */
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.12),
-        0 0 0 1px rgba(0, 0, 0, 0.03);
+    background: rgba(4, 11, 21, 0.95);
+    /* #040b15 with 95% opacity */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .header-container {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 40px;
+    /* Internal spacing */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -253,47 +242,41 @@ body {
 .logo {
     font-family: var(--font-title);
     font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-carbon);
+    font-weight: 800;
+    color: white;
+    /* Always white for Robbins Impact */
     position: relative;
     cursor: pointer;
+    letter-spacing: 2px;
 }
 
-.logo::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-orange));
-    transition: width 0.3s ease;
-}
-
-.logo:hover::after {
-    width: 100%;
-}
-
+/* Minimalist Circular Hamburger */
 .menu-icon {
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    /* Subtle circular button */
     border: none;
-    border-radius: 10px;
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3.5px;
+    gap: 4px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
+    box-shadow: none;
+}
+
+.menu-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .menu-icon span {
-    width: 18px;
-    height: 1.8px;
+    width: 20px;
+    height: 2px;
     background: white;
+    /* Pure white icons */
     border-radius: 2px;
     transition: all 0.3s ease;
 }
