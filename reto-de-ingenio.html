@@ -113,7 +113,10 @@
             background-position: center;
             display: flex;
             align-items: center;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+            box-shadow:
+                0 0 80px rgba(255, 255, 255, 0.15),
+                0 0 120px rgba(197, 160, 89, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
         .capsule-overlay {
@@ -236,6 +239,278 @@
                 border-left: none;
                 padding-left: 0;
                 margin: 0 auto 30px auto;
+            }
+        }
+    </style>
+
+    <!-- Permission + Video Unified Section -->
+    <section class="permission-video-section">
+        <div class="tr-container">
+
+            <div class="permission-content">
+                <h3 class="permission-lead">
+                    Imagina qué pasaría si, durante los próximos 21 días, le dieras a cada persona de tu equipo el poder
+                    más grande que existe:
+                </h3>
+
+                <h1 class="permission-word">PERMISO</h1>
+
+                <div class="gold-divider"></div>
+
+                <p class="permission-sub">
+                    Permiso para hablar. Permiso para cuestionar. <br>
+                    <span class="text-white">Permiso para mejorar.</span>
+                </p>
+            </div>
+
+            <div class="video-container-wrapper">
+                <div class="video-frame">
+                    <iframe width="100%" height="100%"
+                        src="https://www.youtube.com/embed/uoZxtJuU8aE?rel=0&modestbranding=1&controls=1"
+                        title="Video Reto de Ingenio" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen style="position: absolute; top: 0; left: 0;">
+                    </iframe>
+                </div>
+                <div class="video-shadow"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        /* PERMISSION + VIDEO UNIFIED SECTION */
+        .permission-video-section {
+            background-color: #141414;
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .permission-video-section .tr-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* TEXT STYLES */
+        .permission-lead {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: #ddd;
+            margin-bottom: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .permission-word {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(4rem, 10vw, 7rem);
+            font-weight: 700;
+            color: #c5a059;
+            line-height: 1;
+            margin: 10px 0 30px 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 40px rgba(197, 160, 89, 0.2);
+        }
+
+        .gold-divider {
+            width: 60px;
+            height: 3px;
+            background-color: #c5a059;
+            margin: 0 auto 30px auto;
+        }
+
+        .permission-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 60px;
+        }
+
+        .permission-sub .text-white {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* VIDEO PLAYER STYLES */
+        .video-container-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeUpVideo 1s ease-out 0.5s backwards;
+        }
+
+        .video-frame {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            min-height: 400px;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            z-index: 2;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .video-frame:hover {
+            transform: translateY(-5px);
+            border-color: #c5a059;
+        }
+
+        .video-cover {
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .play-btn-pulse {
+            position: relative;
+            z-index: 3;
+            width: 70px;
+            height: 70px;
+            background: #c5a059;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+            animation: pulse 2s infinite;
+            transition: 0.3s;
+        }
+
+        .video-frame:hover .play-btn-pulse {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        .video-shadow {
+            position: absolute;
+            bottom: -20px;
+            left: 5%;
+            width: 90%;
+            height: 20px;
+            background: radial-gradient(ellipse at center, rgba(197, 160, 89, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(197, 160, 89, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+            }
+        }
+
+        @keyframes fadeUpVideo {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .permission-video-section {
+                padding: 60px 15px;
+            }
+
+            .permission-video-section .tr-container {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+
+            .permission-lead {
+                font-size: 1.1rem;
+                line-height: 1.4;
+                margin-bottom: 15px;
+            }
+
+            .permission-word {
+                font-size: clamp(2.5rem, 12vw, 4rem);
+                letter-spacing: 2px;
+                margin: 15px 0 20px 0;
+            }
+
+            .gold-divider {
+                width: 50px;
+                margin: 0 auto 20px auto;
+            }
+
+            .permission-sub {
+                font-size: 1rem;
+                margin-bottom: 40px;
+                line-height: 1.5;
+            }
+
+            .video-container-wrapper {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .video-frame {
+                min-height: 200px;
+                border-radius: 6px;
+            }
+
+            .video-shadow {
+                bottom: -15px;
+                height: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .permission-video-section {
+                padding: 40px 10px;
+            }
+
+            .permission-lead {
+                font-size: 1rem;
+            }
+
+            .permission-word {
+                font-size: 2.5rem;
+                letter-spacing: 1px;
+            }
+
+            .permission-sub {
+                font-size: 0.9rem;
+                margin-bottom: 30px;
+            }
+
+            .video-frame {
+                min-height: 180px;
+                border-radius: 4px;
             }
         }
     </style>
