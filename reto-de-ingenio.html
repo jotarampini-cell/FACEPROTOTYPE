@@ -866,8 +866,13 @@
                 clearInterval(rotateInterval);
                 setActive(activeIndex);
 
+                // Disable auto-rotation on mobile to prevent layout shifts/scroll jumps
+                // This fixes the issue where the page "scrolls" up/down when accordion items change height
+                if (window.innerWidth <= 900) return;
+
                 rotateInterval = setInterval(() => {
-                    if (!isPaused) {
+                    // Double check in case of resize
+                    if (!isPaused && window.innerWidth > 900) {
                         let nextIndex = (activeIndex + 1) % items.length;
                         setActive(nextIndex);
                     }
@@ -923,19 +928,22 @@
 
                 <div class="headline-block">
                     <h2 class="modular-heading">
-                        LA RESPUESTA NO ESTÁ EN GOOGLE. <br>
-                        ESTÁ EN TU <span class="text-outline-gold">NÓMINA.</span>
+                        LA PRÓXIMA GRAN IDEA <br>
+                        YA EXISTE EN TU <span class="text-outline-gold">EMPRESA.</span>
                     </h2>
                 </div>
 
                 <div class="content-block">
                     <p class="intro-text">
-                        <strong>¿Sabes quién es el verdadero experto de tu negocio?</strong>
-                        No es el consultor externo. Es quien maneja la máquina y contesta el teléfono enfurecido.
+                        <strong>Solo que está atrapada en la mente de quien menos esperas.</strong>
                     </p>
                     <p class="sub-text">
-                        La mayoría comete el error fatal de creer que las ideas solo vienen de "arriba".
-                        El Reto de Ingenio es una licencia temporal para innovar en 3 áreas críticas:
+                        Tu recepcionista sabe qué frustra al cliente. Tu operario sabe por qué la máquina falla. Ellos
+                        ven oportunidades que tú no ves, pero nadie les pregunta.
+                    </p>
+                    <p class="sub-text">
+                        Este reto les da permiso para innovar y transformar esas ideas sueltas en mejoras reales para tu
+                        negocio:
                     </p>
 
                     <ul class="pillars-list">
@@ -961,7 +969,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <strong>PROCESOS:</strong> ¿Cómo ahorramos $1 dólar al día? (Efecto Ahorro)
+                                <strong>EN PROCESOS:</strong> Ideas para hacer el trabajo más rápido y fácil.
                             </div>
                         </li>
                         <li>
@@ -976,7 +984,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <strong>PRODUCTOS:</strong> Ajustes reales desde la planta. (Calidad Real)
+                                <strong>EN PRODUCTOS:</strong> Mejoras de calidad detectadas por quien las fabrica.
                             </div>
                         </li>
                         <li>
@@ -993,7 +1001,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <strong>SERVICIO:</strong> El factor WOW que compra lealtad.
+                                <strong>EN SERVICIO:</strong> Detalles únicos que enamoran al cliente.
                             </div>
                         </li>
                     </ul>
