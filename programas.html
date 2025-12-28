@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description"
+        content="Programas de transformación de FACE Innovation. Descubre nuestros programas para innovar sin inventar.">
+    <meta name="theme-color" content="#0066FF">
+    <title>Programas - FACE Innovation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress" class="reading-progress"></div>
+
+    <!-- Header -->
+    <header id="main-header" class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">FACE</a>
+            <button onclick="window.location.href='index.html'" class="tr-header-cta">INICIO</button>
+            <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full Screen Menu -->
+    <div id="fullscreen-menu" class="fullscreen-menu">
+        <button class="menu-close" id="menu-close" aria-label="Cerrar menú">&times;</button>
+        <nav>
+            <ul class="menu-main-list">
+                <li><a href="index.html" class="menu-link">Inicio</a></li>
+                <li class="menu-parent">
+                    <a href="programas.html" class="menu-link menu-parent-link" id="programas-toggle">
+                        Programas
+                        <span class="menu-arrow">→</span>
+                    </a>
+                    <ul class="menu-submenu" id="programas-submenu">
+                        <li><a href="reto-de-ingenio.html" class="menu-link menu-sublink">Reto de Ingenio</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#manifesto" class="menu-link">Manifiesto</a></li>
+                <li><a href="index.html#education" class="menu-link">Contenido</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="tr-hero reveal" style="padding-top: 120px; min-height: 70vh;">
+        <div class="tr-hero-video-container">
+            <div class="tr-overlay"></div>
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
+                class="tr-hero-img" alt="FACE Programs">
+        </div>
+
+        <div class="tr-content">
+            <h4 class="tr-badge">TRANSFORMA TU ORGANIZACIÓN</h4>
+
+            <h1 class="tr-title">
+                Nuestros <span class="tr-italic">Programas</span>
+            </h1>
+
+            <p class="tr-subtitle">
+                Descubre las rutas de transformación diseñadas para desbloquear el ingenio en tu organización.
+            </p>
+        </div>
+    </section>
+
+    <!-- Programs Grid -->
+    <section style="padding: 100px 20px; background: var(--tr-dark-blue);">
+        <div class="tr-container">
+            <div class="programs-grid">
+                <!-- Reto de Ingenio Card -->
+                <div class="program-card" onclick="window.location.href='reto-de-ingenio.html'">
+                    <div class="program-badge">PROGRAMA ESTRELLA</div>
+                    <div class="program-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3>Reto de Ingenio</h3>
+                    <p>Transforma la cultura organizacional en 30 días. Desbloquea el potencial innovador de tu equipo y
+                        convierte el ingenio en ventaja competitiva.</p>
+                    <div class="program-features">
+                        <span>✓ Diagnóstico F.A.C.E.</span>
+                        <span>✓ 30 días de implementación</span>
+                        <span>✓ Resultados medibles</span>
+                    </div>
+                    <button class="program-cta">Conocer más →</button>
+                </div>
+
+                <!-- Placeholder Card 1 -->
+                <div class="program-card program-coming-soon">
+                    <div class="program-badge" style="background: #666;">PRÓXIMAMENTE</div>
+                    <div class="program-icon" style="opacity: 0.5;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
+                        </svg>
+                    </div>
+                    <h3>Programa de Liderazgo</h3>
+                    <p>Desarrolla líderes que inspiren innovación y guíen la transformación organizacional.</p>
+                    <div class="program-features" style="opacity: 0.6;">
+                        <span>✓ Módulos especializados</span>
+                        <span>✓ Coaching 1:1</span>
+                        <span>✓ Certificación</span>
+                    </div>
+                    <button class="program-cta" style="background: #666; cursor: not-allowed;">Próximamente</button>
+                </div>
+
+                <!-- Placeholder Card 2 -->
+                <div class="program-card program-coming-soon">
+                    <div class="program-badge" style="background: #666;">PRÓXIMAMENTE</div>
+                    <div class="program-icon" style="opacity: 0.5;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z" />
+                        </svg>
+                    </div>
+                    <h3>Consultoría Estratégica</h3>
+                    <p>Acompañamiento personalizado para implementar innovación sistemática en tu organización.</p>
+                    <div class="program-features" style="opacity: 0.6;">
+                        <span>✓ Análisis profundo</span>
+                        <span>✓ Roadmap personalizado</span>
+                        <span>✓ Implementación guiada</span>
+                    </div>
+                    <button class="program-cta" style="background: #666; cursor: not-allowed;">Próximamente</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2025 FACE Innovation. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/mockAuth.js"></script>
+    <script src="js/authUI.js"></script>
+    <script src="js/header-scroll.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

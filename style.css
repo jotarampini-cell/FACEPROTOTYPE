@@ -293,23 +293,23 @@ body {
 }
 
 /* ====================================
-   FULLSCREEN MENU
+   FULLSCREEN MENU - Tony Robbins Minimalist
    ==================================== */
-/* Full Screen Menu */
 .fullscreen-menu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.98);
+    background: #000000;
+    /* Pure black */
     display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 9999;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
 }
 
 .fullscreen-menu.active {
@@ -319,11 +319,11 @@ body {
 
 .menu-close {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 40px;
+    right: 40px;
     background: none;
     border: none;
-    color: white;
+    color: #ffffff;
     font-size: 3rem;
     cursor: pointer;
     z-index: 10000;
@@ -333,99 +333,150 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .menu-close:hover {
-    transform: rotate(90deg);
-    color: var(--accent-orange);
+    color: #b89650;
+    /* Gold on hover */
+    transform: scale(1.1);
 }
 
 .fullscreen-menu nav {
     text-align: center;
 }
 
-.fullscreen-menu nav ul {
+/* Main menu list */
+.menu-main-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.fullscreen-menu nav ul li {
-    margin: 2rem 0;
+.menu-main-list>li {
+    margin: 0;
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
+    transform: translateY(30px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.fullscreen-menu.active nav ul li {
+.fullscreen-menu.active .menu-main-list>li {
     opacity: 1;
     transform: translateY(0);
 }
 
-.fullscreen-menu nav ul li:nth-child(1) {
+/* Staggered animation delays */
+.fullscreen-menu.active .menu-main-list>li:nth-child(1) {
     transition-delay: 0.1s;
 }
 
-.fullscreen-menu nav ul li:nth-child(2) {
+.fullscreen-menu.active .menu-main-list>li:nth-child(2) {
     transition-delay: 0.2s;
 }
 
-.fullscreen-menu nav ul li:nth-child(3) {
+.fullscreen-menu.active .menu-main-list>li:nth-child(3) {
     transition-delay: 0.3s;
 }
 
-.fullscreen-menu nav ul li:nth-child(4) {
+.fullscreen-menu.active .menu-main-list>li:nth-child(4) {
     transition-delay: 0.4s;
 }
 
-.fullscreen-menu nav ul li:nth-child(5) {
-    transition-delay: 0.5s;
-}
-
-.fullscreen-menu nav ul li:nth-child(6) {
-    transition-delay: 0.6s;
-}
-
-.fullscreen-menu nav ul li:nth-child(7) {
-    transition-delay: 0.7s;
-}
-
-.fullscreen-menu nav a {
-    font-family: var(--font-title);
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: white;
+/* Main menu links - Large, bold, impactful */
+.menu-link {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
     text-decoration: none;
     display: inline-block;
     position: relative;
-    padding: 0.5rem 0;
+    padding: 1.5rem 0;
     transition: all 0.3s ease;
+    letter-spacing: -0.5px;
 }
 
-.fullscreen-menu nav a:hover {
-    color: var(--accent-blue);
-    transform: translateX(20px);
+.menu-link:hover {
+    color: #b89650;
+    /* Gold hover */
 }
 
-.fullscreen-menu nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-orange));
-    transition: width 0.3s ease;
+/* Parent menu item with submenu */
+.menu-parent {
+    position: relative;
 }
 
-.fullscreen-menu nav a:hover::after {
-    width: 100%;
+.menu-parent-link {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
+.menu-arrow {
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+    color: #b89650;
+}
+
+.menu-parent.expanded .menu-arrow {
+    transform: rotate(90deg);
+}
+
+/* Submenu */
+.menu-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.menu-parent.expanded .menu-submenu {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+.menu-submenu li {
+    margin: 0.5rem 0;
+}
+
+/* Submenu links - Smaller, indented */
+.menu-sublink {
+    font-family: var(--font-body);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    color: #cccccc;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.menu-sublink:hover {
+    color: #ffffff;
+    padding-left: 3rem;
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
-    .fullscreen-menu nav a {
+    .menu-link {
         font-size: 2rem;
+        padding: 1rem 0;
+    }
+
+    .menu-sublink {
+        font-size: 1.25rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .menu-sublink:hover {
+        padding-left: 1.5rem;
     }
 
     .menu-close {
@@ -433,7 +484,233 @@ body {
         top: 20px;
         right: 20px;
     }
+
+    .menu-arrow {
+        font-size: 1.5rem;
+    }
 }
+
+/* ====================================
+   RETO DE INGENIO SECTION
+   ==================================== */
+.reto-ingenio-section {
+    padding: 100px 20px;
+    background: var(--tr-dark-blue);
+    color: #ffffff;
+}
+
+.reto-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.reto-intro {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--tr-text-gray);
+    max-width: 700px;
+    margin: 20px auto 0;
+    line-height: 1.7;
+    font-family: var(--font-body);
+}
+
+.reto-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+}
+
+.reto-feature {
+    text-align: center;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(184, 150, 80, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.reto-feature:hover {
+    transform: translateY(-5px);
+    border-color: var(--tr-gold);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    color: var(--tr-gold);
+}
+
+.feature-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.reto-feature h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.reto-feature p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--tr-text-gray);
+    line-height: 1.6;
+}
+
+.reto-cta-wrapper {
+    text-align: center;
+}
+
+.reto-cta-note {
+    font-size: 0.9rem;
+    color: var(--tr-text-gray);
+    margin-top: 15px;
+    font-family: var(--font-body);
+}
+
+@media (max-width: 768px) {
+    .reto-ingenio-section {
+        padding: 60px 20px;
+    }
+
+    .reto-content-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .reto-feature {
+        padding: 30px 20px;
+    }
+}
+
+
+/* ====================================
+   PROGRAMS GRID (programas.html)
+   ==================================== */
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.program-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(184, 150, 80, 0.3);
+    border-radius: 12px;
+    padding: 40px 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.program-card:not(.program-coming-soon):hover {
+    transform: translateY(-10px);
+    border-color: var(--tr-gold);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(184, 150, 80, 0.2);
+}
+
+.program-badge {
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    background: var(--tr-gold);
+    color: var(--tr-dark-blue);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-family: var(--font-heading);
+}
+
+.program-icon {
+    width: 80px;
+    height: 80px;
+    margin: 30px 0 20px 0;
+    color: var(--tr-gold);
+}
+
+.program-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.program-card h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.program-card p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--tr-text-gray);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.program-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.program-features span {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.program-cta {
+    width: 100%;
+    background: var(--tr-blue);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.program-cta:hover {
+    background-color: #005fcc;
+    transform: translateY(-2px);
+}
+
+.program-coming-soon {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .programs-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .program-card {
+        padding: 35px 25px;
+    }
+}
+
 
 /* ====================================
    HERO SECTION

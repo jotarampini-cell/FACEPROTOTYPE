@@ -54,7 +54,7 @@
     <!-- Header -->
     <header id="main-header" class="main-header">
         <div class="header-container">
-            <div class="logo">FACE</div>
+            <a href="index.html" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">FACE</a>
             <button onclick="scrollToWidget()" class="tr-header-cta">INICIA AHORA</button>
             <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
                 <span></span>
@@ -68,14 +68,19 @@
     <div id="fullscreen-menu" class="fullscreen-menu">
         <button class="menu-close" id="menu-close" aria-label="Cerrar menú">&times;</button>
         <nav>
-            <ul>
-                <li><a href="#hero">Inicio</a></li>
-                <li><a href="#methodology">Metodología</a></li>
-                <li><a href="#about-face">¿Qué es FACE?</a></li>
-                <li><a href="#education">Aprende</a></li>
-                <li><a href="#manifesto">Manifiesto</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#contact">Contacto</a></li>
+            <ul class="menu-main-list">
+                <li><a href="index.html" class="menu-link">Inicio</a></li>
+                <li class="menu-parent">
+                    <a href="programas.html" class="menu-link menu-parent-link" id="programas-toggle">
+                        Programas
+                        <span class="menu-arrow">→</span>
+                    </a>
+                    <ul class="menu-submenu" id="programas-submenu">
+                        <li><a href="reto-de-ingenio.html" class="menu-link menu-sublink">Reto de Ingenio</a></li>
+                    </ul>
+                </li>
+                <li><a href="#manifesto" class="menu-link">Manifiesto</a></li>
+                <li><a href="#education" class="menu-link">Contenido</a></li>
             </ul>
         </nav>
     </div>
@@ -102,7 +107,8 @@
             </p>
 
             <div class="tr-cta-group">
-                <button class="tr-btn-blue" onclick="showSignupModal()">EMPIEZA EL RETO DE INGENIO</button>
+                <button class="tr-btn-blue" onclick="window.location.href='reto-de-ingenio.html'">EMPIEZA EL RETO DE
+                    INGENIO</button>
                 <button class="tr-btn-outline" href="#manifesto">VER EL MANIFIESTO</button>
             </div>
         </div>
@@ -270,6 +276,7 @@
 
         </div>
     </section>
+
 
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
@@ -622,109 +629,11 @@
     </section>
 
 
-    <!-- Manifesto Section - Compact Grid -->
-    <section id="manifesto" class="manifesto">
-        <div class="manifesto-container">
-            <h2 class="manifesto-title">Nuestro Manifiesto</h2>
-            <p class="manifesto-subtitle">Los principios que guían nuestra forma de innovar</p>
-
-            <div class="principles-grid">
-                <div class="principle-item">
-                    <span class="principle-number">1</span>
-                    <p class="principle-text">Gente sobre proceso</p>
-                </div>
-                <div class="principle-item">
-                    <span class="principle-number">2</span>
-                    <p class="principle-text">Resiliencia sobre resignación</p>
-                </div>
-                <div class="principle-item">
-                    <span class="principle-number">3</span>
-                    <p class="principle-text">Acción sobre perfección</p>
-                </div>
-                <div class="principle-item">
-                    <span class="principle-number">4</span>
-                    <p class="principle-text">Aprendizaje sobre fracaso</p>
-                </div>
-                <div class="principle-item">
-                    <span class="principle-number">5</span>
-                    <p class="principle-text">Colaboración sobre competencia</p>
-                </div>
-                <div class="principle-item">
-                    <span class="principle-number">6</span>
-                    <p class="principle-text">Soluciones sobre problemas</p>
-                </div>
-                <div class="principle-item">
-                    <span class="principle-number">7</span>
-                    <p class="principle-text">Simplicidad sobre complejidad</p>
-                </div>
-                <div class="principle-item">
-                    <span class="principle-number">8</span>
-                    <p class="principle-text">Impacto sobre intención</p>
-                </div>
-                <div class="principle-item">
-                    <span class="principle-number">9</span>
-                    <p class="principle-text">Valor sobre volumen</p>
-                </div>
-                <div class="principle-item">
-                    <span class="principle-number">10</span>
-                    <p class="principle-text">Experimentación sobre especulación</p>
-                </div>
-                <div class="principle-item">
-                    <span class="principle-number">11</span>
-                    <p class="principle-text">Transformación sobre tradición</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
 
-    <!-- Services Section - Split Screen -->
-    <section id="services" class="services reveal">
-        <div class="section-header reveal-delay-1">
-            <h2 class="section-title-main">Comienza tu Transformación</h2>
-            <p class="section-description">Elige el camino que se adapte a tus necesidades</p>
-        </div>
-        <div class="services-split">
-            <!-- Public Block -->
-            <div class="service-block public-block">
-                <div class="service-content">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="30" r="15" fill="none" stroke="currentColor" stroke-width="2" />
-                            <path d="M 30 50 Q 50 45 70 50" fill="none" stroke="currentColor" stroke-width="2" />
-                            <path d="M 50 45 L 50 70" stroke="currentColor" stroke-width="2" />
-                            <circle cx="50" cy="75" r="10" fill="currentColor" />
-                            <path d="M 40 75 L 35 85 M 60 75 L 65 85" stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <h3>Inicia un Reto Personal</h3>
-                    <p>Descubre tu potencial innovador con desafíos diseñados para transformar ideas en acción</p>
-                    <button class="service-btn">Entrar</button>
-                </div>
-            </div>
 
-            <!-- Business Block -->
-            <div class="service-block business-block">
-                <div class="service-content">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="30" cy="30" r="8" fill="none" stroke="currentColor" stroke-width="2" />
-                            <circle cx="70" cy="30" r="8" fill="none" stroke="currentColor" stroke-width="2" />
-                            <circle cx="50" cy="60" r="8" fill="none" stroke="currentColor" stroke-width="2" />
-                            <line x1="30" y1="30" x2="70" y2="30" stroke="currentColor" stroke-width="2" />
-                            <line x1="30" y1="30" x2="50" y2="60" stroke="currentColor" stroke-width="2" />
-                            <line x1="70" y1="30" x2="50" y2="60" stroke="currentColor" stroke-width="2" />
-                            <circle cx="50" cy="60" r="15" fill="currentColor" opacity="0.2" />
-                        </svg>
-                    </div>
-                    <h3>Transforma tu Cultura</h3>
-                    <p>Implementa la metodología FACE en tu organización y crea una cultura de innovación sostenible</p>
-                    <button class="service-btn">Agendar Demo</button>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer class="footer">

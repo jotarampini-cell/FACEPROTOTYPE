@@ -46,7 +46,9 @@ function initMenu() {
     const menuToggle = document.getElementById('menu-toggle');
     const menuClose = document.getElementById('menu-close');
     const fullscreenMenu = document.getElementById('fullscreen-menu');
-    const menuLinks = fullscreenMenu.querySelectorAll('a');
+    const menuLinks = fullscreenMenu.querySelectorAll('.menu-link');
+    const programasToggle = document.getElementById('programas-toggle');
+    const programasParent = programasToggle ? programasToggle.closest('.menu-parent') : null;
 
     menuToggle.addEventListener('click', () => {
         fullscreenMenu.classList.add('active');
@@ -55,15 +57,31 @@ function initMenu() {
 
     menuClose.addEventListener('click', closeMenu);
 
+    // Handle click on regular menu links (close menu and scroll)
     menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            closeMenu();
+        link.addEventListener('click', (e) => {
+            // Only handle anchor links, not the parent toggle
+            if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+                closeMenu();
+            }
         });
     });
+
+    // Handle parent menu item expand/collapse
+    if (programasToggle && programasParent) {
+        programasToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            programasParent.classList.toggle('expanded');
+        });
+    }
 
     function closeMenu() {
         fullscreenMenu.classList.remove('active');
         document.body.style.overflow = '';
+        // Collapse submenu when closing
+        if (programasParent) {
+            programasParent.classList.remove('expanded');
+        }
     }
 }
 
@@ -74,6 +92,13 @@ function initMenu() {
 function initHeroAnimation() {
     const rotatingWord = document.getElementById('rotating-word');
     const subtitle = document.getElementById('hero-subtitle');
+
+    // Guard clause: if elements don't exist, don't run animation
+    if (!rotatingWord || !subtitle) {
+        console.log('Hero animation skipped: elements not found');
+        return;
+    }
+
     const words = ['RESOLVER', 'ADAPTAR', 'MEJORAR', 'FACE'];
     let currentIndex = 0;
     let intervalId;
@@ -294,7 +319,7 @@ function switchScreen(fromId, toId) {
         // Remove hidden class if present to prevent display issues
         toScreen.classList.remove('hidden');
         toScreen.style.display = 'block';
-        
+
         // Forzar reflow para que la animación de entrada funcione
         void toScreen.offsetWidth;
         toScreen.classList.add('active');
@@ -420,6 +445,16 @@ window.scrollToWidget = function () {
     }
 };
 
+// Función para scroll a cualquier sección por ID
+window.scrollToSection = function (sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        console.warn(`No se encontró la sección con ID '${sectionId}'`);
+    }
+};
+
 
 // ====================================
 // HERO INPUT INTERACTION
@@ -457,4 +492,130 @@ window.addEventListener('scroll', debounce(() => {
 }, 10));
 
 
-// End of Script
+
+
+// =========================================
+// TESTIMONIALS SLIDER LOGIC (PREMIUM AVATAR)
+// =========================================
+
+
+// =========================================
+// TESTIMONIALS SLIDER LOGIC (PREMIUM AVATAR)
+// =========================================
+
+(function () {
+    function initTestimonials() {
+        // 1. Data Source
+        const testimonials = [
+            {
+                name: "Serena Williams",
+                title: "Most Singles Grand Slam titles in history (male or female), 4-time Olympic gold medalist",
+                quote: "“Tony Robbins helped me discover what I am really made of. With Tony's help, I've set new standards for myself, and I've taken my tennis game—and my life—to a whole new level!”",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Serena_Williams_1_%2814402636602%29.jpg/440px-Serena_Williams_1_%2814402636602%29.jpg",
+                backgroundImage: "https://images.unsplash.com/photo-1547922240-56272370773d?q=80&w=2574&auto=format&fit=crop" // Tennis Stadium / Event
+            },
+            {
+                name: "Klay Thompson",
+                title: "4-time NBA Champion, 5-time All-Star, NBA Record Holder",
+                quote: "“Tony Robbins' coaching has been a game changer. He taught me how to master my mindset and stay focused under the most intense pressure.”",
+                image: "https://upload.wikimedia.org/wikipedia/commons/3/36/Klay_Thompson_2018.jpg",
+                backgroundImage: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2693&auto=format&fit=crop" // Basketball Arena Lights
+            },
+            {
+                name: "Marc Benioff",
+                title: "Founder, Chairman and Co-CEO of Salesforce",
+                quote: "“We have been able to achieve our goals in a way that we never thought possible. The strategy provided was the key to unlocking our potential.”",
+                image: "https://pbs.twimg.com/profile_images/1542626466367377408/5_d4t44W_400x400.jpg",
+                backgroundImage: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2669&auto=format&fit=crop" // Conference / Keynote Stage
+            }
+        ];
+
+        let currentIndex = 0;
+
+        // DOM Elements
+        const sectionEl = document.querySelector('.tr-testimonial-section');
+        const avatarContainer = document.getElementById('tr-avatars-container');
+        const quoteEl = document.getElementById('tr-quote');
+        const nameEl = document.getElementById('tr-name');
+        const titleEl = document.getElementById('tr-title');
+        const infoContainer = document.querySelector('.tr-author-info');
+
+        // Guard clause
+        if (!avatarContainer || !quoteEl) {
+            console.warn("Testimonial elements not found, retrying...");
+            return;
+        }
+
+        // Prevent double init
+        if (avatarContainer.children.length > 0) return;
+
+        // 2. Initialize Avatars
+        testimonials.forEach((item, index) => {
+            const img = document.createElement('img');
+            img.src = item.image;
+            img.alt = item.name;
+            img.classList.add('tr-avatar-img');
+            img.addEventListener('click', () => updateTestimonial(index));
+            avatarContainer.appendChild(img);
+        });
+
+        const avatarEls = document.querySelectorAll('.tr-avatar-img');
+
+        // 3. Update Function
+        function updateTestimonial(index) {
+            currentIndex = index;
+
+            // A. Fade Out Text
+            quoteEl.classList.remove('visible');
+            infoContainer.classList.remove('visible');
+
+            // B. Update Avatars
+            avatarEls.forEach((img, i) => {
+                if (i === index) {
+                    img.classList.add('active');
+                } else {
+                    img.classList.remove('active');
+                }
+            });
+
+            // C. Update Background
+            if (sectionEl && testimonials[index].backgroundImage) {
+                // Preload image to avoid flicker
+                const img = new Image();
+                img.src = testimonials[index].backgroundImage;
+                img.onload = () => {
+                    sectionEl.style.backgroundImage = `url('${testimonials[index].backgroundImage}')`;
+                };
+            }
+
+            // D. Update Content
+            setTimeout(() => {
+                quoteEl.innerText = testimonials[index].quote;
+                nameEl.innerText = testimonials[index].name;
+                titleEl.innerText = testimonials[index].title;
+
+                quoteEl.classList.add('visible');
+                infoContainer.classList.add('visible');
+            }, 300);
+        }
+
+        // 4. Initial Load
+        updateTestimonial(0);
+
+        // 5. Auto Rotation
+        setInterval(() => {
+            let nextIndex = (currentIndex + 1) % testimonials.length;
+            updateTestimonial(nextIndex);
+        }, 5000);
+
+        console.log("Testimonials initialized successfully");
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTestimonials);
+    } else {
+        initTestimonials();
+    }
+})();
+
+
