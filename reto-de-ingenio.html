@@ -278,6 +278,616 @@
         </div>
     </section>
 
+    <!-- Benefits / Transformation Section (Silver/Platinum Style) -->
+    <section class="benefits-silver-section">
+        <div class="tr-container">
+
+            <div class="section-header-light">
+                <h2 class="silver-title">
+                    DEJA DE TENER EMPLEADOS. <br>
+                    EMPIEZA A TENER <span class="text-platinum">SOCIOS</span>.
+                </h2>
+                <p class="silver-subtitle">
+                    Cuando lanzas este reto, la mentalidad cambia de "Hago lo que me dicen" a <strong>"Este negocio
+                        también es mío"</strong>.
+                </p>
+            </div>
+
+            <div class="silver-grid">
+
+                <div class="platinum-card">
+                    <div class="icon-silver-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#silver-grad)" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <defs>
+                                <linearGradient id="silver-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#999999" />
+                                    <stop offset="50%" style="stop-color:#444444" />
+                                    <stop offset="100%" style="stop-color:#999999" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                            <path d="M4 22h16"></path>
+                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                        </svg>
+                    </div>
+                    <h3>GAMIFICACIÓN</h3>
+                    <p>Convierte el trabajo diario en una competencia divertida, sana y con propósito.</p>
+                </div>
+
+                <div class="platinum-card">
+                    <div class="icon-silver-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#silver-grad)" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                            </polygon>
+                        </svg>
+                    </div>
+                    <h3>RECONOCIMIENTO</h3>
+                    <p>Da protagonismo y voz a quienes siempre han estado en la sombra, activando su lealtad.</p>
+                </div>
+
+                <div class="platinum-card">
+                    <div class="icon-silver-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#silver-grad)" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>RESULTADOS</h3>
+                    <p>Obtén soluciones reales, rápidas y baratas que ningún consultor externo podría darte.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* BENEFITS SILVER SECTION */
+        .benefits-silver-section {
+            background-color: #F3F5F7;
+            padding: 120px 20px;
+            color: #111111;
+            position: relative;
+        }
+
+        .benefits-silver-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#ccc 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .section-header-light {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .silver-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #111111;
+            line-height: 1.2;
+        }
+
+        .text-platinum {
+            background: linear-gradient(to right, #434343 0%, #9FA6AC 50%, #434343 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
+        }
+
+        .silver-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: #555555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .silver-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .platinum-card {
+            background: #FFFFFF;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .platinum-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #d1d1d1;
+        }
+
+        .icon-silver-box {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px auto;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .icon-silver-box svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        .platinum-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .platinum-card p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-silver-section {
+                padding: 60px 20px;
+            }
+
+            .silver-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+    </style>
+
+    <!-- All-Access Pass Section -->
+    <section class="all-access-section">
+        <div class="tr-container">
+
+            <h2 class="section-headline">
+                ESTE ES TU PASE <span class="text-gold">TODO INCLUIDO</span>
+            </h2>
+
+            <div class="split-layout">
+
+                <div class="content-side">
+
+                    <div class="access-item active" onclick="goToSlide(0)" data-index="0">
+                        <div class="ghost-number">01</div>
+                        <h3 class="item-title">A LA MEDIDA DE TU NEGOCIO</h3>
+                        <div class="item-body">
+                            <p>No es genérico. Se diseña para tus nudos críticos específicos. Analizamos tu estructura
+                                actual y desbloqueamos los cuellos de botella operativos.</p>
+                            <div class="mobile-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Estrategia Laptop">
+                            </div>
+                        </div>
+                        <div class="timer-bar">
+                            <div class="timer-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="access-item" onclick="goToSlide(1)" data-index="1">
+                        <div class="ghost-number">02</div>
+                        <h3 class="item-title">EXPERTOS EN INNOVACIÓN Y CULTURA</h3>
+                        <div class="item-body">
+                            <p>Tienes un acompañamiento de guías expertos en todo el camino. No estarás adivinando;
+                                tendrás mentores que ya han transformado empresas similares.</p>
+                            <div class="mobile-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Mentoria Tablet">
+                            </div>
+                        </div>
+                        <div class="timer-bar">
+                            <div class="timer-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="access-item" onclick="goToSlide(2)" data-index="2">
+                        <div class="ghost-number">03</div>
+                        <h3 class="item-title">LAS BASES DE TU ÉXITO FUTURO</h3>
+                        <div class="item-body">
+                            <p>Capacitas a tu propio personal. Al finalizar, tu equipo sabrá cómo replicar estos retos
+                                de innovación sin nuestra ayuda, dejando capacidad instalada real.</p>
+                            <div class="mobile-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Capacitación Equipo">
+                            </div>
+                        </div>
+                        <div class="timer-bar">
+                            <div class="timer-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Indicators -->
+                    <div class="progress-indicators">
+                        <span class="indicator active" onclick="goToSlide(0)"></span>
+                        <span class="indicator" onclick="goToSlide(1)"></span>
+                        <span class="indicator" onclick="goToSlide(2)"></span>
+                    </div>
+
+                </div>
+
+                <div class="image-side">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                            class="desktop-img active">
+
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                            class="desktop-img">
+
+                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                            class="desktop-img">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* ALL-ACCESS PASS SECTION */
+        .all-access-section {
+            background-color: #000000;
+            padding: 100px 20px;
+            color: #ffffff;
+        }
+
+        .section-headline {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-headline .text-gold {
+            color: #c5a059;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .access-item {
+            margin-bottom: 30px;
+            cursor: pointer;
+            opacity: 0.4;
+            transition: all 0.4s ease;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #333;
+        }
+
+        .access-item.active {
+            opacity: 1;
+            border-left: 2px solid #c5a059;
+            box-shadow: 0 0 40px rgba(197, 160, 89, 0.15);
+        }
+
+        /* GHOST NUMBERS */
+        .ghost-number {
+            position: absolute;
+            left: -20px;
+            top: -10px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 6rem;
+            font-weight: 700;
+            color: #c5a059;
+            opacity: 0.08;
+            line-height: 1;
+            pointer-events: none;
+            z-index: 0;
+            transition: all 0.4s ease;
+        }
+
+        .access-item.active .ghost-number {
+            opacity: 0.15;
+            transform: scale(1.1);
+        }
+
+        .item-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: #ffffff;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .item-body p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #b3b3b3;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timer-bar {
+            width: 100%;
+            height: 2px;
+            background: #222;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+            display: none;
+        }
+
+        .timer-fill {
+            height: 100%;
+            background-color: #c5a059;
+            width: 0%;
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+        }
+
+        .access-item.active .timer-bar {
+            display: block;
+        }
+
+        /* PROGRESS INDICATORS */
+        .progress-indicators {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .indicator:hover {
+            background: #555;
+            transform: scale(1.2);
+        }
+
+        .indicator.active {
+            background: #c5a059;
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.6);
+        }
+
+        .indicator.active::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            border: 2px solid #c5a059;
+            border-radius: 50%;
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+        }
+
+        .mobile-img-wrapper {
+            display: none;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .mobile-img-wrapper img {
+            width: 100%;
+            display: block;
+        }
+
+        .image-side {
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-frame {
+            width: 100%;
+            position: relative;
+            padding-top: 66%;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid #222;
+        }
+
+        .desktop-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            transform: scale(1.05);
+        }
+
+        .desktop-img.active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.8s ease-in-out, transform 8s linear;
+        }
+
+        @media (max-width: 900px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .image-side {
+                display: none;
+            }
+
+            .access-item {
+                border-left: none;
+                padding-left: 0;
+                border-bottom: 1px solid #222;
+                padding-bottom: 20px;
+            }
+
+            .ghost-number {
+                left: 0;
+                font-size: 4rem;
+            }
+
+            .access-item.active .mobile-img-wrapper {
+                display: block;
+                animation: fadeIn 0.5s ease;
+            }
+
+            .timer-bar {
+                margin-top: 20px;
+            }
+
+            .progress-indicators {
+                margin-top: 30px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        (function () {
+            const items = document.querySelectorAll('.access-item');
+            const desktopImages = document.querySelectorAll('.desktop-img');
+            const indicators = document.querySelectorAll('.indicator');
+            const slideTime = 8000;
+            let activeIndex = 0;
+            let rotateInterval;
+            let isPaused = false;
+
+            function setActive(index) {
+                items.forEach((item, i) => {
+                    item.classList.remove('active');
+                    const bar = item.querySelector('.timer-fill');
+                    bar.style.transition = 'none';
+                    bar.style.width = '0%';
+
+                    desktopImages[i].classList.remove('active');
+                    indicators[i].classList.remove('active');
+                });
+
+                items[index].classList.add('active');
+                desktopImages[index].classList.add('active');
+                indicators[index].classList.add('active');
+
+                setTimeout(() => {
+                    if (!isPaused) {
+                        const activeBar = items[index].querySelector('.timer-fill');
+                        activeBar.style.transition = `width ${slideTime}ms linear`;
+                        activeBar.style.width = '100%';
+                    }
+                }, 50);
+
+                activeIndex = index;
+            }
+
+            function startLoop() {
+                clearInterval(rotateInterval);
+                setActive(activeIndex);
+
+                rotateInterval = setInterval(() => {
+                    if (!isPaused) {
+                        let nextIndex = (activeIndex + 1) % items.length;
+                        setActive(nextIndex);
+                    }
+                }, slideTime);
+            }
+
+            function pauseRotation() {
+                isPaused = true;
+                const activeBar = items[activeIndex].querySelector('.timer-fill');
+                const currentWidth = activeBar.style.width;
+                activeBar.style.transition = 'none';
+                activeBar.style.width = currentWidth;
+            }
+
+            function resumeRotation() {
+                isPaused = false;
+                const activeBar = items[activeIndex].querySelector('.timer-fill');
+                activeBar.style.transition = `width ${slideTime}ms linear`;
+                activeBar.style.width = '100%';
+            }
+
+            // Pause on hover
+            items.forEach(item => {
+                item.addEventListener('mouseenter', pauseRotation);
+                item.addEventListener('mouseleave', resumeRotation);
+            });
+
+            window.goToSlide = function (index) {
+                activeIndex = index;
+                isPaused = false;
+                startLoop();
+            }
+
+            startLoop();
+        })();
+    </script>
+
     <style>
         /* PERMISSION + VIDEO UNIFIED SECTION */
         .permission-video-section {
