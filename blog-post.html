@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Estás reaccionando o creando el futuro? - Blog Reto de Ingenio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --bg-hero: #000000;
+            --bg-body: #ffffff;
+            --bg-light: #f9f9f9;
+            --tr-gold: #c5a059;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --container-width: 1200px;
+            --article-width: 800px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER Y HERO (FONDO NEGRO) --- */
+        .hero-section {
+            background-color: var(--bg-hero);
+            color: white;
+            padding-top: 150px;
+            /* Adapted for Fixed Header */
+            /* IMPORTANTE: El padding-bottom debe ser suficiente para alojar la mitad de la imagen */
+            padding-bottom: 250px;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumbs {
+            font-size: 0.85rem;
+            color: #aaa;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumbs span {
+            color: var(--tr-gold);
+        }
+
+        .post-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #aaa;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* --- IMAGEN FLOTANTE (SPLIT EFFECT) --- */
+        .featured-image-wrapper {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            /* EL TRUCO: Mover la imagen hacia abajo un 50% de su propia altura */
+            margin-top: -200px;
+            /* Ajuste negativo para subirla y que se superponga */
+            padding: 0 20px;
+            z-index: 10;
+        }
+
+        .featured-img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            /* Sombra elegante */
+        }
+
+        /* --- CUERPO DEL ARTÍCULO (FONDO BLANCO) --- */
+        .article-container {
+            background-color: var(--bg-body);
+            padding-top: 80px;
+            /* Espacio para compensar la imagen superpuesta */
+            padding-bottom: 100px;
+        }
+
+        .article-content {
+            max-width: var(--article-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        .article-content h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            color: #111;
+            margin: 60px 0 25px 0;
+            line-height: 1.2;
+        }
+
+        .article-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            color: #111;
+            margin: 40px 0 20px 0;
+        }
+
+        .article-content p {
+            margin-bottom: 25px;
+        }
+
+        /* Estilos Especiales Texto */
+        blockquote {
+            background: #f4f4f4;
+            border-left: 5px solid var(--tr-gold);
+            padding: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #222;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content ol {
+            margin-left: 0;
+            list-style: none;
+            counter-reset: blog-counter;
+        }
+
+        .article-content ol li {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+
+        .article-content ol li::before {
+            counter-increment: blog-counter;
+            content: counter(blog-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background: var(--tr-gold);
+            color: white;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .article-content strong {
+            color: black;
+            font-weight: 700;
+        }
+
+        /* --- SECCIÓN ARTÍCULOS RELACIONADOS (SLIDER) --- */
+        .related-section {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .related-header {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .related-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: #111;
+        }
+
+        .slider-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: var(--tr-gold);
+            color: white;
+            border-color: var(--tr-gold);
+        }
+
+        /* Grid Scrollable */
+        .related-grid {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            /* Padding para ver sombras */
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .related-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .related-card {
+            min-width: 350px;
+            /* Ancho fijo para carrusel */
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .related-body {
+            padding: 25px;
+        }
+
+        .related-tag {
+            color: var(--tr-gold);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .related-h {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .related-excerpt {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+
+        /* --- SECCIÓN PROMO INTERNA (FONDO NEGRO AL FINAL) --- */
+        .promo-footer {
+            background-color: black;
+            padding: 100px 20px;
+        }
+
+        .internal-promo-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .promo-card {
+            position: relative;
+            height: 450px;
+            border-radius: 16px;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-5px);
+            transition: 0.3s;
+        }
+
+        .bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gradient-overlay.purple {
+            background: linear-gradient(0deg, rgba(43, 7, 74, 1) 0%, rgba(98, 51, 159, 0.8) 60%, transparent 100%);
+        }
+
+        .gradient-overlay.teal {
+            background: linear-gradient(0deg, rgba(7, 58, 66, 1) 0%, rgba(45, 144, 149, 0.8) 60%, transparent 100%);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            color: white;
+        }
+
+        .promo-headline {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .pill-btn {
+            background: white;
+            color: black;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            width: fit-content;
+            margin-top: 20px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero-section {
+                padding-bottom: 150px;
+            }
+
+            /* Menos espacio en móvil */
+            .featured-image-wrapper {
+                margin-top: -100px;
+            }
+
+            /* Ajuste para móvil */
+            .related-card {
+                min-width: 280px;
+            }
+
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress" class="reading-progress"></div>
+
+    <!-- Header -->
+    <header id="main-header" class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">FACE</a>
+            <button onclick="window.location.href='reto-de-ingenio.html#diagnostico'" class="tr-header-cta">INICIA EL
+                DIAGNÓSTICO</button>
+            <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full Screen Menu -->
+    <div id="fullscreen-menu" class="fullscreen-menu">
+        <button class="menu-close" id="menu-close" aria-label="Cerrar menú">&times;</button>
+        <nav>
+            <ul class="menu-main-list">
+                <li><a href="index.html" class="menu-link">Inicio</a></li>
+                <li class="menu-parent">
+                    <a href="programas.html" class="menu-link menu-parent-link" id="programas-toggle">
+                        Programas
+                        <span class="menu-arrow">→</span>
+                    </a>
+                    <ul class="menu-submenu" id="programas-submenu">
+                        <li><a href="reto-de-ingenio.html" class="menu-link menu-sublink">Reto de Ingenio</a></li>
+                    </ul>
+                </li>
+                <li class="menu-parent">
+                    <a href="#" class="menu-link menu-parent-link" id="explorar-toggle">
+                        Explorar
+                        <span class="menu-arrow">→</span>
+                    </a>
+                    <ul class="menu-submenu" id="explorar-submenu">
+                        <li><a href="blog.html" class="menu-link menu-sublink">Blog</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#manifesto" class="menu-link">Manifiesto</a></li>
+                <li><a href="index.html#education" class="menu-link">Contenido</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="hero-section">
+        <!-- Removed simulated header -->
+
+        <div class="hero-content">
+            <div class="breadcrumbs">
+                Blog > Negocios > <span>Estrategia</span>
+            </div>
+            <h1 class="post-title">¿Estás reaccionando o creando el futuro de tu negocio?</h1>
+            <div class="post-meta">
+                <span>📅 26 Oct, 2024</span>
+                <span>•</span>
+                <span>⏱ 7 min lectura</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="featured-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80"
+            alt="Futuro Negocios" class="featured-img">
+    </div>
+
+    <section class="article-container">
+        <article class="article-content">
+            <p><strong>¿Sientes que todo está cambiando muy rápido en el mundo de los negocios y estás en una búsqueda
+                    desenfrenada por adaptarte?</strong> No estás solo. Según la 28ª Encuesta Anual Global de Directores
+                Ejecutivos de PwC, el 42% de los CEOs cree que su empresa no será viable más allá de los próximos 10
+                años sin reinventarse.</p>
+
+            <p>Casi cuatro de cada diez dicen que han comenzado a competir en nuevos sectores en los últimos cinco años.
+                Por esta razón, hoy más que nunca necesitamos principios empresariales que provean claridad.</p>
+
+            <h2>Primer principio: todo está en constante cambio.</h2>
+            <p>Hace 10 años pedir comida a domicilio en Venezuela estaba reservado a pocos restaurantes, a menudo
+                implicaba una logística compleja y a nadie parecía interesarle ese servicio. Con la llegada de la
+                pandemia todo cambió: se aceleraron los procesos de digitalización, la proliferación de teléfonos
+                inteligentes y la "appificación".</p>
+
+            <blockquote>
+                "El cambio ya no es un suceso extraño; es el estado natural del mundo de los negocios."
+            </blockquote>
+
+            <p>Comprender la interconexión interindustrial transcurre por entender que la innovación ya no se produce en
+                un solo sector. Las ideas, tecnologías y conocimientos de una industria "saltan" a otras, generando un
+                efecto dominó que acelera la disrupción.</p>
+
+            <h2>Segundo principio: agilidad empresarial.</h2>
+            <p>Al ver cómo la innovación se convierte en el estado natural de los negocios, la pregunta obligada es:
+                ¿qué podemos hacer al respecto? La respuesta es simple en teoría, pero compleja en la práctica:
+                <strong>reaccionar o anticipar</strong>.</p>
+
+            <p>El verdadero superpoder de un negocio no es simplemente sobrevivir a la tormenta, sino verla venir antes
+                de que llegue. Al anticiparnos, podemos prepararnos, no solo para adaptarnos, sino para ser nosotros
+                quienes definamos el camino.</p>
+
+            <h3>El Problema: el enemigo invisible de los negocios</h3>
+            <p>Para llegar a la agilidad empresarial, primero tenemos que examinar el principal obstáculo que la frena:
+                la inercia organizacional. Autores como Michael Tushman y Charles O'Reilly lo definen como "inercia
+                organizacional", una fuerza poderosa que se forma por la repetición de hábitos.</p>
+
+            <h3>La solución: anticipar para crear el futuro</h3>
+            <p>El antídoto a la inercia no es la reacción, sino la anticipación. Pensemos en el caso de
+                <strong>Amazon</strong>. Amazon no esperó a que la ola tecnológica llegara; la creó con AWS.</p>
+
+            <h2>Prácticas accionables para tu empresa</h2>
+            <p>Para pasar de la teoría a la práctica, te sugerimos los siguientes pasos, aplicables de inmediato:</p>
+
+            <ol>
+                <li>
+                    <strong>Rompe con la inercia a través de la experimentación.</strong><br>
+                    Deja de ver los resultados como un simple éxito o fracaso. Fomenta una cultura donde cada idea sea
+                    vista como un experimento.
+                </li>
+                <li>
+                    <strong>Mira más allá de tu industria.</strong><br>
+                    Dedica tiempo a realizar un benchmarking intersectorial. ¿Qué innovaciones de la industria
+                    tecnológica podrías adaptar?
+                </li>
+                <li>
+                    <strong>Amplía tu concepto de innovación.</strong><br>
+                    Innovar no es solo inventar el próximo producto. Es optimizar procesos internos o reinventar tu
+                    modelo de negocio.
+                </li>
+                <li>
+                    <strong>Democratiza la innovación.</strong><br>
+                    Crea un programa donde los empleados puedan competir por brindar soluciones creativas a problemas
+                    reales.
+                </li>
+            </ol>
+
+            <p style="margin-top: 50px; font-size: 1.4rem; font-weight: bold; text-align: center;">
+                ¿Estás listo para dejar de reaccionar y empezar a crear el futuro?
+            </p>
+        </article>
+    </section>
+
+    <section class="related-section">
+        <div class="related-header">
+            <h3 class="related-title">Artículos Relacionados</h3>
+            <div class="slider-nav">
+                <div class="nav-btn" onclick="scrollGrid(-1)">&#10094;</div>
+                <div class="nav-btn" onclick="scrollGrid(1)">&#10095;</div>
+            </div>
+        </div>
+
+        <div class="related-grid" id="relatedGrid">
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">LIDERAZGO</span>
+                    <h4 class="related-h">Liderazgo Adaptativo: Guía 2024</h4>
+                    <p class="related-excerpt">Cómo guiar a tu equipo en tiempos de incertidumbre.</p>
+                </div>
+            </a>
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">CULTURA</span>
+                    <h4 class="related-h">La cultura se come a la estrategia</h4>
+                    <p class="related-excerpt">Por qué tus planes fallan si no cambias la mentalidad.</p>
+                </div>
+            </a>
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">INNOVACIÓN</span>
+                    <h4 class="related-h">Los 10 tipos de innovación</h4>
+                    <p class="related-excerpt">No todo es tecnología. Descubre dónde puedes innovar.</p>
+                </div>
+            </a>
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">PRODUCTIVIDAD</span>
+                    <h4 class="related-h">Sistemas vs Metas</h4>
+                    <p class="related-excerpt">Por qué deberías enfocarte en procesos, no en resultados.</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <footer class="promo-footer">
+        <div class="internal-promo-section">
+            <div class="promo-grid">
+                <a href="#eventos" class="promo-card">
+                    <div class="bg-img"><img
+                            src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            style="width:100%; height:100%; object-fit:cover;"></div>
+                    <div class="gradient-overlay purple"></div>
+                    <div class="card-content">
+                        <h2 class="promo-headline">CAMBIA TU HISTORIA</h2>
+                        <span class="pill-btn">Ver eventos</span>
+                    </div>
+                </a>
+                <a href="#programas" class="promo-card">
+                    <div class="bg-img"><img
+                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            style="width:100%; height:100%; object-fit:cover;"></div>
+                    <div class="gradient-overlay teal"></div>
+                    <div class="card-content">
+                        <h2 class="promo-headline">TU MEJOR VERSIÓN</h2>
+                        <span class="pill-btn">Ver programas</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2025 FACE Innovation. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollGrid(direction) {
+            const grid = document.getElementById('relatedGrid');
+            const scrollAmount = 350; // Ancho aproximado de tarjeta
+            grid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+    </script>
+    <script src="js/header-scroll.js"></script>
+    <script src="script.js?v=3"></script>
+
+</body>
+
+</html>

@@ -47,8 +47,8 @@ function initMenu() {
     const menuClose = document.getElementById('menu-close');
     const fullscreenMenu = document.getElementById('fullscreen-menu');
     const menuLinks = fullscreenMenu.querySelectorAll('.menu-link');
-    const programasToggle = document.getElementById('programas-toggle');
-    const programasParent = programasToggle ? programasToggle.closest('.menu-parent') : null;
+    // Generic handling for all parent menu items
+    const parentToggles = fullscreenMenu.querySelectorAll('.menu-parent-link');
 
     menuToggle.addEventListener('click', () => {
         fullscreenMenu.classList.add('active');
@@ -61,27 +61,41 @@ function initMenu() {
     menuLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             // Only handle anchor links, not the parent toggle
+            if (link.classList.contains('menu-parent-link')) return;
+
             if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
                 closeMenu();
             }
         });
     });
 
-    // Handle parent menu item expand/collapse
-    if (programasToggle && programasParent) {
-        programasToggle.addEventListener('click', (e) => {
+    // Handle parent menu item expand/collapse (Generic)
+    parentToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
             e.preventDefault();
-            programasParent.classList.toggle('expanded');
+            const parent = toggle.closest('.menu-parent');
+            if (parent) {
+                // Toggle current
+
+                // Optional: Collapse others to have accordion effect (User likes "exact same behavior" as programs)
+                // If Programs just toggles, we just toggle.
+                // Assuming Accordion is better UX:
+                document.querySelectorAll('.menu-parent.expanded').forEach(el => {
+                    if (el !== parent) el.classList.remove('expanded');
+                });
+
+                parent.classList.toggle('expanded');
+            }
         });
-    }
+    });
 
     function closeMenu() {
         fullscreenMenu.classList.remove('active');
         document.body.style.overflow = '';
-        // Collapse submenu when closing
-        if (programasParent) {
-            programasParent.classList.remove('expanded');
-        }
+        // Collapse all submenus when closing
+        document.querySelectorAll('.menu-parent.expanded').forEach(el => {
+            el.classList.remove('expanded');
+        });
     }
 }
 
