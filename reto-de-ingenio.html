@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Oswald:wght@500;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -56,34 +56,189 @@
         </nav>
     </div>
 
-    <!-- Hero Section -->
-    <section class="tr-hero reveal">
-        <div class="tr-hero-video-container">
-            <div class="tr-overlay"></div>
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
-                class="tr-hero-img" alt="Reto de Ingenio">
-        </div>
+    <!-- Hero Section: The Capsule Design -->
+    <section class="capsule-hero-section">
+        <div class="capsule-hero-wrapper">
+            <div class="capsule-hero-container">
+                <div class="capsule-overlay"></div>
 
-        <div class="tr-content">
-            <h4 class="tr-badge">PROGRAMA DE TRANSFORMACIÓN</h4>
+                <div class="capsule-content">
+                    <div class="capsule-badge">NUEVO PROGRAMA</div>
 
-            <h1 class="tr-title">
-                Reto de <span class="tr-italic">Ingenio</span>
-            </h1>
+                    <h1 class="capsule-title">
+                        El Reto de
+                        <span>Ingenio: 21 Días</span>
+                    </h1>
 
-            <p class="tr-subtitle">
-                Transforma la cultura organizacional en 30 días. Desbloquea el potencial innovador de tu equipo y
-                convierte el ingenio en ventaja competitiva.
-            </p>
+                    <p class="capsule-desc">
+                        La respuesta que buscas no está en Google, está en tu nómina.
+                        Activa el verdadero potencial de tu equipo y deja de perder dinero hoy mismo.
+                    </p>
 
-            <div class="tr-cta-group">
-                <button class="tr-btn-blue" onclick="scrollToWidget()">COMIENZA EL DIAGNÓSTICO</button>
-                <button class="tr-btn-outline"
-                    onclick="document.querySelector('#features').scrollIntoView({behavior:'smooth'})">CONOCER
-                    MÁS</button>
+                    <a href="#features" class="capsule-btn-gold"
+                        onclick="event.preventDefault(); document.querySelector('#features').scrollIntoView({behavior:'smooth'})">CONOCER
+                        MÁS</a>
+                </div>
             </div>
         </div>
     </section>
+
+    <style>
+        /* CAPSULE HERO STYLES */
+        .capsule-hero-section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            background-color: #050505;
+        }
+
+        .capsule-hero-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            height: 850px;
+            position: relative;
+        }
+
+        .capsule-hero-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .capsule-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    rgba(0, 0, 0, 0.95) 0%,
+                    rgba(0, 0, 0, 0.8) 35%,
+                    rgba(0, 0, 0, 0.1) 100%);
+            z-index: 1;
+        }
+
+        .capsule-content {
+            position: relative;
+            z-index: 2;
+            padding-left: 8%;
+            max-width: 750px;
+        }
+
+        .capsule-badge {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c5a059;
+            border: 1px solid #c5a059;
+            padding: 8px 16px;
+            margin-bottom: 25px;
+            background: rgba(197, 160, 89, 0.1);
+            backdrop-filter: blur(4px);
+            border-radius: 4px;
+        }
+
+        .capsule-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .capsule-title span {
+            color: #c5a059;
+            display: block;
+        }
+
+        .capsule-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #d1d1d1;
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 90%;
+            border-left: 3px solid rgba(255, 255, 255, 0.2);
+            padding-left: 20px;
+        }
+
+        .capsule-btn-gold {
+            display: inline-block;
+            background-color: #c5a059;
+            color: #000;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 18px 45px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+        }
+
+        .capsule-btn-gold:hover {
+            background-color: #e0b461;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.4);
+        }
+
+        @media (max-width: 900px) {
+            .capsule-hero-section {
+                padding: 15px;
+                min-height: 100vh;
+            }
+
+            .capsule-hero-wrapper {
+                height: auto;
+                min-height: 600px;
+            }
+
+            .capsule-hero-container {
+                flex-direction: column;
+                justify-content: flex-end;
+                border-radius: 20px;
+                padding-bottom: 60px;
+                padding-top: 200px;
+            }
+
+            .capsule-overlay {
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 1) 100%);
+            }
+
+            .capsule-content {
+                padding-left: 30px;
+                padding-right: 30px;
+                text-align: center;
+            }
+
+            .capsule-title {
+                font-size: 3rem;
+            }
+
+            .capsule-desc {
+                border-left: none;
+                padding-left: 0;
+                margin: 0 auto 30px auto;
+            }
+        }
+    </style>
 
     <!-- Features Section -->
     <section id="features" class="reto-ingenio-section">
