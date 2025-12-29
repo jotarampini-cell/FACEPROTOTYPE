@@ -635,6 +635,6 @@ window.addEventListener('scroll', debounce(() => {
 
 
 // Accordion Toggle for Manifesto Cards
-function toggleCard(card) {
+window.toggleCard = function (card) {
     card.classList.toggle('active');
 }
