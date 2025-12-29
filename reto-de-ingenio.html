@@ -58,10 +58,11 @@
                     <a href="index.html" class="menu-link" onclick="closeMenu()">Inicio</a>
                 </li>
                 <li class="tr-menu-item menu-parent">
-                    <a href="#" class="menu-link menu-parent-link" onclick="toggleSubmenu(event, 'programas-submenu')">
+                    <a href="programas.html" class="menu-link menu-parent-link" onclick="closeMenu()">
                         Programas
                     </a>
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <svg class="chevron-icon" onclick="toggleSubmenu(event, 'programas-submenu')" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <ul class="tr-submenu" id="programas-submenu">
