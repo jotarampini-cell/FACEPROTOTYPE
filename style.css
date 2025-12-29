@@ -4149,6 +4149,7 @@ body {
         min-width: 280px;
     }
 }
+
 /* ======================================
    PROGRAMS PAGE - TONY ROBBINS STYLE
    ====================================== */
@@ -4173,7 +4174,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, #000000 0%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 .hero-content {
@@ -4238,7 +4239,8 @@ body {
     transition: 0.3s;
 }
 
-.filter-link:hover, .filter-link.active {
+.filter-link:hover,
+.filter-link.active {
     color: #ffffff;
     border-color: #c5a059;
 }
@@ -4271,7 +4273,7 @@ body {
 
 .prog-card:hover {
     transform: translateY(-7px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
     border-color: #333;
 }
 
@@ -4402,8 +4404,8 @@ body {
     margin: 0;
 }
 
-.header-left .gold-text { 
-    color: #c5a059; 
+.header-left .gold-text {
+    color: #c5a059;
 }
 
 .header-right {
@@ -4441,12 +4443,12 @@ body {
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .wide-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 .card-img-container {
@@ -4575,7 +4577,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 100%);
     z-index: 1;
 }
 
@@ -4620,38 +4622,238 @@ body {
     background-color: white;
 }
 
-/* Responsive */
+/* Responsive - Mobile Optimization */
+
+/* Tablet (landscape phones to tablets) */
 @media (max-width: 900px) {
     .split-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 30px;
-        padding-top: 120px;
+        gap: 25px;
+        padding: 100px 4% 60px 4%;
     }
 
     .header-left h1 {
         font-size: 3rem;
+        line-height: 1;
+    }
+
+    .header-right {
+        max-width: 100%;
     }
 
     .header-right p {
         font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .programs-wide-section {
+        padding: 60px 4%;
     }
 
     .programs-wide-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .card-img-container {
         height: 250px;
     }
 
+    .wide-card-body {
+        padding: 25px 20px;
+    }
+
+    .wide-card-title {
+        font-size: 1.8rem;
+    }
+
     .video-title {
         font-size: 2.5rem;
+        line-height: 1.1;
     }
 
     .video-content {
         padding-left: 5%;
         padding-right: 5%;
+        max-width: 100%;
+    }
+
+    .video-desc {
+        font-size: 1.1rem;
     }
 }
 
+/* Mobile (phones in portrait) */
+@media (max-width: 600px) {
+
+    /* Header optimizations */
+    .split-header {
+        padding: 90px 5% 50px 5%;
+        gap: 20px;
+    }
+
+    .header-left h1 {
+        font-size: 2.5rem;
+        line-height: 0.95;
+        max-width: 100%;
+    }
+
+    .header-right p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    /* Programs section */
+    .programs-wide-section {
+        padding: 50px 5%;
+    }
+
+    .programs-wide-grid {
+        gap: 25px;
+    }
+
+    /* Cards more compact */
+    .wide-card {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-img-container {
+        height: 200px;
+    }
+
+    .wide-card-body {
+        padding: 20px 18px;
+    }
+
+    .prog-badge {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+        margin-bottom: 15px;
+    }
+
+    .wide-card-title {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        line-height: 1.15;
+    }
+
+    .wide-card-desc {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .wide-card-cta {
+        font-size: 0.85rem;
+        padding-bottom: 4px;
+    }
+
+    /* Related Articles mobile */
+    .related-section {
+        padding: 60px 0;
+    }
+
+    .related-header {
+        padding: 0 5%;
+        margin-bottom: 30px;
+    }
+
+    .related-title {
+        font-size: 1.6rem;
+    }
+
+    .related-grid {
+        padding: 15px 5%;
+        gap: 20px;
+    }
+
+    .related-card {
+        min-width: 280px;
+    }
+
+    .related-img {
+        height: 180px;
+    }
+
+    .related-body {
+        padding: 20px;
+    }
+
+    .related-h {
+        font-size: 1.2rem;
+    }
+
+    /* Video CTA mobile */
+    .video-cta-section {
+        height: 500px;
+    }
+
+    .video-content {
+        padding: 5%;
+        max-width: 100%;
+    }
+
+    .video-title {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        line-height: 1;
+    }
+
+    .video-desc {
+        font-size: 1rem;
+        margin-bottom: 30px;
+        line-height: 1.4;
+    }
+
+    .btn-gold {
+        padding: 14px 30px;
+        font-size: 0.85rem;
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+}
+
+/* Small mobile (very small phones) */
+@media (max-width: 375px) {
+    .split-header {
+        padding: 80px 4% 40px 4%;
+    }
+
+    .header-left h1 {
+        font-size: 2rem;
+    }
+
+    .header-right p {
+        font-size: 0.9rem;
+    }
+
+    .programs-wide-section {
+        padding: 40px 4%;
+    }
+
+    .card-img-container {
+        height: 180px;
+    }
+
+    .wide-card-title {
+        font-size: 1.4rem;
+    }
+
+    .wide-card-desc {
+        font-size: 0.85rem;
+    }
+
+    .video-title {
+        font-size: 1.8rem;
+    }
+
+    .video-desc {
+        font-size: 0.95rem;
+    }
+
+    .related-card {
+        min-width: 260px;
+    }
+}
