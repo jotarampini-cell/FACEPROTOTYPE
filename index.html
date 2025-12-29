@@ -94,34 +94,195 @@
         </nav>
     </div>
 
-    <!-- Hero Section "The Robbins Authority" -->
-    <section id="hero" class="tr-hero reveal">
-        <div class="tr-hero-video-container">
-            <div class="tr-overlay"></div>
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
-                class="tr-hero-img" alt="FACE Innovation Team">
-        </div>
+    <!-- Hero Section: Capsule Design -->
+    <section id="hero" class="capsule-hero-section">
+        <div class="capsule-hero-wrapper">
+            <div class="capsule-hero-container">
+                <div class="capsule-overlay"></div>
 
-        <div class="tr-content">
-            <h4 class="tr-badge">EL MANIFIESTO DE LA INNOVACIÓN</h4>
+                <div class="capsule-content">
+                    <div class="capsule-badge">EL MANIFIESTO DE LA INNOVACIÓN</div>
 
-            <h1 class="tr-title">
-                ¿TU EMPRESA ESTÁ <span class="tr-italic">SOBREVIVIENDO</span> <br>
-                O ESTÁ LIDERANDO?
-            </h1>
+                    <h1 class="capsule-title">
+                        ¿TU EMPRESA ESTÁ <span>SOBREVIVIENDO</span> O ESTÁ LIDERANDO?
+                    </h1>
 
-            <p class="tr-subtitle">
-                Rompe el ciclo del cortoplacismo. Implementa la metodología <span class="tr-bold">FACE</span> para
-                transformar el ingenio de tus colaboradores en una ventaja competitiva inalcanzable.
-            </p>
+                    <p class="capsule-desc">
+                        Rompe el ciclo del cortoplacismo. Implementa la metodología <strong>FACE</strong> para
+                        transformar el ingenio de tus colaboradores en una ventaja competitiva inalcanzable.
+                    </p>
 
-            <div class="tr-cta-group">
-                <button class="tr-btn-blue" onclick="window.location.href='reto-de-ingenio.html'">EMPIEZA EL RETO DE
-                    INGENIO</button>
-                <button class="tr-btn-outline" href="#manifesto">VER EL MANIFIESTO</button>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <a href="reto-de-ingenio.html" class="capsule-btn-gold">EMPIEZA EL RETO DE INGENIO</a>
+                        <a href="#manifesto" class="capsule-btn-gold"
+                            style="background-color: transparent; border: 2px solid #c5a059; color: #c5a059;"
+                            onclick="event.preventDefault(); document.querySelector('#manifesto').scrollIntoView({behavior:'smooth'})">VER
+                            EL MANIFIESTO</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <style>
+        /* CAPSULE HERO STYLES */
+        .capsule-hero-section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            background-color: #050505;
+        }
+
+        .capsule-hero-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            height: 850px;
+            position: relative;
+        }
+
+        .capsule-hero-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            box-shadow:
+                0 0 80px rgba(255, 255, 255, 0.15),
+                0 0 120px rgba(197, 160, 89, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .capsule-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    rgba(0, 0, 0, 0.95) 0%,
+                    rgba(0, 0, 0, 0.8) 35%,
+                    rgba(0, 0, 0, 0.1) 100%);
+            z-index: 1;
+        }
+
+        .capsule-content {
+            position: relative;
+            z-index: 2;
+            padding-left: 8%;
+            max-width: 750px;
+        }
+
+        .capsule-badge {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c5a059;
+            border: 1px solid #c5a059;
+            padding: 8px 16px;
+            margin-bottom: 25px;
+            background: rgba(197, 160, 89, 0.1);
+            backdrop-filter: blur(4px);
+            border-radius: 4px;
+        }
+
+        .capsule-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .capsule-title span {
+            color: #c5a059;
+            display: block;
+        }
+
+        .capsule-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #d1d1d1;
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 90%;
+            border-left: 3px solid rgba(255, 255, 255, 0.2);
+            padding-left: 20px;
+        }
+
+        .capsule-btn-gold {
+            display: inline-block;
+            background-color: #c5a059;
+            color: #000;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 18px 45px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+        }
+
+        .capsule-btn-gold:hover {
+            background-color: #e0b461;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.4);
+        }
+
+        @media (max-width: 900px) {
+            .capsule-hero-section {
+                padding: 15px;
+                min-height: 100vh;
+            }
+
+            .capsule-hero-wrapper {
+                height: auto;
+                min-height: 600px;
+            }
+
+            .capsule-hero-container {
+                flex-direction: column;
+                justify-content: flex-end;
+                border-radius: 20px;
+                padding-bottom: 60px;
+                padding-top: 200px;
+            }
+
+            .capsule-overlay {
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 1) 100%);
+            }
+
+            .capsule-content {
+                padding-left: 30px;
+                padding-right: 30px;
+                text-align: center;
+            }
+
+            .capsule-title {
+                font-size: 3rem;
+            }
+
+            .capsule-desc {
+                border-left: none;
+                padding-left: 0;
+                margin: 0 auto 30px auto;
+            }
+        }
+    </style>
 
     <!-- Social Proof Bar -->
     <div class="tr-social-proof">

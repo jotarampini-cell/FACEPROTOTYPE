@@ -385,6 +385,126 @@
             margin-top: 20px;
         }
 
+        /* --- SECCIÓN PROMO INTERNA FINAL (Versión mejorada) --- */
+        .internal-promo-section-final {
+            width: 100%;
+            max-width: 1300px;
+            margin: 80px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .promo-grid-final {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .promo-card-final {
+            position: relative;
+            display: block;
+            height: 480px;
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .promo-card-final:hover {
+            transform: translateY(-7px);
+        }
+
+        .promo-bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .bg-img-final {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .promo-card-final:hover .bg-img-final {
+            transform: scale(1.05);
+        }
+
+        .gradient-overlay-final {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+        }
+
+        .gradient-overlay-final.purple {
+            background: linear-gradient(0deg, rgba(43, 7, 74, 1) 0%, rgba(98, 51, 159, 0.8) 60%, rgba(0, 0, 0, 0.2) 100%);
+        }
+
+        .gradient-overlay-final.teal {
+            background: linear-gradient(0deg, rgba(7, 58, 66, 1) 0%, rgba(45, 144, 149, 0.8) 60%, rgba(0, 0, 0, 0.2) 100%);
+        }
+
+        .card-content-layer {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            color: white !important;
+            text-align: left;
+        }
+
+        .promo-headline-final {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin: 0 0 15px 0;
+            line-height: 1.1;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .promo-sub-final {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            margin: 0 0 30px 0;
+            opacity: 0.95;
+            line-height: 1.5;
+            max-width: 90%;
+        }
+
+        .pill-btn-final {
+            display: inline-block;
+            background-color: white;
+            color: black;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: fit-content;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .promo-card-final:hover .pill-btn-final {
+            background-color: #c5a059;
+            color: white;
+            box-shadow: 0 5px 20px rgba(197, 160, 89, 0.4);
+        }
+
         /* RESPONSIVE */
         @media (max-width: 900px) {
             .hero-section {
@@ -403,6 +523,23 @@
 
             .promo-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .promo-grid-final {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .promo-card-final {
+                height: 420px;
+            }
+
+            .card-content-layer {
+                padding: 30px;
+            }
+
+            .promo-headline-final {
+                font-size: 2rem;
             }
         }
     </style>
@@ -461,14 +598,52 @@
         <!-- Removed simulated header -->
 
         <div class="hero-content">
-            <div class="breadcrumbs">
-                Blog > Negocios > <span>Estrategia</span>
-            </div>
             <h1 class="post-title">¿Estás reaccionando o creando el futuro de tu negocio?</h1>
-            <div class="post-meta">
-                <span>📅 26 Oct, 2024</span>
-                <span>•</span>
-                <span>⏱ 7 min lectura</span>
+
+            <!-- Social Share Buttons -->
+            <div style="margin-top: 30px; text-align: center;">
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://twitter.com/intent/tweet?url=https://tudominio.com/blog-post.html&text=¿Estás%20reaccionando%20o%20creando%20el%20futuro%20de%20tu%20negocio?"
+                        target="_blank"
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; transition: all 0.3s; backdrop-filter: blur(10px);"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.background='rgba(255,255,255,0.2)';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.1)';">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://tudominio.com/blog-post.html"
+                        target="_blank"
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; transition: all 0.3s; backdrop-filter: blur(10px);"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.background='rgba(255,255,255,0.2)';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.1)';">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tudominio.com/blog-post.html"
+                        target="_blank"
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; transition: all 0.3s; backdrop-filter: blur(10px);"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.background='rgba(255,255,255,0.2)';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.1)';">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?text=¿Estás%20reaccionando%20o%20creando%20el%20futuro%20de%20tu%20negocio?%20https://tudominio.com/blog-post.html"
+                        target="_blank"
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; transition: all 0.3s; backdrop-filter: blur(10px);"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.background='rgba(255,255,255,0.2)';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.1)';">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -505,7 +680,8 @@
             <h2>Segundo principio: agilidad empresarial.</h2>
             <p>Al ver cómo la innovación se convierte en el estado natural de los negocios, la pregunta obligada es:
                 ¿qué podemos hacer al respecto? La respuesta es simple en teoría, pero compleja en la práctica:
-                <strong>reaccionar o anticipar</strong>.</p>
+                <strong>reaccionar o anticipar</strong>.
+            </p>
 
             <p>El verdadero superpoder de un negocio no es simplemente sobrevivir a la tormenta, sino verla venir antes
                 de que llegue. Al anticiparnos, podemos prepararnos, no solo para adaptarnos, sino para ser nosotros
@@ -518,7 +694,8 @@
 
             <h3>La solución: anticipar para crear el futuro</h3>
             <p>El antídoto a la inercia no es la reacción, sino la anticipación. Pensemos en el caso de
-                <strong>Amazon</strong>. Amazon no esperó a que la ola tecnológica llegara; la creó con AWS.</p>
+                <strong>Amazon</strong>. Amazon no esperó a que la ola tecnológica llegara; la creó con AWS.
+            </p>
 
             <h2>Prácticas accionables para tu empresa</h2>
             <p>Para pasar de la teoría a la práctica, te sugerimos los siguientes pasos, aplicables de inmediato:</p>
@@ -606,32 +783,39 @@
         </div>
     </section>
 
-    <footer class="promo-footer">
-        <div class="internal-promo-section">
-            <div class="promo-grid">
-                <a href="#eventos" class="promo-card">
-                    <div class="bg-img"><img
-                            src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                            style="width:100%; height:100%; object-fit:cover;"></div>
-                    <div class="gradient-overlay purple"></div>
-                    <div class="card-content">
-                        <h2 class="promo-headline">CAMBIA TU HISTORIA</h2>
-                        <span class="pill-btn">Ver eventos</span>
-                    </div>
-                </a>
-                <a href="#programas" class="promo-card">
-                    <div class="bg-img"><img
-                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                            style="width:100%; height:100%; object-fit:cover;"></div>
-                    <div class="gradient-overlay teal"></div>
-                    <div class="card-content">
-                        <h2 class="promo-headline">TU MEJOR VERSIÓN</h2>
-                        <span class="pill-btn">Ver programas</span>
-                    </div>
-                </a>
-            </div>
+    <div class="internal-promo-section-final">
+        <div class="promo-grid-final">
+
+            <a href="#proximamente-eventos" class="promo-card-final">
+                <div class="promo-bg-layer">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Fondo Eventos" class="bg-img-final">
+                    <div class="gradient-overlay-final purple"></div>
+                </div>
+                <div class="card-content-layer">
+                    <h2 class="promo-headline-final">CAMBIA TU HISTORIA</h2>
+                    <p class="promo-sub-final">Domina estrategias probadas para crear impulso y cambiar la
+                        trayectoria de tu vida y negocio.</p>
+                    <span class="pill-btn-final">Ver próximos eventos</span>
+                </div>
+            </a>
+
+            <a href="#proximamente-programas" class="promo-card-final">
+                <div class="promo-bg-layer">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Fondo Programas" class="bg-img-final">
+                    <div class="gradient-overlay-final teal"></div>
+                </div>
+                <div class="card-content-layer">
+                    <h2 class="promo-headline-final">TU MEJOR VERSIÓN</h2>
+                    <p class="promo-sub-final">Conecta con líderes de mentalidad similar y vive la vida con la
+                        que siempre has soñado.</p>
+                    <span class="pill-btn-final">Ver todos los programas</span>
+                </div>
+            </a>
+
         </div>
-    </footer>
+    </div>
 
     <!-- Global Footer -->
     <footer class="footer">
