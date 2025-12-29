@@ -1068,21 +1068,37 @@ body {
     line-height: 1.2;
 }
 
-/* Icono (+ / -) */
+/* --- ICONO MODIFICADO (CÍRCULO BLANCO / + NEGRO) --- */
+
 .card-icon {
-    width: 24px;
-    height: 24px;
-    color: var(--tr-gold);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* Rebote suave */
+    width: 20px;
+    /* Tamaño reducido (antes 24px) */
+    height: 20px;
+    background-color: #ffffff;
+    /* Fondo Blanco */
+    color: #000000;
+    /* Icono Negro */
+    border-radius: 50%;
+    /* Círculo perfecto */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Sombra suave para profundidad */
 }
 
+/* Ajuste del SVG interno para que no toque los bordes */
 .card-icon svg {
-    width: 100%;
-    height: 100%;
+    width: 10px;
+    /* El símbolo + es pequeño dentro del círculo */
+    height: 10px;
+    stroke-width: 3;
+    /* Líneas un poco más gruesas para legibilidad */
 }
-
 
 /* --- CUERPO (DESCRIPCIÓN OCULTA) --- */
 .manifesto-body {
@@ -1101,7 +1117,8 @@ body {
 }
 
 .body-inner p {
-    color: #ccc;
+    color: #ffffff;
+    /* TEXTO BLANCO */
     font-family: 'Montserrat', sans-serif;
     font-size: 0.95rem;
     line-height: 1.6;
@@ -1122,9 +1139,12 @@ body {
 }
 
 .manifesto-card.active .card-icon {
-    transform: rotate(45deg);
-    /* El + se vuelve x */
-    color: #fff;
+    transform: rotate(135deg);
+    /* Gira a 'X' */
+    background-color: #ffffff;
+    /* Mantiene fondo blanco */
+    color: #000000;
+    /* Mantiene icono negro */
 }
 
 .manifesto-card.active .manifesto-body {
