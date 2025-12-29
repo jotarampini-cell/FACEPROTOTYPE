@@ -67,9 +67,10 @@
     <!-- Full Screen Menu -->
     <div id="fullscreen-menu" class="fullscreen-menu">
         <nav>
-            <!-- PHASE 1: Premium Header -->
+            <!-- PHASE 1: Premium Header - CORREGIDO -->
             <div class="tr-menu-header">
                 <div class="tr-menu-logo">FACE</div>
+                <a href="#" onclick="scrollToWidget()" class="tr-header-cta">Iniciar ahora</a>
                 <button class="tr-menu-close" onclick="closeMenu()" aria-label="Cerrar menú">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -154,8 +155,26 @@
             font-family: 'Oswald', sans-serif;
             font-size: 1.5rem;
             font-weight: 600;
-            color: #c5a059;
+            color: #ffffff !important;
+            /* ERROR #7 CORREGIDO: Blanco */
             letter-spacing: 2px;
+        }
+
+        /* ERROR #5 CORREGIDO: Botón en header */
+        .tr-header-cta {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .tr-header-cta:hover {
+            background-color: #f5f5f5;
         }
 
         .tr-menu-close {
@@ -184,21 +203,33 @@
         /* PHASE 2: Typography & Spacing - Aumentado significativamente */
         .tr-mobile-list {
             list-style: none;
-            padding: 30px 20px !important;
-            /* AUMENTADO de 20px */
+            padding: 20px 24px !important;
+            /* ERROR #4 CORREGIDO: Compactado */
             margin: 0;
             flex-grow: 1;
             overflow-y: auto;
+            /* ERROR #2 CORREGIDO: Ocultar scrollbar */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE/Edge */
+        }
+
+        /* ERROR #2 WEBKIT */
+        .tr-mobile-list::-webkit-scrollbar {
+            display: none;
         }
 
         .tr-menu-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 0 !important;
-            /* AUMENTADO de 18px */
-            min-height: 60px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 18px 0 !important;
+            /* ERROR #4 CORREGIDO */
+            min-height: auto;
+            /* Compactado */
+            border-bottom: none !important;
+            /* ERROR #3 CORREGIDO: Sin líneas */
             cursor: pointer;
             position: relative;
             flex-wrap: wrap;
@@ -209,24 +240,24 @@
             color: white !important;
             font-family: 'Montserrat', sans-serif !important;
             font-size: 1rem !important;
-            /* AUMENTADO de 0.8rem */
             font-weight: 400 !important;
             text-decoration: none !important;
             flex-grow: 1;
             text-transform: none !important;
             letter-spacing: -0.01em;
+            text-align: left !important;
+            /* ERROR #1 CORREGIDO */
         }
 
-        /* PHASE 3: Iconografía Mejorada */
         .chevron-icon {
             width: 20px !important;
-            /* AUMENTADO de 14px */
             height: 20px !important;
             color: white;
             opacity: 0.6 !important;
-            /* AUMENTADO de 0.4 */
             flex-shrink: 0;
             transition: transform 0.3s ease, opacity 0.2s ease;
+            margin-left: auto;
+            /* ERROR #6 CORREGIDO: Extremo derecho */
         }
 
         .menu-parent.active .chevron-icon {
@@ -252,16 +283,18 @@
         }
 
         .tr-submenu li {
-            padding: 16px 0 !important;
-            /* AUMENTADO de 10px */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 14px 0 !important;
+            /* Compactado */
+            border-bottom: none !important;
+            /* ERROR #3 */
         }
 
         .tr-submenu a {
             font-size: 0.9rem !important;
-            /* AUMENTADO de 0.75rem */
             font-weight: 300 !important;
             color: rgba(255, 255, 255, 0.7) !important;
+            text-align: left !important;
+            /* ERROR #1 */
         }
 
         .menu-arrow {
