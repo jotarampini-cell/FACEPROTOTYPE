@@ -1017,6 +1017,8 @@ body {
     min-height: auto;
     /* Remove fixed height */
     transition: transform 0.3s ease;
+    cursor: pointer;
+    /* Interaction hint */
 }
 
 .manifesto-card:hover {
@@ -1024,6 +1026,11 @@ body {
     /* Subtle hover */
     border-color: var(--tr-gold);
     background: rgba(184, 150, 80, 0.05);
+}
+
+.manifesto-card.active {
+    background: rgba(184, 150, 80, 0.1);
+    border-color: var(--tr-gold);
 }
 
 .card-number {
@@ -1063,16 +1070,34 @@ body {
 
 .card-content p {
     color: #e0e0e0;
-    /* Slightly lighter for hierarchy */
     font-size: 0.95rem;
-    /* Compact body */
     line-height: 1.5;
     font-weight: 400;
     font-family: 'Inter', sans-serif;
     margin-bottom: 0;
-    /* Remove bottom margin */
     opacity: 1 !important;
     text-shadow: none;
+
+    /* Accordion Logic: Hidden by default */
+    display: none;
+    margin-top: 10px;
+}
+
+.manifesto-card.active .card-content p {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- AJUSTES MÓVILES ESPECÍFICOS --- */
