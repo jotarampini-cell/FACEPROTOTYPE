@@ -1443,7 +1443,37 @@
         </div>
     </footer>
 
+    <script src="js/mockAuth.js"></script>
+    <script src="js/authUI.js"></script>
+    <script src="js/header-scroll.js"></script>
+    <script src="js/demo-guide.js"></script>
     <script src="menu.js"></script>
+    <!-- Accordion Fix Version -->
+    <script src="script.js?v=accordionFix3"></script>
+    <script src="mobile.js"></script>
+
+    <!-- Emergency Accordion Script (Inline to ensure execution) -->
+    <script>
+        function toggleCard(card) {
+            // Toggle the clicked card
+            card.classList.toggle('active');
+
+            // Optional: Close others (Uncomment if single-open behavior is desired)
+            /*
+            document.querySelectorAll('.manifesto-card').forEach(c => {
+                if (c !== card) c.classList.remove('active');
+            });
+            */
+        }
+
+        // Ensure first card is active on load if not already
+        window.addEventListener('load', () => {
+            const firstCard = document.querySelector('.manifesto-card');
+            if (firstCard && !firstCard.classList.contains('active')) {
+                firstCard.classList.add('active');
+            }
+        });
+    </script>
 </body>
 
 </html>
