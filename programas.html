@@ -3,17 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Programas de transformación de FACE Innovation. Descubre nuestros programas para innovar sin inventar.">
-    <meta name="theme-color" content="#0066FF">
+        content="Programas de transformación FACE - Herramientas probadas para dominar tu negocio, liderazgo y vida personal.">
     <title>Programas - FACE Innovation</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Oswald:wght@500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="premium-menu.css">
@@ -27,7 +26,7 @@
     <header id="main-header" class="main-header">
         <div class="header-container">
             <a href="index.html" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">FACE</a>
-            <button onclick="scrollToWidget()" class="tr-header-cta">INICIA AHORA</button>
+            <button onclick="window.location.href='#programas-grid'" class="nav-cta-btn">VER PROGRAMAS</button>
             <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
@@ -36,7 +35,7 @@
         </div>
     </header>
 
-    <!-- Premium Mobile Menu -->
+    <!-- Full Screen Menu -->
     <div id="fullscreen-menu" class="fullscreen-menu">
         <nav>
             <div class="tr-menu-header">
@@ -49,13 +48,15 @@
                     </svg>
                 </button>
             </div>
+
             <ul class="tr-mobile-list">
                 <li class="tr-menu-item">
                     <a href="index.html" class="menu-link" onclick="closeMenu()">Inicio</a>
                 </li>
                 <li class="tr-menu-item menu-parent">
-                    <a href="#" class="menu-link menu-parent-link"
-                        onclick="toggleSubmenu(event, 'programas-submenu')">Programas</a>
+                    <a href="#" class="menu-link menu-parent-link" onclick="toggleSubmenu(event, 'programas-submenu')">
+                        Programas
+                    </a>
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
@@ -65,8 +66,9 @@
                     </ul>
                 </li>
                 <li class="tr-menu-item menu-parent">
-                    <a href="#" class="menu-link menu-parent-link"
-                        onclick="toggleSubmenu(event, 'explorar-submenu')">Explorar</a>
+                    <a href="#" class="menu-link menu-parent-link" onclick="toggleSubmenu(event, 'explorar-submenu')">
+                        Explorar
+                    </a>
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
@@ -74,8 +76,11 @@
                         <li><a href="blog.html" class="menu-link menu-sublink" onclick="closeMenu()">Blog</a></li>
                         <li><a href="index.html#podcast-section" class="menu-link menu-sublink"
                                 onclick="closeMenu()">Podcast</a></li>
+                        <li><a href="quiz.html" class="menu-link menu-sublink" onclick="closeMenu()">Diagnóstico
+                                (Quiz)</a></li>
                     </ul>
                 </li>
+
                 <div class="tr-menu-footer">
                     <a href="index.html#adn-innovador-section" class="tr-btn-primary">Iniciar ahora</a>
                     <a href="#login" class="tr-btn-secondary">Log in</a>
@@ -84,89 +89,89 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="tr-hero reveal" style="padding-top: 120px; min-height: 70vh;">
-        <div class="tr-hero-video-container">
-            <div class="tr-overlay"></div>
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
-                class="tr-hero-img" alt="FACE Programs">
-        </div>
-
-        <div class="tr-content">
-            <h4 class="tr-badge">TRANSFORMA TU ORGANIZACIÓN</h4>
-
-            <h1 class="tr-title">
-                Nuestros <span class="tr-italic">Programas</span>
-            </h1>
-
-            <p class="tr-subtitle">
-                Descubre las rutas de transformación diseñadas para desbloquear el ingenio en tu organización.
+    <section class="programs-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">PROGRAMAS DE TRANSFORMACIÓN</h1>
+            <p class="hero-sub">Herramientas probadas para dominar tu negocio, tu liderazgo y tu crecimiento personal.
             </p>
         </div>
     </section>
 
+    <!-- Sticky Filter Bar -->
+    <nav class="filter-bar">
+        <div class="filter-container">
+            <a href="#" class="filter-link active" data-filter="todos">Todos</a>
+            <a href="#" class="filter-link" data-filter="negocios">Negocios</a>
+            <a href="#" class="filter-link" data-filter="liderazgo">Liderazgo</a>
+            <a href="#" class="filter-link" data-filter="innovacion">Innovación</a>
+        </div>
+    </nav>
+
     <!-- Programs Grid -->
-    <section style="padding: 100px 20px; background: var(--tr-dark-blue);">
-        <div class="tr-container">
-            <div class="programs-grid">
-                <!-- Reto de Ingenio Card -->
-                <div class="program-card" onclick="window.location.href='reto-de-ingenio.html'">
-                    <div class="program-badge">PROGRAMA ESTRELLA</div>
-                    <div class="program-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </div>
-                    <h3>Reto de Ingenio</h3>
-                    <p>Transforma la cultura organizacional en 30 días. Desbloquea el potencial innovador de tu equipo y
-                        convierte el ingenio en ventaja competitiva.</p>
-                    <div class="program-features">
-                        <span>✓ Diagnóstico F.A.C.E.</span>
-                        <span>✓ 30 días de implementación</span>
-                        <span>✓ Resultados medibles</span>
-                    </div>
-                    <button class="program-cta">Conocer más →</button>
-                </div>
+    <section class="programs-section" id="programas-grid">
+        <div class="programs-grid">
 
-                <!-- Placeholder Card 1 -->
-                <div class="program-card program-coming-soon">
-                    <div class="program-badge" style="background: #666;">PRÓXIMAMENTE</div>
-                    <div class="program-icon" style="opacity: 0.5;">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
-                        </svg>
-                    </div>
-                    <h3>Programa de Liderazgo</h3>
-                    <p>Desarrolla líderes que inspiren innovación y guíen la transformación organizacional.</p>
-                    <div class="program-features" style="opacity: 0.6;">
-                        <span>✓ Módulos especializados</span>
-                        <span>✓ Coaching 1:1</span>
-                        <span>✓ Certificación</span>
-                    </div>
-                    <button class="program-cta" style="background: #666; cursor: not-allowed;">Próximamente</button>
+            <!-- Reto de Ingenio (Primary Program) -->
+            <article class="prog-card" data-category="negocios innovacion">
+                <div class="prog-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Reto de Ingenio" class="prog-img">
                 </div>
+                <div class="prog-body">
+                    <span class="prog-category">INNOVACIÓN</span>
+                    <h3 class="prog-title">RETO DE INGENIO: 21 DÍAS</h3>
+                    <p class="prog-desc">Activa el verdadero potencial de tu equipo en 21 días. La respuesta que buscas
+                        no está en Google, está en tu nómina. Deja de perder dinero hoy mismo.</p>
+                    <a href="reto-de-ingenio.html" class="prog-link">
+                        Descubrir más
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                </div>
+            </article>
 
-                <!-- Placeholder Card 2 -->
-                <div class="program-card program-coming-soon">
-                    <div class="program-badge" style="background: #666;">PRÓXIMAMENTE</div>
-                    <div class="program-icon" style="opacity: 0.5;">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z" />
-                        </svg>
-                    </div>
-                    <h3>Consultoría Estratégica</h3>
-                    <p>Acompañamiento personalizado para implementar innovación sistemática en tu organización.</p>
-                    <div class="program-features" style="opacity: 0.6;">
-                        <span>✓ Análisis profundo</span>
-                        <span>✓ Roadmap personalizado</span>
-                        <span>✓ Implementación guiada</span>
-                    </div>
-                    <button class="program-cta" style="background: #666; cursor: not-allowed;">Próximamente</button>
+            <!-- Placeholder: Business Mastery -->
+            <article class="prog-card" data-category="negocios">
+                <div class="prog-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Maestría Empresarial" class="prog-img">
                 </div>
-            </div>
+                <div class="prog-body">
+                    <span class="prog-category">NEGOCIOS</span>
+                    <h3 class="prog-title">MAESTRÍA EMPRESARIAL</h3>
+                    <p class="prog-desc">El sistema definitivo para escalar tu empresa. Deja de ser un operador y
+                        conviértete en un verdadero dueño de negocio estratégico.</p>
+                    <a href="#proximamente" class="prog-link">
+                        Próximamente
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Placeholder: Leadership Academy -->
+            <article class="prog-card" data-category="liderazgo">
+                <div class="prog-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Academia de Líderes" class="prog-img">
+                </div>
+                <div class="prog-body">
+                    <span class="prog-category">LIDERAZGO</span>
+                    <h3 class="prog-title">ACADEMIA DE LÍDERES</h3>
+                    <p class="prog-desc">Descubre cómo influir, inspirar y mover a las masas. Las claves psicológicas
+                        para un liderazgo de alto impacto.</p>
+                    <a href="#proximamente" class="prog-link">
+                        Próximamente
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
         </div>
     </section>
 
@@ -191,7 +196,7 @@
                     <a href="#" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2 .21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                         </svg>
                     </a>
                 </div>
@@ -199,10 +204,8 @@
         </div>
     </footer>
 
-    <script src="js/mockAuth.js"></script>
-    <script src="js/authUI.js"></script>
     <script src="js/header-scroll.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
     <script src="menu.js"></script>
 </body>
 
