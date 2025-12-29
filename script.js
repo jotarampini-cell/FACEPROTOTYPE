@@ -190,7 +190,7 @@ function initVideoCards() {
     videoCards.forEach(card => {
         card.addEventListener('click', () => {
             const title = card.querySelector('h3').textContent;
-            alert(`Video: "${title}"\n\nEsta funcionalidad estará disponible próximamente. Aquí podrás ver el video completo sobre este tema.`);
+            // alert(`Video: "${title}"\n\nEsta funcionalidad estará disponible próximamente. Aquí podrás ver el video completo sobre este tema.`);
         });
     });
 }
@@ -242,10 +242,10 @@ serviceButtons.forEach(button => {
 
         if (isPublic) {
             // Handle personal challenge
-            alert('¡Bienvenido al Reto Personal! Esta funcionalidad estará disponible próximamente.');
+            // alert('¡Bienvenido al Reto Personal! Esta funcionalidad estará disponible próximamente.');
         } else {
             // Handle business demo
-            alert('Gracias por tu interés. Pronto te contactaremos para agendar tu demo.');
+            // alert('Gracias por tu interés. Pronto te contactaremos para agendar tu demo.');
         }
     });
 });
@@ -478,7 +478,7 @@ const heroInput = document.querySelector('.hero-input');
 
 heroInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && heroInput.value.trim() !== '') {
-        alert(`Excelente pregunta: "${heroInput.value}". Nuestro equipo analizará tu reto y te contactará pronto.`);
+        // alert(`Excelente pregunta: "${heroInput.value}". Nuestro equipo analizará tu reto y te contactará pronto.`);
         heroInput.value = '';
     }
 });
