@@ -101,75 +101,389 @@
         </div>
     </header>
 
-    <!-- Programs Section (White Background) -->
-    <section class="programs-white-section" id="programas-grid">
-        <div class="programs-wide-grid">
+    <style>
+        /* Split Header Styles */
+        .split-header {
+            background-color: #0a0a0a;
+            padding: 120px 50px 200px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .header-left h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #ffffff;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .gold-text {
+            color: #c5a059;
+        }
+
+        .header-right {
+            max-width: 500px;
+        }
+
+        .header-right p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .split-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 100px 40px 150px 40px;
+                gap: 30px;
+            }
+
+            .header-left h1 {
+                font-size: 3rem;
+            }
+
+            .header-right {
+                max-width: 100%;
+            }
+
+            .header-right p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .split-header {
+                padding: 80px 25px 120px 25px;
+            }
+
+            .header-left h1 {
+                font-size: 2.2rem;
+            }
+
+            .header-right p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <!-- Programs Section - Tony Robbins Style -->
+    <section class="programs-premium-section" id="programas-grid">
+        <div class="programs-premium-grid">
 
             <!-- Reto de Ingenio (Primary Program) -->
-            <article class="wide-card">
-                <div class="card-img-container">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                        alt="Reto de Ingenio" class="card-img">
+            <a href="reto-de-ingenio.html" class="premium-program-card" data-gradient="reto">
+                <div class="card-bg-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');">
                 </div>
-                <div class="wide-card-body">
-                    <span class="prog-badge">INNOVACIÓN</span>
-                    <h2 class="wide-card-title">RETO DE INGENIO: 21 DÍAS</h2>
-                    <p class="wide-card-desc">Activa el verdadero potencial de tu equipo en 21 días. La respuesta que
-                        buscas no está en Google, está en tu nómina. Deja de perder dinero hoy mismo.</p>
-                    <a href="reto-de-ingenio.html" class="wide-card-cta">Descubrir programa →</a>
+                <div class="card-gradient-overlay"></div>
+                <div class="card-content-overlay">
+                    <span class="premium-badge">INNOVACIÓN</span>
+                    <h2 class="premium-card-title">RETO DE INGENIO: 21 DÍAS</h2>
+                    <p class="premium-card-desc">Activa el verdadero potencial de tu equipo en 21 días. La respuesta que
+                        buscas no está en Google, está en tu nómina.</p>
                 </div>
-            </article>
+            </a>
 
             <!-- Maestría Empresarial -->
-            <article class="wide-card">
-                <div class="card-img-container">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                        alt="Maestría Empresarial" class="card-img">
+            <a href="#" onclick="showProximityModal('Maestría Empresarial'); return false;" class="premium-program-card"
+                data-gradient="maestria">
+                <div class="card-bg-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');">
                 </div>
-                <div class="wide-card-body">
-                    <span class="prog-badge">NEGOCIOS</span>
-                    <h2 class="wide-card-title">MAESTRÍA EMPRESARIAL</h2>
-                    <p class="wide-card-desc">El sistema integral de 7 pasos para dejar de ser un operador y convertirte
-                        en dueño. Escala tus ventas y sistematiza tus procesos.</p>
-                    <a href="#" onclick="showProximityModal('Maestría Empresarial'); return false;"
-                        class="wide-card-cta">Próximamente →</a>
+                <div class="card-gradient-overlay"></div>
+                <div class="card-content-overlay">
+                    <span class="premium-badge">NEGOCIOS</span>
+                    <h2 class="premium-card-title">MAESTRÍA EMPRESARIAL</h2>
+                    <p class="premium-card-desc">El sistema integral de 7 pasos para dejar de ser un operador y
+                        convertirte en dueño. Escala tus ventas y sistematiza tus procesos.</p>
+                    <span class="coming-soon-tag">PRÓXIMAMENTE</span>
                 </div>
-            </article>
+            </a>
 
             <!-- Academia de Líderes -->
-            <article class="wide-card">
-                <div class="card-img-container">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                        alt="Academia de Líderes" class="card-img">
+            <a href="#" onclick="showProximityModal('Academia de Líderes'); return false;" class="premium-program-card"
+                data-gradient="liderazgo">
+                <div class="card-bg-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');">
                 </div>
-                <div class="wide-card-body">
-                    <span class="prog-badge">LIDERAZGO</span>
-                    <h2 class="wide-card-title">ACADEMIA DE LÍDERES</h2>
-                    <p class="wide-card-desc">La psicología de la influencia. Aprende a inspirar a tu equipo, negociar
-                        con poder y crear una cultura de alto rendimiento.</p>
-                    <a href="#" onclick="showProximityModal('Academia de Líderes'); return false;"
-                        class="wide-card-cta">Próximamente →</a>
+                <div class="card-gradient-overlay"></div>
+                <div class="card-content-overlay">
+                    <span class="premium-badge">LIDERAZGO</span>
+                    <h2 class="premium-card-title">ACADEMIA DE LÍDERES</h2>
+                    <p class="premium-card-desc">La psicología de la influencia. Aprende a inspirar a tu equipo,
+                        negociar con poder y crear una cultura de alto rendimiento.</p>
+                    <span class="coming-soon-tag">PRÓXIMAMENTE</span>
                 </div>
-            </article>
+            </a>
 
             <!-- Libertad Financiera -->
-            <article class="wide-card">
-                <div class="card-img-container">
-                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                        alt="Libertad Financiera" class="card-img">
+            <a href="#" onclick="showProximityModal('Libertad Financiera'); return false;" class="premium-program-card"
+                data-gradient="riqueza">
+                <div class="card-bg-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');">
                 </div>
-                <div class="wide-card-body">
-                    <span class="prog-badge">RIQUEZA</span>
-                    <h2 class="wide-card-title">LIBERTAD FINANCIERA</h2>
-                    <p class="wide-card-desc">Rompe el techo de cristal de tus ingresos. Estrategias de inversión y
+                <div class="card-gradient-overlay"></div>
+                <div class="card-content-overlay">
+                    <span class="premium-badge">RIQUEZA</span>
+                    <h2 class="premium-card-title">LIBERTAD FINANCIERA</h2>
+                    <p class="premium-card-desc">Rompe el techo de cristal de tus ingresos. Estrategias de inversión y
                         mentalidad de abundancia para construir patrimonio real.</p>
-                    <a href="#" onclick="showProximityModal('Libertad Financiera'); return false;"
-                        class="wide-card-cta">Próximamente →</a>
+                    <span class="coming-soon-tag">PRÓXIMAMENTE</span>
                 </div>
-            </article>
+            </a>
 
         </div>
     </section>
+
+    <style>
+        /* PREMIUM PROGRAMS SECTION - TONY ROBBINS STYLE */
+        .programs-premium-section {
+            padding: 0px 30px 80px 30px;
+            background: linear-gradient(to bottom,
+                    #0a0a0a 0%,
+                    #0a0a0a 209px,
+                    #ffffff 211px,
+                    #ffffff 100%);
+        }
+
+        .programs-premium-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            position: relative;
+        }
+
+        /* Premium Program Card - Full Clickable */
+        .premium-program-card {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            border-radius: 16px;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.12),
+                0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .premium-program-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.2),
+                0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Background Image */
+        .card-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .premium-program-card:hover .card-bg-image {
+            transform: scale(1.05);
+        }
+
+        /* Gradient Overlays - Unique for each card */
+        .card-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Reto de Ingenio - Blue/Purple gradient */
+        .premium-program-card[data-gradient="reto"] .card-gradient-overlay {
+            background: linear-gradient(135deg,
+                    rgba(15, 32, 70, 0.95) 0%,
+                    rgba(30, 60, 114, 0.85) 50%,
+                    rgba(67, 83, 153, 0.75) 100%);
+        }
+
+        /* Maestría Empresarial - Gold/Orange gradient */
+        .premium-program-card[data-gradient="maestria"] .card-gradient-overlay {
+            background: linear-gradient(135deg,
+                    rgba(60, 40, 20, 0.95) 0%,
+                    rgba(120, 70, 30, 0.85) 50%,
+                    rgba(197, 160, 89, 0.75) 100%);
+        }
+
+        /* Academia de Líderes - Teal/Green gradient */
+        .premium-program-card[data-gradient="liderazgo"] .card-gradient-overlay {
+            background: linear-gradient(135deg,
+                    rgba(15, 52, 67, 0.95) 0%,
+                    rgba(22, 78, 99, 0.85) 50%,
+                    rgba(30, 115, 140, 0.75) 100%);
+        }
+
+        /* Libertad Financiera - Deep Purple/Magenta gradient */
+        .premium-program-card[data-gradient="riqueza"] .card-gradient-overlay {
+            background: linear-gradient(135deg,
+                    rgba(45, 15, 60, 0.95) 0%,
+                    rgba(75, 25, 95, 0.85) 50%,
+                    rgba(120, 50, 130, 0.75) 100%);
+        }
+
+        .premium-program-card:hover .card-gradient-overlay {
+            opacity: 0.92;
+        }
+
+        /* Content Overlay */
+        .card-content-overlay {
+            position: relative;
+            z-index: 2;
+            padding: 50px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        /* Premium Badge */
+        .premium-badge {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #c5a059;
+            background: rgba(197, 160, 89, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+
+        /* Premium Card Title */
+        .premium-card-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        .premium-program-card:hover .premium-card-title {
+            transform: translateX(8px);
+        }
+
+        /* Premium Card Description */
+        .premium-card-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+            max-width: 90%;
+            font-weight: 300;
+        }
+
+        /* Coming Soon Tag */
+        .coming-soon-tag {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 15px;
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            width: fit-content;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .programs-premium-section {
+                background: linear-gradient(to bottom,
+                        #0a0a0a 0%,
+                        #0a0a0a 174px,
+                        #ffffff 176px,
+                        #ffffff 100%);
+            }
+
+            .programs-premium-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .programs-premium-section {
+                padding: 0px 20px 50px 20px;
+            }
+
+            .premium-program-card {
+                height: 350px;
+            }
+
+            .card-content-overlay {
+                padding: 35px;
+            }
+
+            .premium-card-title {
+                font-size: 2rem;
+            }
+
+            .premium-card-desc {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            .premium-badge {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .premium-program-card {
+                height: 320px;
+            }
+
+            .card-content-overlay {
+                padding: 25px;
+            }
+
+            .premium-card-title {
+                font-size: 1.6rem;
+            }
+
+            .premium-card-desc {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 
     <!-- Related Articles Section -->
     <section class="related-section">
