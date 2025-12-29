@@ -3980,6 +3980,9 @@ body {
     margin-right: 15px;
     display: inline-block;
     /* Ensure it renders as a box */
+    white-space: nowrap !important;
+    /* FORCE SINGLE LINE */
+    width: auto !important;
 }
 
 .nav-cta-btn:hover {
