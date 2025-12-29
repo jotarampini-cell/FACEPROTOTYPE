@@ -1068,36 +1068,44 @@ body {
     line-height: 1.2;
 }
 
-/* --- ICONO MODIFICADO (CÍRCULO BLANCO / + NEGRO) --- */
+/* --- BOTÓN ACORDEÓN (MINIMALISTA Y BLINDADO) --- */
 
 .card-icon {
-    width: 20px;
-    /* Tamaño reducido (antes 24px) */
-    height: 20px;
-    background-color: #ffffff;
-    /* Fondo Blanco */
-    color: #000000;
-    /* Icono Negro */
-    border-radius: 50%;
-    /* Círculo perfecto */
+    /* 1. TAMAÑO REDUCIDO (Para no competir con el título) */
+    width: 20px !important;
+    height: 20px !important;
+    flex-shrink: 0;
+    /* Evita que se aplaste */
 
+    /* 2. COLORES FORZADOS (Blanco Puro / Negro Puro) */
+    background-color: #ffffff !important;
+    background-image: none !important;
+    /* Elimina degradados azules del tema */
+    border: none !important;
+    color: #000000 !important;
+
+    /* 3. ALINEACIÓN Y FORMA */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    flex-shrink: 0;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    /* Sombra suave para profundidad */
+    /* 4. TRANSICIÓN Y SOMBRA SUTIL */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Sombra muy suave */
+    transition: transform 0.3s ease;
 }
 
-/* Ajuste del SVG interno para que no toque los bordes */
+/* AJUSTE DEL SÍMBOLO SVG (+) */
 .card-icon svg {
-    width: 10px;
-    /* El símbolo + es pequeño dentro del círculo */
-    height: 10px;
+    width: 10px !important;
+    /* El signo más es pequeño y delicado */
+    height: 10px !important;
+    stroke: #000000 !important;
+    /* Líneas negras siempre */
     stroke-width: 3;
-    /* Líneas un poco más gruesas para legibilidad */
+    /* Grosor para que se vea bien siendo pequeño */
+    fill: none;
 }
 
 /* --- CUERPO (DESCRIPCIÓN OCULTA) --- */
@@ -1138,13 +1146,13 @@ body {
     text-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
 }
 
+/* Mantiene los mismos colores, solo rota */
 .manifesto-card.active .card-icon {
     transform: rotate(135deg);
-    /* Gira a 'X' */
-    background-color: #ffffff;
-    /* Mantiene fondo blanco */
-    color: #000000;
-    /* Mantiene icono negro */
+    background-color: #ffffff !important;
+    /* SE QUEDA BLANCO */
+    color: #000000 !important;
+    /* SE QUEDA NEGRO */
 }
 
 .manifesto-card.active .manifesto-body {
