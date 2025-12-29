@@ -423,46 +423,56 @@
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
+            body {
+                overflow-x: hidden;
+            }
+
             .programs-premium-section {
+                padding: 0px 15px 50px 15px;
                 background: linear-gradient(to bottom,
                         #0a0a0a 0%,
-                        #0a0a0a 174px,
-                        #ffffff 176px,
+                        #0a0a0a 175px,
+                        #ffffff 175px,
                         #ffffff 100%);
+                overflow-x: hidden;
             }
 
             .programs-premium-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 20px;
                 margin: 0 auto;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .premium-program-card {
+                height: 350px;
+                max-width: 100%;
+                width: 100%;
             }
         }
 
         @media (max-width: 768px) {
             .programs-premium-section {
-                padding: 0px 20px 50px 20px;
-            }
-
-            .premium-program-card {
-                height: 350px;
+                padding: 0px 15px 50px 15px;
             }
 
             .card-content-overlay {
-                padding: 35px;
+                padding: 30px;
             }
 
             .premium-card-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .premium-card-desc {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 max-width: 100%;
             }
 
             .premium-badge {
-                font-size: 0.75rem;
-                padding: 6px 12px;
+                font-size: 0.7rem;
+                padding: 6px 10px;
             }
         }
 
