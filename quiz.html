@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description"
+        content="FACE Innovation - Metodología para innovar sin inventar. Transformamos ideas en resultados mediante Foco, Adaptación, Cultura y Ejecución.">
+    <meta name="theme-color" content="#0066FF">
+    <title>Diagnóstico Empresarial | FACE Innovation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Standard Styles -->
+    <link rel="stylesheet" href="style.css?v=quiz">
+    <link rel="stylesheet" href="premium-menu.css">
+
+    <style>
+        /* QUIZ SPECIFIC STYLES (Zen Tech) */
+
+        /* Ensure dark background for the quiz page body/main */
+        body {
+            background-color: #000;
+        }
+
+        .quiz-main-wrapper {
+            min-height: 80vh;
+            /* Ensure footer pushes down */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 80px;
+            /* Header spacing */
+        }
+
+        /* CONTENEDOR CENTRAL - Aadapted to fit mostly centered */
+        .q-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        /* PREGUNTAS */
+        .q-step {
+            display: none;
+            animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .q-step.active {
+            display: block;
+        }
+
+        .q-num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 5rem;
+            color: #111;
+            line-height: 1;
+            margin-bottom: -20px;
+            position: relative;
+            z-index: -1;
+        }
+
+        .q-question {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            margin-bottom: 40px;
+            line-height: 1.2;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .q-question .gold {
+            color: #c5a059;
+        }
+
+        /* OPCIONES PREMIUM */
+        .q-opt {
+            background: transparent;
+            border: 1px solid #333;
+            padding: 25px;
+            width: 100%;
+            text-align: left;
+            color: #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .q-opt:hover {
+            border-color: #666;
+            background: #0a0a0a;
+            transform: translateX(10px);
+        }
+
+        .q-key {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            color: #666;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        /* Estado Seleccionado */
+        .q-opt.selected {
+            border-color: #c5a059;
+            background: rgba(197, 160, 89, 0.05);
+            color: #fff;
+        }
+
+        .q-opt.selected .q-key {
+            border-color: #c5a059;
+            background: #c5a059;
+            color: #000;
+        }
+
+        /* BARRA PROGRESO */
+        .progress {
+            width: 100%;
+            height: 2px;
+            background: #222;
+            margin-top: auto;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #c5a059;
+            width: 0%;
+            transition: width 0.5s;
+            box-shadow: 0 0 15px #c5a059;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header (Standard) -->
+    <header id="main-header" class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">FACE</a>
+            <a href="quiz.html" class="nav-cta-btn">INICIAR AHORA</a>
+            <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full Screen Menu (Standard) -->
+    <div id="fullscreen-menu" class="fullscreen-menu">
+        <nav>
+            <div class="tr-menu-header">
+                <div class="tr-menu-logo">FACE</div>
+                <a href="quiz.html" class="tr-header-cta">Iniciar ahora</a>
+                <button class="tr-menu-close" onclick="closeMenu()" aria-label="Cerrar menú">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <ul class="tr-mobile-list">
+                <li class="tr-menu-item">
+                    <a href="index.html" class="menu-link" onclick="closeMenu()">Inicio</a>
+                </li>
+                <li class="tr-menu-item menu-parent">
+                    <a href="#" class="menu-link menu-parent-link" onclick="toggleSubmenu(event, 'programas-submenu')">
+                        Programas
+                    </a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <ul class="tr-submenu" id="programas-submenu">
+                        <li><a href="reto-de-ingenio.html" class="menu-link menu-sublink" onclick="closeMenu()">Reto de
+                                Ingenio</a></li>
+                    </ul>
+                </li>
+                <li class="tr-menu-item menu-parent">
+                    <a href="#" class="menu-link menu-parent-link" onclick="toggleSubmenu(event, 'explorar-submenu')">
+                        Explorar
+                    </a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <ul class="tr-submenu" id="explorar-submenu">
+                        <li><a href="blog.html" class="menu-link menu-sublink" onclick="closeMenu()">Blog</a></li>
+                        <li><a href="index.html#podcast-section" class="menu-link menu-sublink"
+                                onclick="closeMenu()">Podcast</a></li>
+                        <!-- Added Quiz as subsection per request -->
+                        <li><a href="quiz.html" class="menu-link menu-sublink" onclick="closeMenu()">Diagnóstico
+                                (Quiz)</a></li>
+                    </ul>
+                </li>
+                <div class="tr-menu-footer">
+                    <a href="quiz.html" class="tr-btn-primary">Iniciar ahora</a>
+                    <a href="#" class="tr-btn-secondary">Log in</a>
+                </div>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- MAIN CONTENT: QUIZ -->
+    <main class="quiz-main-wrapper">
+        <div class="q-container">
+            <div class="q-step active" id="step1">
+                <div class="q-num">01</div>
+                <h2 class="q-question">¿Cuál frase describe mejor la <span class="gold">velocidad de reacción</span> de
+                    tu equipo?</h2>
+                <button class="q-opt" onclick="next(1)"><span class="q-key">A</span> "Esperamos órdenes para movernos"
+                    (Lentos).</button>
+                <button class="q-opt" onclick="next(1)"><span class="q-key">B</span> "Apagamos fuegos todo el día"
+                    (Reactivos).</button>
+                <button class="q-opt" onclick="next(1)"><span class="q-key">C</span> "Nos anticipamos a los problemas"
+                    (Proactivos).</button>
+            </div>
+
+            <div class="q-step" id="step2">
+                <div class="q-num">02</div>
+                <h2 class="q-question">¿Cómo se toman las decisiones financieras <span class="gold">críticas</span>?
+                </h2>
+                <button class="q-opt" onclick="next(2)"><span class="q-key">A</span> Basadas en intuición o
+                    costumbre.</button>
+                <button class="q-opt" onclick="next(2)"><span class="q-key">B</span> Basadas en datos del mes
+                    pasado.</button>
+                <button class="q-opt" onclick="next(2)"><span class="q-key">C</span> Basadas en proyecciones en tiempo
+                    real.</button>
+            </div>
+
+            <div class="q-step" id="step3" style="text-align:center;">
+                <h2 class="q-question" style="color:#c5a059">ANÁLISIS COMPLETADO</h2>
+                <p style="color:#ccc; font-size:1.2rem; margin-bottom:40px;">Hemos detectado tu cuello de botella
+                    principal.</p>
+                <a href="index.html"
+                    style="background:#c5a059; color:black; padding:15px 40px; text-decoration:none; font-weight:bold; border-radius:50px; text-transform:uppercase; transition: 0.3s; display: inline-block;">VER
+                    DIAGNÓSTICO</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Progress Bar (Fixed at bottom or below container) -->
+    <div class="progress" style="width:100%; height:4px; background:#222; margin-top:auto;">
+        <div class="progress-bar" id="bar"></div>
+    </div>
+
+
+    <!-- Footer (Standard) -->
+    <footer style="background-color: #050505; border-top: 1px solid #1a1a1a; padding: 60px 20px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                <div>
+                    <h3
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 15px; color: #c5a059;">
+                        FACE</h3>
+                    <p style="color: #999; line-height: 1.6; font-size: 0.95rem;">Innovación sin inventar. Transformamos
+                        el ingenio de tus colaboradores en ventaja competitiva.</p>
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        Navegación</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><a href="index.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Inicio</a></li>
+                        <li style="margin-bottom: 10px;"><a href="reto-de-ingenio.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Reto de Ingenio</a></li>
+                        <li style="margin-bottom: 10px;"><a href="blog.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Blog</a></li>
+                        <li style="margin-bottom: 10px;"><a href="quiz.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Diagnóstico</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        Contacto</h4>
+                    <p style="color: #999; margin-bottom: 10px; font-size: 0.95rem;">info@faceinnovation.com</p>
+                    <p style="color: #999; font-size: 0.95rem;">Caracas, Venezuela</p>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid #222; padding-top: 20px; text-align: center; color: #666; font-size: 0.85rem;">
+                <p style="margin: 0;">© 2025 FACE Innovation. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="menu.js"></script>
+    <script src="mobile.js"></script>
+
+    <script>
+        function next(current) {
+            // Efecto visual
+            event.currentTarget.classList.add('selected');
+            setTimeout(() => {
+                document.getElementById('step' + current).classList.remove('active');
+                let next = current + 1;
+                let nextStep = document.getElementById('step' + next);
+                if (nextStep) {
+                    nextStep.classList.add('active');
+                    document.getElementById('bar').style.width = (next / 3) * 100 + '%';
+                }
+            }, 400);
+        }
+    </script>
+</body>
+
+</html>
