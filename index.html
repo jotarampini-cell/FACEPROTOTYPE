@@ -66,12 +66,23 @@
 
     <!-- Full Screen Menu -->
     <div id="fullscreen-menu" class="fullscreen-menu">
-        <button class="menu-close" id="menu-close" aria-label="Cerrar menú">&times;</button>
         <nav>
+            <!-- PHASE 1: Premium Header -->
+            <div class="tr-menu-header">
+                <div class="tr-menu-logo">FACE</div>
+                <button class="tr-menu-close" onclick="closeMenu()" aria-label="Cerrar menú">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation List -->
             <ul class="tr-mobile-list">
                 <li class="tr-menu-item">
-                    <a href="index.html" class="menu-link">Inicio</a>
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <a href="index.html" class="menu-link" onclick="closeMenu()">Inicio</a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </li>
@@ -79,7 +90,7 @@
                     <a href="#" class="menu-link menu-parent-link" onclick="toggleSubmenu(event, 'programas-submenu')">
                         Programas
                     </a>
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <ul class="tr-submenu" id="programas-submenu">
@@ -91,7 +102,7 @@
                     <a href="#" class="menu-link menu-parent-link" onclick="toggleSubmenu(event, 'explorar-submenu')">
                         Explorar
                     </a>
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <ul class="tr-submenu" id="explorar-submenu">
@@ -101,69 +112,137 @@
                     </ul>
                 </li>
                 <li class="tr-menu-item">
-                    <a href="#manifesto" class="menu-link">Manifiesto</a>
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <a href="#manifesto" class="menu-link" onclick="closeMenu()">Manifiesto</a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </li>
                 <li class="tr-menu-item">
-                    <a href="#education" class="menu-link">Contenido</a>
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <a href="#education" class="menu-link" onclick="closeMenu()">Contenido</a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </li>
             </ul>
 
+            <!-- PHASE 4: Premium Footer Buttons -->
             <div class="tr-menu-footer">
-                <a href="#" onclick="scrollToWidget()" class="tr-btn-primary">INICIAR AHORA</a>
-                <a href="#login" class="tr-btn-secondary">LOG IN</a>
+                <a href="#" onclick="scrollToWidget()" class="tr-btn-primary">Iniciar ahora</a>
+                <a href="#login" class="tr-btn-secondary">Log in</a>
             </div>
         </nav>
     </div>
 
     <style>
-        /* --- ESTILOS DE LISTA TONY ROBBINS (SOLO MÓVIL) --- */
+        /* ========================================
+           PREMIUM MOBILE MENU - TONY ROBBINS STYLE
+           ======================================== */
+
+        /* PHASE 1: Premium Header */
+        .tr-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            height: 80px;
+            background-color: #000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .tr-menu-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #c5a059;
+            letter-spacing: 2px;
+        }
+
+        .tr-menu-close {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .tr-menu-close:hover {
+            transform: scale(1.1);
+        }
+
+        .tr-menu-close svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* PHASE 2: Typography & Spacing - Aumentado significativamente */
         .tr-mobile-list {
             list-style: none;
-            padding: 20px;
+            padding: 30px 20px !important;
+            /* AUMENTADO de 20px */
             margin: 0;
             flex-grow: 1;
+            overflow-y: auto;
         }
 
         .tr-menu-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px 0 !important;
+            /* AUMENTADO de 18px */
+            min-height: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             cursor: pointer;
             position: relative;
             flex-wrap: wrap;
+            transition: background-color 0.2s ease;
         }
 
         .tr-menu-item a {
             color: white !important;
             font-family: 'Montserrat', sans-serif !important;
-            font-size: 0.8rem !important;
+            font-size: 1rem !important;
+            /* AUMENTADO de 0.8rem */
             font-weight: 400 !important;
             text-decoration: none !important;
             flex-grow: 1;
             text-transform: none !important;
+            letter-spacing: -0.01em;
         }
 
+        /* PHASE 3: Iconografía Mejorada */
         .chevron-icon {
-            width: 14px;
-            height: 14px;
+            width: 20px !important;
+            /* AUMENTADO de 14px */
+            height: 20px !important;
             color: white;
-            opacity: 0.4;
+            opacity: 0.6 !important;
+            /* AUMENTADO de 0.4 */
             flex-shrink: 0;
+            transition: transform 0.3s ease, opacity 0.2s ease;
         }
 
-        /* Submenús */
+        .menu-parent.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        .tr-menu-item:hover .chevron-icon {
+            opacity: 0.9;
+        }
+
+        /* Submenús Mejorados */
         .tr-submenu {
             list-style: none;
             padding-left: 20px;
-            margin: 10px 0 0 0;
+            margin: 16px 0 0 0;
+            /* AUMENTADO de 10px */
             display: none;
             width: 100%;
         }
@@ -173,28 +252,33 @@
         }
 
         .tr-submenu li {
-            padding: 10px 0;
+            padding: 16px 0 !important;
+            /* AUMENTADO de 10px */
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .tr-submenu a {
-            font-size: 0.75rem !important;
+            font-size: 0.9rem !important;
+            /* AUMENTADO de 0.75rem */
             font-weight: 300 !important;
-            color: rgba(255, 255, 255, 0.65) !important;
+            color: rgba(255, 255, 255, 0.7) !important;
         }
 
         .menu-arrow {
             display: none;
         }
 
-        /* --- ESTILOS DE BOTONES MEJORADOS (FOOTER) --- */
+        /* PHASE 4: Premium Footer Buttons - Completamente Rediseñados */
         .tr-menu-footer {
-            padding: 25px 20px;
+            padding: 30px 20px 40px !important;
+            /* MÁS ESPACIOSO */
             display: flex;
-            gap: 12px;
+            gap: 16px;
+            /* AUMENTADO */
             background-color: #000;
             margin-top: auto;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
         }
 
         .tr-btn-primary {
@@ -202,47 +286,62 @@
             background-color: #ffffff;
             color: #000000;
             text-align: center;
-            padding: 14px 0;
-            border-radius: 25px;
+            padding: 18px 0 !important;
+            /* AUMENTADO de 14px */
+            border-radius: 50px !important;
+            /* MÁS REDONDEADO */
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
+            font-size: 0.95rem !important;
+            /* AUMENTADO de 0.75rem */
+            letter-spacing: 0.02em;
             transition: all 0.3s ease;
             border: none;
         }
 
         .tr-btn-secondary {
             flex: 1;
-            background-color: transparent;
+            background-color: #1a1a1a !important;
+            /* GRIS OSCURO en vez de transparente */
             color: #ffffff;
             text-align: center;
-            padding: 14px 0;
-            border-radius: 25px;
-            border: 1.5px solid #ffffff;
+            padding: 18px 0 !important;
+            border-radius: 50px !important;
+            border: none !important;
+            /* SIN BORDE */
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
+            font-size: 0.95rem !important;
+            letter-spacing: 0.02em;
             transition: all 0.3s ease;
         }
 
+        /* PHASE 5: Premium Hover Effects */
+        .tr-menu-item:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
         .tr-btn-primary:hover {
-            background-color: #f5f5f5;
-            transform: translateY(-1px);
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
         }
 
         .tr-btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #2a2a2a !important;
         }
 
-        /* Asegurar que fullscreen-menu nav use flex */
+        /* Estructura Flex del Nav */
+        .fullscreen-menu {
+            background-color: #000000 !important;
+        }
+
         .fullscreen-menu nav {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100vh !important;
+            background-color: #000000 !important;
         }
     </style>
 
