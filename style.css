@@ -1087,14 +1087,31 @@ body {
     }
 
     .manifesto-card {
-        padding: 30px 20px;
+        padding: 15px 15px;
+        /* Compact padding */
         min-height: auto;
-        /* Evita espacios vacíos innecesarios */
+        flex-direction: row;
+        /* Force row */
+        align-items: center;
+        /* Center align vertically */
     }
 
     .card-number {
-        font-size: 3rem;
-        /* Número más pequeño en móvil */
+        font-size: 1.5rem;
+        /* Compact number */
+        margin-right: 10px;
+    }
+
+    .card-content h3 {
+        font-size: 1rem;
+        /* Smaller title */
+        margin-bottom: 2px;
+    }
+
+    .card-content p {
+        font-size: 0.85rem;
+        /* Smaller text */
+        line-height: 1.4;
     }
 
     /* Mobile Typography Fix for Pain Section */
