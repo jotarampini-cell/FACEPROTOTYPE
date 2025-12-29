@@ -509,11 +509,31 @@
         @media (max-width: 900px) {
             .hero-section {
                 padding-bottom: 150px;
+                padding-top: 120px;
+            }
+
+            .post-title {
+                font-size: 2.5rem;
+                line-height: 1.15;
             }
 
             /* Menos espacio en móvil */
             .featured-image-wrapper {
                 margin-top: -100px;
+                padding: 0 15px;
+            }
+
+            .article-content {
+                font-size: 1.05rem;
+                padding: 0 15px;
+            }
+
+            .article-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.4rem;
             }
 
             /* Ajuste para móvil */
@@ -523,6 +543,12 @@
 
             .promo-grid {
                 grid-template-columns: 1fr;
+            }
+
+            /* Hide header CTA on very small screens */
+            .tr-header-cta {
+                font-size: 0.7rem;
+                padding: 6px 10px;
             }
 
             .promo-grid-final {
@@ -540,6 +566,21 @@
 
             .promo-headline-final {
                 font-size: 2rem;
+            }
+        }
+
+        /* Extra small mobile - optimize even more */
+        @media (max-width: 400px) {
+            .tr-header-cta {
+                display: none;
+            }
+
+            .post-title {
+                font-size: 2rem;
+            }
+
+            .capsule-hero-container {
+                padding-top: 160px;
             }
         }
     </style>
