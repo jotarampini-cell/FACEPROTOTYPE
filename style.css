@@ -1000,103 +1000,156 @@ body {
     margin-top: 40px;
 }
 
-/* Tarjeta Individual Estilo Robbins Premium (High Contrast) */
+/* --- MANIFIESTO CARD 2.0 (PREMIUM COMPACT) --- */
+
 .manifesto-card {
-    background: #0a1423;
-    border: 1px solid rgba(184, 150, 80, 0.3);
-    padding: 20px 25px;
-    /* Significantly reduced padding */
-    border-radius: 4px;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    /* Horizontal layout */
-    align-items: flex-start;
-    /* Top align */
-    gap: 15px;
-    min-height: auto;
-    /* Remove fixed height */
-    transition: transform 0.3s ease;
+    background: #050505;
+    /* Negro casi puro */
+    border: 1px solid #1a1a1a;
+    /* Borde muy sutil */
+    border-left: 3px solid #333;
+    /* Acento izquierdo apagado */
+    padding: 0;
+    /* Quitamos padding global para manejarlo por secciones */
+    border-radius: 8px;
+    margin-bottom: 12px;
+    /* Separación entre tarjetas */
     cursor: pointer;
-    /* Interaction hint */
-}
-
-.manifesto-card:hover {
-    transform: translateY(-3px);
-    /* Subtle hover */
-    border-color: var(--tr-gold);
-    background: rgba(184, 150, 80, 0.05);
-}
-
-.manifesto-card.active {
-    background: rgba(184, 150, 80, 0.1);
-    border-color: var(--tr-gold);
-}
-
-.card-number {
-    position: static;
-    color: var(--tr-gold);
-    font-size: 1.8rem;
-    /* Smaller number */
-    font-weight: 900;
-    margin-bottom: 0;
-    opacity: 1;
-    line-height: 1;
-    flex-shrink: 0;
-    margin-top: -2px;
-    /* Optical alignment */
-}
-
-.card-content {
-    position: static !important;
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-    height: auto;
+    overflow: hidden;
+    /* Vital para la animación */
+    transition: all 0.3s ease;
+    position: relative;
     display: block;
+    /* Reset flex */
+    min-height: auto;
 }
 
-.card-content h3 {
-    color: #ffffff;
-    font-size: 1.1rem;
-    /* Compact title */
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
+/* Hover: Se ilumina sutilmente */
+.manifesto-card:hover {
+    background: #0e0e0e;
+    border-left-color: var(--tr-gold);
+    /* El borde izq se enciende */
+    transform: translateX(5px);
+    /* Movimiento lateral premium */
+}
+
+/* --- HEADER (LO QUE SE VE SIEMPRE) --- */
+.card-header {
+    display: flex;
+    align-items: center;
+    padding: 18px 25px;
+    /* Aquí va el padding ahora */
+    gap: 20px;
+}
+
+/* Número Estilizado */
+.card-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #444;
+    /* Apagado por defecto */
+    transition: 0.3s;
+    line-height: 1;
+    margin: 0;
+}
+
+/* Título */
+.card-title {
+    flex-grow: 1;
+    /* Ocupa el espacio disponible */
+    color: #fff;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
     text-transform: uppercase;
+    margin: 0;
     line-height: 1.2;
 }
 
-.card-content p {
-    color: #e0e0e0;
+/* Icono (+ / -) */
+.card-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--tr-gold);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Rebote suave */
+    flex-shrink: 0;
+}
+
+.card-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* --- CUERPO (DESCRIPCIÓN OCULTA) --- */
+.manifesto-body {
+    max-height: 0;
+    /* Altura 0 por defecto */
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    /* Animación mágica */
+    background: rgba(197, 160, 89, 0.03);
+    /* Fondo muy sutil dorado */
+}
+
+.body-inner {
+    padding: 0 25px 25px 70px;
+    /* Padding alineado (izq grande para saltar el número) */
+}
+
+.body-inner p {
+    color: #ccc;
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.95rem;
-    line-height: 1.5;
-    font-weight: 400;
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 0;
-    opacity: 1 !important;
-    text-shadow: none;
-
-    /* Accordion Logic: Hidden by default */
-    display: none;
-    margin-top: 10px;
+    line-height: 1.6;
+    margin: 0;
 }
 
-.manifesto-card.active .card-content p {
-    display: block;
-    animation: fadeIn 0.3s ease;
+/* --- ESTADO ACTIVO (ABIERTO) --- */
+.manifesto-card.active {
+    border-color: #333;
+    border-left-color: var(--tr-gold);
+    background: #0a0a0a;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
+.manifesto-card.active .card-number {
+    color: var(--tr-gold);
+    /* El número se enciende */
+    text-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
+}
+
+.manifesto-card.active .card-icon {
+    transform: rotate(45deg);
+    /* El + se vuelve x */
+    color: #fff;
+}
+
+.manifesto-card.active .manifesto-body {
+    max-height: 200px;
+    /* Altura máxima suficiente para el texto */
+}
+
+/* --- MÓVIL --- */
+@media (max-width: 768px) {
+    .card-header {
+        padding: 15px 20px;
+        gap: 15px;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .card-number {
+        font-size: 1.2rem;
+    }
+
+    .card-title {
+        font-size: 0.9rem;
+    }
+
+    .body-inner {
+        padding: 0 20px 20px 20px;
+        /* Reset del padding izq en móvil */
     }
 }
 
