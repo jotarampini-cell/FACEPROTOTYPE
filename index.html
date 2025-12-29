@@ -76,28 +76,28 @@
                     </svg>
                 </li>
                 <li class="tr-menu-item menu-parent">
-                    <a href="programas.html" class="menu-link menu-parent-link" id="programas-toggle">
+                    <a href="#" class="menu-link menu-parent-link" onclick="toggleSubmenu(event, 'programas-submenu')">
                         Programas
-                        <span class="menu-arrow">→</span>
                     </a>
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <ul class="tr-submenu" id="programas-submenu">
-                        <li><a href="reto-de-ingenio.html" class="menu-link menu-sublink">Reto de Ingenio</a></li>
+                        <li><a href="reto-de-ingenio.html" class="menu-link menu-sublink" onclick="closeMenu()">Reto de
+                                Ingenio</a></li>
                     </ul>
                 </li>
                 <li class="tr-menu-item menu-parent">
-                    <a href="#" class="menu-link menu-parent-link" id="explorar-toggle">
+                    <a href="#" class="menu-link menu-parent-link" onclick="toggleSubmenu(event, 'explorar-submenu')">
                         Explorar
-                        <span class="menu-arrow">→</span>
                     </a>
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <ul class="tr-submenu" id="explorar-submenu">
-                        <li><a href="blog.html" class="menu-link menu-sublink">Blog</a></li>
-                        <li><a href="#podcast-section" class="menu-link menu-sublink">Podcast</a></li>
+                        <li><a href="blog.html" class="menu-link menu-sublink" onclick="closeMenu()">Blog</a></li>
+                        <li><a href="#podcast-section" class="menu-link menu-sublink" onclick="closeMenu()">Podcast</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="tr-menu-item">
@@ -144,17 +144,17 @@
         .tr-menu-item a {
             color: white;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 500;
             text-decoration: none;
             flex-grow: 1;
         }
 
         .chevron-icon {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             color: white;
-            opacity: 0.7;
+            opacity: 0.5;
             flex-shrink: 0;
         }
 
@@ -177,19 +177,13 @@
         }
 
         .tr-submenu a {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .menu-arrow {
-            margin-left: 8px;
-            font-size: 1.2rem;
-            transition: transform 0.3s;
-        }
-
-        .menu-parent.active .menu-arrow {
-            transform: rotate(90deg);
+            display: none;
         }
 
         /* --- ESTILOS DE BOTONES MEJORADOS (FOOTER) --- */
@@ -252,6 +246,38 @@
             height: 100%;
         }
     </style>
+
+    <script>
+        // Toggle submenu functionality
+        function toggleSubmenu(event, submenuId) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const submenu = document.getElementById(submenuId);
+            const parent = submenu.closest('.tr-menu-item');
+
+            // Close other submenus
+            document.querySelectorAll('.tr-submenu').forEach(sub => {
+                if (sub.id !== submenuId) {
+                    sub.classList.remove('active');
+                    sub.closest('.tr-menu-item').classList.remove('active');
+                }
+            });
+
+            // Toggle current submenu
+            submenu.classList.toggle('active');
+            parent.classList.toggle('active');
+        }
+
+        // Close menu function
+        function closeMenu() {
+            const menu = document.getElementById('fullscreen-menu');
+            if (menu) {
+                menu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
 
     <!-- Hero Section: Capsule Design -->
     <section id="hero" class="capsule-hero-section">
