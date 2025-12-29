@@ -1,0 +1,888 @@
+
+  
+              
+.capsule-content {
+                  
+padding-left: 30px;
+                  
+padding-right: 30px;
+                  
+text-align: center;
+              }
+  
+              
+.capsule-title {
+                  
+font-size: 3rem;
+              }
+  
+              
+.capsule-desc {
+                  
+border-left: none;
+                  
+padding-left: 0;
+                  
+margin: 0 auto 30px 
+auto;
+              }
+          }
+      </style>
+  
+      <!-- Social 
+Proof Bar -->
+      <div class="tr-
+social-proof">
+          <div 
+class="tr-container">
+              
+<span>ADAPTACI??N 
+INTELIGENTE</span>
+              <span c
+lass="tr-divider">|</
+span>
+              
+<span>RESILIENCIA 
+ACTIVA</span>
+              <span c
+lass="tr-divider">|</
+span>
+              
+<span>VALOR 
+COMPARTIDO</span>
+          </div>
+      </div>
+  
+      <!-- Section: 
+The Problem (Pain) - 
+White Background 
+Contrast -->
+      <section class=
+"tr-problem-section">
+          <div 
+class="tr-container">
+              <h2 cla
+ss="tr-section-title-
+dark">Venezuela no 
+necesita m??s 
+inventores. <br> 
+<span
+                     
+ class="tr-italic-dar
+k">Necesita 
+adaptadores brillante
+s.</span></h2>
+              <div cl
+ass="tr-problem-grid"
+>
+                  
+<div class="tr-proble
+m-item">
+                     
+ <h3>El "Modo 
+Supervivencia"</h3>
+                     
+ <p>La mentalidad 
+rentista y la 
+incertidumbre han 
+forzado a las 
+empresas a un 
+cortoplacismo
+                     
+     peligroso. La 
+visi??n se encoge y 
+la innovaci??n se 
+asfixia.</p>
+                  
+</div>
+                  
+<div class="tr-proble
+m-item">
+                     
+ <h3>El Silencio 
+Estrat??gico</h3>
+                     
+ <p>En el ADN 
+organizacional 
+venezolano, el error 
+se castiga. Esto 
+mata cualquier brote 
+de ingenio
+                     
+     antes de que 
+nazca. Es hora de 
+cambiar el sistema 
+operativo.</p>
+                  
+</div>
+              </div>
+          </div>
+      </section>
+  
+>     <!-- DNA 
+Innovator Widget 
+(Diagnostic Test) -->
+>     <!-- DNA 
+Innovator Widget 
+(Diagnostic Test) -->
+      <section id="ad
+n-innovador-section" 
+class="tr-widget-sect
+ion"
+          
+style="padding: 80px 
+20px; background: var
+(--tr-bg-darkest);">
+          <div class=
+"tr-widget-container"
+>
+  
+              <div 
+id="screen-filter" 
+class="tr-screen 
+active">
+                  
+<h2 class="tr-headlin
+e">??Cu??l de estas 
+frases describe tu 
+realidad actual?</h2>
+                  <p 
+class="tr-subheadline
+">Selecciona la 
+opci??n que m??s 
+resuene con tu d??a 
+a d??a operativo.</p>
+  
+                  
+<div class="tr-cards-
+grid">
+                     
+ <div 
+class="tr-card" oncli
+ck="selectPath('A')">
+                     
+     <svg 
+class="tr-icon-svg" x
+mlns="http://www.w3.o
+rg/2000/svg" 
+viewBox="0 0 24 24"
+                     
+         
+fill="currentColor">
+                     
+         <path
+                     
+             d="M12 
+2.25a.75.75 0 
+01.75.75v2.25a.75.75 
+0 01-1.5 0V3a.75.75 
+0 01.75-.75zM7.5 
+12a4.5 4.5 0 119 0 
+4.5 4.5 0 01-9 
+0zM18.894 
+6.166a.75.75 0 
+00-1.06-1.06l-1.591 
+1.59a.75.75 0 
+101.061 1.061l1.591-1
+.59zM21.75 12a.75.75 
+0 01-.75.75h-2.25a.75
+.75 0 
+010-1.5H21a.75.75 0 
+01.75.75zM17.834 
+18.894a.75.75 0 001.0
+61-1.06l-1.59-1.591a.
+75.75 0 10-1.061 
+1.061l1.59 1.59zM12 
+18a.75.75 0 
+01.75.75V21a.75.75 0 
+01-1.5 
+0v-2.25A.75.75 0 
+0112 18zM7.758 
+17.303a.75.75 0 
+00-1.061-1.06l-1.591 
+1.59a.75.75 0 001.06 
+1.061l1.591-1.59zM6 
+12a.75.75 0 
+01-.75.75H3a.75.75 0 
+010-1.5h2.25A.75.75 
+0 016 12zM6.697 
+7.757a.75.75 0 001.06
+-1.06l-1.59-1.591a.75
+.75 0 00-1.061 
+1.06l1.59 1.591z" />
+                     
+     </svg>
+                     
+     <h3>"Yo hago de 
+todo."</h3>
+                     
+     <p>Si yo no 
+estoy, el negocio se 
+para. Soy el motor 
+??nico.</p>
+                     
+ </div>
+                     
+ <div 
+class="tr-card" oncli
+ck="selectPath('B')">
+                     
+     <svg 
+class="tr-icon-svg" x
+mlns="http://www.w3.o
+rg/2000/svg" 
+viewBox="0 0 24 24"
+                     
+         
+fill="currentColor">
+                     
+         <path 
+fill-rule="evenodd"
+                     
+             d="M12 
+2.25c-5.385 0-9.75 
+4.365-9.75 
+9.75s4.365 9.75 9.75 
+9.75 9.75-4.365 
+9.75-9.75S17.385 
+2.25 12 2.25zM12.75 
+6a.75.75 0 00-1.5 
+0v6c0 .414.336.75.75.
+75h4.5a.75.75 0 
+000-1.5h-3.75V6z"
+                     
+             
+clip-rule="evenodd" 
+/>
+                     
+     </svg>
+                     
+     <h3>"Somos 
+lentos."</h3>
+                     
+     <p>Tengo 
+estructura y 
+gerentes, pero 
+cuesta decidir 
+r??pido.</p>
+                     
+ </div>
+                     
+ <div 
+class="tr-card" oncli
+ck="selectPath('C')">
+                     
+     <svg 
+class="tr-icon-svg" x
+mlns="http://www.w3.o
+rg/2000/svg" 
+viewBox="0 0 24 24"
+                     
+         
+fill="currentColor">
+                     
+         <path 
+fill-rule="evenodd"
+                     
+             
+d="M12.516 
+2.17a.75.75 0 
+00-1.032 0 11.209 
+11.209 0 01-7.877 
+3.08.75.75 0 
+00-.722.515A12.74 
+12.74 0 002.25 
+9.75c0 5.942 4.064 
+10.933 9.563 
+12.348a.75.75 0 
+00.374 0c5.499-1.415 
+9.563-6.406 
+9.563-12.348 0-1.339-
+.192-2.638-.556-3.879
+a.75.75 0 
+00-.722-.515 11.209 
+11.209 0 
+01-7.877-3.08zM12 
+15.75a3.75 3.75 0 
+100-7.5 3.75 3.75 0 
+000 7.5z"
+                     
+             
+clip-rule="evenodd" 
+/>
+                     
+     </svg>
+                     
+     <h3>"Empresa 
+Familiar."</h3>
+                     
+     <p>La prioridad 
+es cuidar el 
+patrimonio y el 
+legado.</p>
+                     
+ </div>
+                     
+ <div 
+class="tr-card" oncli
+ck="selectPath('D')">
+                     
+     <svg 
+class="tr-icon-svg" x
+mlns="http://www.w3.o
+rg/2000/svg" 
+viewBox="0 0 24 24"
+                     
+         
+fill="currentColor">
+                     
+         <path 
+fill-rule="evenodd"
+                     
+             d="M12 
+2.25a.75.75 0 01.75.7
+5v.75h8.25a.75.75 0 
+01.75.75v10.5a.75.75 
+0 01-.75.75H3a.75.75 
+0 01-.75-.75V4.5a.75.
+75 0 01.75-.75h8.25v-
+.75a.75.75 0 
+01.75-.75zm-6 
+4.5a.75.75 0 00-1.5 
+0v6a.75.75 0 001.5 
+0v-6zm6 0a.75.75 0 
+00-1.5 0v6a.75.75 0 
+001.5 0v-6zm6 
+0a.75.75 0 00-1.5 
+0v6a.75.75 0 001.5 
+0v-6zM2.25 
+18.75a.75.75 0 000 
+1.5h19.5a.75.75 0 
+000-1.5H2.25z"
+                     
+             
+clip-rule="evenodd" 
+/>
+                     
+     </svg>
+                     
+     <h3>"Impacto 
+Social / 
+P??blico."</h3>
+                     
+     <p>Tenemos 
+visi??n, pero el 
+riesgo al error 
+p??blico nos 
+frena.</p>
+                     
+ </div>
+                  
+</div>
+              </div>
+  
+              <div id
+="screen-questions" 
+class="tr-screen 
+hidden">
+                  
+<div class="tr-progre
+ss-container">
+                     
+ <div id="progress-ba
+r-fill"></div>
+                  
+</div>
+                  
+<h2 id="question-text
+-dynamic" class="tr-q
+uestion-headline">Pre
+gunta aqu??...</h2>
+                  
+<div class="tr-action
+s-row">
+                     
+ <button 
+class="tr-btn-option 
+no" onclick="handleAn
+swer('NO')">NO</butto
+n>
+                     
+ <button 
+class="tr-btn-option 
+yes" onclick="handleA
+nswer('SI')">S??</but
+ton>
+                  
+</div>
+              </div>
+  
+              <div 
+id="screen-loader" 
+class="tr-screen 
+hidden" 
+style="text-align: 
+center; padding: 
+60px 0;">
+                  
+<svg class="tr-spinne
+r-svg" xmlns="http://
+www.w3.org/2000/svg" 
+fill="none" 
+viewBox="0 0 24 24">
+                     
+ <circle 
+class="opacity-25" 
+cx="12" cy="12" 
+r="10" stroke="curren
+tColor" stroke-width=
+"4"></circle>
+                     
+ <path 
+class="opacity-75" fi
+ll="var(--tr-accent)"
+                     
+     d="M4 12a8 8 0 
+018-8V0C5.373 0 0 
+5.373 0 12h4zm2 
+5.291A7.962 7.962 0 
+014 12H0c0 3.042 
+1.135 5.824 3 
+7.938l3-2.647z">
+                     
+ </path>
+                  
+</svg>
+                  
+<h3 id="loader-text-d
+ynamic" class="tr-loa
+der-text">Analizando 
+patrones...</h3>
+              </div>
+  
+              <div 
+id="screen-email" 
+class="tr-screen 
+hidden" 
+style="text-align: 
+center;">
+                  
+<h2 class="tr-headlin
+e">DIAGN??STICO 
+COMPLETADO</h2>
+                  <p 
+class="tr-subheadline
+" style="max-width: 
+800px;">Hemos 
+detectado <strong>3 
+bloqueos
+                     
+     
+cr??ticos</strong>. 
+Ingresa tus datos 
+para generar la Hoja 
+de Ruta F.A.C.E. y 
+desbloquear tu
+                     
+ resultado.</p>
+  
+                  
+<form 
+id="simulated-form" o
+nsubmit="simulateSubm
+it(event)" 
+style="max-width: 
+500px; margin: 0 
+auto;">
+                     
+ <div class="tr-input
+-group">
+                     
+     <input 
+type="text" 
+id="user-name" 
+placeholder="Tu 
+Nombre Completo" 
+required
+                     
+         class="tr-in
+put-field">
+                     
+ </div>
+                     
+ <div class="tr-input
+-group">
+                     
+     <input 
+type="email" 
+id="user-email" 
+placeholder="Tu 
+Mejor Correo 
+Electr??nico" 
+required
+                     
+         class="tr-in
+put-field">
+                     
+ </div>
+                     
+ <button 
+type="submit" class="
+tr-btn-submit" id="bt
+n-submit-email">
+                     
+     REVELAR MI ADN 
+INNOVADOR
+                     
+ </button>
+                  
+</form>
+                  <p 
+class="tr-privacy-tex
+t">??? Tus datos 
+est??n seguros. 
+Privacidad 
+garantizada.</p>
+              </div>
+  
+              <div 
+id="screen-result" 
+class="tr-screen 
+hidden">
+                  
+<div class="tr-result
+-header">
+                     
+ <span class="tr-badg
+e-gold">ARQUETIPO 
+IDENTIFICADO</span>
+                     
+ <h1 id="result-title
+-dynamic">EL T??TULO 
+AQU??</h1>
+                  
+</div>
+  
+                  
+<div class="tr-result
+-content">
+                     
+ <div 
+class="tr-pain-box">
+                     
+     <h4><svg 
+class="tr-box-icon" x
+mlns="http://www.w3.o
+rg/2000/svg" 
+viewBox="0 0 24 24"
+                     
+             fill="va
+r(--tr-accent)">
+                     
+             <path 
+fill-rule="evenodd"
+                     
+                 
+d="M9.401 
+3.003c1.155-2 
+4.043-2 5.197 
+0l7.355 12.748c1.154 
+2-.29 4.5-2.599 
+4.5H4.645c-2.309 0-3.
+752-2.5-2.598-4.5L9.4
+ 3.003zM12 
+8.25a.75.75 0 
+01.75.75v3.75a.75.75 
+0 01-1.5 0V9a.75.75 
+0 01.75-.75zm0 
+8.25a.75.75 0 
+100-1.5.75.75 0 000 
+1.5z"
+                     
+                 
+clip-rule="evenodd" 
+/>
+                     
+         </svg> TU 
+REALIDAD ACTUAL (EL 
+FRENO)</h4>
+                     
+     <p id="result-pa
+in-dynamic">Texto de 
+dolor...</p>
+                     
+ </div>
+  
+                     
+ <div class="tr-solut
+ion-box">
+                     
+     <h4><svg 
+class="tr-box-icon" x
+mlns="http://www.w3.o
+rg/2000/svg" 
+viewBox="0 0 24 24"
+                     
+             fill="va
+r(--tr-gold)">
+                     
+             <path 
+fill-rule="evenodd"
+                     
+                 
+d="M14.615 
+1.595a.75.75 0 
+01.359.852L12.982 
+9.75h7.268a.75.75 0 
+01.548 1.262l-10.5 
+11.25a.75.75 0 01-1.2
+72-.71l1.992-7.302H3.
+75a.75.75 0 01-.548-1
+.262l10.5-11.25a.75.7
+5 0 01.913-.143z"
+                     
+                 
+clip-rule="evenodd" 
+/>
+                     
+         </svg> TU 
+RECETA F.A.C.E. (LA 
+ACCI??N)</h4>
+                     
+     <ul id="result-r
+ecipe-dynamic">
+                     
+     </ul>
+                     
+ </div>
+  
+                     
+ <button class="tr-bt
+n-submit" onclick="al
+ert('Redirigir a 
+checkout o 
+agenda')">SOLICITAR 
+SESI??N
+                     
+     
+ESTRAT??GICA</button>
+                  
+</div>
+              </div>
+  
+          </div>
+      </section>
+  
+  
+      <!-- Section: 
+The Manifesto (Code 
+of Honor) - 
+Dark/Gold -->
+      <!-- Section: 
+The Manifesto (Code 
+of Honor) - 
+Dark/Gold -->
+      <section class=
+"tr-manifesto-section
+" id="manifesto">
+          <div 
+class="tr-container">
+              <h4 
+class="tr-badge 
+text-center">EL 
+C??DIGO DE HONOR</h4>
+              <h2 
+class="tr-gold-title 
+text-center">Las 11 
+Leyes de la 
+Innovaci??n</h2>
+  
+              <div cl
+ass="manifesto-grid">
+                  
+<div class="manifesto
+-card">
+                     
+ <span class="card-nu
+mber">01</span>
+                     
+ <div 
+class="card-content">
+                     
+     <h3>Prop??sito 
+sobre 
+Transacci??n</h3>
+                     
+     <p>Buscamos la 
+felicidad del 
+cliente como nuestra 
+verdadera raz??n de 
+ser; las ganancias 
+fluyen
+                     
+         como 
+resultado 
+natural.</p>
+                     
+ </div>
+                  
+</div>
+  
+                  
+<div class="manifesto
+-card">
+                     
+ <span class="card-nu
+mber">02</span>
+                     
+ <div 
+class="card-content">
+                     
+     <h3>Adaptaci??n 
+sobre Invenci??n</h3>
+                     
+     <p>Valoramos la 
+maestr??a de adaptar 
+y optimizar lo 
+existente por encima 
+de la b??squeda de la
+                     
+         
+originalidad 
+radical.</p>
+                     
+ </div>
+                  
+</div>
+  
+                  
+<div class="manifesto
+-card">
+                     
+ <span class="card-nu
+mber">03</span>
+                     
+ <div 
+class="card-content">
+                     
+     <h3>La Gente 
+sobre el Proceso</h3>
+                     
+     <p>Construimos 
+organizaciones que 
+forjan mejores 
+ciudadanos, no solo 
+empleados 
+eficientes.</p>
+                     
+ </div>
+                  
+</div>
+  
+                  
+<div class="manifesto
+-card">
+                     
+ <span class="card-nu
+mber">04</span>
+                     
+ <div 
+class="card-content">
+                     
+     <h3>Resiliencia 
+sobre 
+Resignaci??n</h3>
+                     
+     
+<p>Transformamos los 
+desaf??os de nuestro 
+entorno en nuestra 
+mayor ventaja 
+competitiva.</p>
+                     
+ </div>
+                  
+</div>
+  
+                  
+<div class="manifesto
+-card">
+                     
+ <span class="card-nu
+mber">05</span>
+                     
+ <div 
+class="card-content">
+                     
+     <h3>Mejora 
+Continua</h3>
+                     
+     <p>Abrazamos el 
+Kaizen como forma de 
+vida, perfeccionando 
+constantemente 
+modelos, productos y
+                     
+         
+servicios.</p>
+                     
+ </div>
+                  
+</div>
+  
+                  
+<div class="manifesto
+-card">
+                     
+ <span class="card-nu
+mber">06</span>
+                     
+ <div 
+class="card-content">
+                     
+     <h3>Valor 
+Compartido</h3>
+                     
+     <p>Integramos 
+lo social en el 
+n??cleo del negocio. 
+El ??xito econ??mico 
+y el progreso social 
+se
+                     
+         impulsan 
+mutuamente.</p>
+                     
+ </div>
+                  
+</div>
+  
+                  
+<div class="manifesto
+-card">
+                     
+ <span class="card-nu
+mber">07</span>
+                     
+ <div 
+class="card-content">
+                     
+     <h3>Visi??n a 
+Largo Plazo</h3>
+                     
+     <p>Cada 
+decisi??n diaria se 
+alinea con la 
+Venezuela que 
+queremos construir 
+en las pr??ximas
+                     
+         
+d??cadas.</p>
+                     
+ </div>
+                  
+</div>
+  
+
+
