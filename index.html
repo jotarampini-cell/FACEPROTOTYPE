@@ -68,29 +68,49 @@
     <div id="fullscreen-menu" class="fullscreen-menu">
         <button class="menu-close" id="menu-close" aria-label="Cerrar menú">&times;</button>
         <nav>
-            <ul class="menu-main-list">
-                <li><a href="index.html" class="menu-link">Inicio</a></li>
-                <li class="menu-parent">
-                    <a href="programas.html" class="menu-link menu-parent-link" id="programas-toggle">
-                        Programas
-                        <span class="menu-arrow">→</span>
-                    </a>
-                    <ul class="menu-submenu" id="programas-submenu">
-                        <li><a href="reto-de-ingenio.html" class="menu-link menu-sublink">Reto de Ingenio</a></li>
-                    </ul>
+            <ul class="tr-mobile-list">
+                <li class="tr-menu-item">
+                    <a href="index.html">Inicio</a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
                 </li>
-                <li class="menu-parent">
-                    <a href="#" class="menu-link menu-parent-link" id="explorar-toggle">
-                        Explorar
-                        <span class="menu-arrow">→</span>
-                    </a>
-                    <ul class="menu-submenu" id="explorar-submenu">
-                        <li><a href="blog.html" class="menu-link menu-sublink">Blog</a></li>
-                    </ul>
+                <li class="tr-menu-item">
+                    <a href="programas.html">Programas</a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
                 </li>
-                <li><a href="#manifesto" class="menu-link">Manifiesto</a></li>
-                <li><a href="#education" class="menu-link">Contenido</a></li>
+                <li class="tr-menu-item">
+                    <a href="blog.html">Blog</a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </li>
+                <li class="tr-menu-item">
+                    <a href="#podcast-section">Podcast</a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </li>
+                <li class="tr-menu-item">
+                    <a href="#manifesto">Manifiesto</a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </li>
+                <li class="tr-menu-item">
+                    <a href="#education">Contenido</a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </li>
             </ul>
+
+            <div class="tr-menu-footer">
+                <a href="#" onclick="scrollToWidget()" class="tr-btn-light">Iniciar ahora</a>
+                <a href="#login" class="tr-btn-dark">Log In</a>
+            </div>
         </nav>
     </div>
 
@@ -844,11 +864,11 @@
     </script>
 
     <!-- Podcast Section: Light Premium Mode -->
-    <section class="podcast-section-light">
+    <section id="podcast-section" class="podcast-section-light">
         <div class="tr-container">
 
             <div class="pod-header">
-                <h2 class="pod-section-title">El Podcast del Reto de Ingenio</h2>
+                <h2 class="pod-section-title">El podcast de la innovación empresarial</h2>
                 <a href="#podcast-all" class="pod-link-all">
                     Explorar episodios
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
