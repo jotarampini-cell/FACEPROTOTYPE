@@ -3962,28 +3962,6 @@ body {
     }
 }
 
-/* --- FIXED HEADER CTA BUTTON --- */
-.nav-cta-btn {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    padding: 10px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    transition: 0.3s ease;
-    border: 1px solid white;
-    margin-right: 15px;
-    display: inline-block;
-    /* Ensure it renders as a box */
-}
-
-.nav-cta-btn:hover {
-    background-color: transparent !important;
-    color: #ffffff !important;
-}
 
 /* --- FIXED HOME WIDGET STYLES --- */
 .card-svg-icon {
