@@ -638,3 +638,13 @@ window.addEventListener('scroll', debounce(() => {
 window.toggleCard = function (card) {
     card.classList.toggle('active');
 }
+
+/* --- RELATED ARTICLES SLIDER --- */
+function scrollGrid(direction) {
+    const grid = document.getElementById('relatedGrid');
+    if(grid) {
+        const scrollAmount = 350; // Ancho aproximado de tarjeta
+        grid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+}
+

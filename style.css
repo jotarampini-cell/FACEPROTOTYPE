@@ -4024,5 +4024,126 @@ body {
 .tr-card:hover .card-svg-icon {
     color: #c5a059;
     transform: scale(1.1) translateY(-5px);
-    filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.4));
-}
+
+    /* --- SECCIÓN ARTÍCULOS RELACIONADOS (COPIADO DE BLOG) --- */
+    .related-section {
+        background-color: #f9f9f9;
+        /* var(--bg-light) fallback */
+        padding: 80px 0;
+        border-top: 1px solid #eee;
+    }
+
+    .related-header {
+        max-width: 1200px;
+        margin: 0 auto 40px auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .related-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2rem;
+        text-transform: uppercase;
+        color: #111;
+    }
+
+    .slider-nav {
+        display: flex;
+        gap: 10px;
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.3s;
+        color: #333;
+    }
+
+    .nav-btn:hover {
+        background: #c5a059;
+        /* var(--tr-gold) */
+        color: white;
+        border-color: #c5a059;
+    }
+
+    /* Grid Scrollable */
+    .related-grid {
+        display: flex;
+        gap: 30px;
+        overflow-x: auto;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .related-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .related-card {
+        min-width: 350px;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        /* Ensure link behaves as block */
+    }
+
+    .related-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .related-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .related-body {
+        padding: 25px;
+    }
+
+    .related-tag {
+        color: #c5a059;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .related-h {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.4rem;
+        line-height: 1.2;
+        margin-bottom: 10px;
+        color: #111;
+    }
+
+    .related-excerpt {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+        .related-card {
+            min-width: 280px;
+        }
+    }
