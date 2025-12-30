@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description"
+        content="Diagnóstico Reto de Ingenio - Descubre tu Coeficiente de Ingenio y la salud de innovación en tu empresa.">
+    <meta name="theme-color" content="#000000">
+    <title>Diagnóstico Reto de Ingenio | FACE Innovation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Standard Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="premium-menu.css">
+
+    <style>
+        /* BASE STYLES FIX */
+        body {
+            background-color: #000;
+            overflow-x: hidden;
+        }
+
+        /* ZEN QUIZ STYLES (Copied from reto-de-ingenio.html) */
+        :root {
+            --zen-bg: #000000;
+            --zen-gold: #c5a059;
+            --zen-text: #ffffff;
+            --zen-muted: #666666;
+        }
+
+        .zen-diagnostic-section {
+            background-color: var(--zen-bg);
+            padding: 120px 20px 60px 20px;
+            /* Added top padding for header space */
+            position: relative;
+            overflow: hidden;
+            min-height: 90vh;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--zen-text);
+            display: flex;
+            align-items: center;
+        }
+
+        /* LUZ AMBIENTAL */
+        .zen-glow {
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .zen-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* HEADER */
+        .zen-header {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .zen-label {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--zen-muted);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .zen-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--zen-text);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .text-gold {
+            color: var(--zen-gold);
+        }
+
+        /* BARRA PROGRESO */
+        .progress-line {
+            width: 100%;
+            height: 2px;
+            background: #1a1a1a;
+            margin-bottom: 50px;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .progress-active {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--zen-gold);
+            box-shadow: 0 0 10px var(--zen-gold);
+            transition: width 0.6s ease;
+        }
+
+        /* PASOS (SLIDES) */
+        .quiz-step {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .quiz-step.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 5rem;
+            color: #111;
+            line-height: 1;
+            margin-bottom: -30px;
+            position: relative;
+            z-index: -1;
+            user-select: none;
+        }
+
+        .step-question {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        .highlight {
+            color: var(--zen-gold);
+            font-weight: 600;
+        }
+
+        /* OPCIONES (BOTONES) */
+        .zen-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .zen-opt {
+            background: transparent;
+            border: 1px solid #222;
+            padding: 20px 25px;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            width: 100%;
+        }
+
+        .opt-marker {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #333;
+            color: #555;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            flex-shrink: 0;
+        }
+
+        .opt-text {
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        /* HOVER & SELECTED */
+        .zen-opt:hover {
+            border-color: #444;
+            background: rgba(255, 255, 255, 0.02);
+            transform: translateX(5px);
+        }
+
+        .zen-opt.selected {
+            border-color: var(--zen-gold);
+            background: rgba(197, 160, 89, 0.08);
+        }
+
+        .zen-opt.selected .opt-marker {
+            background: var(--zen-gold);
+            color: black;
+            border-color: var(--zen-gold);
+        }
+
+        .zen-opt.selected .opt-text {
+            color: white;
+        }
+
+        /* FORMULARIO LEAD */
+        .zen-form-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .input-line {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-line input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+            color: white;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .input-line input:focus {
+            outline: none;
+            border-bottom-color: var(--zen-gold);
+        }
+
+        /* Animación Focus */
+        .focus-border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--zen-gold);
+            transition: 0.4s;
+        }
+
+        .input-line input:focus~.focus-border {
+            width: 100%;
+        }
+
+        .zen-submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: white;
+            color: black;
+            border: none;
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .zen-submit-btn:hover {
+            background: var(--zen-gold);
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+        }
+
+        .privacy-note {
+            text-align: center;
+            color: #444;
+            font-size: 0.8rem;
+            margin-top: 20px;
+        }
+
+        /* DASHBOARD RESULTADOS */
+        .result-dashboard {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            animation: fadeUp 1s ease;
+        }
+
+        /* Gráfico Circular */
+        .circular-chart {
+            display: block;
+            margin: 0 auto;
+            max-width: 80%;
+            max-height: 220px;
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: #1a1a1a;
+            stroke-width: 2;
+        }
+
+        .circle {
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke: var(--zen-gold);
+            transition: stroke-dasharray 1.5s ease;
+        }
+
+        .score-circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .score-val {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .score-label {
+            font-size: 0.8rem;
+            color: #666;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        .res-subtitle {
+            color: #666;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .res-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin: 0 0 20px 0;
+            line-height: 1;
+        }
+
+        .res-desc {
+            color: #ccc;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            font-size: 1.1rem;
+        }
+
+        .zen-cta-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--zen-gold);
+            color: black;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            transition: 0.3s;
+            border-radius: 4px;
+        }
+
+        .zen-cta-btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Resp */
+        @media (max-width: 768px) {
+            .zen-diagnostic-section {
+                padding: 100px 20px;
+            }
+
+            .zen-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Global Header & Menu (Injected by JS) -->
+    <!-- See menu.js for source -->
+
+    <!-- ZEN DIAGNOSTIC SECTION -->
+    <section id="diagnostico" class="zen-diagnostic-section">
+
+        <div class="zen-glow"></div>
+
+        <div class="zen-container">
+
+            <div class="zen-header text-center">
+                <span class="zen-label">ALGORITMO DE ANÁLISIS</span>
+                <h2 class="zen-title">DESCUBRE TU <span class="text-gold">COEFICIENTE DE INGENIO</span></h2>
+            </div>
+
+            <div class="quiz-wrapper">
+
+                <div class="progress-line">
+                    <div class="progress-active" id="zen-progress"></div>
+                </div>
+
+                <div id="quiz-flow">
+
+                    <div class="quiz-step active" id="step-1">
+                        <div class="step-number">01</div>
+                        <h3 class="step-question">¿Cuándo fue la última vez que le preguntaste a un operativo: <br><span
+                                class="highlight">"¿En qué crees que estamos fallando?"</span></h3>
+
+                        <div class="zen-options">
+                            <button class="zen-opt" onclick="zenNext(1, 0)">
+                                <div class="opt-marker">A</div>
+                                <div class="opt-text">Nunca. Asumo que si algo falla, me lo dirán.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(1, 10)">
+                                <div class="opt-marker">B</div>
+                                <div class="opt-text">Quizás hace un año, en evaluaciones anuales.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(1, 20)">
+                                <div class="opt-marker">C</div>
+                                <div class="opt-text">A veces, cuando veo problemas evidentes.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(1, 30)">
+                                <div class="opt-marker">D</div>
+                                <div class="opt-text">Tenemos reuniones semanales específicas para esto.</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step-2">
+                        <div class="step-number">02</div>
+                        <h3 class="step-question">¿Cuándo fue la última vez que hablaste con un empleado <span
+                                class="highlight">SOLO de los comentarios negativos</span> de clientes?</h3>
+
+                        <div class="zen-options">
+                            <button class="zen-opt" onclick="zenNext(2, 0)">
+                                <div class="opt-marker">A</div>
+                                <div class="opt-text">Solo cuando hay una queja grave para buscar culpables.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(2, 10)">
+                                <div class="opt-marker">B</div>
+                                <div class="opt-text">Revisamos las quejas en reportes generales mensuales.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(2, 20)">
+                                <div class="opt-marker">C</div>
+                                <div class="opt-text">Escucho lo malo, pero a veces me lo tomo personal.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(2, 30)">
+                                <div class="opt-marker">D</div>
+                                <div class="opt-text">Analizamos lo malo constantemente sin culpas.</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step-3">
+                        <div class="step-number">03</div>
+                        <h3 class="step-question">Si un empleado sugiere cambiar un proceso establecido, <span
+                                class="highlight">¿cuál es la reacción inmediata?</span></h3>
+
+                        <div class="zen-options">
+                            <button class="zen-opt" onclick="zenNext(3, 0)">
+                                <div class="opt-marker">A</div>
+                                <div class="opt-text">"Aquí siempre se ha hecho así. No toques nada".</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(3, 10)">
+                                <div class="opt-marker">B</div>
+                                <div class="opt-text">"Déjame pensarlo". (Y usualmente la idea se olvida).</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(3, 20)">
+                                <div class="opt-marker">C</div>
+                                <div class="opt-text">Le digo que lo intente bajo su propio riesgo.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(3, 30)">
+                                <div class="opt-marker">D</div>
+                                <div class="opt-text">"Tienes permiso para hacer una prueba piloto hoy".</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step-4">
+                        <div class="step-number">04</div>
+                        <h3 class="step-question">Tienes un problema operativo que cuesta dinero diario. <span
+                                class="highlight">¿Quién puede solucionarlo?</span></h3>
+
+                        <div class="zen-options">
+                            <button class="zen-opt" onclick="zenNext(4, 0)">
+                                <div class="opt-marker">A</div>
+                                <div class="opt-text">Solo yo. Nadie mueve un dedo sin mi orden.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(4, 10)">
+                                <div class="opt-marker">B</div>
+                                <div class="opt-text">Deben llenar una solicitud y esperar aprobación.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(4, 20)">
+                                <div class="opt-marker">C</div>
+                                <div class="opt-text">El supervisor, pero prefiere consultarme antes.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(4, 30)">
+                                <div class="opt-marker">D</div>
+                                <div class="opt-text">El operario. Tiene autonomía para ejecutar mejoras.</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step-lead">
+                        <div class="step-number">FINAL</div>
+                        <h3 class="step-question">Cálculo Completado. <br><span class="highlight">¿A dónde enviamos tu
+                                reporte estratégico?</span></h3>
+
+                        <div class="zen-form-wrapper">
+                            <form id="zen-form" onsubmit="zenCalculate(event)">
+                                <div class="input-line">
+                                    <input type="text" placeholder="Tu Nombre" required>
+                                    <span class="focus-border"></span>
+                                </div>
+                                <div class="input-line">
+                                    <input type="email" placeholder="Tu Correo Corporativo" required>
+                                    <span class="focus-border"></span>
+                                </div>
+                                <button type="submit" class="zen-submit-btn">
+                                    <span>REVELAR RESULTADO</span>
+                                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
+                                        stroke-width="2" fill="none">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </form>
+                            <p class="privacy-note">🔒 Tus datos están seguros y no serán compartidos.</p>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step-result">
+                        <div class="result-dashboard">
+                            <div class="score-circle">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" id="score-ring" stroke-dasharray="0, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="score-text">
+                                    <span class="score-val" id="final-score">0</span>
+                                    <span class="score-label">PUNTOS</span>
+                                </div>
+                            </div>
+
+                            <div class="result-details">
+                                <h4 class="res-subtitle">ESTATUS ACTUAL:</h4>
+                                <h2 class="res-title text-gold" id="final-title">ANALIZANDO...</h2>
+                                <p class="res-desc" id="final-desc">Espere un momento mientras generamos su perfil...
+                                </p>
+
+                                <a href="reto-de-ingenio.html#registro" class="zen-cta-btn">DESBLOQUEAR MI EQUIPO CON EL
+                                    RETO</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #050505; border-top: 1px solid #1a1a1a; padding: 60px 20px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto; text-align:center;">
+            <p style="color: #999; margin: 0;">© 2025 FACE Innovation. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="menu.js"></script>
+    <script>
+        let zScore = 0;
+
+        function zenNext(step, points) {
+            // 1. Guardar puntos
+            zScore += points;
+
+            // 2. Efecto visual en botón seleccionado
+            const btn = event.currentTarget;
+            btn.classList.add('selected');
+
+            // 3. Esperar 400ms y avanzar
+            setTimeout(() => {
+                // Ocultar paso actual
+                document.getElementById(`step-${step}`).classList.remove('active');
+
+                if (step < 4) {
+                    // Mostrar siguiente pregunta
+                    const nextStep = step + 1;
+                    document.getElementById(`step-${nextStep}`).classList.add('active');
+                    updateZenProgress(nextStep);
+                } else {
+                    // Mostrar Formulario de Lead (Paso 5)
+                    document.getElementById('step-lead').classList.add('active');
+                    updateZenProgress(5);
+                }
+            }, 400);
+        }
+
+        function updateZenProgress(stepIndex) {
+            // Hay 6 estados visuales totales (4 preguntas + 1 lead + 1 resultado)
+            const percentage = (stepIndex / 6) * 100;
+            document.getElementById('zen-progress').style.width = percentage + '%';
+        }
+
+        function zenCalculate(e) {
+            e.preventDefault();
+
+            // 1. Ocultar Formulario
+            document.getElementById('step-lead').classList.remove('active');
+
+            // 2. Mostrar Dashboard de Resultado (Paso 6)
+            const resScreen = document.getElementById('step-result');
+            resScreen.classList.add('active');
+            updateZenProgress(6);
+
+            // 3. Lógica del Algoritmo
+            let title = "";
+            let desc = "";
+            let strokeVal = 0; // Valor para el gráfico (0-100)
+
+            // Normalizamos el puntaje a base 100 para el gráfico
+            // Max puntos posibles = 120 (4 preguntas * 30 pts)
+            const scorePercent = Math.round((zScore / 120) * 100);
+
+            if (zScore <= 40) {
+                title = "CEGUERA OPERATIVA";
+                desc = "Tu empresa tiene un 'Punto Ciego' masivo. El talento existe, pero los canales están cerrados por una cultura de silencio. Estás perdiendo oportunidades de ahorro diario.";
+                strokeVal = Math.max(scorePercent, 15); // Mínimo visual 15% para que se vea algo rojo
+            } else if (zScore <= 80) {
+                title = "INNOVACIÓN DORMIDA";
+                desc = "Tienes un equipo dispuesto, pero frenado por procesos antiguos o burocracia. Necesitas desbloquear la agilidad para que las ideas se conviertan en rentabilidad.";
+                strokeVal = scorePercent;
+            } else {
+                title = "LIDERAZGO INTUITIVO";
+                desc = "Lo haces bien por instinto, pero te falta sistema. Para escalar, necesitas que la innovación no dependa de tu presencia, sino de un protocolo instalado.";
+                strokeVal = scorePercent;
+            }
+
+            // 4. Inyectar Textos en el DOM
+            document.getElementById('final-score').innerText = scorePercent;
+            document.getElementById('final-title').innerText = title;
+            document.getElementById('final-desc').innerText = desc;
+
+            // 5. Animar Gráfico Circular SVG
+            setTimeout(() => {
+                const circle = document.getElementById('score-ring');
+                // stroke-dasharray: valor, 100 (referencia circunferencia)
+                circle.setAttribute('stroke-dasharray', `${strokeVal}, 100`);
+
+                // Cambiar color a rojo si el puntaje es crítico
+                if (zScore <= 40) {
+                    circle.style.stroke = "#ff4444";
+                } else {
+                    circle.style.stroke = "#c5a059";
+                }
+            }, 500);
+        }
+    </script>
+</body>
+
+</html>
