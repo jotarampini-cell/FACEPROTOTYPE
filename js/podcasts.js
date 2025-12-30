@@ -561,9 +561,15 @@ function setupProgressBarScrubbing() {
         // Mouse Dragging Logic
         function handleScrub(e) {
             if (!stickyAudio || !stickyAudio.duration) return;
-            const rect = progressContainer.getBoundingClientRect();
+
+            // Calculate relative to the TRACK, not the container (which includes times)
+            const track = document.getElementById('sticky-progress-container');
+            if (!track) return;
+
+            const rect = track.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
             const width = rect.width;
+
             if (width > 0) {
                 let ratio = clickX / width;
                 ratio = Math.max(0, Math.min(1, ratio));
@@ -594,11 +600,9 @@ function setupProgressBarScrubbing() {
         });
 
         // Click Logic (for simple clicks)
+        // Click Logic (Redundant with mousedown)
         progressContainer.addEventListener('click', (e) => {
-            if (!stickyAudio || !stickyAudio.duration) return;
-            // Clicking is handled by mousedown/up as well now, but keep for fallback
-            // Actually, mousedown handles the initial jump, so click might be redundant or double-fire.
-            // Let's rely on handleScrub from mousedown for immediate response.
+            // handled by mousedown
         });
 
         // Touch scrubbing support (Sticky)
