@@ -162,59 +162,8 @@
         </div>
     </footer>
 
-    <!-- Sticky Audio Player -->
-    <div id="sticky-player" class="sticky-player">
-        <div class="player-container">
-            <div class="player-left">
-                <img src="" alt="Album Art" id="player-art">
-                <div class="player-info">
-                    <h4 id="player-title">Episode Title</h4>
-                    <span id="player-author">FACE Innovation</span>
-                </div>
-            </div>
-            <div class="player-center">
-                <div class="player-controls">
-                    <button class="player-btn" onclick="skipStickyTime(-15)">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M11 17l-5-5 5-5M18 17l-5-5 5-5" />
-                        </svg>
-                    </button>
-                    <button class="player-btn play-toggle" id="sticky-play-btn" onclick="toggleStickyPlay()">
-                        <svg id="sticky-icon-play" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                        </svg>
-                        <svg id="sticky-icon-pause" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"
-                            style="display:none;">
-                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                        </svg>
-                    </button>
-                    <button class="player-btn" onclick="skipStickyTime(15)">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M13 17l5-5-5-5M6 17l5-5-5-5" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="player-progress-bar">
-                    <span id="player-current-time">0:00</span>
-                    <div class="progress-track" id="sticky-progress-container">
-                        <div class="progress-fill" id="sticky-progress-bar"></div>
-                    </div>
-                    <span id="player-duration">--:--</span>
-                </div>
-            </div>
-            <div class="player-right">
-                <button class="player-btn close-player" onclick="closeStickyPlayer()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <audio id="sticky-audio"></audio>
-    </div>
+    <!-- Sticky Audio Player (Global - Injected by JS) -->
+    <!-- Handled by js/podcasts.js -->
 
     <!-- Scripts -->
     <script src="menu.js"></script>
