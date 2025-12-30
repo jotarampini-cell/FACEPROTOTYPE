@@ -458,19 +458,35 @@ function updateStickyProgress() {
 }
 
 // Click on progress bar to seek
-document.addEventListener('DOMContentLoaded', () => {
-    const progressContainer = document.getElementById('sticky-progress-container');
+function setupProgressBarScrubbing() {
+    const progressContainer = document.querySelector('.player-progress-bar');
     if (progressContainer) {
+        progressContainer.style.cursor = 'pointer'; // Make it look clickable
+
         progressContainer.addEventListener('click', (e) => {
-            if (!stickyAudio) return;
-            const width = progressContainer.clientWidth;
-            const clickX = e.offsetX;
-            const duration = stickyAudio.duration;
-            stickyAudio.currentTime = (clickX / width) * duration;
-            updateStickyProgress();
+            if (!stickyAudio || !stickyAudio.duration) return;
+
+            const rect = progressContainer.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+
+            if (width > 0) {
+                const duration = stickyAudio.duration;
+                stickyAudio.currentTime = (clickX / width) * duration;
+                updateStickyProgress();
+            }
         });
+        console.log("Progress bar scrubbing setup complete.");
+    } else {
+        console.warn("Progress bar container not found for cleanup.");
     }
-});
+}
+
+// Call setup on load and whenever sticky player is triggered if needed, 
+// but since it's static in DOM, once on load is fine usually.
+// However, the previous listener was inside DOMContentLoaded which might fire before sticky player HTML exists?
+// No, sticky player HTML is now in index.html, so it exists on load.
+document.addEventListener('DOMContentLoaded', setupProgressBarScrubbing);
 
 // Helper for format time (redeclared just in case, but safe in global scope)
 function formatTime(seconds) {
