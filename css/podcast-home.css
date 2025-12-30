@@ -16,7 +16,7 @@
 
 .podcast-section-light {
     background-color: var(--pod-bg);
-    padding: 80px 20px;
+    padding: 100px 20px;
     color: var(--pod-text-dark);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     position: relative;
@@ -69,7 +69,7 @@
 .podcast-grid {
     display: grid;
     grid-template-columns: 400px 1fr;
-    gap: 60px;
+    gap: 80px;
     align-items: start;
 }
 
@@ -280,7 +280,8 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 20px 0;
+    padding: 25px 0;
+    justify-content: space-between;
     border-bottom: 1px solid var(--pod-border);
     transition: all 0.2s ease;
     background: transparent;
@@ -296,8 +297,8 @@
 }
 
 .pod-thumb-wrapper {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 8px;
     overflow: hidden;
     flex-shrink: 0;
@@ -320,12 +321,12 @@
 
 .pod-tags {
     font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
+    \n font-size: 0.7rem;
     color: var(--pod-text-light);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-weight: 500;
 }
 
@@ -347,7 +348,7 @@
     background: transparent;
     border: 1px solid var(--pod-text-dark);
     border-radius: 50px;
-    padding: 8px 18px;
+    padding: 10px 22px;
     color: var(--pod-text-dark);
     cursor: pointer;
     font-family: 'Inter', sans-serif;
@@ -358,6 +359,7 @@
     gap: 8px;
     transition: all 0.2s ease;
     flex-shrink: 0;
+    margin-left: auto;
 }
 
 .btn-icon {
@@ -472,8 +474,8 @@
     }
 
     .pod-thumb-wrapper {
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
     }
 
     .pod-item-title {
@@ -490,6 +492,7 @@
         min-height: 40px;
         justify-content: center;
         border-radius: 50%;
+        margin-left: 0;
     }
 
     .btn-icon {
