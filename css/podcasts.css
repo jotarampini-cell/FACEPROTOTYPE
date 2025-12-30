@@ -191,8 +191,7 @@
 }
 
 .podcast-card-btn::before {
-    content: '▶';
-    font-size: 11px;
+    /* content: '▶'; Removed for SVG replacement */
 }
 
 /* ============================================
@@ -273,8 +272,7 @@
 }
 
 .podcast-btn-primary::before {
-    content: '▶';
-    font-size: 12px;
+    /* content: '▶'; Removed for SVG replacement */
 }
 
 .podcast-platform-buttons {
@@ -653,42 +651,62 @@
 @media (max-width: 768px) {
     .sticky-player {
         bottom: 0px;
-        padding: 10px 0;
+        padding: 12px 0;
     }
 
     .player-container {
         display: grid;
-        grid-template-columns: auto 1fr auto;
-        gap: 12px;
-        padding: 0 15px;
+        grid-template-areas:
+            "left center right"
+            "progress progress progress";
+        grid-template-columns: 1fr auto auto;
+        gap: 12px 10px;
+        padding: 0 20px;
     }
 
     .player-left {
+        grid-area: left;
         width: auto;
         min-width: 0;
-        gap: 10px;
+        gap: 12px;
     }
 
     .player-left img {
-        width: 42px;
-        height: 42px;
+        width: 48px;
+        height: 48px;
     }
 
     .player-info {
-        max-width: 140px;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .player-info h4 {
         font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .player-center {
+        grid-area: center;
         width: auto;
         flex-direction: row;
         justify-content: flex-end;
     }
 
-    .player-progress-bar,
+    /* Show progress bar on mobile now */
+    .player-progress-bar {
+        grid-area: progress;
+        display: flex;
+        width: 100%;
+        max-width: none;
+        margin-top: 0;
+        order: 2;
+    }
+
+    /* Hide skip buttons on mobile to save space if needed, 
+       but user requested improved player, so keeping minimal controls */
     .player-controls button:not(.play-toggle) {
         display: none;
     }
@@ -698,16 +716,11 @@
     }
 
     .play-toggle {
-        width: 36px;
-        height: 36px;
-        background: transparent;
-        color: white;
-        border: 1px solid white;
-    }
-
-    .play-toggle:hover {
+        width: 40px;
+        height: 40px;
         background: white;
         color: black;
+        border: none;
     }
 
     .play-toggle svg {
@@ -716,6 +729,7 @@
     }
 
     .player-right {
+        grid-area: right;
         width: auto;
     }
 }
