@@ -120,6 +120,29 @@ function initMenuEvents() {
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeMenu();
     });
+
+    // Init Sticky Header Scroll Logic
+    initStickyHeader();
+}
+
+/**
+ * Handles Sticky Header Effect on Scroll
+ */
+function initStickyHeader() {
+    const header = document.getElementById('main-header');
+    if (!header) return;
+
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Trigger once on load in case we start scrolled down
+    handleScroll();
 }
 
 function openMenu() {

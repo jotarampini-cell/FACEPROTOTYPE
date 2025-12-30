@@ -130,8 +130,13 @@
     }
 
     .nav-cta-btn {
-        display: none;
-        /* Hide CTA on mobile to save space */
+        display: block !important;
+        font-size: 0.75rem;
+        padding: 8px 16px;
+        background: white;
+        color: black;
+        margin-right: 12px;
+        border-radius: 50px;
     }
 
     .menu-icon {
