@@ -486,16 +486,25 @@ function updatePlayIcon(isPlaying) {
     }
 
     // Update Inline Player Icon (Home)
+    const inlinePlay = document.getElementById('inline-icon-play');
+    const inlinePause = document.getElementById('inline-icon-pause');
     const inlineBtn = document.getElementById('inline-play-btn');
-    if (inlineBtn) {
+
+    if (inlinePlay && inlinePause) {
         if (isPlaying) {
-            inlineBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>';
-            inlineBtn.setAttribute('aria-label', 'Pausar podcast');
-            inlineBtn.classList.add('playing');
+            inlinePlay.style.display = 'none';
+            inlinePause.style.display = 'block';
+            if (inlineBtn) {
+                inlineBtn.setAttribute('aria-label', 'Pausar podcast');
+                inlineBtn.classList.add('playing');
+            }
         } else {
-            inlineBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>';
-            inlineBtn.setAttribute('aria-label', 'Reproducir podcast');
-            inlineBtn.classList.remove('playing');
+            inlinePlay.style.display = 'block';
+            inlinePause.style.display = 'none';
+            if (inlineBtn) {
+                inlineBtn.setAttribute('aria-label', 'Reproducir podcast');
+                inlineBtn.classList.remove('playing');
+            }
         }
     }
 }
