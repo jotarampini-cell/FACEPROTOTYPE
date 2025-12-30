@@ -960,21 +960,26 @@
                             </div>
 
                             <div class="player-controls">
-                                <button class="ctrl-btn sm" title="Retroceder 15s" onclick="skipStickyTime(-15)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <button class="ctrl-btn sm" title="Retroceder 15s" onclick="skipStickyTime(-15)"
+                                    aria-label="Retroceder 15 segundos">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        aria-hidden="true">
                                         <path d="M11 19l-9-7 9-7v14z"></path>
                                         <path d="M22 19l-9-7 9-7v14z"></path>
                                     </svg>
                                 </button>
                                 <!-- Main Play Button Triggers Sticky Player -->
-                                <button class="ctrl-btn play-main" id="inline-play-btn" onclick="toggleStickyPlay()">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                <button class="ctrl-btn play-main" id="inline-play-btn" onclick="toggleStickyPlay()"
+                                    aria-label="Reproducir podcast">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                         <path
                                             d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
                                     </svg>
                                 </button>
-                                <button class="ctrl-btn sm" title="Adelantar 15s" onclick="skipStickyTime(15)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <button class="ctrl-btn sm" title="Adelantar 15s" onclick="skipStickyTime(15)"
+                                    aria-label="Adelantar 15 segundos">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        aria-hidden="true">
                                         <path d="M13 19l9-7-9-7v14z"></path>
                                         <path d="M2 19l9-7-9-7v14z"></path>
                                     </svg>
@@ -1046,19 +1051,22 @@
     <!-- RESTORED INLINE STYLES FOR EXACT DESIGN MATCH -->
     <style>
         :root {
-            --pod-bg-light: #f4f6f8;
+            --pod-bg-light: #f8f9fa;
             --pod-card-light: #ffffff;
             --pod-text-dark: #1a1a1a;
-            --pod-text-muted: #666666;
-            --pod-border: #e0e0e0;
-            --pod-gold: #c5a059;
-            --pod-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+            --pod-text-muted: #555555;
+            --pod-border: #e5e5e5;
+            --pod-gold: #9a7a3a;
+            /* Darker gold for better contrast */
+            --pod-gold-hover: #c5a059;
+            --pod-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            /* More visible shadow */
         }
 
         .podcast-section-light {
             background-color: var(--pod-bg-light);
-            padding: 20px 20px;
-            /* TIGHTENED: Reduced from 50px to 20px */
+            padding: 60px 20px;
+            /* Increased padding for better spacing */
             color: var(--pod-text-dark);
             font-family: 'Montserrat', sans-serif;
             position: relative;
@@ -1070,8 +1078,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
-            /* TIGHTENED: Reduced from 30px to 10px */
+            margin-bottom: 35px;
+            /* Increased spacing */
         }
 
         .pod-section-title {
@@ -1080,6 +1088,7 @@
             text-transform: uppercase;
             margin: 0;
             color: #111;
+            letter-spacing: 0.5px;
         }
 
         .pod-link-all {
@@ -1091,25 +1100,33 @@
             font-size: 0.95rem;
             font-weight: 600;
             text-decoration: none;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .pod-link-all:hover {
-            color: var(--pod-gold);
+            color: var(--pod-gold-hover);
             transform: translateX(5px);
         }
 
         .podcast-card-wrapper {
             background-color: var(--pod-card-light);
-            border-radius: 16px;
-            padding: 50px;
+            border-radius: 20px;
+            padding: 40px;
+            /* Reduced from 50px */
             box-shadow: var(--pod-shadow);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .podcast-card-wrapper:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
 
         .podcast-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
+            grid-template-columns: 1.2fr 1fr;
+            /* Better balance */
+            gap: 50px;
+            /* Reduced from 70px */
             align-items: center;
         }
 
@@ -1120,7 +1137,7 @@
         .pod-cover-large {
             position: relative;
             display: inline-block;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
@@ -1141,34 +1158,35 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             opacity: 0;
-            transition: 0.3s;
+            transition: opacity 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .play-circle {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.9);
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 50%;
             color: var(--pod-gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            transform: scale(0.8);
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.85);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .play-circle svg {
-            width: 30px;
+            width: 32px;
             margin-left: 4px;
         }
 
         .pod-cover-large:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .pod-cover-large:hover .play-overlay {
@@ -1177,25 +1195,33 @@
 
         .pod-cover-large:hover .play-circle {
             transform: scale(1);
+            color: var(--pod-gold-hover);
         }
 
         .pod-meta-featured {
             font-family: 'Oswald', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--pod-gold);
+            /* Darker gold for better contrast */
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-weight: 600;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         .pod-title-featured {
             font-family: 'Oswald', sans-serif;
-            font-size: 2.2rem;
-            line-height: 1.2;
-            margin-bottom: 35px;
+            font-size: 1.6rem;
+            /* Reduced from 2.2rem */
+            line-height: 1.3;
+            margin-bottom: 30px;
             color: #111;
-            text-transform: uppercase;
+            font-weight: 700;
+            /* Removed text-transform: uppercase for better readability */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .audio-player-ui {
@@ -1207,77 +1233,112 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--pod-text-muted);
-            font-family: monospace;
-            margin-bottom: 25px;
+            font-family: 'Inter', monospace;
+            margin-bottom: 22px;
             font-weight: 600;
         }
 
         .prog-line {
             flex-grow: 1;
-            height: 4px;
-            background: #e0e0e0;
+            height: 5px;
+            /* Slightly thicker */
+            background: #e5e5e5;
             margin: 0 15px;
-            border-radius: 4px;
+            border-radius: 10px;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            transition: height 0.2s ease;
+        }
+
+        .prog-line:hover {
+            height: 7px;
+            /* Visual affordance when hoverable */
+        }
+
+        .prog-line:hover::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: var(--hover-position, 0%);
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: var(--pod-gold-hover);
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
 
         .prog-fill {
             width: 0%;
-            /* Initial state 0 */
             height: 100%;
-            background: var(--pod-text-dark);
-            border-radius: 4px;
+            background: linear-gradient(90deg, var(--pod-gold), var(--pod-gold-hover));
+            border-radius: 10px;
+            transition: width 0.1s linear;
         }
 
         .player-controls {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 25px;
         }
 
         .ctrl-btn {
             background: none;
             border: none;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.25s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
         .ctrl-btn.sm {
-            color: #999;
+            color: #888;
+            padding: 8px;
+            border-radius: 50%;
         }
 
         .ctrl-btn.sm svg {
-            width: 28px;
+            width: 26px;
         }
 
         .ctrl-btn.sm:hover {
             color: #333;
+            background: rgba(0, 0, 0, 0.05);
+            transform: scale(1.1);
+        }
+
+        .ctrl-btn.sm:active {
+            transform: scale(0.95);
         }
 
         .ctrl-btn.play-main {
-            width: 65px;
-            height: 65px;
+            width: 70px;
+            height: 70px;
             background: var(--pod-text-dark);
             border-radius: 50%;
             color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
         }
 
         .ctrl-btn.play-main svg {
-            width: 30px;
-            margin-left: 4px;
+            width: 32px;
+            margin-left: 3px;
         }
 
         .ctrl-btn.play-main:hover {
-            background: var(--pod-gold);
-            transform: scale(1.05);
+            background: var(--pod-gold-hover);
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
+        }
+
+        .ctrl-btn.play-main:active {
+            transform: scale(1);
         }
 
         .pod-list {
@@ -1288,10 +1349,10 @@
         .pod-item {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 20px 0;
+            gap: 18px;
+            padding: 18px 0;
             border-bottom: 1px solid var(--pod-border);
-            transition: 0.3s;
+            transition: all 0.25s ease;
             background: transparent;
             cursor: pointer;
         }
@@ -1301,17 +1362,23 @@
         }
 
         .pod-item:hover {
-            padding-left: 10px;
-            border-bottom-color: var(--pod-gold);
+            transform: translateX(8px);
+            /* Smooth slide instead of padding change */
+            border-bottom-color: var(--pod-gold-hover);
         }
 
         .pod-thumb-wrapper {
             width: 70px;
             height: 70px;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
             flex-shrink: 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease;
+        }
+
+        .pod-item:hover .pod-thumb-wrapper {
+            transform: scale(1.05);
         }
 
         .pod-thumb {
@@ -1329,64 +1396,80 @@
             font-size: 0.7rem;
             color: var(--pod-text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             display: block;
             margin-bottom: 6px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .pod-item-title {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.05rem;
             font-weight: 700;
-            line-height: 1.3;
+            line-height: 1.4;
             margin: 0;
             color: #222;
+            transition: color 0.2s ease;
+        }
+
+        .pod-item:hover .pod-item-title {
+            color: var(--pod-gold-hover);
         }
 
         .pod-listen-btn {
-            background: transparent;
-            border: 1px solid #ddd;
+            background: var(--pod-gold);
+            border: 2px solid var(--pod-gold);
             border-radius: 30px;
-            padding: 8px 16px;
-            color: var(--pod-text-dark);
+            padding: 10px 20px;
+            color: white;
             cursor: pointer;
             font-family: 'Oswald', sans-serif;
             font-size: 0.8rem;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(154, 122, 58, 0.2);
         }
 
         .btn-icon {
             display: flex;
             align-items: center;
-            height: 12px;
+            height: 14px;
         }
 
         .btn-icon svg {
-            width: 12px;
+            width: 14px;
         }
 
-        .pod-item:hover .pod-listen-btn {
-            background: var(--pod-text-dark);
-            color: white;
-            border-color: var(--pod-text-dark);
+        .pod-listen-btn:hover {
+            background: var(--pod-gold-hover);
+            border-color: var(--pod-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.35);
+        }
+
+        .pod-listen-btn:active {
+            transform: translateY(0);
         }
 
         @media (max-width: 900px) {
+            .podcast-section-light {
+                padding: 40px 20px;
+            }
+
             .podcast-grid {
                 grid-template-columns: 1fr;
-                gap: 50px;
+                gap: 40px;
             }
 
             .pod-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
+                margin-bottom: 25px;
             }
 
             .podcast-card-wrapper {
@@ -1394,13 +1477,14 @@
             }
 
             .pod-cover-large img {
-                width: 220px;
-                height: 220px;
+                width: 260px;
+                /* Larger than before for better impact */
+                height: 260px;
             }
 
             .pod-title-featured {
-                font-size: 1.5rem;
-                /* Reduced from 1.8rem/2.2rem for mobile */
+                font-size: 1.3rem;
+                -webkit-line-clamp: 2;
             }
 
             .pod-item {
@@ -1408,8 +1492,8 @@
             }
 
             .pod-thumb-wrapper {
-                width: 60px;
-                height: 60px;
+                width: 65px;
+                height: 65px;
             }
 
             .pod-item-title {
@@ -1421,8 +1505,86 @@
             }
 
             .pod-listen-btn {
-                padding: 8px;
+                padding: 12px;
+                /* Better touch target */
                 border-radius: 50%;
+                min-width: 44px;
+                min-height: 44px;
+                justify-content: center;
+            }
+
+            .btn-icon {
+                height: 16px;
+            }
+
+            .btn-icon svg {
+                width: 16px;
+            }
+
+            .prog-line:hover {
+                height: 5px;
+                /* No height change on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pod-section-title {
+                font-size: 1.6rem;
+            }
+
+            .pod-cover-large img {
+                width: 240px;
+                height: 240px;
+            }
+        }
+
+        /* Loading state animation */
+        @keyframes pulse-btn {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .ctrl-btn.play-main.loading {
+            animation: pulse-btn 1.5s ease-in-out infinite;
+            cursor: wait;
+        }
+
+        .ctrl-btn.play-main.loading svg {
+            opacity: 0.7;
+        }
+
+        /* Playing state indicator */
+        .ctrl-btn.play-main.playing::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 12px;
+            height: 12px;
+            background: #4CAF50;
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse-playing 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-playing {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
             }
         }
     </style>

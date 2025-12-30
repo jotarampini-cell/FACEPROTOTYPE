@@ -346,10 +346,17 @@ function playStickyEpisode(id) {
     const art = document.getElementById('player-art');
     const title = document.getElementById('player-title');
     const author = document.getElementById('player-author');
+    const playBtn = document.getElementById('sticky-play-btn');
 
     if (!player || !audio) {
         console.error("Sticky player elements not found in DOM");
         return;
+    }
+
+    // Show loading state
+    if (playBtn) {
+        playBtn.classList.add('loading');
+        playBtn.setAttribute('aria-label', 'Cargando audio...');
     }
 
     // Set content
@@ -360,6 +367,7 @@ function playStickyEpisode(id) {
 
     // Show player
     player.classList.add('active');
+    player.setAttribute('aria-live', 'polite');
 
     // Play with small delay to ensure source load
     stickyAudio = audio;
@@ -368,22 +376,38 @@ function playStickyEpisode(id) {
             isPlayingSticky = true;
             updatePlayIcon(true);
             startProgressLoop();
+            if (playBtn) {
+                playBtn.classList.remove('loading');
+                playBtn.setAttribute('aria-label', 'Pausar podcast');
+            }
         })
         .catch(err => {
             console.error("Error playing:", err);
-            // Auto-play policies might block this if not triggered by user interaction
-            // but the click ON the button IS user interaction.
+            if (playBtn) {
+                playBtn.classList.remove('loading');
+                playBtn.setAttribute('aria-label', 'Reproducir podcast');
+            }
         });
 
     // Metadata loaded
     stickyAudio.onloadedmetadata = function () {
-        document.getElementById('player-duration').innerText = formatTime(stickyAudio.duration);
+        const durationEl = document.getElementById('player-duration');
+        if (durationEl) {
+            durationEl.innerText = formatTime(stickyAudio.duration);
+        }
+        const inlineTotal = document.getElementById('inline-time-total');
+        if (inlineTotal) {
+            inlineTotal.innerText = formatTime(stickyAudio.duration);
+        }
     };
 
     stickyAudio.onended = function () {
         isPlayingSticky = false;
         updatePlayIcon(false);
         stopProgressLoop();
+        if (playBtn) {
+            playBtn.setAttribute('aria-label', 'Reproducir podcast');
+        }
     };
 }
 
@@ -418,14 +442,21 @@ function closeStickyPlayer() {
 function updatePlayIcon(isPlaying) {
     const playIcon = document.getElementById('sticky-icon-play');
     const pauseIcon = document.getElementById('sticky-icon-pause');
+    const playBtn = document.getElementById('sticky-play-btn');
 
     if (playIcon && pauseIcon) {
         if (isPlaying) {
             playIcon.style.display = 'none';
             pauseIcon.style.display = 'block';
+            if (playBtn) {
+                playBtn.setAttribute('aria-label', 'Pausar podcast');
+            }
         } else {
             playIcon.style.display = 'block';
             pauseIcon.style.display = 'none';
+            if (playBtn) {
+                playBtn.setAttribute('aria-label', 'Reproducir podcast');
+            }
         }
     }
 
@@ -433,9 +464,13 @@ function updatePlayIcon(isPlaying) {
     const inlineBtn = document.getElementById('inline-play-btn');
     if (inlineBtn) {
         if (isPlaying) {
-            inlineBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>';
+            inlineBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>';
+            inlineBtn.setAttribute('aria-label', 'Pausar podcast');
+            inlineBtn.classList.add('playing');
         } else {
-            inlineBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>';
+            inlineBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>';
+            inlineBtn.setAttribute('aria-label', 'Reproducir podcast');
+            inlineBtn.classList.remove('playing');
         }
     }
 }
