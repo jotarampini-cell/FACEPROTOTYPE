@@ -1044,6 +1044,389 @@
         </div>
     </section>
 
+    <!-- RESTORED INLINE STYLES FOR EXACT DESIGN MATCH -->
+    <style>
+        :root {
+            --pod-bg-light: #f4f6f8;
+            --pod-card-light: #ffffff;
+            --pod-text-dark: #1a1a1a;
+            --pod-text-muted: #666666;
+            --pod-border: #e0e0e0;
+            --pod-gold: #c5a059;
+            --pod-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+        }
+
+        .podcast-section-light {
+            background-color: var(--pod-bg-light);
+            padding: 20px 20px;
+            /* TIGHTENED: Reduced from 50px to 20px */
+            color: var(--pod-text-dark);
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            z-index: 5;
+            margin-top: 0;
+        }
+
+        .pod-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            /* TIGHTENED: Reduced from 30px to 10px */
+        }
+
+        .pod-section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin: 0;
+            color: #111;
+        }
+
+        .pod-link-all {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--pod-text-muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .pod-link-all:hover {
+            color: var(--pod-gold);
+            transform: translateX(5px);
+        }
+
+        .podcast-card-wrapper {
+            background-color: var(--pod-card-light);
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: var(--pod-shadow);
+        }
+
+        .podcast-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .pod-featured {
+            text-align: center;
+        }
+
+        .pod-cover-large {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+
+        .pod-cover-large img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-circle {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            color: var(--pod-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.8);
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .play-circle svg {
+            width: 30px;
+            margin-left: 4px;
+        }
+
+        .pod-cover-large:hover img {
+            transform: scale(1.05);
+        }
+
+        .pod-cover-large:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .pod-cover-large:hover .play-circle {
+            transform: scale(1);
+        }
+
+        .pod-meta-featured {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            color: var(--pod-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .pod-title-featured {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 35px;
+            color: #111;
+            text-transform: uppercase;
+        }
+
+        .audio-player-ui {
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .progress-bar-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--pod-text-muted);
+            font-family: monospace;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .prog-line {
+            flex-grow: 1;
+            height: 4px;
+            background: #e0e0e0;
+            margin: 0 15px;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prog-fill {
+            width: 0%;
+            /* Initial state 0 */
+            height: 100%;
+            background: var(--pod-text-dark);
+            border-radius: 4px;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .ctrl-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ctrl-btn.sm {
+            color: #999;
+        }
+
+        .ctrl-btn.sm svg {
+            width: 28px;
+        }
+
+        .ctrl-btn.sm:hover {
+            color: #333;
+        }
+
+        .ctrl-btn.play-main {
+            width: 65px;
+            height: 65px;
+            background: var(--pod-text-dark);
+            border-radius: 50%;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .ctrl-btn.play-main svg {
+            width: 30px;
+            margin-left: 4px;
+        }
+
+        .ctrl-btn.play-main:hover {
+            background: var(--pod-gold);
+            transform: scale(1.05);
+        }
+
+        .pod-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pod-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--pod-border);
+            transition: 0.3s;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .pod-item:last-child {
+            border-bottom: none;
+        }
+
+        .pod-item:hover {
+            padding-left: 10px;
+            border-bottom-color: var(--pod-gold);
+        }
+
+        .pod-thumb-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .pod-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pod-info {
+            flex-grow: 1;
+        }
+
+        .pod-tags {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            color: var(--pod-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .pod-item-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0;
+            color: #222;
+        }
+
+        .pod-listen-btn {
+            background: transparent;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            padding: 8px 16px;
+            color: var(--pod-text-dark);
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            height: 12px;
+        }
+
+        .btn-icon svg {
+            width: 12px;
+        }
+
+        .pod-item:hover .pod-listen-btn {
+            background: var(--pod-text-dark);
+            color: white;
+            border-color: var(--pod-text-dark);
+        }
+
+        @media (max-width: 900px) {
+            .podcast-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .pod-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .podcast-card-wrapper {
+                padding: 30px 20px;
+            }
+
+            .pod-cover-large img {
+                width: 220px;
+                height: 220px;
+            }
+
+            .pod-title-featured {
+                font-size: 1.8rem;
+            }
+
+            .pod-item {
+                gap: 15px;
+            }
+
+            .pod-thumb-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+
+            .pod-item-title {
+                font-size: 0.95rem;
+            }
+
+            .pod-listen-btn span {
+                display: none;
+            }
+
+            .pod-listen-btn {
+                padding: 8px;
+                border-radius: 50%;
+            }
+        }
+    </style>
+
     <!-- STICKY AUDIO PLAYER (Global) -->
     <div id="sticky-player" class="sticky-player">
         <div class="player-container">
@@ -1100,8 +1483,8 @@
     </div>
 
     <!-- ADDED: Podcast Styles and JS -->
-    <link rel="stylesheet" href="css/podcasts.css?v=2">
-    <script src="js/podcasts.js?v=4"></script>
+    <link rel="stylesheet" href="css/podcasts.css?v=102">
+    <script src="js/podcasts.js?v=102"></script>
 
 
 
