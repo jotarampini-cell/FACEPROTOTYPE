@@ -331,9 +331,34 @@ function renderRelatedEpisodes(currentEpisode) {
 let stickyAudio = null;
 let isPlayingSticky = false;
 let updateTimer = null;
+let currentPodcastId = null; // Track current episode
+
+function playNextEpisode() {
+    if (!currentPodcastId) return;
+    const currentIndex = podcastEpisodes.findIndex(ep => ep.id === currentPodcastId);
+    if (currentIndex !== -1 && currentIndex < podcastEpisodes.length - 1) {
+        playStickyEpisode(podcastEpisodes[currentIndex + 1].id);
+    } else {
+        // Optional: Loop back to start or do nothing
+        playStickyEpisode(podcastEpisodes[0].id);
+    }
+}
+
+function playPrevEpisode() {
+    if (!currentPodcastId) return;
+    const currentIndex = podcastEpisodes.findIndex(ep => ep.id === currentPodcastId);
+    if (currentIndex > 0) {
+        playStickyEpisode(podcastEpisodes[currentIndex - 1].id);
+    } else {
+        // Cycle to last
+        playStickyEpisode(podcastEpisodes[podcastEpisodes.length - 1].id);
+    }
+}
 
 function playStickyEpisode(id) {
     console.log("Play sticky episode:", id);
+    currentPodcastId = id; // Update current ID
+
     const episode = podcastEpisodes.find(ep => ep.id === id);
     if (!episode || !episode.audioUrl) {
         alert("Audio no disponible para este episodio.");

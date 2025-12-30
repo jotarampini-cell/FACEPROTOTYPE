@@ -974,56 +974,106 @@
                     </h3>
 
                     <!-- Inline Player -->
-                    <div style="margin-top: 20px;">
-                        <!-- Progress Bar -->
+
+                    <!-- Inline Player (Tony Robbins Style) -->
+                    <div style="margin-top: 30px; user-select: none;">
+
+                        <!-- 1. Progress Bar (Top) -->
                         <div id="inline-prog-line" onclick="handleProgressClick(event, this)"
-                            style="height: 4px; background: #ddd; border-radius: 2px; margin-bottom: 12px; cursor: pointer; position: relative;">
+                            style="height: 4px; background: #e0e0e0; border-radius: 2px; cursor: pointer; position: relative; width: 100%;">
                             <div id="inline-prog-fill"
                                 style="height: 100%; width: 0%; background: #000; border-radius: 2px; transition: width 0.1s;">
                             </div>
+                            <!-- Hit area for easier clicking -->
+                            <div style="position: absolute; top: -10px; bottom: -10px; left: 0; right: 0;"></div>
                         </div>
 
-                        <!-- Time & Controls -->
-                        <div style="display: flex; align-items: center; gap: 12px;">
+                        <!-- 2. Time Labels (Below Progress) -->
+                        <div
+                            style="display: flex; justify-content: space-between; margin-top: 8px; margin-bottom: 20px;">
                             <span id="inline-time-current"
-                                style="font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #666; min-width: 35px;">0:00</span>
+                                style="font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #555;">0:00</span>
+                            <span id="inline-time-total"
+                                style="font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #555;">0:00</span>
+                        </div>
 
-                            <!-- Skip Back -->
-                            <button onclick="skipInlineTime(-15)"
-                                style="background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center;">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"
-                                    style="width: 18px; height: 18px;">
-                                    <path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"></path>
+                        <!-- 3. Controls Row (Bottom Center) -->
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+
+                            <!-- Prev -->
+                            <button onclick="playPrevEpisode()" aria-label="Anterior"
+                                style="background: none; border: none; cursor: pointer; padding: 8px; color: #999; transition: color 0.2s;"
+                                onmouseover="this.style.color='#000'" onmouseout="this.style.color='#999'">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z" />
                                 </svg>
                             </button>
 
-                            <!-- Play/Pause -->
-                            <button id="inline-play-btn" onclick="toggleInlinePlay()"
-                                style="width: 48px; height: 48px; background: #000; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s;"
-                                onmouseover="this.style.background='#222'" onmouseout="this.style.background='#000'">
+                            <!-- Rewind 15s -->
+                            <button onclick="skipStickyTime(-15)" aria-label="Retroceder 15s"
+                                style="background: none; border: none; cursor: pointer; padding: 4px; color: #999; display: flex; align-items: center; transition: color 0.2s;"
+                                onmouseover="this.style.color='#000'" onmouseout="this.style.color='#999'">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                    <path d="M3 3v5h5" />
+                                    <text x="12" y="14" text-anchor="middle" font-size="7"
+                                        font-family="Inter, sans-serif" stroke="none" fill="currentColor">15</text>
+                                </svg>
+                            </button>
+
+                            <!-- Play/Pause (Central Big) -->
+                            <button id="inline-play-btn" onclick="toggleSmartPlay()"
+                                style="width: 56px; height: 56px; background: #000; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.1s;"
+                                onmousedown="this.style.transform='scale(0.95)'"
+                                onmouseup="this.style.transform='scale(1)'">
                                 <svg id="inline-icon-play" viewBox="0 0 24 24" fill="#fff"
-                                    style="width: 20px; height: 20px; margin-left: 2px;">
+                                    style="width: 24px; height: 24px; margin-left: 3px;">
                                     <path d="M8 5v14l11-7z"></path>
                                 </svg>
                                 <svg id="inline-icon-pause" viewBox="0 0 24 24" fill="#fff"
-                                    style="width: 20px; height: 20px; display: none;">
+                                    style="width: 24px; height: 24px; display: none;">
                                     <path d="M6 4h4v16H6zM14 4h4v16h-4z"></path>
                                 </svg>
                             </button>
 
-                            <!-- Skip Forward -->
-                            <button onclick="skipInlineTime(15)"
-                                style="background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center;">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"
-                                    style="width: 18px; height: 18px;">
-                                    <path d="M13 17l5-5-5-5M6 17l5-5-5-5"></path>
+                            <!-- Forward 15s -->
+                            <button onclick="skipStickyTime(15)" aria-label="Adelantar 15s"
+                                style="background: none; border: none; cursor: pointer; padding: 4px; color: #999; display: flex; align-items: center; transition: color 0.2s;"
+                                onmouseover="this.style.color='#000'" onmouseout="this.style.color='#999'">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12a9 9 0 1 1-9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                                    <path d="M21 3v5h-5" />
+                                    <text x="12" y="14" text-anchor="middle" font-size="7"
+                                        font-family="Inter, sans-serif" stroke="none" fill="currentColor"
+                                        transform="scale(-1, 1) translate(-24, 0)">15</text>
                                 </svg>
                             </button>
 
-                            <span id="inline-time-duration"
-                                style="font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #666; min-width: 35px; margin-left: auto;">0:00</span>
+                            <!-- Next -->
+                            <button onclick="playNextEpisode()" aria-label="Siguiente"
+                                style="background: none; border: none; cursor: pointer; padding: 8px; color: #999; transition: color 0.2s;"
+                                onmouseover="this.style.color='#000'" onmouseout="this.style.color='#999'">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
+
+                    <!-- Smart Play Script -->
+                    <script>
+                        function toggleSmartPlay() {
+                            if (typeof isPlayingSticky !== 'undefined' && stickyAudio) {
+                                toggleStickyPlay();
+                            } else {
+                                // Default to first episode if nothing playing
+                                playStickyEpisode(1);
+                            }
+                        }
+                    </script>
+
                 </div>
 
                 <!-- RIGHT: Episode List -->
