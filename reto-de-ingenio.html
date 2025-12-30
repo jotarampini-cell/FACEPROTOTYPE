@@ -1061,13 +1061,15 @@
                 clearInterval(rotateInterval);
                 setActive(activeIndex);
 
-                // Disable auto-rotation on mobile to prevent layout shifts/scroll jumps
-                // This fixes the issue where the page "scrolls" up/down when accordion items change height
-                if (window.innerWidth <= 900) return;
-
+                // Auto-rotation enabled for all devices, but checks visibility
                 rotateInterval = setInterval(() => {
-                    // Double check in case of resize
-                    if (!isPaused && window.innerWidth > 900) {
+                    const section = document.querySelector('.all-access-section');
+                    if (!section) return;
+
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top < window.innerHeight && rect.bottom >= 0);
+
+                    if (!isPaused && isVisible) {
                         let nextIndex = (activeIndex + 1) % items.length;
                         setActive(nextIndex);
                     }
