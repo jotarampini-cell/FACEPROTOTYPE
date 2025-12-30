@@ -582,18 +582,19 @@ function setupProgressBarScrubbing() {
 
         progressContainer.addEventListener('mousedown', (e) => {
             if (!stickyAudio || !stickyAudio.duration) return;
+            e.preventDefault(); // Critical for drag to work
             isDraggingSticky = true;
             handleScrub(e);
         });
 
-        document.addEventListener('mousemove', (e) => {
+        window.addEventListener('mousemove', (e) => { // Use window for capture outside elements
             if (isDraggingSticky) {
-                e.preventDefault(); // Prevent text selection
+                e.preventDefault();
                 handleScrub(e);
             }
         });
 
-        document.addEventListener('mouseup', () => {
+        window.addEventListener('mouseup', () => { // Use window to catch release anywhere
             if (isDraggingSticky) {
                 isDraggingSticky = false;
             }
