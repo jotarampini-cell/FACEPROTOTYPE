@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACE Podcasts - Innovación sin Inventar</title>
+    <meta name="description"
+        content="Escucha nuestros podcasts sobre innovación, liderazgo y transformación empresarial.">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css?v=podcast1">
+    <link rel="stylesheet" href="premium-menu.css?v=podcast1">
+    <link rel="stylesheet" href="css/podcasts.css?v=1">
+</head>
+
+<body>
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress" class="reading-progress"></div>
+
+    <!-- Header -->
+    <header id="main-header" class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">FACE</a>
+            <a href="quiz.html" class="nav-cta-btn">Iniciar ahora</a>
+            <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full Screen Menu -->
+    <div id="fullscreen-menu" class="fullscreen-menu">
+        <nav>
+            <!-- PHASE 1: Premium Header - CORREGIDO -->
+            <div class="tr-menu-header">
+                <div class="tr-menu-logo">FACE</div>
+                <a href="#" onclick="scrollToWidget()" class="tr-header-cta">Iniciar ahora</a>
+                <button class="tr-menu-close" onclick="closeMenu()" aria-label="Cerrar menú">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation List -->
+            <ul class="tr-mobile-list">
+                <li class="tr-menu-item">
+                    <a href="index.html" class="menu-link" onclick="closeMenu()">Inicio</a>
+                </li>
+                <li class="tr-menu-item menu-parent">
+                    <a href="programas.html" class="menu-link menu-parent-link" onclick="closeMenu()">
+                        Programas
+                    </a>
+                    <svg class="chevron-icon" onclick="toggleSubmenu(event, 'programas-submenu')" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <ul class="tr-submenu" id="programas-submenu">
+                        <li><a href="reto-de-ingenio.html" class="menu-link menu-sublink" onclick="closeMenu()">Reto de
+                                Ingenio</a></li>
+                    </ul>
+                </li>
+                <li class="tr-menu-item menu-parent">
+                    <a href="#" class="menu-link menu-parent-link" onclick="toggleSubmenu(event, 'explorar-submenu')">
+                        Explorar
+                    </a>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <ul class="tr-submenu" id="explorar-submenu">
+                        <li><a href="blog.html" class="menu-link menu-sublink" onclick="closeMenu()">Blog</a></li>
+                        <li><a href="podcasts.html" class="menu-link menu-sublink" onclick="closeMenu()">Podcast</a>
+                        </li>
+                        <li><a href="quiz.html" class="menu-link menu-sublink" onclick="closeMenu()">Diagnóstico
+                                (Quiz)</a></li>
+                    </ul>
+                </li>
+
+                <div class="tr-menu-footer">
+                    <a href="#" onclick="scrollToWidget()" class="tr-btn-primary">Iniciar ahora</a>
+                    <a href="#login" class="tr-btn-secondary">Log in</a>
+                </div>
+        </nav>
+    </div>
+
+    <!-- Podcast Hero Section with Integrated Filters -->
+    <section class="podcast-hero">
+        <div class="container">
+            <h1 class="podcast-hero-title">El Podcast de la Innovación Empresarial</h1>
+
+            <!-- Category Filters Integrated in Hero -->
+            <div class="podcast-filters" id="categoryFilters">
+                <button class="filter-btn active" data-category="all">Todos</button>
+                <button class="filter-btn" data-category="innovacion">Innovación</button>
+                <button class="filter-btn" data-category="liderazgo">Liderazgo</button>
+                <button class="filter-btn" data-category="negocios">Negocios</button>
+                <button class="filter-btn" data-category="mentalidad">Mentalidad</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcast Grid -->
+    <section class="podcast-grid-section">
+        <div class="container">
+            <div class="podcast-grid" id="podcastGrid">
+                <!-- Cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Global Footer -->
+    <footer
+        style="background: #0a0a0a; color: #fff; padding: 60px 20px 40px; margin-top: 0; border-top: 1px solid #1a1a1a;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                <div>
+                    <h3
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 15px; color: #c5a059;">
+                        FACE</h3>
+                    <p style="color: #999; line-height: 1.6; font-size: 0.95rem;">Innovación sin inventar. Transformamos
+                        el ingenio de tus colaboradores en ventaja competitiva.</p>
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        Navegación</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><a href="index.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Inicio</a></li>
+                        <li style="margin-bottom: 10px;"><a href="programas.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Programas</a></li>
+                        <li style="margin-bottom: 10px;"><a href="blog.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Blog</a></li>
+                        <li style="margin-bottom: 10px;"><a href="podcasts.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Podcasts</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        Programas</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><a href="reto-de-ingenio.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Reto de Ingenio</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        Contacto</h4>
+                    <p style="color: #999; margin-bottom: 10px; font-size: 0.95rem;">info@faceinnovation.com</p>
+                    <p style="color: #999; font-size: 0.95rem;">Caracas, Venezuela</p>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid #222; padding-top: 20px; text-align: center; color: #666; font-size: 0.85rem;">
+                <p style="margin: 0;">© 2025 FACE Innovation. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Audio Player -->
+    <div id="sticky-player" class="sticky-player">
+        <div class="player-container">
+            <div class="player-left">
+                <img src="" alt="Album Art" id="player-art">
+                <div class="player-info">
+                    <h4 id="player-title">Episode Title</h4>
+                    <span id="player-author">FACE Innovation</span>
+                </div>
+            </div>
+            <div class="player-center">
+                <div class="player-controls">
+                    <button class="player-btn" onclick="skipStickyTime(-15)">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M11 17l-5-5 5-5M18 17l-5-5 5-5" />
+                        </svg>
+                    </button>
+                    <button class="player-btn play-toggle" id="sticky-play-btn" onclick="toggleStickyPlay()">
+                        <svg id="sticky-icon-play" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                        <svg id="sticky-icon-pause" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"
+                            style="display:none;">
+                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                        </svg>
+                    </button>
+                    <button class="player-btn" onclick="skipStickyTime(15)">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M13 17l5-5-5-5M6 17l5-5-5-5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="player-progress-bar">
+                    <span id="player-current-time">0:00</span>
+                    <div class="progress-track" id="sticky-progress-container">
+                        <div class="progress-fill" id="sticky-progress-bar"></div>
+                    </div>
+                    <span id="player-duration">--:--</span>
+                </div>
+            </div>
+            <div class="player-right">
+                <button class="player-btn close-player" onclick="closeStickyPlayer()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <audio id="sticky-audio"></audio>
+    </div>
+
+    <!-- Scripts -->
+    <script src="menu.js"></script>
+    <script src="js/header-scroll.js"></script>
+    <script src="js/podcasts.js?v=2"></script>
+</body>
+
+</html>

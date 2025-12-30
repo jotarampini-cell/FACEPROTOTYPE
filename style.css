@@ -998,6 +998,8 @@ body {
     gap: 15px;
     /* Reduced gap */
     margin-top: 40px;
+    /* CRITICAL FIX: Prevent cards from stretching to match tallest card in row */
+    align-items: start;
 }
 
 /* --- MANIFIESTO CARD 2.0 (PREMIUM COMPACT) --- */
