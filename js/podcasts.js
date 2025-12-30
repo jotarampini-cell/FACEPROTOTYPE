@@ -526,7 +526,7 @@ function stopProgressLoop() {
 }
 
 function updateStickyProgress() {
-    if (!stickyAudio) return;
+    if (!stickyAudio || isDraggingSticky) return;
 
     const current = stickyAudio.currentTime;
     const duration = stickyAudio.duration || 1;
@@ -550,28 +550,61 @@ function updateStickyProgress() {
 }
 
 // Click on progress bar to seek
+let isDraggingSticky = false; // Add flag for dragging state
+
 function setupProgressBarScrubbing() {
     // 1. Sticky Player Scrubbing
     const progressContainer = document.querySelector('.player-progress-bar');
     if (progressContainer) {
         progressContainer.style.cursor = 'pointer';
 
-        progressContainer.addEventListener('click', (e) => {
+        // Mouse Dragging Logic
+        function handleScrub(e) {
             if (!stickyAudio || !stickyAudio.duration) return;
             const rect = progressContainer.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
             const width = rect.width;
             if (width > 0) {
-                const duration = stickyAudio.duration;
-                stickyAudio.currentTime = (clickX / width) * duration;
+                let ratio = clickX / width;
+                ratio = Math.max(0, Math.min(1, ratio));
+                const seekTime = ratio * stickyAudio.duration;
+
+                stickyAudio.currentTime = seekTime;
                 updateStickyProgress();
             }
+        }
+
+        progressContainer.addEventListener('mousedown', (e) => {
+            if (!stickyAudio || !stickyAudio.duration) return;
+            isDraggingSticky = true;
+            handleScrub(e);
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDraggingSticky) {
+                e.preventDefault(); // Prevent text selection
+                handleScrub(e);
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isDraggingSticky) {
+                isDraggingSticky = false;
+            }
+        });
+
+        // Click Logic (for simple clicks)
+        progressContainer.addEventListener('click', (e) => {
+            if (!stickyAudio || !stickyAudio.duration) return;
+            // Clicking is handled by mousedown/up as well now, but keep for fallback
+            // Actually, mousedown handles the initial jump, so click might be redundant or double-fire.
+            // Let's rely on handleScrub from mousedown for immediate response.
         });
 
         // Touch scrubbing support (Sticky)
         const handleTouch = (e) => {
             if (!stickyAudio || !stickyAudio.duration) return;
-            e.preventDefault();
+            if (e.cancelable) e.preventDefault(); // Only prevent default if cancelable to avoid warnings
             const rect = progressContainer.getBoundingClientRect();
             const touch = e.touches[0];
             const touchX = touch.clientX - rect.left;
