@@ -648,20 +648,23 @@
 }
 
 /* Mobile Responsive Player */
+/* Mobile Responsive Player */
 @media (max-width: 768px) {
     .sticky-player {
         bottom: 0px;
-        padding: 12px 0;
+        padding: 12px 0 16px;
+        /* Added bottom padding for progress bar */
     }
 
     .player-container {
         display: grid;
         grid-template-areas:
-            "left center right"
+            "left controls right"
             "progress progress progress";
         grid-template-columns: 1fr auto auto;
-        gap: 12px 10px;
+        gap: 12px 15px;
         padding: 0 20px;
+        align-items: center;
     }
 
     .player-left {
@@ -674,6 +677,7 @@
     .player-left img {
         width: 48px;
         height: 48px;
+        border-radius: 6px;
     }
 
     .player-info {
@@ -686,50 +690,63 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        margin-bottom: 2px;
     }
 
+    .player-info span {
+        font-size: 11px;
+    }
+
+    /* Unwrap the center container so children participate in grid */
     .player-center {
-        grid-area: center;
-        width: auto;
-        flex-direction: row;
+        display: contents;
+    }
+
+    .player-controls {
+        grid-area: controls;
+        gap: 0;
         justify-content: flex-end;
     }
 
-    /* Show progress bar on mobile now */
-    .player-progress-bar {
-        grid-area: progress;
-        display: flex;
-        width: 100%;
-        max-width: none;
-        margin-top: 0;
-        order: 2;
-    }
-
-    /* Hide skip buttons on mobile to save space if needed, 
-       but user requested improved player, so keeping minimal controls */
+    /* Hide skip buttons/text on mobile, show only play */
     .player-controls button:not(.play-toggle) {
         display: none;
     }
 
-    .player-controls {
-        gap: 0;
-    }
-
     .play-toggle {
-        width: 40px;
-        height: 40px;
+        width: 42px;
+        height: 42px;
         background: white;
         color: black;
         border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     .play-toggle svg {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
     }
 
     .player-right {
         grid-area: right;
         width: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Progress bar full width bottom */
+    .player-progress-bar {
+        grid-area: progress;
+        display: flex;
+        /* Force flex */
+        width: 100%;
+        margin-top: 5px;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .progress-track {
+        height: 4px;
+        /* Thicker touch target */
     }
 }
