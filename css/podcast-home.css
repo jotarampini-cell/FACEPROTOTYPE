@@ -1,100 +1,98 @@
 /* ============================================
-   PODCAST SECTION STYLES - HOME PAGE ONLY
+   PODCAST SECTION STYLES - TONY ROBBINS INSPIRED
+   BLACK & WHITE DESIGN
    ============================================ */
 
 :root {
-    --pod-bg-light: #f8f9fa;
-    --pod-card-light: #ffffff;
-    --pod-text-dark: #1a1a1a;
-    --pod-text-muted: #555555;
-    --pod-border: #e5e5e5;
-    --pod-gold: #9a7a3a;
-    --pod-gold-hover: #c5a059;
-    --pod-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --pod-bg: #ffffff;
+    --pod-card-bg: #ffffff;
+    --pod-text-dark: #000000;
+    --pod-text-gray: #666666;
+    --pod-text-light: #999999;
+    --pod-border: #e0e0e0;
+    --pod-accent: #000000;
+    --pod-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .podcast-section-light {
-    background-color: var(--pod-bg-light);
-    padding: 60px 20px;
+    background-color: var(--pod-bg);
+    padding: 80px 20px;
     color: var(--pod-text-dark);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     position: relative;
-    z-index: 5;
-    margin-top: 0;
 }
 
 .pod-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 .pod-section-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
     margin: 0;
-    color: #111;
-    letter-spacing: 0.5px;
+    color: var(--pod-text-dark);
+    letter-spacing: -0.5px;
 }
 
 .pod-link-all {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--pod-text-muted);
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    color: var(--pod-text-gray);
+    font-size: 0.9rem;
+    font-weight: 500;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .pod-link-all:hover {
-    color: var(--pod-gold-hover);
-    transform: translateX(5px);
+    color: var(--pod-text-dark);
+    transform: translateX(3px);
 }
 
 .podcast-card-wrapper {
-    background-color: var(--pod-card-light);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: var(--pod-shadow);
-    transition: box-shadow 0.3s ease;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
 }
 
 .podcast-card-wrapper:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: none;
 }
 
 .podcast-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 50px;
-    align-items: center;
+    grid-template-columns: 400px 1fr;
+    gap: 60px;
+    align-items: start;
 }
 
 .pod-featured {
-    text-align: center;
+    text-align: left;
 }
 
 .pod-cover-large {
     position: relative;
-    display: inline-block;
-    margin-bottom: 25px;
+    display: block;
+    margin-bottom: 20px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--pod-shadow);
     cursor: pointer;
 }
 
 .pod-cover-large img {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 
 .play-overlay {
@@ -103,35 +101,34 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.25s ease;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .play-circle {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 50%;
-    color: var(--pod-gold);
+    color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: scale(0.85);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    transition: all 0.3s ease;
 }
 
 .play-circle svg {
-    width: 32px;
+    width: 36px;
     margin-left: 4px;
 }
 
 .pod-cover-large:hover img {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 .pod-cover-large:hover .play-overlay {
@@ -140,35 +137,31 @@
 
 .pod-cover-large:hover .play-circle {
     transform: scale(1);
-    color: var(--pod-gold-hover);
 }
 
 .pod-meta-featured {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.8rem;
-    color: var(--pod-gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: var(--pod-text-gray);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     margin-bottom: 12px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .pod-title-featured {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.6rem;
-    line-height: 1.3;
-    margin-bottom: 30px;
-    color: #111;
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
     font-weight: 700;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: var(--pod-text-dark);
+    letter-spacing: -0.5px;
 }
 
 .audio-player-ui {
-    max-width: 420px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
 }
 
 .progress-bar-wrapper {
@@ -176,26 +169,26 @@
     align-items: center;
     justify-content: space-between;
     font-size: 0.75rem;
-    color: var(--pod-text-muted);
+    color: var(--pod-text-gray);
     font-family: 'Inter', monospace;
-    margin-bottom: 22px;
-    font-weight: 600;
+    margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .prog-line {
     flex-grow: 1;
-    height: 5px;
-    background: #e5e5e5;
+    height: 4px;
+    background: var(--pod-border);
     margin: 0 15px;
-    border-radius: 10px;
+    border-radius: 4px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    transition: height 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .prog-line:hover {
-    height: 7px;
+    height: 6px;
 }
 
 .prog-line:hover::after {
@@ -206,49 +199,47 @@
     transform: translate(-50%, -50%);
     width: 12px;
     height: 12px;
-    background: var(--pod-gold-hover);
+    background: var(--pod-text-dark);
     border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .prog-fill {
     width: 0%;
     height: 100%;
-    background: linear-gradient(90deg, var(--pod-gold), var(--pod-gold-hover));
-    border-radius: 10px;
+    background: var(--pod-text-dark);
+    border-radius: 4px;
     transition: width 0.1s linear;
 }
 
 .player-controls {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 .ctrl-btn {
     background: none;
     border: none;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    color: var(--pod-text-dark);
 }
 
 .ctrl-btn.sm {
-    color: #888;
     padding: 8px;
     border-radius: 50%;
 }
 
 .ctrl-btn.sm svg {
-    width: 26px;
+    width: 20px;
 }
 
 .ctrl-btn.sm:hover {
-    color: #333;
     background: rgba(0, 0, 0, 0.05);
     transform: scale(1.1);
 }
@@ -258,23 +249,21 @@
 }
 
 .ctrl-btn.play-main {
-    width: 70px;
-    height: 70px;
+    width: 56px;
+    height: 56px;
     background: var(--pod-text-dark);
     border-radius: 50%;
     color: white;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .ctrl-btn.play-main svg {
-    width: 32px;
+    width: 24px;
     margin-left: 3px;
 }
 
 .ctrl-btn.play-main:hover {
-    background: var(--pod-gold-hover);
-    transform: scale(1.08);
-    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
+    background: #222;
+    transform: scale(1.05);
 }
 
 .ctrl-btn.play-main:active {
@@ -284,15 +273,16 @@
 .pod-list {
     display: flex;
     flex-direction: column;
+    gap: 0;
 }
 
 .pod-item {
     display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 18px 0;
+    gap: 16px;
+    padding: 20px 0;
     border-bottom: 1px solid var(--pod-border);
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     background: transparent;
     cursor: pointer;
 }
@@ -302,22 +292,20 @@
 }
 
 .pod-item:hover {
-    transform: translateX(8px);
-    border-bottom-color: var(--pod-gold-hover);
+    background: rgba(0, 0, 0, 0.02);
 }
 
 .pod-thumb-wrapper {
-    width: 70px;
-    height: 70px;
-    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
     overflow: hidden;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .pod-item:hover .pod-thumb-wrapper {
-    transform: scale(1.05);
+    transform: none;
 }
 
 .pod-thumb {
@@ -331,67 +319,65 @@
 }
 
 .pod-tags {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.7rem;
-    color: var(--pod-text-muted);
+    color: var(--pod-text-light);
     text-transform: uppercase;
-    letter-spacing: 1.2px;
+    letter-spacing: 0.5px;
     display: block;
     margin-bottom: 6px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .pod-item-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
     line-height: 1.4;
     margin: 0;
-    color: #222;
+    color: var(--pod-text-dark);
     transition: color 0.2s ease;
 }
 
 .pod-item:hover .pod-item-title {
-    color: var(--pod-gold-hover);
+    color: var(--pod-text-dark);
 }
 
 .pod-listen-btn {
-    background: var(--pod-gold);
-    border: 2px solid var(--pod-gold);
-    border-radius: 30px;
-    padding: 10px 20px;
-    color: white;
+    background: transparent;
+    border: 1px solid var(--pod-text-dark);
+    border-radius: 50px;
+    padding: 8px 18px;
+    color: var(--pod-text-dark);
     cursor: pointer;
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(154, 122, 58, 0.2);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
 }
 
 .btn-icon {
     display: flex;
     align-items: center;
-    height: 14px;
+    height: 12px;
 }
 
 .btn-icon svg {
-    width: 14px;
+    width: 12px;
 }
 
 .pod-listen-btn:hover {
-    background: var(--pod-gold-hover);
-    border-color: var(--pod-gold-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.35);
+    background: var(--pod-text-dark);
+    color: white;
+    transform: none;
 }
 
 .pod-listen-btn:active {
-    transform: translateY(0);
+    transform: scale(0.98);
 }
 
 /* Loading state animation */
@@ -416,41 +402,34 @@
     opacity: 0.7;
 }
 
-/* Playing state indicator */
-.ctrl-btn.play-main.playing::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    width: 12px;
-    height: 12px;
-    background: #4CAF50;
-    border-radius: 50%;
-    border: 2px solid white;
-    animation: pulse-playing 2s ease-in-out infinite;
-}
-
-@keyframes pulse-playing {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.2);
-        opacity: 0.8;
-    }
+/* Playing indicator - minimal */
+.ctrl-btn.play-main.playing {
+    background: #000;
 }
 
 /* ==========================
    RESPONSIVE
    ========================== */
 
+@media (max-width: 1100px) {
+    .podcast-grid {
+        grid-template-columns: 350px 1fr;
+        gap: 50px;
+    }
+
+    .pod-cover-large img {
+        width: 350px;
+        height: 350px;
+    }
+
+    .pod-title-featured {
+        font-size: 2.2rem;
+    }
+}
+
 @media (max-width: 900px) {
     .podcast-section-light {
-        padding: 40px 20px;
+        padding: 60px 20px;
     }
 
     .podcast-grid {
@@ -461,31 +440,40 @@
     .pod-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
-        margin-bottom: 25px;
+        gap: 12px;
+        margin-bottom: 30px;
     }
 
-    .podcast-card-wrapper {
-        padding: 30px 20px;
+    .pod-section-title {
+        font-size: 1.5rem;
+    }
+
+    .pod-featured {
+        max-width: 100%;
+    }
+
+    .pod-cover-large {
+        max-width: 100%;
     }
 
     .pod-cover-large img {
-        width: 260px;
-        height: 260px;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 1;
     }
 
     .pod-title-featured {
-        font-size: 1.3rem;
-        -webkit-line-clamp: 2;
+        font-size: 2rem;
     }
 
     .pod-item {
-        gap: 15px;
+        padding: 16px 0;
     }
 
     .pod-thumb-wrapper {
-        width: 65px;
-        height: 65px;
+        width: 50px;
+        height: 50px;
     }
 
     .pod-item-title {
@@ -497,33 +485,45 @@
     }
 
     .pod-listen-btn {
-        padding: 12px;
-        border-radius: 50%;
-        min-width: 44px;
-        min-height: 44px;
+        padding: 10px;
+        min-width: 40px;
+        min-height: 40px;
         justify-content: center;
+        border-radius: 50%;
     }
 
     .btn-icon {
-        height: 16px;
+        height: 14px;
     }
 
     .btn-icon svg {
-        width: 16px;
-    }
-
-    .prog-line:hover {
-        height: 5px;
+        width: 14px;
     }
 }
 
 @media (max-width: 480px) {
+    .podcast-section-light {
+        padding: 40px 16px;
+    }
+
     .pod-section-title {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 
     .pod-cover-large img {
-        width: 240px;
-        height: 240px;
+        max-width: 100%;
+    }
+
+    .pod-title-featured {
+        font-size: 1.75rem;
+    }
+
+    .ctrl-btn.play-main {
+        width: 48px;
+        height: 48px;
+    }
+
+    .ctrl-btn.play-main svg {
+        width: 20px;
     }
 }
