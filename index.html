@@ -1097,18 +1097,27 @@
     <!-- Splash screen auto-hide (Robust) -->
     <script>
         function removeSplash() {
-            const splash = document.getElementById('splash');
-            if (splash && !splash.classList.contains('getting-removed')) {
-                splash.classList.add('getting-removed'); // Prevent double removal
-                splash.classList.add('fade-out');
-                setTimeout(() => {
-                    if (splash.parentNode) splash.parentNode.removeChild(splash);
-                }, 500);
-            }
+            const idsToRemove = ['splash', 'skeleton-loader'];
+
+            idsToRemove.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && !el.classList.contains('getting-removed')) {
+                    el.classList.add('getting-removed');
+                    el.classList.add('fade-out'); // Ensure CSS transition handles opacity
+                    el.style.opacity = '0';      // Force opacity 0 in case class missing
+                    el.style.pointerEvents = 'none'; // Unlock clicks immediately
+
+                    setTimeout(() => {
+                        if (el.parentNode) el.parentNode.removeChild(el);
+                    }, 500);
+                }
+            });
         }
 
-        // Attempt removal after fixed time
+        // Attempt removal immediately, short delay, and long delay
+        setTimeout(removeSplash, 100);
         setTimeout(removeSplash, 2000);
+        setTimeout(removeSplash, 5000); // Super failsafe
 
         // Also remove on window load to be sure
         window.addEventListener('load', () => setTimeout(removeSplash, 500));
