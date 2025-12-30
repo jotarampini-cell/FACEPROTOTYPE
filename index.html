@@ -920,140 +920,216 @@
 
 
 
-    <section id="podcast-section" class="podcast-section-light">
-        <div class="tr-container">
+<!-- NUEVA SECCIÓN PODCAST - TONY ROBBINS STYLE -->
+<section id="podcast-section" style="background: #f5f5f5; padding: 80px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
 
-            <div class="pod-header">
-                <h2 class="pod-section-title">El podcast de la innovación empresarial</h2>
-                <a href="podcasts.html" class="pod-link-all">
-                    Explorar episodios
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </a>
-            </div>
+        <!-- Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+            <h2 style="font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 700; margin: 0; color: #000;">
+                El podcast de la innovación empresarial
+            </h2>
+            <a href="podcasts.html"
+                style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                Explorar episodios
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
 
-            <div class="podcast-card-wrapper">
-                <div class="podcast-grid">
+        <!-- Grid Container -->
+        <div style="display: grid; grid-template-columns: 380px 1fr; gap: 60px; align-items: start;">
 
-                    <div class="pod-featured">
-                        <div class="pod-cover-large">
-                            <!-- Updated Image -->
-                            <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=600&q=80"
-                                alt="Cover Episodio">
-                            <div class="play-overlay" onclick="playStickyEpisode(1)" style="cursor: pointer;">
-                                <div class="play-circle">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M8 5v14l11-7z"></path>
-                                    </svg>
-                                </div>
-                            </div>
+            <!-- LEFT: Featured Episode -->
+            <div>
+                <!-- Featured Image -->
+                <div
+                    style="position: relative; width: 380px; height: 380px; border-radius: 12px; overflow: hidden; margin-bottom: 20px;">
+                    <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=600&q=80"
+                        alt="Featured Episode" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div onclick="playStickyEpisode(1)"
+                        style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.3s;"
+                        onmouseover="this.style.background='rgba(0,0,0,0.5)'"
+                        onmouseout="this.style.background='rgba(0,0,0,0.3)'">
+                        <div
+                            style="width: 70px; height: 70px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 24 24" fill="#000" style="width: 30px; height: 30px; margin-left: 3px;">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
                         </div>
+                    </div>
+                </div>
 
-                        <!-- Updated Episode Info -->
-                        <div class="pod-meta-featured">INNOVACIÓN • ESTRATEGIA • DIC 30, 2024</div>
-                        <h3 class="pod-title-featured">
-                            Innovar sin inventar: La lección japonesa para Venezuela
-                        </h3>
+                <!-- Featured Info -->
+                <div
+                    style="font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+                    INNOVACIÓN • ESTRATEGIA • DIC 30, 2024
+                </div>
+                <h3
+                    style="font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 700; line-height: 1.2; color: #000; margin: 0 0 20px 0;">
+                    Innovar sin inventar: La lección japonesa para Venezuela
+                </h3>
 
-                        <!-- Restored User-Preferred Static Player UI (Visual Only) -->
-                        <div class="audio-player-ui">
-                            <div class="progress-bar-wrapper">
-                                <div class="prog-time" id="inline-time-current">0:00</div>
-                                <div class="prog-line" id="inline-prog-line" style="cursor: pointer;">
-                                    <div class="prog-fill" id="inline-prog-fill"></div>
-                                </div>
-                                <div class="prog-time" id="inline-time-total">--:--</div>
-                            </div>
-
-                            <div class="player-controls">
-                                <button class="ctrl-btn sm" title="Retroceder 15s" onclick="skipStickyTime(-15)"
-                                    aria-label="Retroceder 15 segundos">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        aria-hidden="true">
-                                        <path d="M11 19l-9-7 9-7v14z"></path>
-                                        <path d="M22 19l-9-7 9-7v14z"></path>
-                                    </svg>
-                                </button>
-                                <!-- Main Play Button Triggers Sticky Player -->
-                                <button class="ctrl-btn play-main" id="inline-play-btn" onclick="toggleStickyPlay()"
-                                    aria-label="Reproducir podcast">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                        <path
-                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-                                    </svg>
-                                </button>
-                                <button class="ctrl-btn sm" title="Adelantar 15s" onclick="skipStickyTime(15)"
-                                    aria-label="Adelantar 15 segundos">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        aria-hidden="true">
-                                        <path d="M13 19l9-7-9-7v14z"></path>
-                                        <path d="M2 19l9-7-9-7v14z"></path>
-                                    </svg>
-                                </button>
-                            </div>
+                <!-- Inline Player -->
+                <div style="margin-top: 20px;">
+                    <!-- Progress Bar -->
+                    <div id="inline-prog-line" onclick="handleProgressClick(event, this)"
+                        style="height: 4px; background: #ddd; border-radius: 2px; margin-bottom: 12px; cursor: pointer; position: relative;">
+                        <div id="inline-prog-fill"
+                            style="height: 100%; width: 0%; background: #000; border-radius: 2px; transition: width 0.1s;">
                         </div>
                     </div>
 
-                    <div class="pod-list">
+                    <!-- Time & Controls -->
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span id="inline-time-current"
+                            style="font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #666; min-width: 35px;">0:00</span>
 
-                        <div class="pod-item">
-                            <div class="pod-thumb-wrapper">
-                                <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=200&q=80"
-                                    class="pod-thumb">
-                            </div>
-                            <div class="pod-info">
-                                <span class="pod-tags">LIDERAZGO • DIC 08, 2024</span>
-                                <h4 class="pod-item-title">Liderazgo en la Era Digital</h4>
-                            </div>
-                            <button class="pod-listen-btn" onclick="playStickyEpisode(2)">
-                                <div class="btn-icon"><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M8 5v14l11-7z"></path>
-                                    </svg></div>
-                                <span>Escuchar</span>
-                            </button>
-                        </div>
+                        <!-- Skip Back -->
+                        <button onclick="skipInlineTime(-15)"
+                            style="background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"
+                                style="width: 18px; height: 18px;">
+                                <path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"></path>
+                            </svg>
+                        </button>
 
-                        <div class="pod-item">
-                            <div class="pod-thumb-wrapper">
-                                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=200&q=80"
-                                    class="pod-thumb">
-                            </div>
-                            <div class="pod-info">
-                                <span class="pod-tags">MENTALIDAD • DIC 01, 2024</span>
-                                <h4 class="pod-item-title">Mentalidad de Crecimiento</h4>
-                            </div>
-                            <button class="pod-listen-btn" onclick="playStickyEpisode(3)">
-                                <div class="btn-icon"><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M8 5v14l11-7z"></path>
-                                    </svg></div>
-                                <span>Escuchar</span>
-                            </button>
-                        </div>
+                        <!-- Play/Pause -->
+                        <button id="inline-play-btn" onclick="toggleInlinePlay()"
+                            style="width: 48px; height: 48px; background: #000; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s;"
+                            onmouseover="this.style.background='#222'" onmouseout="this.style.background='#000'">
+                            <svg id="inline-icon-play" viewBox="0 0 24 24" fill="#fff"
+                                style="width: 20px; height: 20px; margin-left: 2px;">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                            <svg id="inline-icon-pause" viewBox="0 0 24 24" fill="#fff"
+                                style="width: 20px; height: 20px; display: none;">
+                                <path d="M6 4h4v16H6zM14 4h4v16h-4z"></path>
+                            </svg>
+                        </button>
 
-                        <div class="pod-item">
-                            <div class="pod-thumb-wrapper">
-                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&q=80"
-                                    class="pod-thumb">
-                            </div>
-                            <div class="pod-info">
-                                <span class="pod-tags">NEGOCIOS • NOV 24, 2024</span>
-                                <h4 class="pod-item-title">Estrategias Disruptivas</h4>
-                            </div>
-                            <button class="pod-listen-btn" onclick="playStickyEpisode(4)">
-                                <div class="btn-icon"><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M8 5v14l11-7z"></path>
-                                    </svg></div>
-                                <span>Escuchar</span>
-                            </button>
-                        </div>
+                        <!-- Skip Forward -->
+                        <button onclick="skipInlineTime(15)"
+                            style="background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"
+                                style="width: 18px; height: 18px;">
+                                <path d="M13 17l5-5-5-5M6 17l5-5-5-5"></path>
+                            </svg>
+                        </button>
 
+                        <span id="inline-time-duration"
+                            style="font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #666; min-width: 35px; margin-left: auto;">0:00</span>
                     </div>
-
                 </div>
             </div>
+
+            <!-- RIGHT: Episode List -->
+            <div>
+                <!-- Episode 1 -->
+                <div
+                    style="display: flex; align-items: center; gap: 16px; padding: 24px 0; border-bottom: 1px solid #e0e0e0;">
+                    <img src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?w=200&q=80" alt="Episode"
+                        style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; flex-shrink: 0;">
+                    <div style="flex-grow: 1;">
+                        <div
+                            style="font-family: 'Inter', sans-serif; font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">
+                            LIDERAZGO • DIC 08, 2024
+                        </div>
+                        <h4
+                            style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #000; margin: 0; line-height: 1.4;">
+                            Liderazgo en la Era Digital
+                        </h4>
+                    </div>
+                    <button onclick="playStickyEpisode(2)"
+                        style="background: transparent; border: 1px solid #000; border-radius: 50px; padding: 10px 22px; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #000; cursor: pointer; display: flex; align-items: center; gap: 8px; flex-shrink: 0; transition: all 0.2s;"
+                        onmouseover="this.style.background='#000'; this.style.color='#fff'"
+                        onmouseout="this.style.background='transparent'; this.style.color='#000'">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px;">
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                        Listen
+                    </button>
+                </div>
+
+                <!-- Episode 2 -->
+                <div
+                    style="display: flex; align-items: center; gap: 16px; padding: 24px 0; border-bottom: 1px solid #e0e0e0;">
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=200&q=80" alt="Episode"
+                        style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; flex-shrink: 0;">
+                    <div style="flex-grow: 1;">
+                        <div
+                            style="font-family: 'Inter', sans-serif; font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">
+                            MENTALIDAD • DIC 21, 2024
+                        </div>
+                        <h4
+                            style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #000; margin: 0; line-height: 1.4;">
+                            Mentalidad de Crecimiento
+                        </h4>
+                    </div>
+                    <button onclick="playStickyEpisode(3)"
+                        style="background: transparent; border: 1px solid #000; border-radius: 50px; padding: 10px 22px; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #000; cursor: pointer; display: flex; align-items: center; gap: 8px; flex-shrink: 0; transition: all 0.2s;"
+                        onmouseover="this.style.background='#000'; this.style.color='#fff'"
+                        onmouseout="this.style.background='transparent'; this.style.color='#000'">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px;">
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                        Listen
+                    </button>
+                </div>
+
+                <!-- Episode 3 -->
+                <div
+                    style="display: flex; align-items: center; gap: 16px; padding: 24px 0; border-bottom: 1px solid #e0e0e0;">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=200&q=80" alt="Episode"
+                        style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; flex-shrink: 0;">
+                    <div style="flex-grow: 1;">
+                        <div
+                            style="font-family: 'Inter', sans-serif; font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">
+                            NEGOCIOS • NOV 24, 2024
+                        </div>
+                        <h4
+                            style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #000; margin: 0; line-height: 1.4;">
+                            Estrategias Disruptivas
+                        </h4>
+                    </div>
+                    <button onclick="playStickyEpisode(4)"
+                        style="background: transparent; border: 1px solid #000; border-radius: 50px; padding: 10px 22px; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #000; cursor: pointer; display: flex; align-items: center; gap: 8px; flex-shrink: 0; transition: all 0.2s;"
+                        onmouseover="this.style.background='#000'; this.style.color='#fff'"
+                        onmouseout="this.style.background='transparent'; this.style.color='#000'">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px;">
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                        Listen
+                    </button>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Responsive Mobile -->
+<style>
+    @media (max-width: 900px) {
+        #podcast-section>div>div:nth-child(2) {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+        }
+
+        #podcast-section>div>div:nth-child(2)>div:first-child {
+            max-width: 100% !important;
+        }
+
+        #podcast-section>div>div:nth-child(2)>div:first-child>div:first-child {
+            width: 100% !important;
+            height: auto !important;
+            aspect-ratio: 1;
+            max-width: 380px !important;
+            margin: 0 auto 20px auto !important;
+        }
+    }
+</style>
 
     <!-- STICKY AUDIO PLAYER (Global) -->
     <div id="sticky-player" class="sticky-player">
