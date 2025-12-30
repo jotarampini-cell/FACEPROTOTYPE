@@ -419,18 +419,31 @@ function updatePlayIcon(isPlaying) {
     const playIcon = document.getElementById('sticky-icon-play');
     const pauseIcon = document.getElementById('sticky-icon-pause');
 
-    if (isPlaying) {
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = 'block';
-    } else {
-        playIcon.style.display = 'block';
-        pauseIcon.style.display = 'none';
+    if (playIcon && pauseIcon) {
+        if (isPlaying) {
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        } else {
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        }
+    }
+
+    // Update Inline Player Icon (Home)
+    const inlineBtn = document.getElementById('inline-play-btn');
+    if (inlineBtn) {
+        if (isPlaying) {
+            inlineBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>';
+        } else {
+            inlineBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>';
+        }
     }
 }
 
 function skipStickyTime(seconds) {
     if (stickyAudio) {
         stickyAudio.currentTime += seconds;
+        updateStickyProgress();
     }
 }
 
@@ -455,21 +468,30 @@ function updateStickyProgress() {
 
     const timeLabel = document.getElementById('player-current-time');
     if (timeLabel) timeLabel.innerText = formatTime(current);
+
+    // Sync Inline Player (Home)
+    const inlineFill = document.getElementById('inline-prog-fill');
+    if (inlineFill) inlineFill.style.width = `${percent}%`;
+
+    const inlineTime = document.getElementById('inline-time-current');
+    if (inlineTime) inlineTime.innerText = formatTime(current);
+
+    const inlineTotal = document.getElementById('inline-time-total');
+    if (inlineTotal && stickyAudio.duration) inlineTotal.innerText = formatTime(stickyAudio.duration);
 }
 
 // Click on progress bar to seek
 function setupProgressBarScrubbing() {
+    // 1. Sticky Player Scrubbing
     const progressContainer = document.querySelector('.player-progress-bar');
     if (progressContainer) {
-        progressContainer.style.cursor = 'pointer'; // Make it look clickable
+        progressContainer.style.cursor = 'pointer';
 
         progressContainer.addEventListener('click', (e) => {
             if (!stickyAudio || !stickyAudio.duration) return;
-
             const rect = progressContainer.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
             const width = rect.width;
-
             if (width > 0) {
                 const duration = stickyAudio.duration;
                 stickyAudio.currentTime = (clickX / width) * duration;
@@ -477,17 +499,16 @@ function setupProgressBarScrubbing() {
             }
         });
 
-        // Touch scrubbing support
+        // Touch scrubbing support (Sticky)
         const handleTouch = (e) => {
             if (!stickyAudio || !stickyAudio.duration) return;
-            e.preventDefault(); // Prevent scroll while seeking
+            e.preventDefault();
             const rect = progressContainer.getBoundingClientRect();
             const touch = e.touches[0];
             const touchX = touch.clientX - rect.left;
             const width = rect.width;
 
             if (width > 0) {
-                // Clamp between 0 and 1
                 const ratio = Math.max(0, Math.min(1, touchX / width));
                 stickyAudio.currentTime = ratio * stickyAudio.duration;
                 updateStickyProgress();
@@ -496,12 +517,27 @@ function setupProgressBarScrubbing() {
 
         progressContainer.addEventListener('touchstart', handleTouch, { passive: false });
         progressContainer.addEventListener('touchmove', handleTouch, { passive: false });
-
-        console.log("Progress bar scrubbing (click + touch) setup complete.");
-    } else {
-        console.warn("Progress bar container not found for cleanup.");
     }
+
+    // 2. Inline Player Scrubbing (Home)
+    const inlineLine = document.getElementById('inline-prog-line');
+    if (inlineLine) {
+        inlineLine.addEventListener('click', (e) => {
+            if (!stickyAudio || !stickyAudio.duration) return;
+            const rect = inlineLine.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+            if (width > 0) {
+                stickyAudio.currentTime = (clickX / width) * stickyAudio.duration;
+                updateStickyProgress();
+            }
+        });
+    }
+
+    console.log("Progress bar scrubbing (Sticky + Inline) setup complete.");
 }
+
+
 
 // Call setup on load and whenever sticky player is triggered if needed, 
 // but since it's static in DOM, once on load is fine usually.
