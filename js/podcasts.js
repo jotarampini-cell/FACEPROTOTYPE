@@ -265,33 +265,333 @@ function loadEpisodeDetail() {
     renderRelatedEpisodes(episode);
 }
 
+
+// Map Categories to "The Bridge" Programs (Cross-Sell)
+const BRIDGE_PROGRAMS = {
+    'innovacion': {
+        title: 'RETO DE INGENIO: 21 DÍAS',
+        desc: 'Activa el verdadero potencial de tu equipo. La respuesta no está en Google, está en tu nómina.',
+        btn: 'VER PROGRAMA',
+        url: 'reto-de-ingenio.html',
+        bg: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80',
+        gradient: 'linear-gradient(135deg, rgba(15, 32, 70, 0.9) 0%, rgba(30, 60, 114, 0.8) 100%)'
+    },
+    'liderazgo': {
+        title: 'ACADEMIA DE LÍDERES',
+        desc: 'La psicología de la influencia. Aprende a inspirar y crear culturas de alto rendimiento.',
+        btn: 'PRÓXIMAMENTE',
+        url: '#',
+        bg: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80',
+        gradient: 'linear-gradient(135deg, rgba(15, 52, 67, 0.9) 0%, rgba(30, 115, 140, 0.8) 100%)'
+    },
+    'negocios': {
+        title: 'MAESTRÍA EMPRESARIAL',
+        desc: 'El sistema integral para dejar de ser operador y convertirte en dueño.',
+        btn: 'PRÓXIMAMENTE',
+        url: '#',
+        bg: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80',
+        gradient: 'linear-gradient(135deg, rgba(60, 40, 20, 0.9) 0%, rgba(197, 160, 89, 0.8) 100%)'
+    },
+    'mentalidad': {
+        title: 'LIBERTAD FINANCIERA',
+        desc: 'Rompe el techo de cristal de tus ingresos con mentalidad de abundancia.',
+        btn: 'PRÓXIMAMENTE',
+        url: '#',
+        bg: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80',
+        gradient: 'linear-gradient(135deg, rgba(45, 15, 60, 0.9) 0%, rgba(120, 50, 130, 0.8) 100%)'
+    }
+};
+
 function renderEpisodeDetail(episode) {
     const container = document.getElementById('podcastDetailContainer');
     if (!container) return;
 
+    // Default bridge fallback if category not matched
+    const bridge = BRIDGE_PROGRAMS[episode.category] || BRIDGE_PROGRAMS['innovacion'];
+
     container.innerHTML = `
-        <div class="podcast-detail-hero">
-            <div class="podcast-detail-container">
-                <div>
-                    <img src="${episode.image}" alt="${episode.title}" class="podcast-detail-artwork">
+        <style>
+            /* CINEMA HERO STYLES */
+            .cinema-hero {
+                display: grid;
+                grid-template-columns: 1fr 1.2fr;
+                min-height: 85vh; /* Immersive height */
+                background: #0a0a0a;
+                overflow: hidden;
+            }
+            .cinema-left {
+                padding: 80px 60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background: #0a0a0a;
+                z-index: 2;
+                position: relative;
+            }
+            .cinema-right {
+                position: relative;
+                height: 100%;
+                min-height: 400px;
+            }
+            .cinema-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                /* Grayscale for premium feel, color on hover optional */
+                filter: grayscale(100%) contrast(1.1); 
+                transition: filter 0.5s ease;
+            }
+            .cinema-right:hover .cinema-img {
+                filter: grayscale(0%) contrast(1.1);
+            }
+            /* Gradient Mask to blend image into black */
+            .cinema-mask {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 20%;
+                height: 100%;
+                background: linear-gradient(to right, #0a0a0a, transparent);
+                z-index: 1;
+            }
+
+            /* TYPOGRAPHY */
+            .cinema-meta {
+                font-family: 'Inter', sans-serif;
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+                color: #c5a059; /* Gold */
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+            .cinema-title {
+                font-family: 'Oswald', sans-serif;
+                font-size: 4rem; /* Massive */
+                line-height: 1.1;
+                font-weight: 700;
+                color: #ffffff;
+                margin-bottom: 40px;
+                text-transform: uppercase;
+            }
+            
+            /* ACTIONS */
+            .cinema-actions {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            .btn-cinema-play {
+                background: #ffffff;
+                color: #000;
+                padding: 16px 32px;
+                font-family: 'Inter', sans-serif;
+                font-weight: 700;
+                font-size: 1rem;
+                text-transform: uppercase;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: all 0.3s ease;
+            }
+            .btn-cinema-play:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+                background: #c5a059; /* Gold hover */
+            }
+            .btn-cinema-sub {
+                color: #999;
+                text-decoration: none;
+                font-family: 'Inter', sans-serif;
+                font-size: 0.9rem;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                transition: color 0.3s;
+            }
+            .btn-cinema-sub:hover {
+                color: #fff;
+            }
+
+            /* CONTENT & BRIDGE */
+            .detail-content-wrapper {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 100px 20px;
+            }
+            .detail-body {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 1.15rem;
+                line-height: 1.8;
+                color: #333;
+                margin-bottom: 80px;
+            }
+            .detail-body h2 {
+                font-family: 'Oswald', sans-serif;
+                font-size: 2rem;
+                margin-top: 40px;
+                margin-bottom: 20px;
+                color: #000;
+            }
+            .detail-body ul {
+                list-style: none; /* Custom bullets */
+                padding-left: 0;
+            }
+            .detail-body li {
+                position: relative;
+                padding-left: 25px;
+                margin-bottom: 15px;
+            }
+            .detail-body li::before {
+                content: "•";
+                color: #c5a059;
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+                font-size: 1.5rem;
+                line-height: 1;
+                top: -2px;
+            }
+
+            /* THE BRIDGE CARD */
+            .the-bridge {
+                background: ${bridge.gradient};
+                border-radius: 12px;
+                overflow: hidden;
+                position: relative;
+                color: #fff;
+                padding: 50px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            }
+            .bridge-content {
+                position: relative;
+                z-index: 2;
+                max-width: 600px;
+            }
+            .bridge-label {
+                background: rgba(255,255,255,0.1);
+                padding: 4px 12px;
+                font-size: 0.75rem;
+                font-family: 'Oswald', sans-serif;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
+            .bridge-title {
+                font-family: 'Oswald', sans-serif;
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+                line-height: 1.1;
+                text-transform: uppercase;
+            }
+            .bridge-desc {
+                font-family: 'Montserrat', sans-serif;
+                margin-bottom: 30px;
+                font-size: 1.05rem;
+                opacity: 0.9;
+            }
+            .bridge-bg {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 50%;
+                height: 100%;
+                background-image: url('${bridge.bg}');
+                background-size: cover;
+                background-position: center;
+                opacity: 0.3;
+                z-index: 1;
+                /* Fade left */
+                mask-image: linear-gradient(to right, transparent, black);
+                -webkit-mask-image: linear-gradient(to right, transparent, black);
+            }
+
+            /* RESPONSIVE */
+            @media (max-width: 900px) {
+                .cinema-hero {
+                    grid-template-columns: 1fr; /* Stack */
+                    grid-template-rows: 400px auto;
+                    min-height: auto;
+                }
+                .cinema-right {
+                    order: 1; /* Image first on mobile */
+                }
+                .cinema-left {
+                    order: 2;
+                    padding: 50px 30px;
+                }
+                .cinema-mask {
+                    width: 100%;
+                    height: 30%;
+                    top: auto;
+                    bottom: 0;
+                    left: 0;
+                    background: linear-gradient(to bottom, transparent, #0a0a0a);
+                }
+                .cinema-title {
+                    font-size: 2.5rem;
+                }
+                .the-bridge {
+                    padding: 30px;
+                }
+                .bridge-bg {
+                    width: 100%;
+                    opacity: 0.15;
+                }
+            }
+        </style>
+
+        <!-- 1. CINEMA HERO -->
+        <div class="cinema-hero">
+            <div class="cinema-left">
+                <div class="cinema-meta">
+                    EPISODIO #${episode.id} • ${episode.categoryDisplay}
                 </div>
-                <div class="podcast-detail-info">
-                    <div class="podcast-detail-meta">${episode.categoryDisplay.toUpperCase()} • ${formatDate(episode.date)}</div>
-                    <h1 class="podcast-detail-title">${episode.title}</h1>
-                    
-                    <div class="podcast-detail-cta">
-                        <button class="podcast-btn-primary" onclick="playStickyEpisode(${episode.id})">Escuchar Episodio</button>
-                        <div class="podcast-platform-buttons">
-                            <button class="podcast-btn-platform" onclick="window.open('${episode.spotifyUrl}', '_blank')">Spotify</button>
-                            <button class="podcast-btn-platform" onclick="window.open('${episode.appleUrl}', '_blank')">Apple Podcasts</button>
-                        </div>
-                    </div>
+                <h1 class="cinema-title">${episode.title}</h1>
+                <div class="cinema-actions">
+                    <button class="btn-cinema-play" onclick="playStickyEpisode(${episode.id})">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                        Escuchar Ahora
+                    </button>
+                    ${episode.spotifyUrl ? `
+                        <a href="${episode.spotifyUrl}" target="_blank" class="btn-cinema-sub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42c-.17.29-.54.38-.83.21-2.27-1.39-5.13-1.71-8.5-94-.33-.07-.54-.38-.47-.71.07-.33.38-.54.71-.47 3.65.83 6.81 1.2 9.38 2.78.29.17.38.54.21.83zm1.18-2.61c-.22.36-.69.47-1.04.25-2.55-1.57-6.43-2.03-9.45-1.11-.38.12-.79-.09-.91-.47-.12-.38.09-.79.47-.91 3.44-1.05 7.74-.53 10.68 1.27.36.22.47.69.25 1.04zm.1-2.73c-3.04-1.81-8.06-1.98-10.97-1.09-.45.14-.94-.11-1.08-.56-.14-.45.11-.94.56-1.08 3.32-1.02 8.87-.83 12.36 1.24.41.24.54.77.3 1.18-.24.41-.77.54-1.18.3z"/></svg>
+                            Spotify
+                        </a>
+                    ` : ''}
                 </div>
+            </div>
+            <div class="cinema-right">
+                <div class="cinema-mask"></div>
+                <img src="${episode.image}" alt="${episode.title}" class="cinema-img">
             </div>
         </div>
 
-        <div class="podcast-content-section">
-            ${episode.description}
+        <!-- 2. CONTENT & BRIDGE -->
+        <div class="detail-content-wrapper">
+            <div class="detail-body">
+                ${episode.description}
+            </div>
+
+            <!-- "THE BRIDGE" CROSS-SELL WIDGET -->
+            <div class="the-bridge">
+                <div class="bridge-bg"></div>
+                <div class="bridge-content">
+                    <span class="bridge-label">RECOMENDADO PARA TI</span>
+                    <h3 class="bridge-title">${bridge.title}</h3>
+                    <p class="bridge-desc">${bridge.desc}</p>
+                    <a href="${bridge.url}" class="btn-cinema-play" style="display: inline-flex; font-size: 0.9rem;">
+                        ${bridge.btn}
+                    </a>
+                </div>
+            </div>
         </div>
     `;
 }
