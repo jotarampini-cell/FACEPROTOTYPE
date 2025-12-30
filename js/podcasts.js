@@ -476,7 +476,28 @@ function setupProgressBarScrubbing() {
                 updateStickyProgress();
             }
         });
-        console.log("Progress bar scrubbing setup complete.");
+
+        // Touch scrubbing support
+        const handleTouch = (e) => {
+            if (!stickyAudio || !stickyAudio.duration) return;
+            e.preventDefault(); // Prevent scroll while seeking
+            const rect = progressContainer.getBoundingClientRect();
+            const touch = e.touches[0];
+            const touchX = touch.clientX - rect.left;
+            const width = rect.width;
+
+            if (width > 0) {
+                // Clamp between 0 and 1
+                const ratio = Math.max(0, Math.min(1, touchX / width));
+                stickyAudio.currentTime = ratio * stickyAudio.duration;
+                updateStickyProgress();
+            }
+        };
+
+        progressContainer.addEventListener('touchstart', handleTouch, { passive: false });
+        progressContainer.addEventListener('touchmove', handleTouch, { passive: false });
+
+        console.log("Progress bar scrubbing (click + touch) setup complete.");
     } else {
         console.warn("Progress bar container not found for cleanup.");
     }

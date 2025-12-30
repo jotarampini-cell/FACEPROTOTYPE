@@ -704,13 +704,17 @@
 
     .player-controls {
         grid-area: controls;
-        gap: 0;
+        gap: 15px;
+        /* Add space between buttons */
         justify-content: flex-end;
+        display: flex;
+        /* Ensure flex layout */
+        align-items: center;
     }
 
-    /* Hide skip buttons/text on mobile, show only play */
-    .player-controls button:not(.play-toggle) {
-        display: none;
+    /* Show all buttons */
+    .player-controls button {
+        display: flex;
     }
 
     .play-toggle {
