@@ -171,6 +171,10 @@ function scrollToWidget() {
     }
 }
 
-// Auto-Run on Load
-document.addEventListener('DOMContentLoaded', injectGlobalMenu);
+// Auto-Run on Load (Robust Check)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectGlobalMenu);
+} else {
+    injectGlobalMenu();
+}
 
