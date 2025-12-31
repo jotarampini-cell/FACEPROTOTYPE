@@ -19,7 +19,7 @@ body {
 /* Progress Bar - Sticky */
 .eval-progress-container {
     position: sticky;
-    top: 80px;
+    top: 0;
     background: #FFFFFF;
     z-index: 100;
     padding: 20px 5%;
@@ -162,27 +162,8 @@ body {
     align-items: center;
 }
 
-.eval-option::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 5px;
-    background: #000000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 12px 0 0 12px;
-}
-
 .eval-option:hover {
     border-color: #CCCCCC;
-    background: #FAFAFA;
-    transform: translateX(5px);
-}
-
-.eval-option:hover::before {
-    opacity: 1;
 }
 
 .eval-option.selected {
@@ -294,42 +275,6 @@ body {
     fill: #000000;
 }
 
-/* Back Button */
-.eval-back-btn {
-    position: fixed;
-    bottom: 40px;
-    left: 40px;
-    background: transparent;
-    border: 1px solid #DDDDDD;
-    padding: 12px 24px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    color: #666;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    border-radius: 8px;
-    font-weight: 500;
-}
-
-.eval-back-btn:hover {
-    border-color: #000000;
-    color: #000000;
-    background: #FAFAFA;
-}
-
-.eval-back-btn.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.eval-back-btn svg {
-    width: 18px;
-    height: 18px;
-}
-
 /* Success Screen */
 .eval-success {
     text-align: center;
@@ -368,7 +313,7 @@ body {
 /* Responsive: Tablet */
 @media (max-width: 900px) {
     .eval-progress-container {
-        top: 70px;
+        top: 0;
         padding: 15px 4%;
     }
 
@@ -379,17 +324,12 @@ body {
     .eval-options {
         grid-template-columns: 1fr;
     }
-
-    .eval-back-btn {
-        bottom: 25px;
-        left: 25px;
-    }
 }
 
 /* Responsive: Mobile */
 @media (max-width: 600px) {
     .eval-progress-container {
-        top: 60px;
+        top: 0;
         padding: 12px 5%;
     }
 
@@ -428,13 +368,6 @@ body {
         width: 100%;
         padding: 18px 40px;
         font-size: 16px;
-    }
-
-    .eval-back-btn {
-        bottom: 20px;
-        left: 20px;
-        padding: 10px 18px;
-        font-size: 14px;
     }
 
     .eval-badge {
