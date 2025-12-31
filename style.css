@@ -4989,3 +4989,47 @@ body {
         border-radius: 16px;
     }
 }
+
+/* =========================================================
+   VERSIÓN DESKTOP (SOLO SE ACTIVA EN PANTALLAS GRANDES)
+   ========================================================= */
+@media (min-width: 1024px) {
+    
+    /* Wrapper principal se convierte en flexbox horizontal */
+    .pillars-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 80px;
+    }
+
+    /* Columna de TEXTO (Izquierda) */
+    .pillars-text {
+        width: 45%;
+        text-align: left;
+        order: 1;
+    }
+
+    /* Ajuste para que el encabezado se alinee a la izquierda */
+    .pillars-header {
+        justify-content: flex-start;
+    }
+
+    /* Columna de IMAGEN (Derecha) */
+    .pillars-image {
+        width: 50%;
+        order: 2;
+        height: 650px;
+    }
+
+    /* Hacemos que la imagen llene todo el alto disponible */
+    .pillars-image-wrapper {
+        height: 100%;
+    }
+
+    .p-img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
