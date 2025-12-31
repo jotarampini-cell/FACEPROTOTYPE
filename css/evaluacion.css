@@ -1,0 +1,444 @@
+/* ====================================
+   EVALUACIÓN PAGE - CONVERSATIONAL DESIGN
+   Clean, friendly, relaxed aesthetic
+   ==================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #FFFFFF;
+    color: #2C2C2C;
+    overflow-x: hidden;
+}
+
+/* Progress Bar - Sticky */
+.eval-progress-container {
+    position: sticky;
+    top: 80px;
+    background: #FFFFFF;
+    z-index: 100;
+    padding: 20px 5%;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.eval-progress-label {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#step-indicator {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #666666;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.eval-progress-bar {
+    width: 100%;
+    max-width: 600px;
+    height: 6px;
+    background: #F0F0F0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.eval-progress-fill {
+    height: 100%;
+    background: #000000;
+    width: 0%;
+    transition: width 0.5s ease;
+    border-radius: 10px;
+}
+
+/* Main Content */
+.eval-main {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 100px 20px;
+    position: relative;
+}
+
+.eval-content {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typography */
+.eval-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400;
+    color: #111111;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.eval-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(16px, 2vw, 20px);
+    color: #555555;
+    line-height: 1.7;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.eval-question {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    color: #111111;
+    margin-bottom: 50px;
+    line-height: 1.4;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Badge */
+.eval-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #F8F8F8;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+/* Options Grid */
+.eval-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.eval-option {
+    background: #FFFFFF;
+    border: 2px solid #E8E8E8;
+    padding: 30px 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    color: #2C2C2C;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    line-height: 1.5;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.eval-option::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: #000000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px 0 0 12px;
+}
+
+.eval-option:hover {
+    border-color: #CCCCCC;
+    background: #FAFAFA;
+    transform: translateX(5px);
+}
+
+.eval-option:hover::before {
+    opacity: 1;
+}
+
+.eval-option.selected {
+    background: #000000;
+    color: #FFFFFF;
+    border-color: #000000;
+    animation: pulse 0.4s ease;
+}
+
+.eval-option.selected::before {
+    opacity: 0;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* CTA Button */
+.eval-cta {
+    background: #000000;
+    color: #FFFFFF;
+    border: none;
+    padding: 20px 60px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.eval-cta:hover {
+    background: #222222;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+    transform: translateY(-3px);
+}
+
+/* Input Form */
+.eval-form {
+    max-width: 500px;
+    margin: 40px auto 0 auto;
+    display: grid;
+    gap: 25px;
+}
+
+.eval-input-group {
+    text-align: left;
+}
+
+.eval-label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.eval-input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #E8E8E8;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #2C2C2C;
+    transition: border-color 0.3s ease;
+    background: #FAFAFA;
+}
+
+.eval-input:focus {
+    outline: none;
+    border-color: #000000;
+    background: #FFFFFF;
+}
+
+.eval-input::placeholder {
+    color: #AAAAAA;
+}
+
+/* Privacy Notice */
+.eval-privacy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #777;
+}
+
+.eval-privacy svg {
+    width: 18px;
+    height: 18px;
+    fill: #000000;
+}
+
+/* Back Button */
+.eval-back-btn {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    background: transparent;
+    border: 1px solid #DDDDDD;
+    padding: 12px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.eval-back-btn:hover {
+    border-color: #000000;
+    color: #000000;
+    background: #FAFAFA;
+}
+
+.eval-back-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.eval-back-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Success Screen */
+.eval-success {
+    text-align: center;
+}
+
+.eval-success-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px auto;
+    background: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease;
+}
+
+.eval-success-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: #FFFFFF;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive: Tablet */
+@media (max-width: 900px) {
+    .eval-progress-container {
+        top: 70px;
+        padding: 15px 4%;
+    }
+
+    .eval-main {
+        padding: 40px 4% 80px 4%;
+    }
+
+    .eval-options {
+        grid-template-columns: 1fr;
+    }
+
+    .eval-back-btn {
+        bottom: 25px;
+        left: 25px;
+    }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 600px) {
+    .eval-progress-container {
+        top: 60px;
+        padding: 12px 5%;
+    }
+
+    #step-indicator {
+        font-size: 12px;
+    }
+
+    .eval-progress-bar {
+        height: 4px;
+    }
+
+    .eval-main {
+        padding: 30px 5% 100px 5%;
+    }
+
+    .eval-title {
+        font-size: 32px;
+    }
+
+    .eval-subtitle {
+        font-size: 16px;
+    }
+
+    .eval-question {
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+
+    .eval-option {
+        padding: 22px 20px;
+        font-size: 15px;
+        min-height: 80px;
+    }
+
+    .eval-cta {
+        width: 100%;
+        padding: 18px 40px;
+        font-size: 16px;
+    }
+
+    .eval-back-btn {
+        bottom: 20px;
+        left: 20px;
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .eval-badge {
+        font-size: 13px;
+        padding: 8px 16px;
+    }
+}

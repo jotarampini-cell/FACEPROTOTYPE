@@ -22,7 +22,7 @@ const MASTER_MENU_HTML = `
         <nav>
             <div class="tr-menu-header">
                 <div class="tr-menu-logo">FACE</div>
-                <a href="#" onclick="scrollToWidget()" class="tr-header-cta">Iniciar ahora</a>
+                <a href="evaluacion.html" class="tr-header-cta">Iniciar ahora</a>
                 <button class="tr-menu-close" aria-label="Cerrar menú">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -62,7 +62,7 @@ const MASTER_MENU_HTML = `
             </ul>
 
             <div class="tr-menu-footer">
-                <a href="#" onclick="scrollToWidget()" class="tr-btn-primary">Iniciar ahora</a>
+                <a href="evaluacion.html" class="tr-btn-primary">Iniciar ahora</a>
                 <a href="#login" class="tr-btn-secondary">Log in</a>
             </div>
         </nav>
