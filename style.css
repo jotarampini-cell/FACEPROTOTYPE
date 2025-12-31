@@ -4868,7 +4868,7 @@ body {
     --bg-color: #ffffff;
     --text-color: #000000;
     --font-stack: 'Montserrat', sans-serif;
-    
+
     background-color: var(--bg-color);
     color: var(--text-color);
     padding: 80px 20px 100px 20px;
@@ -4887,7 +4887,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    
+
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -4914,10 +4914,10 @@ body {
 .pillars-list a {
     text-decoration: none;
     color: var(--text-color);
-    
+
     font-size: clamp(3rem, 9vw, 6rem);
     font-weight: 800;
-    
+
     display: block;
     transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -4932,7 +4932,7 @@ body {
 .pillars-image-wrapper {
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .pillars-img {
@@ -4941,9 +4941,51 @@ body {
     display: block;
 }
 
+/* Ajuste para tablets y móviles */
+@media (max-width: 768px) {
+    .pillars-section {
+        padding: 60px 20px 80px 20px;
+    }
+
+    .pillars-header {
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 30px;
+    }
+
+    .pillars-list {
+        margin: 0 0 50px 0;
+    }
+
+    .pillars-list a {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    .pillars-list li {
+        line-height: 1.1;
+    }
+}
+
 /* Ajuste para móviles muy pequeños */
 @media (max-width: 480px) {
+    .pillars-section {
+        padding: 50px 15px 60px 15px;
+    }
+
+    .pillars-header {
+        font-size: 0.7rem;
+        gap: 8px;
+    }
+
+    .pillars-list a {
+        font-size: clamp(1.8rem, 10vw, 2.5rem);
+    }
+
     .pillars-list li {
         line-height: 1.15;
+    }
+
+    .pillars-image-wrapper {
+        border-radius: 16px;
     }
 }
