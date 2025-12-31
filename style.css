@@ -4859,3 +4859,91 @@ body {
         min-width: 260px;
     }
 }
+
+/* ====================================
+   PILLARS SECTION (Tony Robbins Style)
+   ==================================== */
+
+.pillars-section {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --font-stack: 'Montserrat', sans-serif;
+    
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 80px 20px 100px 20px;
+    text-align: center;
+    font-family: var(--font-stack);
+}
+
+.pillars-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Header pequeño */
+.pillars-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.dot {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+/* Lista de Palabras Gigantes */
+.pillars-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 70px 0;
+}
+
+.pillars-list li {
+    line-height: 1.05;
+}
+
+.pillars-list a {
+    text-decoration: none;
+    color: var(--text-color);
+    
+    font-size: clamp(3rem, 9vw, 6rem);
+    font-weight: 800;
+    
+    display: block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto Hover Sutil */
+.pillars-list a:hover {
+    transform: scale(1.02);
+    color: #c5a059;
+}
+
+/* Contenedor de la imagen */
+.pillars-image-wrapper {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.pillars-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ajuste para móviles muy pequeños */
+@media (max-width: 480px) {
+    .pillars-list li {
+        line-height: 1.15;
+    }
+}
