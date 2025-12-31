@@ -8,7 +8,7 @@ const MASTER_MENU_HTML = `
     <header id="main-header" class="main-header">
         <div class="header-container">
             <a href="index.html" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">FACE</a>
-            <a href="quiz.html" class="nav-cta-btn">Iniciar ahora</a>
+            <a href="evaluacion.html" class="nav-cta-btn">Iniciar ahora</a>
             <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
