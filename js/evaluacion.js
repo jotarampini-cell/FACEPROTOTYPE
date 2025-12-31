@@ -62,10 +62,10 @@ const steps = [
         id: 'team_structure',
         question: 'Selecciona la descripción que mejor se ajusta a la estructura de tu equipo hoy:',
         options: [
-            'Estructura Flexible: Todos hacemos de todo y yo superviso directamente.',
-            'Estructura Jerárquica: Departamentos definidos y gerentes que toman decisiones.',
-            'Estructura Familiar: La propiedad y dirección son principalmente de la familia.',
-            'Estructura Institucional: Organización grande o regulada con procesos formales.'
+            'Todos hacemos de todo y yo superviso directamente',
+            'Departamentos definidos con gerentes que toman decisiones',
+            'La propiedad y dirección son principalmente de la familia',
+            'Organización grande o regulada con procesos formales'
         ]
     },
     // Question 5
@@ -74,10 +74,10 @@ const steps = [
         id: 'desired_outcome',
         question: 'Para aprovechar al máximo tu sesión de diagnóstico, ¿qué resultado te gustaría obtener?',
         options: [
-            'Vender más o llegar a nuevos mercados.',
-            'Que mi equipo trabaje mejor y dependa menos de mí.',
-            'Modernizar la empresa sin perder nuestra esencia.',
-            'Tener un plan claro de innovación.'
+            'Vender más o llegar a nuevos mercados',
+            'Que mi equipo trabaje mejor y dependa menos de mí',
+            'Modernizar la empresa sin perder nuestra esencia',
+            'Tener un plan claro de innovación'
         ]
     },
     // Lead Capture
