@@ -5017,6 +5017,7 @@ body {
         /* Llenar altura */
     }
 }
+
 /* =========================================================
    SECCIÓN HERO VIDEO (FULL SCREEN BACKGROUND)
    ========================================================= */
@@ -5118,8 +5119,8 @@ body {
 @media (max-width: 768px) {
     .hero-video-section {
         /* Fallback para navegadores que no soporten dvh */
-        height: 100vh;
-        height: 100dvh;
+        height: 50vh;
+        height: 50dvh;
     }
 
     .hero-title {
