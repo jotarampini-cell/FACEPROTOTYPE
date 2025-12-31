@@ -4913,19 +4913,19 @@ body {
 
 .pillars-list a {
     text-decoration: none;
-    color: var(--text-color);
+    color: rgba(0, 0, 0, 0.6);
 
     font-size: clamp(3rem, 9vw, 6rem);
     font-weight: 800;
 
     display: block;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
 /* Efecto Hover Sutil */
 .pillars-list a:hover {
     transform: scale(1.02);
-    color: #c5a059;
+    color: rgba(0, 0, 0, 1);
 }
 
 /* Contenedor de la imagen */
