@@ -5017,3 +5017,134 @@ body {
         /* Llenar altura */
     }
 }
+/* =========================================================
+   SECCIÓN HERO VIDEO (FULL SCREEN BACKGROUND)
+   ========================================================= */
+
+.hero-video-section {
+    position: relative;
+    /* Usamos 'dvh' (Dynamic Viewport Height) para móviles */
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* VIDEO DE FONDO (TÉCNICA MODERNA) */
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* La magia: esto hace que el video cubra todo sin deformarse */
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* CAPA OSCURA CON GRADIENTE */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente cinematográfico: más claro arriba, más oscuro abajo */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    z-index: -1;
+}
+
+/* CONTENIDO */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 20px;
+}
+
+/* TIPOGRAFÍA */
+.hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    /* Ajuste fluido */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    /* Sombra suave para separar del video */
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 400;
+    margin-bottom: 45px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #eeeeee;
+}
+
+/* BOTÓN HERO */
+.btn-hero {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 18px 45px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid #ffffff;
+}
+
+.btn-hero:hover {
+    background-color: transparent;
+    color: #ffffff;
+    transform: translateY(-5px);
+}
+
+/* --- OPTIMIZACIÓN MÓVIL --- */
+@media (max-width: 768px) {
+    .hero-video-section {
+        /* Fallback para navegadores que no soporten dvh */
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    .hero-title {
+        margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 35px;
+    }
+
+    .btn-hero {
+        padding: 15px 35px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Optimización para conexiones lentas */
+@media (prefers-reduced-motion: reduce) {
+    .bg-video {
+        display: none;
+    }
+
+    .hero-video-section {
+        background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80');
+        background-size: cover;
+        background-position: center;
+    }
+}
