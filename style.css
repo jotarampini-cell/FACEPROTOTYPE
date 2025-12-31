@@ -4860,176 +4860,160 @@ body {
     }
 }
 
-/* ====================================
-   PILLARS SECTION (Tony Robbins Style)
-   ==================================== */
+/* =========================================================
+   SECCIÓN: PILARES (ARQUITECTURA PREMIUM / FINAL)
+   ========================================================= */
 
+/* --- CONFIGURACIÓN BASE (MÓVIL PRIMERO) --- */
 .pillars-section {
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    --font-stack: 'Montserrat', sans-serif;
-
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    padding: 80px 20px 100px 20px;
-    text-align: center;
-    font-family: var(--font-stack);
+    background-color: #ffffff;
+    color: #000000;
+    padding: 80px 20px;
+    overflow: hidden;
 }
 
-.pillars-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Header pequeño */
-.pillars-header {
+.pillars-wrapper {
+    /* MÓVIL: Usamos Flexbox para apilar verticalmente */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+    flex-direction: column;
+    gap: 50px;
 
-    font-size: 0.9rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* --- COLUMNA DE TEXTO --- */
+.pillars-text {
+    order: 1;
+    /* Texto primero en móvil */
+    width: 100%;
+    text-align: center;
+    /* Centrado en móvil */
+}
+
+.pillars-header {
+    display: inline-flex;
+    /* Inline para centrar en móvil */
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    color: #333333;
 }
 
 .dot {
-    font-size: 1.4rem;
-    line-height: 1;
+    color: #000000;
+    font-size: 1.5rem;
+    line-height: 0;
 }
 
-/* Lista de Palabras Gigantes */
+/* LISTA DE ENLACES */
 .pillars-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 70px 0;
+    margin: 0;
 }
 
 .pillars-list li {
     line-height: 1.05;
+    /* Interlineado apretado "Tight" */
 }
 
 .pillars-list a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.6);
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
 
-    font-size: clamp(3rem, 9vw, 6rem);
+    /* TIPOGRAFÍA FLUIDA (Clamp): 
+       Se adapta matemáticamente entre móvil (3rem) y desktop (5.5rem) */
+    font-size: clamp(3rem, 7vw, 5.5rem);
     font-weight: 800;
 
     display: block;
-    transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    /* Transición "Suave" Premium (Ease-Out se siente más natural) */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s ease, opacity 0.3s ease;
 }
 
-/* Efecto Hover Sutil */
 .pillars-list a:hover {
-    transform: scale(1.02);
-    color: rgba(0, 0, 0, 1);
+    transform: translateX(20px);
+    /* Desplazamiento lateral elegante */
+    color: #c5a059;
+    /* Dorado Fase */
+    opacity: 1;
 }
 
-/* Contenedor de la imagen */
-.pillars-image-wrapper {
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+/* Efecto de "Focus": Al hacer hover en uno, los demás se apagan un poco (Opcional, muy pro) */
+.pillars-list:hover a {
+    opacity: 0.5;
+    /* Todos se oscurecen */
 }
 
-.pillars-img {
+.pillars-list a:hover {
+    opacity: 1;
+    /* El activo brilla */
+}
+
+
+/* --- COLUMNA DE IMAGEN --- */
+.pillars-image {
+    order: 2;
+    /* Imagen después en móvil */
+    width: 100%;
+}
+
+.p-img {
     width: 100%;
     height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
     display: block;
+    object-fit: cover;
 }
 
-/* Ajuste para tablets y móviles */
-@media (max-width: 768px) {
-    .pillars-section {
-        padding: 60px 20px 80px 20px;
-    }
-
-    .pillars-header {
-        font-size: 0.75rem;
-        letter-spacing: 1.5px;
-        margin-bottom: 30px;
-    }
-
-    .pillars-list {
-        margin: 0 0 50px 0;
-    }
-
-    .pillars-list a {
-        font-size: clamp(2rem, 8vw, 3.5rem);
-    }
-
-    .pillars-list li {
-        line-height: 1.1;
-    }
-}
-
-/* Ajuste para móviles muy pequeños */
-@media (max-width: 480px) {
-    .pillars-section {
-        padding: 50px 15px 60px 15px;
-    }
-
-    .pillars-header {
-        font-size: 0.7rem;
-        gap: 8px;
-    }
-
-    .pillars-list a {
-        font-size: clamp(1.8rem, 10vw, 2.5rem);
-    }
-
-    .pillars-list li {
-        line-height: 1.15;
-    }
-
-    .pillars-image-wrapper {
-        border-radius: 16px;
-    }
-}
 
 /* =========================================================
-   VERSIÓN DESKTOP (SOLO SE ACTIVA EN PANTALLAS GRANDES)
+   VERSIÓN ESCRITORIO (CSS GRID / NO OVERLAP)
+   Se activa en pantallas mayores a 1024px
    ========================================================= */
 @media (min-width: 1024px) {
-    
-    /* Wrapper principal se convierte en flexbox horizontal */
+
     .pillars-wrapper {
-        display: flex;
-        flex-direction: row;
+        /* ARQUITECTURA SÓLIDA: Grid */
+        display: grid;
+        /* Columna 1 (Texto): 0.8 partes / Columna 2 (Imagen): 1 parte */
+        grid-template-columns: 0.8fr 1fr;
         align-items: center;
-        justify-content: space-between;
         gap: 80px;
+        /* Espacio garantizado entre columnas */
     }
 
-    /* Columna de TEXTO (Izquierda) */
+    /* Ajustes Texto Desktop */
     .pillars-text {
-        width: 45%;
         text-align: left;
-        order: 1;
+        /* Alineado a la izquierda */
+        order: unset;
+        /* Grid decide el orden natural */
     }
 
-    /* Ajuste para que el encabezado se alinee a la izquierda */
     .pillars-header {
-        justify-content: flex-start;
+        display: flex;
+        /* Flex container normal */
     }
 
-    /* Columna de IMAGEN (Derecha) */
+    /* Ajustes Imagen Desktop */
     .pillars-image {
-        width: 50%;
-        order: 2;
         height: 650px;
-    }
-
-    /* Hacemos que la imagen llene todo el alto disponible */
-    .pillars-image-wrapper {
-        height: 100%;
+        /* Altura imponente fija */
+        order: unset;
     }
 
     .p-img {
         height: 100%;
-        object-fit: cover;
+        /* Llenar altura */
     }
 }
