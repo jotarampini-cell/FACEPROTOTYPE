@@ -4935,27 +4935,34 @@ body {
     font-weight: 800;
 
     display: block;
-    /* Transición "Suave" Premium (Ease-Out se siente más natural) */
+    /* Estado inicial: opaco */
+    opacity: 0.4;
+    cursor: pointer;
+    /* Transición "Suave" Premium */
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s ease, opacity 0.3s ease;
 }
 
-.pillars-list a:hover {
-    transform: translateX(20px);
-    /* Desplazamiento lateral elegante */
+/* Estado ACTIVO (seleccionado con click) */
+.pillars-list a.active {
     color: #c5a059;
-    /* Dorado Fase */
+    /* Dorado */
     opacity: 1;
+    transform: translateX(10px);
+    /* Desplazamiento sutil */
 }
 
-/* Efecto de "Focus": Al hacer hover en uno, los demás se apagan un poco (Opcional, muy pro) */
-.pillars-list:hover a {
-    opacity: 0.5;
-    /* Todos se oscurecen */
-}
-
+/* Hover - Preview del estado activo */
 .pillars-list a:hover {
+    opacity: 0.7;
+    /* Preview: más visible pero no completamente */
+    transform: translateX(5px);
+    /* Movimiento sutil */
+}
+
+/* El activo mantiene su estado incluso con hover */
+.pillars-list a.active:hover {
     opacity: 1;
-    /* El activo brilla */
+    transform: translateX(10px);
 }
 
 

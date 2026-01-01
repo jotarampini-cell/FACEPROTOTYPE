@@ -403,7 +403,7 @@
                     </div>
 
                     <ul class="pillars-list">
-                        <li><a href="#innovacion">Innovación</a></li>
+                        <li><a href="#innovacion" class="active">Innovación</a></li>
                         <li><a href="#cultura">Cultura empresarial</a></li>
                         <li><a href="#ventas">Ventas</a></li>
                         <li><a href="#marketing">Marketing</a></li>
@@ -1277,6 +1277,25 @@
     <script src="js/accordion.js"></script>
     <script src="mobile.js"></script>
     <!-- Emergency Accordion Script (Inline to ensure execution) -->
+
+    <!-- Pillars Click Interaction Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const pillarLinks = document.querySelectorAll('.pillars-list a');
+
+            pillarLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault(); // Evitar navegación
+
+                    // Remover clase active de todos los links
+                    pillarLinks.forEach(l => l.classList.remove('active'));
+
+                    // Agregar clase active al link clickeado
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 
 </body>
 
