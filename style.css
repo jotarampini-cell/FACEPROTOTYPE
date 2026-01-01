@@ -5019,6 +5019,16 @@ body {
 }
 
 /* =========================================================
+   VERSIÓN MÓVIL - Reducir tamaño de letras de pilares
+   ========================================================= */
+@media (max-width: 768px) {
+    .pillars-list a {
+        /* Reducir tamaño para móvil */
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+}
+
+/* =========================================================
    SECCIÓN HERO VIDEO (FULL SCREEN BACKGROUND)
    ========================================================= */
 
