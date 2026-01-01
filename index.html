@@ -466,12 +466,29 @@
     <style>
         /* --- 1. AMBIENTE Y FONDO --- */
         .galaxy-section {
-            background-color: #050505;
+            /* Gradiente animado para efecto "universo vivo" */
+            background: linear-gradient(135deg, #0a0015, #1a0033, #2d0a4e, #050505);
+            background-size: 400% 400%;
+            animation: galaxyPulse 15s ease infinite;
             position: relative;
             padding: 120px 0;
             overflow: hidden;
             min-height: 800px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: none;
+            /* Preparar para cursor personalizado */
+        }
+
+        @keyframes galaxyPulse {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .galaxy-bg {
@@ -722,35 +739,294 @@
                 font-size: 2rem;
             }
         }
+
+        /* === MEJORAS VISUALES === */
+        
+        /* Cursor personalizado */
+        .galaxy-cursor {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #c5a059;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.1s ease;
+            opacity: 0;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.6);
+            mix-blend-mode: screen;
+        }
+        
+        /* Animación de entrada para tarjetas */
+        .star-card {
+            opacity: 0 !important;
+            transform: translate(-50%, -50%) scale(0) rotate(180deg) !important;
+            transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+        }
+        
+        .star-card.revealed {
+            opacity: 0.8 !important;
+            transform: translate(-50%, -50%) scale(0.8) rotate(0deg) !important;
+        }
+        
+        .star-card.revealed:hover {
+            opacity: 1 !important;
+        }
     </style>
 
     <script>
+        // Mensajes mejorados con estructura de 4 partes
         const galaxyIdeas = [
-            { t: "Toyota & Ford", d: "Toyota no inventó la línea de ensamblaje. Estudió a Ford y a los supermercados americanos para crear el 'Just-in-Time'." },
-            { t: "Netflix & Correos", d: "Netflix mejoró la distribución de Blockbuster usando el sistema postal existente, luego adaptó esa logística al streaming." },
-            { t: "Steve Jobs & Xerox", d: "Apple tomó el mouse y la interfaz gráfica de un laboratorio de Xerox y los perfeccionó para el usuario común." },
-            { t: "McDonald's & Fábricas", d: "Aplicaron los principios de la línea de ensamblaje industrial de Henry Ford a una cocina para inventar la 'comida rápida'." },
-            { t: "Spotify & Piratería", d: "Observaron que la gente amaba la inmediatez de la piratería (Napster) y crearon una versión legal igual de rápida." },
-            { t: "Uber & Taxis", d: "No inventaron el transporte. Conectaron coches vacíos existentes con pasajeros usando el GPS del móvil." },
-            { t: "Airbnb & Hoteles", d: "Airbnb no puso un solo ladrillo. Monetizó las habitaciones vacías que ya existían en casas de todo el mundo." },
-            { t: "Instagram & Filtros", d: "Empezaron como una app compleja. Vieron que solo se usaban las fotos, borraron todo lo demás y se enfocaron en la estética." },
-            { t: "Ford & Mataderos", d: "Henry Ford invirtió el proceso de las cintas transportadoras de los mataderos de Chicago para ensamblar autos." },
-            { t: "Cirque du Soleil", d: "Eliminaron los animales (costosos) y mezclaron el circo con el teatro para cobrar precios de Broadway." },
-            { t: "Nespresso & Café", d: "Simplificaron la habilidad del barista encapsulando el proceso en una cápsula sellada para el hogar." },
-            { t: "IKEA & Transporte", d: "Descubrieron que enviar 'aire' (muebles armados) era caro. Inventaron el paquete plano para que tú fueras el ensamblador." },
-            { t: "Zara & Alta Costura", d: "Zara no diseña desde cero. Copia tendencias de pasarela y usa logística rápida para tenerlas en tienda en 2 semanas." },
-            { t: "Amazon & Libros", d: "Bezos usó internet para listar libros que físicamente no cabían en ninguna librería del mundo." },
-            { t: "Google & Citas", d: "Adaptaron el sistema de citas académicas (referencias) para crear el PageRank de búsqueda web." },
-            { t: "Dyson & Aserraderos", d: "Dyson vio un ciclón industrial en un aserradero y lo miniaturizó para crear su aspiradora sin bolsa." },
-            { t: "Nintendo & Cartas", d: "Nintendo hacía naipes. Adaptó su negocio de 'juegos' a la nueva tecnología electrónica." },
-            { t: "Starbucks & Italia", d: "Schultz no inventó el café. Importó la 'experiencia' y el ambiente del bar italiano a Estados Unidos." },
-            { t: "Tesla & Laptops", d: "Unieron un chasis de Lotus con baterías de iones de litio de laptops para hacer el coche eléctrico atractivo." },
-            { t: "Wikipedia & Multitud", d: "Reemplazaron a los editores expertos por la multitud (crowdsourcing) para crear la enciclopedia más grande." },
-            { t: "Zoom & Facilidad", d: "Simplificaron la videollamada: Un solo link, sin registro obligatorio. Eso fue su innovación." },
-            { t: "Duolingo & Gaming", d: "Aplicaron la psicología de los videojuegos (vidas, niveles) a la educación aburrida." },
-            { t: "Slack & Chats", d: "Era una herramienta interna de un juego fracasado. El juego murió, la herramienta sobrevivió." },
-            { t: "WhatsApp & Datos", d: "Usaron la red de internet para esquivar los costos de los SMS telefónicos." },
-            { t: "Youtube & Citas", d: "Nació para citas en video. Fracasó. Pivotaron a ser una plataforma abierta de video." }
+            {
+                t: "Toyota & Ford",
+                d: `✅ LO QUE EXISTÍA: Líneas de ensamblaje de Ford + Sistema de reposición de supermercados
+
+🔄 LO QUE HICIERON: Combinaron ambos conceptos para crear Just -in -Time: producir solo lo necesario, cuando es necesario
+
+🚀 RESULTADO: Redujeron inventario 90 %, eliminaron desperdicio, dominaron la industria automotriz
+
+💡 LECCIÓN FACE: No necesitas inventar.Observa dos industrias diferentes y combina lo mejor de ambas` 
+            },
+        {
+            t: "Netflix & Correos",
+                d: `✅ LO QUE EXISTÍA: Servicio postal confiable + Frustración con multas de Blockbuster
+
+🔄 LO QUE HICIERON: Aplicaron el modelo de suscripción de gimnasios al alquiler de películas por correo
+
+🚀 RESULTADO: Eliminaron multas, lograron retención del 93 %, destruyeron a Blockbuster
+
+💡 LECCIÓN FACE: Un modelo de negocio de otra industria puede destruir tu competencia` 
+        },
+        {
+            t: "Steve Jobs & Xerox",
+                d: `✅ LO QUE EXISTÍA: Interfaz gráfica y mouse desarrollados por Xerox PARC en 1973
+
+🔄 LO QUE HICIERON: Jobs visitó Xerox, vio el potencial ignorado y lo adaptó para usuarios comunes(no ingenieros)
+
+🚀 RESULTADO: Macintosh revolucionó la computación personal, Xerox perdió una fortuna
+
+💡 LECCIÓN FACE: La mejor tecnología vive en laboratorios sin explotar.Ve, observa, adapta` 
+        },
+        {
+            t: "McDonald's & Fábricas",
+                d: `✅ LO QUE EXISTÍA: Líneas de ensamblaje de Henry Ford fabricando autos
+
+🔄 LO QUE HICIERON: Aplicaron los mismos principios de producción en masa a la cocina
+
+🚀 RESULTADO: Inventaron la 'comida rápida', hamburguesa en 30 segundos, imperio global
+
+💡 LECCIÓN FACE: Procesos probados de manufactura pueden aplicarse a servicios` 
+        },
+        {
+            t: "Spotify & Piratería",
+                d: `✅ LO QUE EXISTÍA: Napster (ilegal) ofrecía música instantánea gratis
+
+🔄 LO QUE HICIERON: Replicaron la velocidad y acceso de la piratería, pero legalmente con licencias
+
+🚀 RESULTADO: 500M de usuarios, salvaron la industria musical, modelo de suscripción estándar
+
+💡 LECCIÓN FACE: Si no puedes vencer al mercado negro, copia su conveniencia y hazlo legal` 
+        },
+        {
+            t: "Uber & Taxis",
+                d: `✅ LO QUE EXISTÍA: Millones de coches privados vacíos + GPS en smartphones
+
+🔄 LO QUE HICIERON: Conectaron la capacidad ociosa de vehículos con demanda usando tecnología existente
+
+🚀 RESULTADO: Valuación de $90B sin poseer un solo coche, revolucionaron transporte urbano
+
+💡 LECCIÓN FACE: No crees inventario.Conecta oferta subutilizada con demanda insatisfecha` 
+        },
+        {
+            t: "Airbnb & Hoteles",
+                d: `✅ LO QUE EXISTÍA: Habitaciones vacías en casas + Sitios de clasificados como Craigslist
+
+🔄 LO QUE HICIERON: Añadieron fotos profesionales, reseñas verificadas y sistema de pago seguro
+
+🚀 RESULTADO: Mayor inventario que Marriott sin construir nada, valuación $100B +
+
+💡 LECCIÓN FACE: Mejora mercados existentes añadiendo confianza y experiencia de usuario` 
+        },
+        {
+            t: "Instagram & Filtros",
+                d: `✅ LO QUE EXISTÍA: Burbn (app compleja para check-ins con 20 funciones)
+
+🔄 LO QUE HICIERON: Analizaron datos, vieron que solo usaban fotos + filtros.ELIMINARON todo lo demás
+
+🚀 RESULTADO: 1M de usuarios en 2 meses, vendida a Facebook por $1B en 2 años
+
+💡 LECCIÓN FACE: Menos es más.Identifica la única función que aman y mata el resto` 
+        },
+        {
+            t: "Ford & Mataderos",
+                d: `✅ LO QUE EXISTÍA: Cintas transportadoras en mataderos de Chicago desarmando cerdos
+
+🔄 LO QUE HICIERON: Henry Ford invirtió el concepto: en vez de desarmar, ensamblar autos en línea
+
+🚀 RESULTADO: Tiempo de ensamblaje de 12h a 93 minutos, autos accesibles para todos
+
+💡 LECCIÓN FACE: Invierte procesos de otras industrias.Lo que divide, puede unir` 
+        },
+        {
+            t: "Cirque du Soleil",
+                d: `✅ LO QUE EXISTÍA: Circos tradicionales con animales + Teatro de Broadway premium
+
+🔄 LO QUE HICIERON: Eliminaron animales caros, añadieron arte escénico, música en vivo, narrativa
+
+🚀 RESULTADO: Cobraron precios de teatro($150 vs $20), crearon océano azul sin competencia
+
+💡 LECCIÓN FACE: Quita lo costoso, añade lo artístico.Cambia de competir en precio a valor` 
+        },
+        {
+            t: "Nespresso & Café",
+                d: `✅ LO QUE EXISTÍA: Cafeteras caseras malas + Café de barista excelente pero lento
+
+🔄 LO QUE HICIERON: Encapsularon la habilidad del barista en una cápsula sellada con presión perfecta
+
+🚀 RESULTADO: Café premium en casa en 30 segundos, convirtieron commodity en lujo
+
+💡 LECCIÓN FACE: Empaqueta experiencia experta en producto que cualquiera pueda usar` 
+        },
+        {
+            t: "IKEA & Transporte",
+                d: `✅ LO QUE EXISTÍA: Muebles armados ocupaban 70% aire al enviarlos (costo alto)
+
+🔄 LO QUE HICIERON: Inventaron paquete plano.Cliente arma, ahorras transporte y almacén
+
+🚀 RESULTADO: Precios 40 % menores, expansión global, líder en muebles económicos
+
+💡 LECCIÓN FACE: Transfiere trabajo al cliente a cambio de precio.Hazlo divertido(DIY)` 
+        },
+        {
+            t: "Zara & Alta Costura",
+                d: `✅ LO QUE EXISTÍA: Desfiles de moda en Milán/París que tardaban 6 meses en llegar a tiendas
+
+🔄 LO QUE HICIERON: Copiaron tendencias de pasarela, producción rápida en España, a tienda en 2 semanas
+
+🚀 RESULTADO: Ropa de moda al precio de H & M con velocidad ultra - rápida, Amancio Ortega = más rico que Bezos
+
+💡 LECCIÓN FACE: No diseñes.Copia rápido y distribuye más rápido que nadie` 
+        },
+        {
+            t: "Amazon & Libros",
+                d: `✅ LO QUE EXISTÍA: Librerías físicas limitadas a 100K títulos por espacio
+
+🔄 LO QUE HICIERON: Usaron internet para listar MIL veces más libros sin inventario físico inicial
+
+🚀 RESULTADO: Catálogo infinito, dominaron retail mundial, Bezos = hombre más rico
+
+💡 LECCIÓN FACE: Internet elimina restricciones físicas.Ofrece lo imposible en físico` 
+        },
+        {
+            t: "Google & Citas",
+                d: `✅ LO QUE EXISTÍA: Sistema de citas académicas (papers citan a papers importantes)
+
+🔄 LO QUE HICIERON: Aplicaron el mismo principio a web: páginas que reciben más links = más importantes(PageRank)
+
+🚀 RESULTADO: Búsqueda 100x mejor que Yahoo, Google = verbo, $2 trillones de valor
+
+💡 LECCIÓN FACE: Sistemas de reputación de academia / ciencia funcionan en negocios` 
+        },
+        {
+            t: "Dyson & Aserraderos",
+                d: `✅ LO QUE EXISTÍA: Ciclones industriales gigantes separando aserrín del aire en fábricas
+
+🔄 LO QUE HICIERON: James Dyson miniaturizó la tecnología industrial para aspiradoras caseras
+
+🚀 RESULTADO: Aspiradora sin pérdida de succión, sin bolsas, vendió empresa en $5B
+
+💡 LECCIÓN FACE: Tecnología industrial puede miniaturizarse para consumo masivo` 
+        },
+        {
+            t: "Nintendo & Cartas",
+                d: `✅ LO QUE EXISTÍA: Nintendo fabricaba naipes (cartas de juego) desde 1889
+
+🔄 LO QUE HICIERON: Mantuvieron core(juegos) pero pivotaron a nueva tecnología(electrónica)
+
+🚀 RESULTADO: Game Boy, NES, Switch - líder videojuegos por 40 años, $85B de valor
+
+💡 LECCIÓN FACE: No abandones tu esencia.Cambia el medio, conserva el propósito` 
+        },
+        {
+            t: "Starbucks & Italia",
+                d: `✅ LO QUE EXISTÍA: Bares italianos con espresso, ambiente social, 'tercer lugar'
+
+🔄 LO QUE HICIERON: Schultz importó la experiencia completa a EEUU(no solo el café)
+
+🚀 RESULTADO: Café pasó de $0.50 a $5, 35K tiendas, café = estilo de vida
+
+💡 LECCIÓN FACE: No vendas producto.Importa cultura y experiencia de otro país` 
+        },
+        {
+            t: "Tesla & Laptops",
+                d: `✅ LO QUE EXISTÍA: Baterías de litio en laptops + Chasis deportivo Lotus Elise
+
+🔄 LO QUE HICIERON: Empaquetaron 7,000 baterías de laptop en el chasis de un deportivo
+
+🚀 RESULTADO: Primer auto eléctrico sexy(400km autonomía), revolucionaron industria
+
+💡 LECCIÓN FACE: Combina componentes masivos existentes de forma novedosa` 
+        },
+        {
+            t: "Wikipedia & Multitud",
+                d: `✅ LO QUE EXISTÍA: Enciclopedia Británica con editores expertos (lenta, costosa, limitada)
+
+🔄 LO QUE HICIERON: Reemplazaron expertos por 'sabiduría de multitudes' + edición abierta
+
+🚀 RESULTADO: 60M de artículos gratis vs 120K pagados, Británica cerró edición impresa
+
+💡 LECCIÓN FACE: Crowdsourcing puede superar a expertos si tienes escala masiva` 
+        },
+        {
+            t: "Zoom & Facilidad",
+                d: `✅ LO QUE EXISTÍA: Skype, WebEx (complejos: instalar software, crear cuenta, 20 clicks)
+
+🔄 LO QUE HICIERON: Un solo link.Click y entras.Sin registro.Eso fue TODO
+
+🚀 RESULTADO: 300M de usuarios en pandemia, Zoom = verbo, $100B de valor
+
+💡 LECCIÓN FACE: Elimina fricción obsesivamente.Cada click extra mata conversión` 
+        },
+        {
+            t: "Duolingo & Gaming",
+                d: `✅ LO QUE EXISTÍA: Videojuegos adictivos (vidas, niveles, rachas) + Educación aburrida
+
+🔄 LO QUE HICIERON: Aplicaron mecánicas de Candy Crush al aprendizaje de idiomas
+
+🚀 RESULTADO: 500M de usuarios, aprender = juego, IPO $6B
+
+💡 LECCIÓN FACE: Gamifica lo aburrido.Psicología de juegos funciona en TODO` 
+        },
+        {
+            t: "Slack & Chats",
+                d: `✅ LO QUE EXISTÍA: Herramienta interna de chat del juego 'Glitch' (que fracasó)
+
+🔄 LO QUE HICIERON: El juego murió, pero el chat interno funcionaba genial.Lo vendieron por separado
+
+🚀 RESULTADO: Vendido a Salesforce en $28B, reemplazó al email en empresas
+
+💡 LECCIÓN FACE: Tus herramientas internas pueden valer más que tu producto` 
+        },
+        {
+            t: "WhatsApp & Datos",
+                d: `✅ LO QUE EXISTÍA: SMS cobraban $0.10/mensaje + Internet móvil ilimitado emergente
+
+🔄 LO QUE HICIERON: Enviaron mensajes por internet(datos) en vez de red SMS(voz)
+
+🚀 RESULTADO: Mensajería gratis, 2B de usuarios, vendido a Facebook en $19B
+
+💡 LECCIÓN FACE: Usa infraestructura nueva para hacer gratis lo que antes costaba` 
+        },
+        {
+            t: "Youtube & Citas",
+                d: `✅ LO QUE EXISTÍA: Sitio de citas en video (idea original que fracasó totalmente)
+
+🔄 LO QUE HICIERON: Pivotaron: abrieron a cualquier video cuando nadie subía citas
+
+🚀 RESULTADO: Plataforma #1 de video, vendida a Google en $1.65B, 2B de usuarios
+
+💡 LECCIÓN FACE: Si tu idea falla, abre las puertas.Deja que usuarios decidan el uso` 
+        }
         ];
 
         const universe = document.getElementById('universe-container');
@@ -821,6 +1097,51 @@
         proModal.addEventListener('click', (e) => {
             if (e.target === proModal) closeProModal();
         });
+
+        // === CURSOR PERSONALIZADO ===
+        const galaxyCursor = document.createElement('div');
+        galaxyCursor.className = 'galaxy-cursor';
+        document.body.appendChild(galaxyCursor);
+        
+        const galaxySection = document.getElementById('galaxy-section');
+        
+        document.addEventListener('mousemove', (e) => {
+            galaxyCursor.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+        });
+        
+        if (galaxySection) {
+            galaxySection.addEventListener('mouseenter', () => {
+                galaxyCursor.style.opacity = '1';
+            });
+        
+            galaxySection.addEventListener('mouseleave', () => {
+                galaxyCursor.style.opacity = '0';
+            });
+        }
+        
+        // === ANIMACIÓN DE ENTRADA DRAMÁTICA ===
+        const observerOptions = {
+            threshold: 0.2
+        };
+        
+        const galaxyObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const cards = document.querySelectorAll('.star-card');
+                    cards.forEach((card, i) => {
+                        setTimeout(() => {
+                            card.classList.add('revealed');
+                        }, i * 50); // Aparecen escalonadas (50ms entre cada una)
+                    });
+                    galaxyObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        if (galaxySection) {
+            galaxyObserver.observe(galaxySection);
+        }
+        
     </script>
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
