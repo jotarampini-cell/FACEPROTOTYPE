@@ -454,7 +454,62 @@
                     <span class="pro-category">FILOSOFÍA FACE • CASO DE ESTUDIO</span>
                     <h3 class="pro-title" id="pm-title">TÍTULO DE LA IDEA</h3>
                     <div class="pro-divider"></div>
-                    <p class="pro-desc" id="pm-desc">Descripción del concepto aquí...</p>
+
+                    <!-- Sección 1: El Contexto -->
+                    <div class="modal-section">
+                        <div class="section-header">
+                            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v6m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 12v6M8 12a4 4 0 1 0 8 0" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                            <h4 class="section-title">El Contexto</h4>
+                        </div>
+                        <p class="section-content" id="pm-context">Contenido aquí...</p>
+                    </div>
+
+                    <!-- Sección 2: La Adaptación -->
+                    <div class="modal-section">
+                        <div class="section-header">
+                            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+                            </svg>
+                            <h4 class="section-title">La Adaptación</h4>
+                        </div>
+                        <p class="section-content" id="pm-adaptation">Contenido aquí...</p>
+                    </div>
+
+                    <!-- Sección 3: El Impacto -->
+                    <div class="modal-section">
+                        <div class="section-header">
+                            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                                <path
+                                    d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                                <path d="m9 12-3 3-4-4 3-3" />
+                            </svg>
+                            <h4 class="section-title">El Impacto</h4>
+                        </div>
+                        <p class="section-content" id="pm-impact">Contenido aquí...</p>
+                    </div>
+
+                    <!-- Sección 4: La Lección FACE -->
+                    <div class="modal-section lesson-section">
+                        <div class="section-header">
+                            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            <h4 class="section-title">La Lección FACE</h4>
+                        </div>
+                        <p class="section-content lesson-content" id="pm-lesson">Contenido aquí...</p>
+                    </div>
+
                     <div class="pro-footer">
                         <span>INNOVAR SIN INVENTAR</span>
                     </div>
@@ -599,14 +654,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(15px);
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
             z-index: 9999;
             display: none;
             align-items: center;
             justify-content: center;
             opacity: 0;
             transition: opacity 0.4s ease;
+            overflow-y: auto;
+            padding: 40px 20px;
         }
 
         .pro-modal-overlay.active {
@@ -615,16 +672,17 @@
         }
 
         .pro-modal-card {
-            background: #111;
-            border: 1px solid #333;
-            width: 90%;
-            max-width: 650px;
-            padding: 60px;
-            border-radius: 4px;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            width: 100%;
+            max-width: 750px;
+            padding: 60px 50px;
+            border-radius: 8px;
             position: relative;
             box-shadow: 0 50px 100px rgba(0, 0, 0, 1);
             transform: translateY(30px) scale(0.95);
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin: auto;
         }
 
         .pro-modal-overlay.active .pro-modal-card {
@@ -646,6 +704,7 @@
             justify-content: center;
             cursor: pointer;
             transition: 0.3s;
+            z-index: 10;
         }
 
         .pro-close:hover {
@@ -656,46 +715,134 @@
 
         .pro-category {
             color: #c5a059;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
             display: block;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .pro-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: white;
-            margin: 0;
-            line-height: 1;
+            margin: 0 0 10px 0;
+            line-height: 1.1;
             text-transform: uppercase;
         }
 
         .pro-divider {
-            height: 1px;
+            height: 2px;
             width: 60px;
             background: #c5a059;
-            margin: 30px 0;
+            margin: 20px 0 35px 0;
         }
 
-        .pro-desc {
-            color: #ccc;
-            font-size: 1.2rem;
+        /* Secciones del Modal */
+        .modal-section {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .modal-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 35px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            stroke: #c5a059;
+            flex-shrink: 0;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            color: #c5a059;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .section-content {
+            color: #d4d4d4;
+            font-size: 1.05rem;
             line-height: 1.7;
-            margin-bottom: 40px;
+            margin: 0;
             font-weight: 300;
+            font-family: 'Montserrat', sans-serif;
+            padding-left: 36px;
+        }
+
+        /* Lección FACE destacada */
+        .lesson-section {
+            background: rgba(197, 160, 89, 0.03);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            margin-top: 10px;
+        }
+
+        .lesson-section .section-header {
+            margin-bottom: 14px;
+        }
+
+        .lesson-content {
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: #e8e8e8;
+            font-style: italic;
         }
 
         .pro-footer {
-            border-top: 1px solid #222;
-            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 25px;
+            margin-top: 10px;
             color: #555;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             font-weight: 600;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pro-modal-card {
+                padding: 40px 25px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .pro-title {
+                font-size: 1.8rem;
+            }
+
+            .section-content {
+                font-size: 0.95rem;
+                padding-left: 0;
+            }
+
+            .lesson-content {
+                font-size: 1rem;
+            }
+
+            .lesson-section {
+                padding: 15px;
+            }
         }
 
         /* --- OPTIMIZACIÓN MÓVIL --- */
@@ -741,34 +888,19 @@
         }
 
         /* === MEJORAS VISUALES === */
-        
-        /* Cursor personalizado */
-        .galaxy-cursor {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border: 2px solid #c5a059;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10000;
-            transition: transform 0.1s ease;
-            opacity: 0;
-            box-shadow: 0 0 20px rgba(197, 160, 89, 0.6);
-            mix-blend-mode: screen;
-        }
-        
+
         /* Animación de entrada para tarjetas */
         .star-card {
             opacity: 0 !important;
             transform: translate(-50%, -50%) scale(0) rotate(180deg) !important;
             transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
         }
-        
+
         .star-card.revealed {
             opacity: 0.8 !important;
             transform: translate(-50%, -50%) scale(0.8) rotate(0deg) !important;
         }
-        
+
         .star-card.revealed:hover {
             opacity: 1 !important;
         }
@@ -779,260 +911,184 @@
         const galaxyIdeas = [
             {
                 t: "Toyota & Ford",
-                d: `✅ LO QUE EXISTÍA: Líneas de ensamblaje de Ford + Sistema de reposición de supermercados
-
-🔄 LO QUE HICIERON: Combinaron ambos conceptos para crear Just -in -Time: producir solo lo necesario, cuando es necesario
-
-🚀 RESULTADO: Redujeron inventario 90 %, eliminaron desperdicio, dominaron la industria automotriz
-
-💡 LECCIÓN FACE: No necesitas inventar.Observa dos industrias diferentes y combina lo mejor de ambas` 
+                context: "Ford había perfeccionado las líneas de ensamblaje. Los supermercados japoneses reponían productos solo cuando se agotaban.",
+                adaptation: "Toyota combinó ambos sistemas: producir solo lo necesario, justo cuando se necesita. Crearon el Just-in-Time.",
+                impact: "Inventario reducido en 90%. Cero desperdicio. Dominaron la industria automotriz global por décadas.",
+                lesson: "Combina lo mejor de dos industrias diferentes. La innovación vive en la intersección."
             },
-        {
-            t: "Netflix & Correos",
-                d: `✅ LO QUE EXISTÍA: Servicio postal confiable + Frustración con multas de Blockbuster
-
-🔄 LO QUE HICIERON: Aplicaron el modelo de suscripción de gimnasios al alquiler de películas por correo
-
-🚀 RESULTADO: Eliminaron multas, lograron retención del 93 %, destruyeron a Blockbuster
-
-💡 LECCIÓN FACE: Un modelo de negocio de otra industria puede destruir tu competencia` 
-        },
-        {
-            t: "Steve Jobs & Xerox",
-                d: `✅ LO QUE EXISTÍA: Interfaz gráfica y mouse desarrollados por Xerox PARC en 1973
-
-🔄 LO QUE HICIERON: Jobs visitó Xerox, vio el potencial ignorado y lo adaptó para usuarios comunes(no ingenieros)
-
-🚀 RESULTADO: Macintosh revolucionó la computación personal, Xerox perdió una fortuna
-
-💡 LECCIÓN FACE: La mejor tecnología vive en laboratorios sin explotar.Ve, observa, adapta` 
-        },
-        {
-            t: "McDonald's & Fábricas",
-                d: `✅ LO QUE EXISTÍA: Líneas de ensamblaje de Henry Ford fabricando autos
-
-🔄 LO QUE HICIERON: Aplicaron los mismos principios de producción en masa a la cocina
-
-🚀 RESULTADO: Inventaron la 'comida rápida', hamburguesa en 30 segundos, imperio global
-
-💡 LECCIÓN FACE: Procesos probados de manufactura pueden aplicarse a servicios` 
-        },
-        {
-            t: "Spotify & Piratería",
-                d: `✅ LO QUE EXISTÍA: Napster (ilegal) ofrecía música instantánea gratis
-
-🔄 LO QUE HICIERON: Replicaron la velocidad y acceso de la piratería, pero legalmente con licencias
-
-🚀 RESULTADO: 500M de usuarios, salvaron la industria musical, modelo de suscripción estándar
-
-💡 LECCIÓN FACE: Si no puedes vencer al mercado negro, copia su conveniencia y hazlo legal` 
-        },
-        {
-            t: "Uber & Taxis",
-                d: `✅ LO QUE EXISTÍA: Millones de coches privados vacíos + GPS en smartphones
-
-🔄 LO QUE HICIERON: Conectaron la capacidad ociosa de vehículos con demanda usando tecnología existente
-
-🚀 RESULTADO: Valuación de $90B sin poseer un solo coche, revolucionaron transporte urbano
-
-💡 LECCIÓN FACE: No crees inventario.Conecta oferta subutilizada con demanda insatisfecha` 
-        },
-        {
-            t: "Airbnb & Hoteles",
-                d: `✅ LO QUE EXISTÍA: Habitaciones vacías en casas + Sitios de clasificados como Craigslist
-
-🔄 LO QUE HICIERON: Añadieron fotos profesionales, reseñas verificadas y sistema de pago seguro
-
-🚀 RESULTADO: Mayor inventario que Marriott sin construir nada, valuación $100B +
-
-💡 LECCIÓN FACE: Mejora mercados existentes añadiendo confianza y experiencia de usuario` 
-        },
-        {
-            t: "Instagram & Filtros",
-                d: `✅ LO QUE EXISTÍA: Burbn (app compleja para check-ins con 20 funciones)
-
-🔄 LO QUE HICIERON: Analizaron datos, vieron que solo usaban fotos + filtros.ELIMINARON todo lo demás
-
-🚀 RESULTADO: 1M de usuarios en 2 meses, vendida a Facebook por $1B en 2 años
-
-💡 LECCIÓN FACE: Menos es más.Identifica la única función que aman y mata el resto` 
-        },
-        {
-            t: "Ford & Mataderos",
-                d: `✅ LO QUE EXISTÍA: Cintas transportadoras en mataderos de Chicago desarmando cerdos
-
-🔄 LO QUE HICIERON: Henry Ford invirtió el concepto: en vez de desarmar, ensamblar autos en línea
-
-🚀 RESULTADO: Tiempo de ensamblaje de 12h a 93 minutos, autos accesibles para todos
-
-💡 LECCIÓN FACE: Invierte procesos de otras industrias.Lo que divide, puede unir` 
-        },
-        {
-            t: "Cirque du Soleil",
-                d: `✅ LO QUE EXISTÍA: Circos tradicionales con animales + Teatro de Broadway premium
-
-🔄 LO QUE HICIERON: Eliminaron animales caros, añadieron arte escénico, música en vivo, narrativa
-
-🚀 RESULTADO: Cobraron precios de teatro($150 vs $20), crearon océano azul sin competencia
-
-💡 LECCIÓN FACE: Quita lo costoso, añade lo artístico.Cambia de competir en precio a valor` 
-        },
-        {
-            t: "Nespresso & Café",
-                d: `✅ LO QUE EXISTÍA: Cafeteras caseras malas + Café de barista excelente pero lento
-
-🔄 LO QUE HICIERON: Encapsularon la habilidad del barista en una cápsula sellada con presión perfecta
-
-🚀 RESULTADO: Café premium en casa en 30 segundos, convirtieron commodity en lujo
-
-💡 LECCIÓN FACE: Empaqueta experiencia experta en producto que cualquiera pueda usar` 
-        },
-        {
-            t: "IKEA & Transporte",
-                d: `✅ LO QUE EXISTÍA: Muebles armados ocupaban 70% aire al enviarlos (costo alto)
-
-🔄 LO QUE HICIERON: Inventaron paquete plano.Cliente arma, ahorras transporte y almacén
-
-🚀 RESULTADO: Precios 40 % menores, expansión global, líder en muebles económicos
-
-💡 LECCIÓN FACE: Transfiere trabajo al cliente a cambio de precio.Hazlo divertido(DIY)` 
-        },
-        {
-            t: "Zara & Alta Costura",
-                d: `✅ LO QUE EXISTÍA: Desfiles de moda en Milán/París que tardaban 6 meses en llegar a tiendas
-
-🔄 LO QUE HICIERON: Copiaron tendencias de pasarela, producción rápida en España, a tienda en 2 semanas
-
-🚀 RESULTADO: Ropa de moda al precio de H & M con velocidad ultra - rápida, Amancio Ortega = más rico que Bezos
-
-💡 LECCIÓN FACE: No diseñes.Copia rápido y distribuye más rápido que nadie` 
-        },
-        {
-            t: "Amazon & Libros",
-                d: `✅ LO QUE EXISTÍA: Librerías físicas limitadas a 100K títulos por espacio
-
-🔄 LO QUE HICIERON: Usaron internet para listar MIL veces más libros sin inventario físico inicial
-
-🚀 RESULTADO: Catálogo infinito, dominaron retail mundial, Bezos = hombre más rico
-
-💡 LECCIÓN FACE: Internet elimina restricciones físicas.Ofrece lo imposible en físico` 
-        },
-        {
-            t: "Google & Citas",
-                d: `✅ LO QUE EXISTÍA: Sistema de citas académicas (papers citan a papers importantes)
-
-🔄 LO QUE HICIERON: Aplicaron el mismo principio a web: páginas que reciben más links = más importantes(PageRank)
-
-🚀 RESULTADO: Búsqueda 100x mejor que Yahoo, Google = verbo, $2 trillones de valor
-
-💡 LECCIÓN FACE: Sistemas de reputación de academia / ciencia funcionan en negocios` 
-        },
-        {
-            t: "Dyson & Aserraderos",
-                d: `✅ LO QUE EXISTÍA: Ciclones industriales gigantes separando aserrín del aire en fábricas
-
-🔄 LO QUE HICIERON: James Dyson miniaturizó la tecnología industrial para aspiradoras caseras
-
-🚀 RESULTADO: Aspiradora sin pérdida de succión, sin bolsas, vendió empresa en $5B
-
-💡 LECCIÓN FACE: Tecnología industrial puede miniaturizarse para consumo masivo` 
-        },
-        {
-            t: "Nintendo & Cartas",
-                d: `✅ LO QUE EXISTÍA: Nintendo fabricaba naipes (cartas de juego) desde 1889
-
-🔄 LO QUE HICIERON: Mantuvieron core(juegos) pero pivotaron a nueva tecnología(electrónica)
-
-🚀 RESULTADO: Game Boy, NES, Switch - líder videojuegos por 40 años, $85B de valor
-
-💡 LECCIÓN FACE: No abandones tu esencia.Cambia el medio, conserva el propósito` 
-        },
-        {
-            t: "Starbucks & Italia",
-                d: `✅ LO QUE EXISTÍA: Bares italianos con espresso, ambiente social, 'tercer lugar'
-
-🔄 LO QUE HICIERON: Schultz importó la experiencia completa a EEUU(no solo el café)
-
-🚀 RESULTADO: Café pasó de $0.50 a $5, 35K tiendas, café = estilo de vida
-
-💡 LECCIÓN FACE: No vendas producto.Importa cultura y experiencia de otro país` 
-        },
-        {
-            t: "Tesla & Laptops",
-                d: `✅ LO QUE EXISTÍA: Baterías de litio en laptops + Chasis deportivo Lotus Elise
-
-🔄 LO QUE HICIERON: Empaquetaron 7,000 baterías de laptop en el chasis de un deportivo
-
-🚀 RESULTADO: Primer auto eléctrico sexy(400km autonomía), revolucionaron industria
-
-💡 LECCIÓN FACE: Combina componentes masivos existentes de forma novedosa` 
-        },
-        {
-            t: "Wikipedia & Multitud",
-                d: `✅ LO QUE EXISTÍA: Enciclopedia Británica con editores expertos (lenta, costosa, limitada)
-
-🔄 LO QUE HICIERON: Reemplazaron expertos por 'sabiduría de multitudes' + edición abierta
-
-🚀 RESULTADO: 60M de artículos gratis vs 120K pagados, Británica cerró edición impresa
-
-💡 LECCIÓN FACE: Crowdsourcing puede superar a expertos si tienes escala masiva` 
-        },
-        {
-            t: "Zoom & Facilidad",
-                d: `✅ LO QUE EXISTÍA: Skype, WebEx (complejos: instalar software, crear cuenta, 20 clicks)
-
-🔄 LO QUE HICIERON: Un solo link.Click y entras.Sin registro.Eso fue TODO
-
-🚀 RESULTADO: 300M de usuarios en pandemia, Zoom = verbo, $100B de valor
-
-💡 LECCIÓN FACE: Elimina fricción obsesivamente.Cada click extra mata conversión` 
-        },
-        {
-            t: "Duolingo & Gaming",
-                d: `✅ LO QUE EXISTÍA: Videojuegos adictivos (vidas, niveles, rachas) + Educación aburrida
-
-🔄 LO QUE HICIERON: Aplicaron mecánicas de Candy Crush al aprendizaje de idiomas
-
-🚀 RESULTADO: 500M de usuarios, aprender = juego, IPO $6B
-
-💡 LECCIÓN FACE: Gamifica lo aburrido.Psicología de juegos funciona en TODO` 
-        },
-        {
-            t: "Slack & Chats",
-                d: `✅ LO QUE EXISTÍA: Herramienta interna de chat del juego 'Glitch' (que fracasó)
-
-🔄 LO QUE HICIERON: El juego murió, pero el chat interno funcionaba genial.Lo vendieron por separado
-
-🚀 RESULTADO: Vendido a Salesforce en $28B, reemplazó al email en empresas
-
-💡 LECCIÓN FACE: Tus herramientas internas pueden valer más que tu producto` 
-        },
-        {
-            t: "WhatsApp & Datos",
-                d: `✅ LO QUE EXISTÍA: SMS cobraban $0.10/mensaje + Internet móvil ilimitado emergente
-
-🔄 LO QUE HICIERON: Enviaron mensajes por internet(datos) en vez de red SMS(voz)
-
-🚀 RESULTADO: Mensajería gratis, 2B de usuarios, vendido a Facebook en $19B
-
-💡 LECCIÓN FACE: Usa infraestructura nueva para hacer gratis lo que antes costaba` 
-        },
-        {
-            t: "Youtube & Citas",
-                d: `✅ LO QUE EXISTÍA: Sitio de citas en video (idea original que fracasó totalmente)
-
-🔄 LO QUE HICIERON: Pivotaron: abrieron a cualquier video cuando nadie subía citas
-
-🚀 RESULTADO: Plataforma #1 de video, vendida a Google en $1.65B, 2B de usuarios
-
-💡 LECCIÓN FACE: Si tu idea falla, abre las puertas.Deja que usuarios decidan el uso` 
-        }
+            {
+                t: "Netflix & Correos",
+                context: "Blockbuster cobraba multas que frustraban a los clientes. El servicio postal funcionaba de manera confiable.",
+                adaptation: "Aplicaron el modelo de suscripción de gimnasios al alquiler de películas por correo. Sin fechas de devolución, sin multas.",
+                impact: "Retención del 93% de clientes. Blockbuster cerró. Netflix vale más de $150B hoy.",
+                lesson: "Un modelo de negocio de otra industria puede destruir a tu competencia."
+            },
+            {
+                t: "Steve Jobs & Xerox",
+                context: "Xerox PARC inventó la interfaz gráfica y el mouse en 1973, pero no lo comercializaron.",
+                adaptation: "Jobs visitó Xerox, vio el potencial y lo adaptó para usuarios comunes, no solo ingenieros.",
+                impact: "Macintosh revolucionó la computación personal. Xerox perdió miles de millones.",
+                lesson: "La mejor tecnología está en laboratorios sin explotar. Obsérvalas y adáptalas."
+            },
+            {
+                t: "McDonald's & Fábricas",
+                context: "Henry Ford había perfeccionado las líneas de ensamblaje para producir autos en masa.",
+                adaptation: "Los hermanos McDonald aplicaron los mismos principios de manufactura a la cocina.",
+                impact: "Hamburguesas en 30 segundos. Inventaron la 'comida rápida'. Imperio global con 40,000 restaurantes.",
+                lesson: "Los procesos de manufactura pueden aplicarse a servicios. Piensa en tu negocio como una fábrica."
+            },
+            {
+                t: "Spotify & Piratería",
+                context: "Napster ofrecía música instantánea gratis, pero era ilegal. La industria musical estaba en crisis.",
+                adaptation: "Replicaron la velocidad y el acceso de Napster, pero legalmente, con licencias de las discográficas.",
+                impact: "500M de usuarios. Salvaron la industria musical. El streaming es ahora el estándar.",
+                lesson: "Si no puedes vencer al mercado negro, copia su conveniencia y hazlo legal."
+            },
+            {
+                t: "Uber & GPS",
+                context: "Millones de autos privados estaban vacíos la mayor parte del día. Los smartphones tenían GPS integrado.",
+                adaptation: "Conectaron la capacidad ociosa de vehículos con personas que necesitaban transporte usando tecnología existente.",
+                impact: "Valuación de $90B sin poseer un solo auto. Revolucionaron el transporte urbano global.",
+                lesson: "No crees activos. Conecta oferta subutilizada con demanda insatisfecha."
+            },
+            {
+                t: "Airbnb & Craigslist",
+                context: "Habitaciones vacías en millones de casas. Craigslist permitía publicar anuncios pero era inseguro.",
+                adaptation: "Añadieron fotos profesionales, reseñas verificadas, sistema de pago seguro y seguro de daños.",
+                impact: "Mayor inventario que Marriott sin construir nada. Valuación de $100B+.",
+                lesson: "Mejora mercados existentes añadiendo confianza y experiencia de usuario."
+            },
+            {
+                t: "Instagram & Simplificación",
+                context: "Burbn era una app compleja con 20 funciones: check-ins, juegos, fotos, comentarios.",
+                adaptation: "Analizaron los datos. La gente solo usaba fotos y filtros. Eliminaron todo lo demás.",
+                impact: "1M de usuarios en 2 meses. Vendida a Facebook por $1B en 2 años.",
+                lesson: "Menos es más. Identifica la única función que aman y elimina el resto."
+            },
+            {
+                t: "Ford & Mataderos",
+                context: "Los mataderos de Chicago usaban cintas transportadoras para desarmar cerdos eficientemente.",
+                adaptation: "Henry Ford invirtió el concepto: en vez de desarmar animales, ensambló autos en línea.",
+                impact: "Tiempo de ensamblaje redujo de 12 horas a 93 minutos. Autos accesibles para la clase media.",
+                lesson: "Invierte procesos de otras industrias. Lo que divide, puede unir y viceversa."
+            },
+            {
+                t: "Cirque du Soleil",
+                context: "Los circos tradicionales competían en precio con animales caros. El teatro cobraba precios premium.",
+                adaptation: "Eliminaron los animales. Añadieron arte escénico de teatro, música en vivo y narrativa emocional.",
+                impact: "Cobraron $150 vs $20 del circo tradicional. Crearon un océano azul sin competencia.",
+                lesson: "Elimina lo costoso. Añade lo artístico. Compite en valor, no en precio."
+            },
+            {
+                t: "Nespresso & Baristas",
+                context: "El café casero era malo. El café de barista era excelente pero lento y caro.",
+                adaptation: "Encapsularon la técnica del barista en una cápsula sellada con presión y temperatura perfectas.",
+                impact: "Café premium en casa en 30 segundos. Convirtieron un commodity en un producto de lujo.",
+                lesson: "Empaqueta experiencia experta en un producto que cualquiera pueda usar."
+            },
+            {
+                t: "IKEA & Logística",
+                context: "Enviar muebles armados era costoso: 70% del paquete era aire. Almacenamiento ocupaba espacio masivo.",
+                adaptation: "Inventaron el paquete plano. El cliente arma. IKEA ahorra transporte, almacén y mano de obra.",
+                impact: "Precios 40% más bajos que la competencia. Expansión global. Líder en muebles económicos.",
+                lesson: "Transfiere trabajo al cliente a cambio de precio bajo. Hazlo sentir como logro (DIY)."
+            },
+            {
+                t: "Zara & Velocidad",
+                context: "Las tendencias de moda de París tardaban 6 meses en llegar de la pasarela a las tiendas.",
+                adaptation: "Copiaron las tendencias, produjeron rápido en España y distribuyeron a tiendas en 2 semanas.",
+                impact: "Ropa de moda con velocidad ultra-rápida. Inditex convirtió a Amancio Ortega en multimillonario.",
+                lesson: "No diseñes desde cero. Copia rápido y distribuye más rápido que nadie."
+            },
+            {
+                t: "Amazon & Librerías",
+                context: "Las librerías físicas solo podían almacenar 100,000 títulos por limitaciones de espacio.",
+                adaptation: "Usaron internet para listar millones de libros sin necesidad de inventario físico inicial.",
+                impact: "Catálogo infinito. Dominaron el retail mundial. Jeff Bezos entre los más ricos del mundo.",
+                lesson: "Internet elimina restricciones físicas. Ofrece lo que es imposible en formato físico."
+            },
+            {
+                t: "Google & Academia",
+                context: "En la academia, los papers importantes reciben más citas de otros papers. Así se mide la relevancia.",
+                adaptation: "Aplicaron el mismo principio a internet: las páginas con más enlaces entrantes son más importantes (PageRank).",
+                impact: "Búsqueda 100x mejor que competidores. Google se convirtió en verbo. Valuación de $2 trillones.",
+                lesson: "Los sistemas de reputación de la academia funcionan en los negocios digitales."
+            },
+            {
+                t: "Dyson & Ciclones Industriales",
+                context: "Los aserraderos usaban ciclones gigantes para separar aserrín del aire en fábricas.",
+                adaptation: "James Dyson miniaturizó esta tecnología industrial para crear aspiradoras caseras sin pérdida de succión.",
+                impact: "Aspiradora sin bolsas, sin pérdida de potencia. Dyson vendió su empresa en $5B.",
+                lesson: "La tecnología industrial puede miniaturizarse para consumo masivo."
+            },
+            {
+                t: "Nintendo & Evolución",
+                context: "Nintendo fabricaba naipes (cartas de juego) desde 1889. Era su único negocio.",
+                adaptation: "Mantuvieron su esencia (entretenimiento y juegos) pero pivotaron el medio: de papel a electrónica.",
+                impact: "Game Boy, NES, Switch. Líder en videojuegos por 40+ años. Valuación de $85B.",
+                lesson: "No abandones tu esencia. Cambia el medio, conserva el propósito y valores."
+            },
+            {
+                t: "Starbucks & Italia",
+                context: "Los bares italianos ofrecían espresso de calidad, ambiente social y 'tercer lugar' entre casa y trabajo.",
+                adaptation: "Howard Schultz importó la experiencia completa a EEUU: no solo el café, sino la cultura.",
+                impact: "Café pasó de $0.50 a $5. 35,000 tiendas. El café se convirtió en estilo de vida.",
+                lesson: "No vendas solo producto. Importa cultura y experiencia de otro país."
+            },
+            {
+                t: "Tesla & Baterías de Laptop",
+                context: "Las baterías de litio de laptops eran baratas y probadas. Los autos deportivos Lotus Elise eran ligeros.",
+                adaptation: "Empaquetaron 7,000 baterías de laptop en el chasis de un Lotus Elise modificado.",
+                impact: "Primer auto eléctrico sexy con 400km de autonomía. Revolucionaron la industria automotriz.",
+                lesson: "Combina componentes masivos existentes de forma novedosa para crear algo nuevo."
+            },
+            {
+                t: "Wikipedia & Multitudes",
+                context: "La Enciclopedia Británica tenía editores expertos. Era lenta, costosa y limitada a 120,000 artículos.",
+                adaptation: "Reemplazaron expertos pagados por 'sabiduría de multitudes' con edición abierta y colaborativa.",
+                impact: "60M de artículos gratis vs 120K pagados. La Británica cerró su edición impresa.",
+                lesson: "El crowdsourcing puede superar a expertos si tienes escala masiva y buen sistema."
+            },
+            {
+                t: "Zoom & Simplicidad",
+                context: "Skype y WebEx requerían instalación, cuenta, configuración. Eran al menos 20 clicks para empezar.",
+                adaptation: "Crearon un solo enlace. Click y entras. Sin registro, sin descargas, sin fricción.",
+                impact: "300M de usuarios diarios en pandemia. 'Zoom' se convirtió en verbo. Valuación de $100B.",
+                lesson: "Elimina fricción obsesivamente. Cada click extra mata conversión y adopción."
+            },
+            {
+                t: "Duolingo & Gaming",
+                context: "Los videojuegos eran adictivos con vidas, niveles y rachas. La educación tradicional era aburrida.",
+                adaptation: "Aplicaron mecánicas de videojuegos (Candy Crush) al aprendizaje de idiomas.",
+                impact: "500M de usuarios. Aprender se siente como jugar. IPO con valuación de $6B.",
+                lesson: "Gamifica lo aburrido. La psicología de los juegos funciona en cualquier industria."
+            },
+            {
+                t: "Slack & Pivote",
+                context: "Glitch era un videojuego que fracasó completamente. Pero la herramienta de chat interno funcionaba increíble.",
+                adaptation: "El juego murió. Extrajeron el chat interno que habían creado y lo vendieron como producto independiente.",
+                impact: "Slack vendido a Salesforce por $28B. Reemplazó al email en miles de empresas.",
+                lesson: "Tus herramientas internas pueden valer más que tu producto principal. Obsérvalas."
+            },
+            {
+                t: "WhatsApp & Infraestructura",
+                context: "Los SMS cobraban $0.10 por mensaje. Internet móvil ilimitado estaba emergiendo globalmente.",
+                adaptation: "Enviaron mensajes usando datos (internet) en vez de la red SMS tradicional.",
+                impact: "Mensajería gratis. 2B de usuarios. Vendido a Facebook por $19B.",
+                lesson: "Usa infraestructura nueva para hacer gratis lo que antes costaba dinero."
+            },
+            {
+                t: "Youtube & Apertura",
+                context: "Empezó como sitio de citas en video. Nadie subía videos de citas. La idea original fracasó totalmente.",
+                adaptation: "Abrieron la plataforma a cualquier tipo de video. Dejaron que los usuarios decidieran el uso.",
+                impact: "Plataforma #1 de video mundial. Vendida a Google por $1.65B. 2B+ de usuarios activos.",
+                lesson: "Si tu idea inicial falla, abre las puertas. Deja que los usuarios definan el producto."
+            }
         ];
 
         const universe = document.getElementById('universe-container');
         const proModal = document.getElementById('pro-modal');
         const pmTitle = document.getElementById('pm-title');
-        const pmDesc = document.getElementById('pm-desc');
 
         galaxyIdeas.sort(() => Math.random() - 0.5);
 
@@ -1065,7 +1121,10 @@
 
             el.onclick = () => {
                 pmTitle.innerText = idea.t;
-                pmDesc.innerText = idea.d;
+                document.getElementById('pm-context').innerText = idea.context;
+                document.getElementById('pm-adaptation').innerText = idea.adaptation;
+                document.getElementById('pm-impact').innerText = idea.impact;
+                document.getElementById('pm-lesson').innerText = idea.lesson;
                 proModal.classList.add('active');
             };
 
@@ -1102,28 +1161,28 @@
         const galaxyCursor = document.createElement('div');
         galaxyCursor.className = 'galaxy-cursor';
         document.body.appendChild(galaxyCursor);
-        
+
         const galaxySection = document.getElementById('galaxy-section');
-        
+
         document.addEventListener('mousemove', (e) => {
             galaxyCursor.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
         });
-        
+
         if (galaxySection) {
             galaxySection.addEventListener('mouseenter', () => {
                 galaxyCursor.style.opacity = '1';
             });
-        
+
             galaxySection.addEventListener('mouseleave', () => {
                 galaxyCursor.style.opacity = '0';
             });
         }
-        
+
         // === ANIMACIÓN DE ENTRADA DRAMÁTICA ===
         const observerOptions = {
             threshold: 0.2
         };
-        
+
         const galaxyObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -1137,11 +1196,11 @@
                 }
             });
         }, observerOptions);
-        
+
         if (galaxySection) {
             galaxyObserver.observe(galaxySection);
         }
-        
+
     </script>
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->

@@ -1,0 +1,157 @@
+/* =========================================================
+   SECCIÓN: PILARES (ARQUITECTURA PREMIUM / FINAL)
+   ========================================================= */
+
+/* --- CONFIGURACIÓN BASE (MÓVIL PRIMERO) --- */
+.pillars-section {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.pillars-wrapper {
+    /* MÓVIL: Usamos Flexbox para apilar verticalmente */
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* --- COLUMNA DE TEXTO --- */
+.pillars-text {
+    order: 1;
+    /* Texto primero en móvil */
+    width: 100%;
+    text-align: center;
+    /* Centrado en móvil */
+}
+
+.pillars-header {
+    display: inline-flex;
+    /* Inline para centrar en móvil */
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #333333;
+}
+
+.dot {
+    color: #000000;
+    font-size: 1.5rem;
+    line-height: 0;
+}
+
+/* LISTA DE ENLACES */
+.pillars-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pillars-list li {
+    line-height: 1.05;
+    /* Interlineado apretado "Tight" */
+}
+
+.pillars-list a {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+
+    /* TIPOGRAFÍA FLUIDA (Clamp): 
+       Se adapta matemáticamente entre móvil (3rem) y desktop (5.5rem) */
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800;
+
+    display: block;
+    /* Transición "Suave" Premium (Ease-Out se siente más natural) */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s ease, opacity 0.3s ease;
+}
+
+.pillars-list a:hover {
+    transform: translateX(20px);
+    /* Desplazamiento lateral elegante */
+    color: #c5a059;
+    /* Dorado Fase */
+    opacity: 1;
+}
+
+/* Efecto de "Focus": Al hacer hover en uno, los demás se apagan un poco (Opcional, muy pro) */
+.pillars-list:hover a {
+    opacity: 0.5;
+    /* Todos se oscurecen */
+}
+
+.pillars-list a:hover {
+    opacity: 1;
+    /* El activo brilla */
+}
+
+
+/* --- COLUMNA DE IMAGEN --- */
+.pillars-image {
+    order: 2;
+    /* Imagen después en móvil */
+    width: 100%;
+}
+
+.p-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    display: block;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   VERSIÓN ESCRITORIO (CSS GRID / NO OVERLAP)
+   Se activa en pantallas mayores a 1024px
+   ========================================================= */
+@media (min-width: 1024px) {
+
+    .pillars-wrapper {
+        /* ARQUITECTURA SÓLIDA: Grid */
+        display: grid;
+        /* Columna 1 (Texto): 0.8 partes / Columna 2 (Imagen): 1 parte */
+        grid-template-columns: 0.8fr 1fr;
+        align-items: center;
+        gap: 80px;
+        /* Espacio garantizado entre columnas */
+    }
+
+    /* Ajustes Texto Desktop */
+    .pillars-text {
+        text-align: left;
+        /* Alineado a la izquierda */
+        order: unset;
+        /* Grid decide el orden natural */
+    }
+
+    .pillars-header {
+        display: flex;
+        /* Flex container normal */
+    }
+
+    /* Ajustes Imagen Desktop */
+    .pillars-image {
+        height: 650px;
+        /* Altura imponente fija */
+        order: unset;
+    }
+
+    .p-img {
+        height: 100%;
+        /* Llenar altura */
+    }
+}

@@ -1,0 +1,17 @@
+/* === MEJORAS VISUALES === */
+
+/* Animación de entrada para tarjetas */
+.star-card {
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) scale(0) rotate(180deg) !important;
+    transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.star-card.revealed {
+    opacity: 0.8 !important;
+    transform: translate(-50%, -50%) scale(0.8) rotate(0deg) !important;
+}
+
+.star-card.revealed:hover {
+    opacity: 1 !important;
+}

@@ -1,0 +1,398 @@
+<!-- Section: Galaxy Ideas (Parallax Interactive) -->
+<section class="galaxy-section" id="galaxy-section">
+    <div class="galaxy-bg"></div>
+    <div class="galaxy-noise"></div>
+
+    <div class="tr-container" style="position: relative; z-index: 2;">
+
+        <div class="galaxy-header">
+            <span class="galaxy-tag">MINDSET DE INNOVACIÓN</span>
+            <h2 class="galaxy-title">INSPÍRATE AQUÍ</h2>
+            <p class="galaxy-sub">Explora el origen de las grandes ideas. Toca para revelar el secreto.</p>
+        </div>
+
+        <div class="galaxy-universe" id="universe-container">
+        </div>
+
+    </div>
+
+    <div class="pro-modal-overlay" id="pro-modal">
+        <div class="pro-modal-card">
+            <button class="pro-close" onclick="closeProModal()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="pro-modal-body">
+                <span class="pro-category">FILOSOFÍA FASE • CASO DE ESTUDIO</span>
+                <h3 class="pro-title" id="pm-title">TÍTULO DE LA IDEA</h3>
+                <div class="pro-divider"></div>
+                <p class="pro-desc" id="pm-desc">Descripción del concepto aquí...</p>
+                <div class="pro-footer">
+                    <span>INNOVAR SIN INVENTAR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* --- 1. AMBIENTE Y FONDO --- */
+    .galaxy-section {
+        background-color: #050505;
+        position: relative;
+        padding: 120px 0;
+        overflow: hidden;
+        min-height: 800px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .galaxy-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.08) 0%, rgba(0, 0, 0, 0) 60%);
+        pointer-events: none;
+    }
+
+    .galaxy-noise {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.05;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        pointer-events: none;
+    }
+
+    /* --- 2. HEADER --- */
+    .galaxy-header {
+        text-align: center;
+        margin-bottom: 80px;
+        position: relative;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    .galaxy-tag {
+        color: #c5a059;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 15px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .galaxy-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(3rem, 6vw, 5rem);
+        color: white;
+        line-height: 1;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .galaxy-sub {
+        color: #888;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* --- 3. UNIVERSO DE IDEAS --- */
+    .galaxy-universe {
+        position: relative;
+        height: 600px;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        perspective: 1000px;
+    }
+
+    .star-card {
+        position: absolute;
+        padding: 12px 24px;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 100px;
+        color: rgba(255, 255, 255, 0.8);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 0.95rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .star-card:hover {
+        background: rgba(197, 160, 89, 0.9);
+        color: #000;
+        border-color: #c5a059;
+        box-shadow: 0 0 30px rgba(197, 160, 89, 0.5);
+        z-index: 100 !important;
+        transform: translate(-50%, -50%) scale(1.15) !important;
+    }
+
+    /* --- 4. MODAL --- */
+    .pro-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(15px);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .pro-modal-overlay.active {
+        display: flex;
+        opacity: 1;
+    }
+
+    .pro-modal-card {
+        background: #111;
+        border: 1px solid #333;
+        width: 90%;
+        max-width: 650px;
+        padding: 60px;
+        border-radius: 4px;
+        position: relative;
+        box-shadow: 0 50px 100px rgba(0, 0, 0, 1);
+        transform: translateY(30px) scale(0.95);
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .pro-modal-overlay.active .pro-modal-card {
+        transform: translateY(0) scale(1);
+    }
+
+    .pro-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: 1px solid #333;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .pro-close:hover {
+        background: #c5a059;
+        border-color: #c5a059;
+        color: black;
+    }
+
+    .pro-category {
+        color: #c5a059;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .pro-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: 3rem;
+        color: white;
+        margin: 0;
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+    .pro-divider {
+        height: 1px;
+        width: 60px;
+        background: #c5a059;
+        margin: 30px 0;
+    }
+
+    .pro-desc {
+        color: #ccc;
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        font-weight: 300;
+    }
+
+    .pro-footer {
+        border-top: 1px solid #222;
+        padding-top: 20px;
+        color: #555;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+
+    /* --- OPTIMIZACIÓN MÓVIL --- */
+    @keyframes spaceFloat {
+
+        0%,
+        100% {
+            transform: translate(-50%, -50%) translateY(0px);
+        }
+
+        50% {
+            transform: translate(-50%, -50%) translateY(-15px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .galaxy-section {
+            min-height: auto;
+            padding: 80px 0;
+        }
+
+        .galaxy-universe {
+            height: 600px;
+        }
+
+        .star-card {
+            animation: spaceFloat var(--duration, 4s) ease-in-out infinite;
+            padding: 10px 18px;
+            font-size: 0.8rem;
+            border-radius: 50px;
+        }
+
+        .pro-modal-card {
+            width: 95%;
+            padding: 30px 20px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .pro-title {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<script>
+    const galaxyIdeas = [
+        { t: "Toyota & Ford", d: "Toyota no inventó la línea de ensamblaje. Estudió a Ford y a los supermercados americanos para crear el 'Just-in-Time'." },
+        { t: "Netflix & Correos", d: "Netflix mejoró la distribución de Blockbuster usando el sistema postal existente, luego adaptó esa logística al streaming." },
+        { t: "Steve Jobs & Xerox", d: "Apple tomó el mouse y la interfaz gráfica de un laboratorio de Xerox y los perfeccionó para el usuario común." },
+        { t: "McDonald's & Fábricas", d: "Aplicaron los principios de la línea de ensamblaje industrial de Henry Ford a una cocina para inventar la 'comida rápida'." },
+        { t: "Spotify & Piratería", d: "Observaron que la gente amaba la inmediatez de la piratería (Napster) y crearon una versión legal igual de rápida." },
+        { t: "Uber & Taxis", d: "No inventaron el transporte. Conectaron coches vacíos existentes con pasajeros usando el GPS del móvil." },
+        { t: "Airbnb & Hoteles", d: "Airbnb no puso un solo ladrillo. Monetizó las habitaciones vacías que ya existían en casas de todo el mundo." },
+        { t: "Instagram & Filtros", d: "Empezaron como una app compleja. Vieron que solo se usaban las fotos, borraron todo lo demás y se enfocaron en la estética." },
+        { t: "Ford & Mataderos", d: "Henry Ford invirtió el proceso de las cintas transportadoras de los mataderos de Chicago para ensamblar autos." },
+        { t: "Cirque du Soleil", d: "Eliminaron los animales (costosos) y mezclaron el circo con el teatro para cobrar precios de Broadway." },
+        { t: "Nespresso & Café", d: "Simplificaron la habilidad del barista encapsulando el proceso en una cápsula sellada para el hogar." },
+        { t: "IKEA & Transporte", d: "Descubrieron que enviar 'aire' (muebles armados) era caro. Inventaron el paquete plano para que tú fueras el ensamblador." },
+        { t: "Zara & Alta Costura", d: "Zara no diseña desde cero. Copia tendencias de pasarela y usa logística rápida para tenerlas en tienda en 2 semanas." },
+        { t: "Amazon & Libros", d: "Bezos usó internet para listar libros que físicamente no cabían en ninguna librería del mundo." },
+        { t: "Google & Citas", d: "Adaptaron el sistema de citas académicas (referencias) para crear el PageRank de búsqueda web." },
+        { t: "Dyson & Aserraderos", d: "Dyson vio un ciclón industrial en un aserradero y lo miniaturizó para crear su aspiradora sin bolsa." },
+        { t: "Nintendo & Cartas", d: "Nintendo hacía naipes. Adaptó su negocio de 'juegos' a la nueva tecnología electrónica." },
+        { t: "Starbucks & Italia", d: "Schultz no inventó el café. Importó la 'experiencia' y el ambiente del bar italiano a Estados Unidos." },
+        { t: "Tesla & Laptops", d: "Unieron un chasis de Lotus con baterías de iones de litio de laptops para hacer el coche eléctrico atractivo." },
+        { t: "Wikipedia & Multitud", d: "Reemplazaron a los editores expertos por la multitud (crowdsourcing) para crear la enciclopedia más grande." },
+        { t: "Zoom & Facilidad", d: "Simplificaron la videollamada: Un solo link, sin registro obligatorio. Eso fue su innovación." },
+        { t: "Duolingo & Gaming", d: "Aplicaron la psicología de los videojuegos (vidas, niveles) a la educación aburrida." },
+        { t: "Slack & Chats", d: "Era una herramienta interna de un juego fracasado. El juego murió, la herramienta sobrevivió." },
+        { t: "WhatsApp & Datos", d: "Usaron la red de internet para esquivar los costos de los SMS telefónicos." },
+        { t: "Youtube & Citas", d: "Nació para citas en video. Fracasó. Pivotaron a ser una plataforma abierta de video." }
+    ];
+
+    const universe = document.getElementById('universe-container');
+    const proModal = document.getElementById('pro-modal');
+    const pmTitle = document.getElementById('pm-title');
+    const pmDesc = document.getElementById('pm-desc');
+
+    galaxyIdeas.sort(() => Math.random() - 0.5);
+
+    galaxyIdeas.forEach((idea, i) => {
+        const el = document.createElement('div');
+        el.classList.add('star-card');
+        el.innerText = idea.t;
+
+        const angle = Math.random() * Math.PI * 2;
+        const radius = Math.random() * 40 + 10;
+
+        const x = 50 + radius * Math.cos(angle);
+        const y = 50 + radius * Math.sin(angle);
+
+        el.style.left = x + '%';
+        el.style.top = y + '%';
+
+        const depth = Math.random();
+        el.dataset.depth = depth;
+
+        const scale = 0.8 + (depth * 0.4);
+        const blur = (1 - depth) * 2;
+        const opacity = 0.6 + (depth * 0.4);
+
+        el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        el.style.filter = `blur(${blur}px)`;
+        el.style.opacity = opacity;
+
+        el.style.setProperty('--duration', (Math.random() * 4 + 3) + 's');
+
+        el.onclick = () => {
+            pmTitle.innerText = idea.t;
+            pmDesc.innerText = idea.d;
+            proModal.classList.add('active');
+        };
+
+        universe.appendChild(el);
+    });
+
+    const section = document.getElementById('galaxy-section');
+
+    section.addEventListener('mousemove', (e) => {
+        const cards = document.querySelectorAll('.star-card');
+
+        const rect = section.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left - (rect.width / 2);
+        const mouseY = e.clientY - rect.top - (rect.height / 2);
+
+        cards.forEach(card => {
+            const depth = parseFloat(card.dataset.depth);
+            const moveX = (mouseX * depth * -0.05);
+            const moveY = (mouseY * depth * -0.05);
+
+            card.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(${0.8 + depth * 0.4})`;
+        });
+    });
+
+    function closeProModal() {
+        proModal.classList.remove('active');
+    }
+
+    proModal.addEventListener('click', (e) => {
+        if (e.target === proModal) closeProModal();
+    });
+</script>
