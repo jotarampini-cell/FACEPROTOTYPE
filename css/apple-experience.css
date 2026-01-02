@@ -291,8 +291,8 @@
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 900;
-    font-size: 2.5rem;
-    /* Reducido de 3rem para legibilidad */
+    font-size: 1.8rem;
+    /* Optimized for desktop readability */
     line-height: 1;
     color: #fff;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
@@ -302,8 +302,8 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
-    font-size: 2.5rem;
-    /* Reducido de 3rem */
+    font-size: 1.8rem;
+    /* Optimized for desktop readability */
     letter-spacing: 2px;
     /* Reducido de 3px */
     line-height: 1;
