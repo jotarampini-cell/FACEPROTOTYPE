@@ -6,8 +6,8 @@
 .apple-experience-section {
     background-color: #000;
     /* Fondo negro puro estilo Apple */
-    padding: 60px 0 40px;
-    /* Reducido de 80px para caber en viewport */
+    padding: 60px 0 0;
+    /* Eliminado padding inferior para conectar con sección siguiente */
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
     min-height: auto;
@@ -276,7 +276,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
     margin: 12px 0;
 }
 
@@ -284,8 +284,9 @@
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 900;
-    font-size: 3rem;
-    line-height: 0.85;
+    font-size: 2.5rem;
+    /* Reducido de 3rem para legibilidad */
+    line-height: 1;
     color: #fff;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
@@ -294,11 +295,44 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
-    font-size: 3rem;
-    letter-spacing: 3px;
-    line-height: 0.85;
+    font-size: 2.5rem;
+    /* Reducido de 3rem */
+    letter-spacing: 2px;
+    /* Reducido de 3px */
+    line-height: 1;
     color: #fff;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Variaciones editoriales únicas por programa */
+.editorial-title.style-mentoria .font-serif {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    /* Light weight */
+    letter-spacing: 8px;
+}
+
+.editorial-title.style-mentoria .font-sans {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 900;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.editorial-title.style-talleres .font-serif {
+    font-family: 'Oswald', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.editorial-title.style-talleres .font-sans {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    /* Light weight para contraste */
+    letter-spacing: 6px;
 }
 
 .card-benefit {
@@ -537,7 +571,8 @@
 
     .editorial-title .font-serif,
     .editorial-title .font-sans {
-        font-size: 2rem;
+        font-size: 1.7rem;
+        /* Reducido de 2rem para mejor legibilidad móvil */
     }
 
     .card-benefit {
