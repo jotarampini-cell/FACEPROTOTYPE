@@ -95,19 +95,25 @@
                     <div class="event-card">
                         <img src="assets/images/reto-innova.jpg" alt="Reto Innova" class="card-image">
 
+                        <video autoplay loop muted playsinline class="card-video">
+                            <source src="assets/video/reto-innova.mp4" type="video/mp4">
+                            <!-- Fallback image if video fails -->
+                            <img src="assets/images/reto-innova.jpg" alt="Reto Innova" class="card-image">
+                        </video>
+
                         <div class="card-content">
-                            <span class="card-category">METODOLOGÍA FACE</span>
+                            <div class="card-category">METODOLOGÍA FACE</div>
                             <h3 class="card-title">
                                 <span class="font-serif">INNOVA</span>
                                 <span class="font-sans">DESDE ADENTRO</span>
                             </h3>
 
-                            <button class="btn-glass-watch" onclick="window.location.href='reto-de-ingenio.html'">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M8 5V19L19 12L8 5Z" />
+                            <div class="btn-glass-watch">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
                                 </svg>
-                                Ver
-                            </button>
+                                VER AHORA
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,7 +130,7 @@
             --color-dark: #000000;
         }
 
-        /* --- MASTER CONTAINER (Black background outside capsule) --- */
+        /* ... (existing styles) ... */
         .tr-hero-master {
             position: relative;
             width: 100%;
@@ -389,24 +395,32 @@
             transform: translateY(-5px);
         }
 
-        .event-card img {
+        .event-card img,
+        .event-card video.card-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
 
-        .event-card:hover img {
+        .event-card:hover img,
+        .event-card:hover video.card-video {
             transform: scale(1.05);
         }
 
-        /* Overlay Gradient for Text Readability */
+        /* Overlay Gradient for Text Readability - Updated for Video */
         .event-card::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+            /* darker overlay: 0.3 at top, 0.5 center, 0.9 bottom */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.9) 100%);
             z-index: 1;
+            pointer-events: none;
         }
 
         /* Card Content Container */
