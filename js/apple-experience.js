@@ -68,4 +68,58 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeFaceModal();
     });
+
+    // Initialize pagination
+    initPagination();
 });
+
+// Pagination Logic
+function initPagination() {
+    const reel = document.querySelector('.apple-reel');
+    const cards = document.querySelectorAll('.apple-card');
+    const dotsContainer = document.getElementById('apple-dots');
+
+    if (!reel || !cards.length || !dotsContainer) return;
+
+    // Create dots
+    cards.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.className = 'pagination-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.onclick = () => scrollToCard(index);
+        dotsContainer.appendChild(dot);
+    });
+
+    // Update active dot on scroll
+    reel.addEventListener('scroll', updateActiveDot);
+}
+
+function scrollToCard(index) {
+    const reel = document.querySelector('.apple-reel');
+    const cards = document.querySelectorAll('.apple-card');
+
+    if (!reel || !cards[index]) return;
+
+    const cardWidth = cards[index].offsetWidth;
+    const gap = 20;
+    const scrollPosition = index * (cardWidth + gap);
+
+    reel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+}
+
+function updateActiveDot() {
+    const reel = document.querySelector('.apple-reel');
+    const cards = document.querySelectorAll('.apple-card');
+    const dots = document.querySelectorAll('.pagination-dot');
+
+    if (!reel || !cards.length || !dots.length) return;
+
+    const scrollLeft = reel.scrollLeft;
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 20;
+    const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+    });
+}
