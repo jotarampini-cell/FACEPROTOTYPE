@@ -268,12 +268,12 @@
     box-shadow: 0 20px 40px rgba(197, 160, 89, 0.2);
 }
 
-/* Radial overlay para legibilidad */
+/* Enhanced dark overlay for better text readability (especially over videos) */
 .program-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
     z-index: 1;
     pointer-events: none;
 }
