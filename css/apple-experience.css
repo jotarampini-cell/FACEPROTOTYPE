@@ -28,8 +28,12 @@
 
 .apple-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    /* Reducido de 2.5rem */
+    /* Mismo estilo que hero-title */
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    /* Fluido y optimizado para móvil */
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
     margin: 0;
 }
 
