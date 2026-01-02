@@ -194,13 +194,14 @@
             height: 100%;
             z-index: 5;
             background: linear-gradient(180deg,
-                    rgba(15, 52, 96, 0.4) 0%,
-                    /* Blue tint at top */
-                    rgba(15, 52, 96, 0.5) 30%,
-                    rgba(0, 20, 40, 0.7) 60%,
-                    /* Darker blue in middle */
-                    rgba(0, 0, 0, 0.85) 100%
-                    /* Pure black at bottom for text */
+                    rgba(0, 0, 0, 0) 0%,
+                    /* Totally transparent at top */
+                    rgba(0, 40, 120, 0.3) 40%,
+                    /* Subtle blue tint start */
+                    rgba(0, 35, 100, 0.8) 75%,
+                    /* Strong blue behind text */
+                    #001540 100%
+                    /* Deep Royal Blue at bottom (not black) */
                 );
         }
 
