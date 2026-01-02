@@ -27,11 +27,14 @@
 }
 
 .apple-title {
-    font-family: 'Oswald', sans-serif;
-    /* Mismo estilo que hero-title */
+    font-family: 'Inter', sans-serif;
+    /* Premium Tony Robbins style */
+    font-weight: 800;
+    /* Extra Bold */
+    letter-spacing: -0.04em;
+    /* EL SECRETO: Letras pegaditas para look premium */
     font-size: clamp(2.2rem, 5vw, 3.5rem);
     /* Fluido y optimizado para móvil */
-    font-weight: 700;
     line-height: 1.1;
     text-transform: uppercase;
     margin: 0;
