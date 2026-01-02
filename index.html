@@ -73,8 +73,7 @@
                     <!-- Background Image -->
                     <div class="hero-backdrop"></div>
 
-                    <!-- Gradient Overlay -->
-                    <div class="hero-gradient-overlay"></div>
+                    <!-- Gradient Overlay is now handled by CSS ::after pseudo-element -->
 
                     <!-- Centered Content -->
                     <div class="hero-content-center">
@@ -186,7 +185,9 @@
         }
 
         /* --- GRADIENT OVERLAY (Dark bottom with blue tint - Tony Robbins style) --- */
-        .hero-gradient-overlay {
+        /* --- GRADIENT OVERLAY (Pseudo-element for robust mobile support) --- */
+        .tr-capsule-container::after {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -201,8 +202,10 @@
                     rgba(0, 35, 100, 0.8) 75%,
                     /* Strong blue behind text */
                     #001540 100%
-                    /* Deep Royal Blue at bottom (not black) */
+                    /* Deep Royal Blue at bottom */
                 );
+            pointer-events: none;
+            /* Allow clicks through */
         }
 
         /* --- CENTERED CONTENT (Headline + Button at bottom) --- */
