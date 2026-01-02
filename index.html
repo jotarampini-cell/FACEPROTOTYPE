@@ -703,10 +703,14 @@
     <section class="bento-vault-section" id="bento-vault">
         <div class="bento-bg-glow"></div>
 
-        <div class="tr-container" style="position: relative; z-index: 10;">
+        <div class="tr-container"
+            style="position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column;">
             <!-- Header & Filters -->
             <div class="vault-header">
-                <h2 class="vault-title">EL ARCHIVO FACE</h2>
+                <span class="galaxy-tag">MINDSET DE INNOVACIÓN</span>
+                <h2 class="galaxy-title">INSPÍRATE AQUÍ</h2>
+                <p class="galaxy-sub">Explora el origen de las grandes ideas. Toca para revelar el secreto.</p>
+
                 <div class="vault-filters">
                     <button class="filter-btn active" data-filter="all">Todo</button>
                     <button class="filter-btn" data-filter="tech">Tecnología</button>
@@ -716,9 +720,11 @@
                 </div>
             </div>
 
-            <!-- The Grid -->
-            <div id="bento-grid-container" class="bento-grid">
-                <!-- Items injected by JS -->
+            <!-- The Grid (Scrollable Container) -->
+            <div class="bento-scroll-wrapper">
+                <div id="bento-grid-container" class="bento-grid">
+                    <!-- Items injected by JS -->
+                </div>
             </div>
         </div>
 
