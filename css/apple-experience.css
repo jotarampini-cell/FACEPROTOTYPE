@@ -6,21 +6,30 @@
 .apple-experience-section {
     background-color: #000;
     /* Fondo negro puro estilo Apple */
-    padding: 80px 0;
+    padding: 60px 0 40px;
+    /* Reducido de 80px para caber en viewport */
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
-    min-height: 100vh;
+    min-height: auto;
+    /* Removido min-height: 100vh para permitir ajuste */
+    max-height: 100vh;
+    /* Forzar que no exceda viewport */
+    display: flex;
+    flex-direction: column;
 }
 
 .apple-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
+    /* Reducido de 40px */
     color: #fff;
+    flex-shrink: 0;
 }
 
 .apple-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    /* Reducido de 2.5rem */
     margin: 0;
 }
 
@@ -130,10 +139,10 @@
 /* TARJETAS */
 .apple-card {
     flex: 0 0 auto;
-    width: 500px;
-    /* Antes: 280px - MUCHO MÁS GRANDE */
-    height: 650px;
-    /* Antes: 400px */
+    width: 380px;
+    /* Reducido de 500px para caber en viewport */
+    height: 480px;
+    /* Reducido de 650px */
     border-radius: 24px;
     /* Antes: 18px - Más redondeado */
     position: relative;
@@ -185,30 +194,32 @@
     /* Centrado perfecto */
     width: 90%;
     text-align: center;
-    padding: 40px 30px;
+    padding: 30px 25px;
+    /* Reducido de 40px 30px */
     z-index: 2;
 }
 
 .card-tag {
     display: block;
     color: #c5a059;
-    font-size: 0.9rem;
-    /* Antes: 0.7rem */
+    font-size: 0.75rem;
+    /* Reducido de 0.9rem */
     font-weight: 800;
     /* Antes: 700 */
-    letter-spacing: 3px;
-    /* Antes: 1px */
-    margin-bottom: 15px;
-    /* Antes: 5px */
+    letter-spacing: 2px;
+    /* Reducido de 3px */
+    margin-bottom: 12px;
+    /* Reducido de 15px */
 }
 
 .card-overlay h3 {
     color: #fff;
     font-family: 'Oswald', sans-serif;
-    font-size: 4rem;
-    /* Antes: 1.8rem - DRAMÁTICO */
+    font-size: 3rem;
+    /* Reducido de 4rem para viewport */
     font-weight: 700;
-    margin: 15px 0;
+    margin: 12px 0;
+    /* Reducido de 15px */
     line-height: 0.95;
     text-transform: uppercase;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
@@ -216,11 +227,13 @@
 
 /* Nuevo: Descripción de la card */
 .card-description {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    /* Reducido de 1.2rem */
     color: rgba(255, 255, 255, 0.9);
     font-weight: 300;
     font-family: 'Montserrat', sans-serif;
-    margin-top: 15px;
+    margin-top: 12px;
+    /* Reducido de 15px */
     letter-spacing: 0.5px;
     line-height: 1.4;
 }
@@ -364,8 +377,11 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
-    margin-top: 30px;
-    padding: 20px 0;
+    margin-top: 20px;
+    /* Reducido de 30px */
+    padding: 15px 0;
+    /* Reducido de 20px */
+    flex-shrink: 0;
 }
 
 .pagination-dot {
@@ -389,6 +405,20 @@
 
 /* MÓVIL */
 @media (max-width: 768px) {
+    .apple-experience-section {
+        padding: 40px 0 30px;
+        /* Más compacto en móvil */
+        max-height: 100vh;
+    }
+
+    .apple-header {
+        margin-bottom: 20px;
+    }
+
+    .apple-title {
+        font-size: 1.8rem;
+    }
+
     .face-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -406,17 +436,24 @@
     }
 
     .apple-card {
-        width: 85vw;
-        height: 550px;
-        /* Mantener proporción */
+        width: 75vw;
+        /* Reducido de 85vw */
+        height: 420px;
+        /* Reducido de 550px para caber en viewport */
     }
 
     .card-overlay h3 {
-        font-size: 2.5rem;
-        /* Reducir en móvil */
+        font-size: 2rem;
+        /* Reducido de 2.5rem */
     }
 
     .card-description {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        /* Reducido de 1rem */
+    }
+
+    .apple-pagination {
+        margin-top: 15px;
+        padding: 10px 0;
     }
 }

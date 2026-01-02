@@ -45,7 +45,7 @@ function scrollAppleReel(direction) {
     const reel = document.querySelector('.apple-reel');
     if (!reel) return;
 
-    const cardWidth = 280 + 20; // Card width + gap
+    const cardWidth = 380 + 20; // Updated card width + gap
     const scrollAmount = cardWidth * 3; // Scroll 3 cards at a time
 
     if (direction === 'next') {
