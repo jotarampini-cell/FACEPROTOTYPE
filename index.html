@@ -65,72 +65,22 @@
 
 
 
-    <!-- Hero Section: Tony Robbins Style with Capsule -->
+    <!-- Hero Section: Full-Screen Capsule (Tony Robbins Style) -->
     <section id="hero" class="tr-hero-master">
-        <!-- Capsule Wrapper para el borde redondeado -->
         <div class="tr-capsule-wrapper">
             <div class="tr-capsule-container">
-                <!-- Fondo con imagen -->
-                <div class="hero-backdrop">
-                    <div class="hero-gradient-overlay"></div>
-                    <img src="assets/images/hero-background.jpg" alt="Fondo" class="hero-bg-img">
-                </div>
+                <!-- Background Image -->
+                <div class="hero-backdrop"></div>
 
-                <!-- Contenido -->
-                <div class="hero-grid-container">
-                    <!-- Texto izquierda -->
-                    <div class="hero-text-wrapper">
-                        <h1 class="hero-headline">
-                            El próximo nivel<br>para tu empresa te espera
-                        </h1>
-                        <a href="reto-de-ingenio.html" class="btn-pill-white">Comenzar ahora</a>
-                    </div>
+                <!-- Gradient Overlay -->
+                <div class="hero-gradient-overlay"></div>
 
-                    <!-- Tarjeta derecha -->
-                    <div class="hero-card-wrapper">
-                        <div class="card-tag">
-                            <span class="status-dot"></span> PRÓXIMO RETO
-                        </div>
-
-                        <div class="event-card">
-                            <img src="assets/images/reto-innova.jpg" alt="Reto Innova" class="card-image">
-
-                            <div class="card-content">
-                                <span class="card-category">METODOLOGÍA FACE</span>
-                                <h3 class="card-title">INNOVA<br>DESDE ADENTRO</h3>
-
-                                <button class="btn-glass-watch" onclick="window.location.href='reto-de-ingenio.html'">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M8 5V19L19 12L8 5Z" />
-                                    </svg>
-                                    Ver
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta para móvil (fuera del capsule) -->
-        <div class="hero-card-wrapper-mobile">
-            <div class="card-tag">
-                <span class="status-dot"></span> PRÓXIMO RETO
-            </div>
-
-            <div class="event-card">
-                <img src="assets/images/reto-innova.jpg" alt="Reto Innova" class="card-image">
-
-                <div class="card-content">
-                    <span class="card-category">METODOLOGÍA FACE</span>
-                    <h3 class="card-title">INNOVA<br>DESDE ADENTRO</h3>
-
-                    <button class="btn-glass-watch" onclick="window.location.href='reto-de-ingenio.html'">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5V19L19 12L8 5Z" />
-                        </svg>
-                        Ver
-                    </button>
+                <!-- Centered Content -->
+                <div class="hero-content-center">
+                    <h1 class="hero-headline">
+                        El próximo nivel<br>para tu empresa te espera
+                    </h1>
+                    <a href="reto-de-ingenio.html" class="btn-pill-white">Comenzar ahora</a>
                 </div>
             </div>
         </div>
@@ -142,19 +92,16 @@
         :root {
             --font-primary: 'Montserrat', sans-serif;
             --color-white: #ffffff;
-            --color-accent: #00d084;
-            /* Verde neón */
-            --color-gold: #c5a059;
             --color-dark: #000000;
         }
 
-        /* --- SECCIÓN MAESTRA TONY ROBBINS --- */
+        /* --- MASTER CONTAINER (Black background outside capsule) --- */
         .tr-hero-master {
             position: relative;
             width: 100%;
             min-height: 100vh;
             background-color: #000000;
-            /* Negro puro */
+            /* Pure black background */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -162,14 +109,17 @@
             padding: 30px;
         }
 
-        /* --- CAPSULE WRAPPER (Contenedor redondeado) --- */
+        /* --- CAPSULE WRAPPER (Full viewport container) --- */
         .tr-capsule-wrapper {
             width: 100%;
-            max-width: 1400px;
-            height: 850px;
+            max-width: 1600px;
+            /* Wider for more impact */
+            height: calc(100vh - 60px);
+            /* Full viewport minus master padding */
             position: relative;
         }
 
+        /* --- CAPSULE CONTAINER (Rounded border with image background) --- */
         .tr-capsule-container {
             position: relative;
             width: 100%;
@@ -177,14 +127,15 @@
             border-radius: 30px;
             overflow: hidden;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
+            /* Content at bottom like Tony Robbins */
+            justify-content: center;
             box-shadow:
                 0 0 80px rgba(255, 255, 255, 0.15),
-                0 0 120px rgba(197, 160, 89, 0.2),
                 0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
-        /* --- FONDO Y CAPAS --- */
+        /* --- BACKGROUND IMAGE --- */
         .hero-backdrop {
             position: absolute;
             top: 0;
@@ -192,15 +143,13 @@
             width: 100%;
             height: 100%;
             z-index: 0;
+            background-image: url('assets/images/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        .hero-bg-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-        }
-
+        /* --- GRADIENT OVERLAY (Dark bottom for text legibility) --- */
         .hero-gradient-overlay {
             position: absolute;
             top: 0;
@@ -208,294 +157,102 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            /* Degradado sutil: Oscuro a la izquierda (texto) -> Transparente a la derecha */
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 100%);
+            /* Gradient from transparent top to dark bottom */
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0.3) 40%,
+                    rgba(0, 0, 0, 0.7) 70%,
+                    rgba(0, 0, 0, 0.9) 100%);
         }
 
-        /* --- CONTENEDOR GRID --- */
-        .hero-grid-container {
+        /* --- CENTERED CONTENT (Headline + Button at bottom) --- */
+        .hero-content-center {
             position: relative;
             z-index: 10;
             width: 100%;
-            padding: 0 8%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            /* Móvil por defecto */
-            justify-content: center;
-            gap: 60px;
-        }
-
-        /* --- TEXTO (IZQUIERDA) --- */
-        .hero-text-wrapper {
-            max-width: 750px;
+            max-width: 900px;
+            text-align: center;
+            padding: 0 30px 80px;
+            /* Bottom padding like Tony Robbins */
             color: var(--color-white);
         }
 
+        /* --- HEADLINE (Tony Robbins Typography) --- */
         .hero-headline {
-            /* CLAVE DEL DISEÑO: Tipografía masiva y apretada */
-            font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            /* Larger for full-screen impact */
             font-weight: 800;
-            /* Extra Bold */
             line-height: 0.95;
-            /* Muy pegado verticalmente */
+            /* Tight vertical spacing */
             letter-spacing: -0.04em;
-            /* Muy pegado horizontalmente */
-            margin-bottom: 40px;
+            /* Tight horizontal spacing */
+            margin-bottom: 50px;
             text-transform: none;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-            /* Mejor contraste */
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+            /* Strong shadow for contrast */
         }
 
+        /* --- CTA BUTTON (White pill) --- */
         .btn-pill-white {
             display: inline-block;
             background-color: var(--color-white);
             color: var(--color-dark);
             font-weight: 700;
-            font-size: 1rem;
-            padding: 18px 45px;
+            font-size: 1.1rem;
+            padding: 20px 50px;
             border-radius: 100px;
             text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
         }
 
         .btn-pill-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
-            background-color: #f0f0f0;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.5);
+            background-color: #f5f5f5;
         }
 
-        /* --- TARJETA (DERECHA) --- */
-        .hero-card-wrapper {
-            width: 100%;
-            max-width: 340px;
-        }
-
-        /* Ocultar versión móvil en desktop */
-        .hero-card-wrapper-mobile {
-            display: none;
-        }
-
-        .card-tag {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--color-white);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--color-accent);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--color-accent);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        .event-card {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16/10;
-            border-radius: 16px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .event-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(15, 52, 96, 0.4);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-
-        .event-card:hover .card-image {
-            opacity: 0.5;
-        }
-
-        .card-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            color: var(--color-white);
-        }
-
-        .card-category {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            opacity: 0.9;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            line-height: 1;
-            margin: 0 0 20px 0;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        }
-
-        .btn-glass-watch {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            /* Efecto Cristal (Glassmorphism) */
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(255, 255, 255, 0.4);
-            color: white;
-            padding: 10px 18px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-glass-watch:hover {
-            background: rgba(255, 255, 255, 0.35);
-            border-color: rgba(255, 255, 255, 0.6);
-            transform: translateX(3px);
-        }
-
-        /* --- RESPONSIVE LOGIC (DESKTOP) --- */
-        @media (min-width: 992px) {
-            .hero-grid-container {
-                flex-direction: row;
-                /* Lado a lado */
-                justify-content: space-between;
-                align-items: flex-end;
-                /* Alinear abajo */
-                padding-bottom: 80px;
-            }
-
-            .hero-text-wrapper {
-                align-self: center;
-                /* Texto centrado verticalmente */
-                margin-bottom: 0;
-            }
-
-            .hero-card-wrapper {
-                margin-bottom: 0;
-            }
-        }
-
-        /* --- RESPONSIVE MOBILE --- */
+        /* --- RESPONSIVE: MOBILE --- */
         @media (max-width: 900px) {
             .tr-hero-master {
                 padding: 15px;
-                min-height: 100vh;
-                flex-direction: column;
-                /* CLAVE: Apilar verticalmente capsule + tarjeta móvil */
-                gap: 0;
-                /* Sin gap, el margin-top de la tarjeta lo maneja */
             }
 
             .tr-capsule-wrapper {
-                height: auto;
-                min-height: 600px;
+                height: calc(100vh - 30px);
+                /* Less padding on mobile */
             }
 
             .tr-capsule-container {
                 border-radius: 20px;
-                flex-direction: column;
-                justify-content: flex-end;
-                padding-bottom: 60px;
-                padding-top: 180px;
+                /* Slightly less rounded on mobile */
             }
 
-            .hero-gradient-overlay {
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0.95) 100%);
-            }
-
-            .hero-grid-container {
-                gap: 30px;
-                padding: 0 25px;
-                text-align: center;
+            .hero-content-center {
+                padding: 0 20px 60px;
             }
 
             .hero-headline {
-                font-size: 2.2rem;
-                line-height: 1.2;
-                margin-bottom: 30px;
+                font-size: clamp(2.2rem, 8vw, 3rem);
+                margin-bottom: 35px;
+                line-height: 1;
+                /* Slightly more breathing room on mobile */
             }
 
             .btn-pill-white {
                 width: 100%;
-                text-align: center;
-                padding: 16px 30px;
+                /* Full width on mobile */
+                padding: 18px 40px;
+                font-size: 1rem;
             }
 
-            .hero-card-wrapper {
-                display: none;
-                /* Ocultar versión dentro del capsule en móvil */
-            }
-
-            /* Mostrar y estilizar versión móvil */
-            .hero-card-wrapper-mobile {
-                display: block;
-                margin-top: 24px;
-                /* Separación del capsule */
-                padding: 0 15px;
-                /* Margen lateral */
-                width: 100%;
-            }
-
-            .hero-card-wrapper-mobile .event-card {
-                border-radius: 12px;
-                /* Más sutil en móvil */
-                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
-                /* Sombra más dramática */
-            }
-
-            .card-title {
-                font-size: 1.3rem;
-            }
-
-            /* Ajustar altura del capsule (sin tarjeta dentro) */
-            .tr-capsule-wrapper {
-                height: auto;
-                min-height: 500px;
-                /* Reducido ya que no lleva la tarjeta */
+            /* More dramatic gradient on mobile for better text contrast */
+            .hero-gradient-overlay {
+                background: linear-gradient(180deg,
+                        rgba(0, 0, 0, 0.2) 0%,
+                        rgba(0, 0, 0, 0.5) 40%,
+                        rgba(0, 0, 0, 0.8) 70%,
+                        rgba(0, 0, 0, 0.95) 100%);
             }
         }
 
