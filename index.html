@@ -65,64 +65,93 @@
 
 
 
-    <!-- Hero Section: Capsule Design -->
-    <section id="hero" class="capsule-hero-section">
-        <div class="capsule-hero-wrapper">
-            <div class="capsule-hero-container">
-                <div class="capsule-overlay"></div>
+    <!-- Hero Section: Tony Robbins Style with Capsule -->
+    <section id="hero" class="tr-hero-master">
+        <!-- Capsule Wrapper para el borde redondeado -->
+        <div class="tr-capsule-wrapper">
+            <div class="tr-capsule-container">
+                <!-- Fondo con imagen -->
+                <div class="hero-backdrop">
+                    <div class="hero-gradient-overlay"></div>
+                    <img src="assets/images/hero-background.jpg" alt="Fondo" class="hero-bg-img">
+                </div>
 
-                <div class="capsule-content">
-                    <div class="capsule-badge">EL MANIFIESTO DE LA INNOVACIÓN</div>
+                <!-- Contenido -->
+                <div class="hero-grid-container">
+                    <!-- Texto izquierda -->
+                    <div class="hero-text-wrapper">
+                        <h1 class="hero-headline">
+                            El próximo nivel<br>para tu empresa te espera
+                        </h1>
+                        <a href="reto-de-ingenio.html" class="btn-pill-white">Comenzar ahora</a>
+                    </div>
 
-                    <h1 class="capsule-title">
-                        ¿TU EMPRESA ESTÁ <span>SOBREVIVIENDO</span> O ESTÁ LIDERANDO?
-                    </h1>
+                    <!-- Tarjeta derecha -->
+                    <div class="hero-card-wrapper">
+                        <div class="card-tag">
+                            <span class="status-dot"></span> PRÓXIMO RETO
+                        </div>
 
-                    <p class="capsule-desc">
-                        Rompe el ciclo del cortoplacismo. Implementa la metodología <strong>FACE</strong> para
-                        transformar el ingenio de tus colaboradores en una ventaja competitiva inalcanzable.
-                    </p>
+                        <div class="event-card">
+                            <img src="assets/images/reto-innova.jpg" alt="Reto Innova" class="card-image">
 
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="reto-de-ingenio.html" class="capsule-btn-gold">EMPIEZA EL RETO DE INGENIO</a>
-                        <a href="#manifesto" class="capsule-btn-gold"
-                            style="background-color: transparent; border: 2px solid #c5a059; color: #c5a059;"
-                            onclick="event.preventDefault(); document.querySelector('#manifesto').scrollIntoView({behavior:'smooth'})">VER
-                            EL MANIFIESTO</a>
+                            <div class="card-content">
+                                <span class="card-category">METODOLOGÍA FACE</span>
+                                <h3 class="card-title">INNOVA<br>DESDE ADENTRO</h3>
+
+                                <button class="btn-glass-watch" onclick="window.location.href='reto-de-ingenio.html'">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5V19L19 12L8 5Z" />
+                                    </svg>
+                                    Ver
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+
     <style>
-        /* CAPSULE HERO STYLES */
-        .capsule-hero-section {
+        /* --- TONY ROBBINS HERO VARIABLES --- */
+        :root {
+            --font-primary: 'Montserrat', sans-serif;
+            --color-white: #ffffff;
+            --color-accent: #00d084;
+            /* Verde neón */
+            --color-gold: #c5a059;
+            --color-dark: #000000;
+        }
+
+        /* --- SECCIÓN MAESTRA TONY ROBBINS --- */
+        .tr-hero-master {
+            position: relative;
             width: 100%;
             min-height: 100vh;
+            background-color: #050505;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: var(--font-primary);
             padding: 30px;
-            background-color: #050505;
         }
 
-        .capsule-hero-wrapper {
+        /* --- CAPSULE WRAPPER (Contenedor redondeado) --- */
+        .tr-capsule-wrapper {
             width: 100%;
             max-width: 1400px;
             height: 850px;
             position: relative;
         }
 
-        .capsule-hero-container {
+        .tr-capsule-container {
             position: relative;
             width: 100%;
             height: 100%;
             border-radius: 30px;
             overflow: hidden;
-            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
             display: flex;
             align-items: center;
             box-shadow:
@@ -131,149 +160,276 @@
                 0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
-        .capsule-overlay {
+        /* --- FONDO Y CAPAS --- */
+        .hero-backdrop {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg,
-                    rgba(0, 0, 0, 0.95) 0%,
-                    rgba(0, 0, 0, 0.8) 35%,
-                    rgba(0, 0, 0, 0.1) 100%);
+            z-index: 0;
+        }
+
+        .hero-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .hero-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 1;
+            /* Degradado sutil: Oscuro a la izquierda (texto) -> Transparente a la derecha */
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 100%);
         }
 
-        .capsule-content {
+        /* --- CONTENEDOR GRID --- */
+        .hero-grid-container {
             position: relative;
-            z-index: 2;
-            padding-left: 8%;
+            z-index: 10;
+            width: 100%;
+            padding: 0 8%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            /* Móvil por defecto */
+            justify-content: center;
+            gap: 60px;
+        }
+
+        /* --- TEXTO (IZQUIERDA) --- */
+        .hero-text-wrapper {
             max-width: 750px;
+            color: var(--color-white);
         }
 
-        .capsule-badge {
-            display: inline-block;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #c5a059;
-            border: 1px solid #c5a059;
-            padding: 8px 16px;
-            margin-bottom: 25px;
-            background: rgba(197, 160, 89, 0.1);
-            backdrop-filter: blur(4px);
-            border-radius: 4px;
-        }
-
-        .capsule-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 4.5rem;
-            line-height: 1.1;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            color: #ffffff;
-        }
-
-        .capsule-title span {
-            color: #c5a059;
-            display: block;
-        }
-
-        .capsule-desc {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #d1d1d1;
+        .hero-headline {
+            /* CLAVE DEL DISEÑO: Tipografía masiva y apretada */
+            font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+            font-weight: 800;
+            /* Extra Bold */
+            line-height: 0.95;
+            /* Muy pegado verticalmente */
+            letter-spacing: -0.04em;
+            /* Muy pegado horizontalmente */
             margin-bottom: 40px;
-            font-weight: 300;
-            max-width: 90%;
-            border-left: 3px solid rgba(255, 255, 255, 0.2);
-            padding-left: 20px;
+            text-transform: none;
         }
 
-        .capsule-btn-gold {
+        .btn-pill-white {
             display: inline-block;
-            background-color: #c5a059;
-            color: #000;
-            text-decoration: none;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
+            background-color: var(--color-white);
+            color: var(--color-dark);
             font-weight: 700;
-            text-transform: uppercase;
+            font-size: 1rem;
             padding: 18px 45px;
-            border-radius: 4px;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+            border-radius: 100px;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .capsule-btn-gold:hover {
-            background-color: #e0b461;
+        .btn-pill-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- TARJETA (DERECHA) --- */
+        .hero-card-wrapper {
+            width: 100%;
+            max-width: 340px;
+        }
+
+        .card-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--color-accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .event-card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/10;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.4);
         }
 
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .event-card:hover .card-image {
+            opacity: 0.5;
+        }
+
+        .card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: var(--color-white);
+        }
+
+        .card-category {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .btn-glass-watch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            /* Efecto Cristal (Glassmorphism) */
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-glass-watch:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- RESPONSIVE LOGIC (DESKTOP) --- */
+        @media (min-width: 992px) {
+            .hero-grid-container {
+                flex-direction: row;
+                /* Lado a lado */
+                justify-content: space-between;
+                align-items: flex-end;
+                /* Alinear abajo */
+                padding-bottom: 80px;
+            }
+
+            .hero-text-wrapper {
+                align-self: center;
+                /* Texto centrado verticalmente */
+                margin-bottom: 0;
+            }
+
+            .hero-card-wrapper {
+                margin-bottom: 0;
+            }
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 900px) {
-            .capsule-hero-section {
+            .tr-hero-master {
                 padding: 15px;
                 min-height: 100vh;
             }
 
-            .capsule-hero-wrapper {
+            .tr-capsule-wrapper {
                 height: auto;
                 min-height: 600px;
             }
 
-            .capsule-hero-container {
+            .tr-capsule-container {
+                border-radius: 20px;
                 flex-direction: column;
                 justify-content: flex-end;
-                border-radius: 20px;
                 padding-bottom: 60px;
                 padding-top: 180px;
             }
 
-            .capsule-overlay {
+            .hero-gradient-overlay {
                 background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 1) 100%);
             }
 
-            .capsule-content {
-                padding-left: 25px;
-                padding-right: 25px;
+            .hero-grid-container {
+                gap: 30px;
+                padding: 0 25px;
                 text-align: center;
             }
 
-            .capsule-badge {
-                font-size: 0.75rem;
-                padding: 6px 12px;
-                margin-bottom: 20px;
-            }
-
-            .capsule-btn-gold {
-                font-size: 1rem;
-                padding: 14px 30px;
-                width: 100%;
-                text-align: center;
-            }
-
-            .capsule-title {
+            .hero-headline {
                 font-size: 2.2rem;
                 line-height: 1.2;
-                margin-bottom: 20px;
+                margin-bottom: 30px;
             }
 
-            .capsule-desc {
-                border-left: none;
-                padding-left: 0;
-                margin: 0 auto 30px auto;
-                font-size: 1rem;
+            .btn-pill-white {
+                width: 100%;
+                text-align: center;
+                padding: 16px 30px;
+            }
+
+            .hero-card-wrapper {
                 max-width: 100%;
             }
 
-            /* Make header CTA smaller on very small screens */
-            .tr-header-cta {
-                font-size: 0.75rem;
-                padding: 8px 12px;
+            .card-title {
+                font-size: 1.3rem;
             }
         }
 
