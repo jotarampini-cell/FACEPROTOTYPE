@@ -40,6 +40,21 @@ function closeFaceModal() {
     }
 }
 
+// Navigation Arrow Function (Desktop)
+function scrollAppleReel(direction) {
+    const reel = document.querySelector('.apple-reel');
+    if (!reel) return;
+
+    const cardWidth = 280 + 20; // Card width + gap
+    const scrollAmount = cardWidth * 3; // Scroll 3 cards at a time
+
+    if (direction === 'next') {
+        reel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    } else {
+        reel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    }
+}
+
 // Inicialización de Listeners cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     // Cerrar al tocar fuera
