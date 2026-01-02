@@ -1159,26 +1159,6 @@
             if (e.target === proModal) closeProModal();
         });
 
-        // === CURSOR PERSONALIZADO ===
-        const galaxyCursor = document.createElement('div');
-        galaxyCursor.className = 'galaxy-cursor';
-        document.body.appendChild(galaxyCursor);
-
-        const galaxySection = document.getElementById('galaxy-section');
-
-        document.addEventListener('mousemove', (e) => {
-            galaxyCursor.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
-        });
-
-        if (galaxySection) {
-            galaxySection.addEventListener('mouseenter', () => {
-                galaxyCursor.style.opacity = '1';
-            });
-
-            galaxySection.addEventListener('mouseleave', () => {
-                galaxyCursor.style.opacity = '0';
-            });
-        }
 
         // === ANIMACIÓN DE ENTRADA DRAMÁTICA ===
         const observerOptions = {
