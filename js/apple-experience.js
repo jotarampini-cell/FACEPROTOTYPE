@@ -54,7 +54,7 @@ function scrollAppleReel(direction, sectionId = null) {
 
     if (!reel) return;
 
-    const cardWidth = 380 + 20; // Updated card width + gap
+    const cardWidth = 380 + 8; // Updated card width + gap (8px)
     const scrollAmount = cardWidth * 3; // Scroll 3 cards at a time
 
     if (direction === 'next') {
@@ -83,6 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize programs pagination if exists
     initProgramsPagination();
+
+    // Initialize Video Hover
+    initVideoHover();
 });
 
 // Pagination Logic - Updated to support multiple reels
@@ -125,7 +128,7 @@ function scrollToCard(index, sectionId = null) {
     if (!reel || !cards[index]) return;
 
     const cardWidth = cards[index].offsetWidth;
-    const gap = 20;
+    const gap = 8;
     const scrollPosition = index * (cardWidth + gap);
 
     reel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
@@ -160,7 +163,7 @@ function updateActiveDot(sectionId = null) {
 
     const scrollLeft = reel.scrollLeft;
     const cardWidth = cards[0].offsetWidth;
-    const gap = 20;
+    const gap = 8;
     const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
 
     dots.forEach((dot, index) => {
@@ -201,8 +204,31 @@ function scrollToProgram(index) {
     if (!reel || !cards[index]) return;
 
     const cardWidth = cards[index].offsetWidth;
-    const gap = 20;
+    const gap = 8; // Updated to match CSS
     const scrollPosition = index * (cardWidth + gap);
 
     reel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+}
+
+// Video Hover Logic (Desktop Only)
+function initVideoHover() {
+    const card = document.getElementById('card-innova');
+    const video = document.getElementById('video-innova');
+
+    if (!card || !video) return;
+
+    // Play on Hover (Desktop Only)
+    card.addEventListener('mouseenter', () => {
+        // Check if desktop (min-width: 992px)
+        if (window.matchMedia('(min-width: 992px)').matches) {
+            video.play().catch(e => console.log('Video play interrupted', e));
+        }
+    });
+
+    // Pause on Leave
+    card.addEventListener('mouseleave', () => {
+        video.pause();
+        // Optional: Reset to start?
+        // video.currentTime = 0; 
+    });
 }
