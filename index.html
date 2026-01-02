@@ -130,7 +130,8 @@
             position: relative;
             width: 100%;
             min-height: 100vh;
-            background-color: #050505;
+            background-color: #000000;
+            /* Negro puro */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -219,6 +220,8 @@
             /* Muy pegado horizontalmente */
             margin-bottom: 40px;
             text-transform: none;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+            /* Mejor contraste */
         }
 
         .btn-pill-white {
@@ -231,11 +234,13 @@
             border-radius: 100px;
             text-decoration: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         }
 
         .btn-pill-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+            background-color: #f0f0f0;
         }
 
         /* --- TARJETA (DERECHA) --- */
@@ -283,14 +288,15 @@
             aspect-ratio: 16/10;
             border-radius: 16px;
             overflow: hidden;
-            background: #000;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .event-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(15, 52, 96, 0.4);
         }
 
         .card-image {
@@ -342,22 +348,25 @@
             align-items: center;
             gap: 8px;
             /* Efecto Cristal (Glassmorphism) */
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
             color: white;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.8rem;
+            font-weight: 700;
+            font-size: 0.85rem;
             text-transform: uppercase;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .btn-glass-watch:hover {
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.35);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateX(3px);
         }
 
         /* --- RESPONSIVE LOGIC (DESKTOP) --- */
@@ -403,7 +412,7 @@
             }
 
             .hero-gradient-overlay {
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 1) 100%);
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0.95) 100%);
             }
 
             .hero-grid-container {
