@@ -421,41 +421,47 @@
 
         /* Category (Small top text) */
         .card-category {
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            opacity: 0.9;
-            margin-bottom: 8px;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            /* Pure white, no opacity */
+            margin-bottom: 5px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         /* Title (Editorial Poster Style) */
         .card-title {
-            margin: 5px 0 0;
+            margin: 0;
             color: #ffffff;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+            /* Pure white */
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0;
+            gap: 2px;
         }
 
         .font-serif {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 5vw, 2.6rem);
+            font-size: clamp(2.5rem, 6vw, 3rem);
+            /* Larger */
             font-weight: 900;
-            line-height: 0.9;
+            font-style: italic;
+            /* Editorial flair */
+            line-height: 0.85;
             letter-spacing: -0.02em;
         }
 
         .font-sans {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(1.6rem, 4vw, 2rem);
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
             font-weight: 800;
             line-height: 0.9;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
+            /* Wider spacing for contrast */
         }
 
         /* Giant Glassmorphism Watch Button */
