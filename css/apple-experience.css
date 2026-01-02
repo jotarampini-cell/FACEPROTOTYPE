@@ -527,10 +527,34 @@
 
     .apple-header {
         margin-bottom: 20px;
+        padding: 0 20px;
+        /* Add horizontal padding for mobile */
     }
 
     .apple-title {
         font-size: 1.8rem;
+        line-height: 1.1;
+        /* Allow title to wrap naturally for two-line podcast style */
+    }
+
+    /* Two-line podcast-style title for mobile */
+    .apple-title .title-top {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: #666;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+    }
+
+    .apple-title .title-main {
+        display: block;
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        color: #fff;
     }
 
     .face-grid {
