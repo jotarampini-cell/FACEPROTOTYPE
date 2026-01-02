@@ -238,6 +238,79 @@
     line-height: 1.4;
 }
 
+/* --- PROGRAM CARDS (Link Wrappers) --- */
+.program-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    flex: 0 0 auto;
+    width: 380px;
+    height: 480px;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    scroll-snap-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #222;
+}
+
+.program-card:hover {
+    transform: scale(1.02);
+    border-color: #c5a059;
+    box-shadow: 0 20px 40px rgba(197, 160, 89, 0.2);
+}
+
+/* Radial overlay para legibilidad */
+.program-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Editorial Typography (Mixed Serif/Sans) */
+.editorial-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.editorial-title .font-serif {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 0.85;
+    color: #fff;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.editorial-title .font-sans {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    line-height: 0.85;
+    color: #fff;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.card-benefit {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 15px;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+}
+
 /* --- MODAL (POPUP) --- */
 .face-modal-overlay {
     position: fixed;
@@ -455,5 +528,19 @@
     .apple-pagination {
         margin-top: 15px;
         padding: 10px 0;
+    }
+
+    .program-card {
+        width: 75vw;
+        height: 420px;
+    }
+
+    .editorial-title .font-serif,
+    .editorial-title .font-sans {
+        font-size: 2rem;
+    }
+
+    .card-benefit {
+        font-size: 0.95rem;
     }
 }

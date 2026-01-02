@@ -71,6 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize pagination
     initPagination();
+
+    // Initialize programs pagination if exists
+    initProgramsPagination();
 });
 
 // Pagination Logic
@@ -122,4 +125,34 @@ function updateActiveDot() {
     dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === activeIndex);
     });
+}
+
+// Programs Pagination (Separate instance)
+function initProgramsPagination() {
+    const dotsContainer = document.getElementById('programs-dots');
+    if (!dotsContainer) return;
+
+    const programCards = document.querySelectorAll('.program-card');
+
+    // Create dots for programs
+    programCards.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.className = 'pagination-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.onclick = () => scrollToProgram(index);
+        dotsContainer.appendChild(dot);
+    });
+}
+
+function scrollToProgram(index) {
+    const reel = document.querySelector('#programs-showcase .apple-reel');
+    const cards = document.querySelectorAll('.program-card');
+
+    if (!reel || !cards[index]) return;
+
+    const cardWidth = cards[index].offsetWidth;
+    const gap = 20;
+    const scrollPosition = index * (cardWidth + gap);
+
+    reel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
 }
