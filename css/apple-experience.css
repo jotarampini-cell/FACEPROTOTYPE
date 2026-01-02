@@ -537,15 +537,16 @@
         /* Allow title to wrap naturally for two-line podcast style */
     }
 
-    /* Two-line podcast-style title for mobile */
+    /* Two-line title for mobile - both lines equally prominent */
     .apple-title .title-top {
         display: block;
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 2px;
-        color: #666;
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: #fff;
         margin-bottom: 5px;
-        text-transform: uppercase;
+        text-transform: none;
+        line-height: 1;
     }
 
     .apple-title .title-main {
