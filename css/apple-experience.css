@@ -575,11 +575,17 @@
 
     .editorial-title .font-serif,
     .editorial-title .font-sans {
-        font-size: 1.7rem;
-        /* Reducido de 2rem para mejor legibilidad móvil */
+        font-size: 1.4rem;
+        /* Reducido de 1.7rem para mobile - mejor ajuste */
+    }
+
+    .card-tag {
+        font-size: 0.65rem;
+        /* Reducido para mobile */
     }
 
     .card-benefit {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
+        /* Reducido de 0.95rem */
     }
 }
