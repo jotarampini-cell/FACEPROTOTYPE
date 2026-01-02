@@ -625,4 +625,16 @@
         font-size: 0.85rem;
         /* Reducido de 0.95rem */
     }
+
+    /* TEST: Larger text and lower positioning for first card only (Innova desde Adentro) */
+    #card-innova .card-overlay {
+        top: 65%;
+        /* Position below center (was 50%) */
+    }
+
+    #card-innova .editorial-title .font-serif,
+    #card-innova .editorial-title .font-sans {
+        font-size: 2rem !important;
+        /* Larger text for mobile - increased from 1.4rem */
+    }
 }
