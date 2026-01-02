@@ -5050,6 +5050,9 @@ body {
     overflow: hidden;
     color: #ffffff;
     text-align: center;
+    margin-top: 0;
+    /* Sin gap con sección anterior */
+    padding-top: 0;
 }
 
 /* VIDEO DE FONDO (TÉCNICA MODERNA) */
