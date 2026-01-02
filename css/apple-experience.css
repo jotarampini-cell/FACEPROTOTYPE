@@ -32,6 +32,11 @@
 }
 
 /* --- CARRUSEL MAGNÉTICO (REEL) --- */
+.apple-reel-wrapper {
+    position: relative;
+    /* For absolute positioning of arrows */
+}
+
 .apple-reel {
     display: flex;
     gap: 20px;
@@ -42,6 +47,8 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     cursor: grab;
+    scroll-behavior: smooth;
+    /* Smooth scrolling for arrow navigation */
 }
 
 .apple-reel:active {
@@ -50,6 +57,63 @@
 
 .apple-reel::-webkit-scrollbar {
     display: none;
+}
+
+/* --- NAVIGATION ARROWS (Desktop Only) --- */
+.apple-nav-arrow {
+    display: none;
+    /* Hidden by default (mobile) */
+}
+
+@media (min-width: 992px) {
+    .apple-nav-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 100;
+        transition: all 0.3s ease;
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .apple-reel-wrapper:hover .apple-nav-arrow {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .apple-nav-arrow:hover {
+        background: #fff;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .apple-nav-arrow.prev {
+        left: 20px;
+    }
+
+    .apple-nav-arrow.next {
+        right: 20px;
+    }
+
+    .apple-nav-arrow svg {
+        width: 24px;
+        height: 24px;
+        fill: #000;
+    }
+
+    .apple-nav-arrow:active {
+        transform: translateY(-50%) scale(0.95);
+    }
 }
 
 /* TARJETAS */
