@@ -1001,7 +1001,7 @@
     <!-- Section: Premium Testimonials Slider (Tony Robbins Style) -->
     <section class="tony-sync-slider">
 
-        <!-- Synchronized Background Images -->
+        <!-- Mobile Background Images (Hidden on Desktop) -->
         <div class="slider-backgrounds">
             <div class="bg-overlay"></div>
             <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=1920&q=80"
@@ -1012,71 +1012,116 @@
                 class="sync-bg" data-id="2" alt="Background 3">
         </div>
 
-        <div class="tr-container relative-content">
+        <!-- Split Container (Desktop) -->
+        <div class="split-container">
 
-            <!-- Testimonials Wrapper -->
-            <div class="reviews-wrapper">
-
-                <!-- Testimonial 1 -->
-                <div class="sync-review active" data-id="0">
-                    <h2 class="sync-quote">
-                        "FACE transformó completamente nuestra cultura de innovación. Los resultados fueron inmediatos y
-                        medibles."
-                    </h2>
-                    <div class="sync-author">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
-                            class="author-img" alt="María González">
-                        <div class="author-details">
-                            <span class="name">María González</span>
-                            <span class="role">CEO, Innovatech</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="sync-review" data-id="1">
-                    <h2 class="sync-quote">
-                        "El programa FACE nos ayudó a descubrir oportunidades de innovación que teníamos frente a
-                        nosotros."
-                    </h2>
-                    <div class="sync-author">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80"
-                            class="author-img" alt="Carlos Méndez">
-                        <div class="author-details">
-                            <span class="name">Carlos Méndez</span>
-                            <span class="role">Director de Innovación, TechCorp</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="sync-review" data-id="2">
-                    <h2 class="sync-quote">
-                        "Una experiencia transformadora que cambió la forma en que nuestro equipo piensa sobre la
-                        innovación."
-                    </h2>
-                    <div class="sync-author">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
-                            class="author-img" alt="Ana Rodríguez">
-                        <div class="author-details">
-                            <span class="name">Ana Rodríguez</span>
-                            <span class="role">VP Estrategia, Global Solutions</span>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- LEFT SIDE: Person Images (Desktop Only) -->
+            <div class="person-image-side">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
+                    class="person-bg active" data-id="0" alt="María González">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80"
+                    class="person-bg" data-id="1" alt="Carlos Méndez">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1200&q=80"
+                    class="person-bg" data-id="2" alt="Ana Rodríguez">
+                <div class="person-overlay"></div>
             </div>
 
-            <!-- Navigation Controls -->
-            <div class="sync-controls">
-                <div class="pagination-dots">
-                    <span class="p-dot active" onclick="goToSlide(0)"></span>
-                    <span class="p-dot" onclick="goToSlide(1)"></span>
-                    <span class="p-dot" onclick="goToSlide(2)"></span>
+            <!-- RIGHT SIDE: Quote Text -->
+            <div class="quote-text-side">
+
+                <!-- Testimonials Wrapper -->
+                <div class="reviews-wrapper">
+
+                    <!-- Testimonial 1 -->
+                    <div class="sync-review active" data-id="0">
+                        <h2 class="sync-quote">
+                            "FACE transformó completamente nuestra cultura de innovación. Los resultados fueron
+                            inmediatos y
+                            medibles."
+                        </h2>
+                        <div class="sync-author">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+                                class="author-img" alt="María González">
+                            <div class="author-details">
+                                <span class="name">María González</span>
+                                <span class="role">CEO, Innovatech</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="sync-review" data-id="1">
+                        <h2 class="sync-quote">
+                            "El programa FACE nos ayudó a descubrir oportunidades de innovación que teníamos frente a
+                            nosotros."
+                        </h2>
+                        <div class="sync-author">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80"
+                                class="author-img" alt="Carlos Méndez">
+                            <div class="author-details">
+                                <span class="name">Carlos Méndez</span>
+                                <span class="role">Director de Innovación, TechCorp</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="sync-review" data-id="2">
+                        <h2 class="sync-quote">
+                            "Una experiencia transformadora que cambió la forma en que nuestro equipo piensa sobre la
+                            innovación."
+                        </h2>
+                        <div class="sync-author">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
+                                class="author-img" alt="Ana Rodríguez">
+                            <div class="author-details">
+                                <span class="name">Ana Rodríguez</span>
+                                <span class="role">VP Estrategia, Global Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
 
         </div>
+
+        <!-- Avatar Carousel Navigation -->
+        <div class="sync-controls">
+            <div class="avatar-carousel">
+                <!-- Avatar 1 -->
+                <div class="avatar-nav-item active" onclick="goToSlide(0)">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+                        class="avatar-nav-img" alt="María González">
+                    <div class="avatar-nav-info">
+                        <span class="avatar-nav-name">María González</span>
+                        <span class="avatar-nav-role">CEO, Innovatech</span>
+                    </div>
+                </div>
+
+                <!-- Avatar 2 -->
+                <div class="avatar-nav-item" onclick="goToSlide(1)">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80"
+                        class="avatar-nav-img" alt="Carlos Méndez">
+                    <div class="avatar-nav-info">
+                        <span class="avatar-nav-name">Carlos Méndez</span>
+                        <span class="avatar-nav-role">Director de Innovación</span>
+                    </div>
+                </div>
+
+                <!-- Avatar 3 -->
+                <div class="avatar-nav-item" onclick="goToSlide(2)">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
+                        class="avatar-nav-img" alt="Ana Rodríguez">
+                    <div class="avatar-nav-info">
+                        <span class="avatar-nav-name">Ana Rodríguez</span>
+                        <span class="avatar-nav-role">VP Estrategia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <!-- Load Testimonials Slider Assets -->
