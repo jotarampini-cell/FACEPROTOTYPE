@@ -998,6 +998,91 @@
     <!-- No external data source needed! -->
     <script src="js/apple-experience.js"></script>
 
+    <!-- Section: Premium Testimonials Slider (Tony Robbins Style) -->
+    <section class="tony-sync-slider">
+
+        <!-- Synchronized Background Images -->
+        <div class="slider-backgrounds">
+            <div class="bg-overlay"></div>
+            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=1920&q=80"
+                class="sync-bg active" data-id="0" alt="Background 1">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80"
+                class="sync-bg" data-id="1" alt="Background 2">
+            <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=1920&q=80"
+                class="sync-bg" data-id="2" alt="Background 3">
+        </div>
+
+        <div class="tr-container relative-content">
+
+            <!-- Testimonials Wrapper -->
+            <div class="reviews-wrapper">
+
+                <!-- Testimonial 1 -->
+                <div class="sync-review active" data-id="0">
+                    <h2 class="sync-quote">
+                        "FACE transformó completamente nuestra cultura de innovación. Los resultados fueron inmediatos y
+                        medibles."
+                    </h2>
+                    <div class="sync-author">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+                            class="author-img" alt="María González">
+                        <div class="author-details">
+                            <span class="name">María González</span>
+                            <span class="role">CEO, Innovatech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="sync-review" data-id="1">
+                    <h2 class="sync-quote">
+                        "El programa FACE nos ayudó a descubrir oportunidades de innovación que teníamos frente a
+                        nosotros."
+                    </h2>
+                    <div class="sync-author">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80"
+                            class="author-img" alt="Carlos Méndez">
+                        <div class="author-details">
+                            <span class="name">Carlos Méndez</span>
+                            <span class="role">Director de Innovación, TechCorp</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="sync-review" data-id="2">
+                    <h2 class="sync-quote">
+                        "Una experiencia transformadora que cambió la forma en que nuestro equipo piensa sobre la
+                        innovación."
+                    </h2>
+                    <div class="sync-author">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
+                            class="author-img" alt="Ana Rodríguez">
+                        <div class="author-details">
+                            <span class="name">Ana Rodríguez</span>
+                            <span class="role">VP Estrategia, Global Solutions</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="sync-controls">
+                <div class="pagination-dots">
+                    <span class="p-dot active" onclick="goToSlide(0)"></span>
+                    <span class="p-dot" onclick="goToSlide(1)"></span>
+                    <span class="p-dot" onclick="goToSlide(2)"></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Load Testimonials Slider Assets -->
+    <link rel="stylesheet" href="css/testimonials-slider.css">
+    <script src="js/testimonials-slider.js"></script>
+
     <style>
         /* Cleanup */
         /* --- SHARED HEADER STYLES --- */
