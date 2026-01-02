@@ -178,12 +178,19 @@
 }
 
 .card-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: none;
     /* Sin grayscale - full color siempre */
     transition: transform 0.5s ease;
+    border-radius: 20px;
+    /* Ensure video matches card rounding */
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 .apple-card:hover .card-bg {
