@@ -530,7 +530,8 @@
             overflow: hidden;
             min-height: 800px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            /* cursor: none; eliminada para mostrar cursor normal */
+            cursor: default !important;
+            /* Forzar cursor visible en desktop */
         }
 
         @keyframes galaxyPulse {
@@ -890,18 +891,27 @@
 
         /* Animación de entrada para tarjetas */
         .star-card {
-            transition: opacity 1.5s ease-out, transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            opacity: 0.8;
+            /* Visible por defecto en desktop */
         }
 
-        /* Estado inicial (antes de aparecer) */
-        .star-card:not(.revealed) {
-            opacity: 0 !important;
-            transform: translate(-50%, -50%) scale(0) rotate(120deg) !important;
-            pointer-events: none;
+        /* Hover effect para desktop */
+        .star-card:hover {
+            opacity: 1;
         }
 
-        /* En móviles, restaurar la flotación */
+        /* En móviles, usar animación de entrada y flotación */
         @media (max-width: 768px) {
+
+            /* Estado inicial (antes de aparecer) en móvil */
+            .star-card:not(.revealed) {
+                opacity: 0 !important;
+                transform: translate(-50%, -50%) scale(0) rotate(120deg) !important;
+                pointer-events: none;
+            }
+
+            /* Flotación en móvil cuando están reveladas */
             .star-card.revealed {
                 animation: spaceFloat var(--duration, 4s) ease-in-out infinite;
             }
@@ -1135,21 +1145,8 @@
 
         const section = document.getElementById('galaxy-section');
 
-        section.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.star-card');
-
-            const rect = section.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left - (rect.width / 2);
-            const mouseY = e.clientY - rect.top - (rect.height / 2);
-
-            cards.forEach(card => {
-                const depth = parseFloat(card.dataset.depth);
-                const moveX = (mouseX * depth * -0.05);
-                const moveY = (mouseY * depth * -0.05);
-
-                card.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(${0.8 + depth * 0.4})`;
-            });
-        });
+        // Parallax removido para simplificar desktop
+        // Las tarjetas ahora son estáticas en desktop y flotantes en móvil
 
         function closeProModal() {
             proModal.classList.remove('active');
