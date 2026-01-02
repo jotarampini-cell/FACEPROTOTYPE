@@ -699,184 +699,67 @@
         </div>
     </section>
 
-    <!-- Section: Galaxy Ideas (Parallax Interactive) -->
-    <section class="galaxy-section" id="galaxy-section">
-        <div class="galaxy-bg"></div>
-        <div class="galaxy-noise"></div>
+    <!-- Section: Innovation Mindset Deck (Mobile-First Replacement) -->
+    <section class="innovation-deck-section" id="innovation-deck">
+        <!-- Background Atmosphere -->
+        <div class="deck-bg-glow"></div>
 
-        <div class="tr-container" style="position: relative; z-index: 2;">
-
+        <div class="tr-container" style="position: relative; z-index: 10;">
             <div class="galaxy-header">
                 <span class="galaxy-tag">MINDSET DE INNOVACIÓN</span>
                 <h2 class="galaxy-title">INSPÍRATE AQUÍ</h2>
-                <p class="galaxy-sub">Explora el origen de las grandes ideas. Toca para revelar el secreto.</p>
+                <p class="galaxy-sub">Explora el origen de las grandes ideas.</p>
+                <span class="deck-instruction">← Desliza y toca para revelar →</span>
             </div>
 
-            <div class="galaxy-universe" id="universe-container">
-            </div>
-
-        </div>
-
-        <div class="pro-modal-overlay" id="pro-modal">
-            <div class="pro-modal-card">
-                <button class="pro-close" onclick="closeProModal()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-                <div class="pro-modal-body">
-                    <span class="pro-category">FILOSOFÍA FACE • CASO DE ESTUDIO</span>
-                    <h3 class="pro-title" id="pm-title">TÍTULO DE LA IDEA</h3>
-                    <div class="pro-divider"></div>
-
-                    <!-- Sección 1: El Contexto -->
-                    <div class="modal-section">
-                        <div class="section-header">
-                            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M12 2v6m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 12v6M8 12a4 4 0 1 0 8 0" />
-                                <circle cx="12" cy="12" r="10" />
-                            </svg>
-                            <h4 class="section-title">El Contexto</h4>
-                        </div>
-                        <p class="section-content" id="pm-context">Contenido aquí...</p>
-                    </div>
-
-                    <!-- Sección 2: La Adaptación -->
-                    <div class="modal-section">
-                        <div class="section-header">
-                            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-                            </svg>
-                            <h4 class="section-title">La Adaptación</h4>
-                        </div>
-                        <p class="section-content" id="pm-adaptation">Contenido aquí...</p>
-                    </div>
-
-                    <!-- Sección 3: El Impacto -->
-                    <div class="modal-section">
-                        <div class="section-header">
-                            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-                                <path
-                                    d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-                                <path d="m9 12-3 3-4-4 3-3" />
-                            </svg>
-                            <h4 class="section-title">El Impacto</h4>
-                        </div>
-                        <p class="section-content" id="pm-impact">Contenido aquí...</p>
-                    </div>
-
-                    <!-- Sección 4: La Lección FACE -->
-                    <div class="modal-section lesson-section">
-                        <div class="section-header">
-                            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <polygon
-                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                            </svg>
-                            <h4 class="section-title">La Lección FACE</h4>
-                        </div>
-                        <p class="section-content lesson-content" id="pm-lesson">Contenido aquí...</p>
-                    </div>
-
-                    <div class="pro-footer">
-                        <span>INNOVAR SIN INVENTAR</span>
-                    </div>
-                </div>
+            <!-- Card Container (Populated by JS) -->
+            <div id="innovation-deck-container" class="deck-container">
+                <!-- Cards will be injected here by innovation-deck.js -->
             </div>
         </div>
     </section>
 
+    <!-- LOAD DECK ASSETS -->
+    <link rel="stylesheet" href="css/innovation-deck.css">
+    <!-- Data Source -->
+    <script src="js/improved_messages.js"></script>
+    <!-- Render Logic -->
+    <script src="js/innovation-deck.js"></script>
+
     <style>
-        /* --- 1. AMBIENTE Y FONDO --- */
-        .galaxy-section {
-            /* Gradiente animado para efecto "universo vivo" */
-            background: linear-gradient(135deg, #0a0015, #1a0033, #2d0a4e, #050505);
-            background-size: 400% 400%;
-            animation: galaxyPulse 15s ease infinite;
-            position: relative;
-            padding: 120px 0;
-            overflow: hidden;
-            min-height: 800px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: default !important;
-            /* Forzar cursor visible en desktop */
-        }
-
-        @keyframes galaxyPulse {
-
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        .galaxy-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.08) 0%, rgba(0, 0, 0, 0) 60%);
-            pointer-events: none;
-        }
-
-        .galaxy-noise {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.05;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            pointer-events: none;
-        }
-
-        /* --- 2. HEADER --- */
+        /* --- SHARED HEADER STYLES --- */
         .galaxy-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 40px;
             position: relative;
             z-index: 10;
-            pointer-events: none;
         }
 
         .galaxy-tag {
+            display: inline-block;
             color: #c5a059;
+            /* Gold */
             font-size: 0.8rem;
-            font-weight: 700;
             letter-spacing: 3px;
-            text-transform: uppercase;
-            display: block;
+            font-weight: 700;
             margin-bottom: 15px;
-            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
         }
 
         .galaxy-title {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(3rem, 6vw, 5rem);
-            color: white;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #ffffff;
+            font-weight: 700;
             line-height: 1;
             margin-bottom: 20px;
             text-transform: uppercase;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .galaxy-sub {
-            color: #888;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            max-width: 500px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            max-width: 600px;
             margin: 0 auto;
         }
 
