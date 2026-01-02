@@ -1,0 +1,232 @@
+/* =========================================
+   THE EDITORIAL SPLIT (Reader Experience)
+   ========================================= */
+
+/* --- CONFIGURACIÓN BASE --- */
+.editorial-section {
+    background-color: #050505;
+    color: #ffffff;
+    padding: 80px 0;
+    position: relative;
+    min-height: 100vh;
+}
+
+.split-layout {
+    display: grid;
+    /* Por defecto (Móvil) es una sola columna */
+    grid-template-columns: 1fr;
+    gap: 40px;
+    position: relative;
+}
+
+/* --- HEADER --- */
+.list-header {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.e-tag {
+    color: #c5a059;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.e-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    line-height: 1;
+    margin: 0;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+/* --- LISTA (IZQUIERDA) --- */
+.editorial-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.e-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.e-item:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.e-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+.e-num {
+    font-family: 'Montserrat', sans-serif;
+    color: #444;
+    width: 40px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.e-name {
+    flex-grow: 1;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 0;
+    text-transform: uppercase;
+    color: #fff;
+    transition: transform 0.3s, color 0.3s;
+    padding-right: 15px;
+}
+
+.e-icon {
+    font-size: 1.5rem;
+    color: #444;
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* Cuerpo (Acordeón) */
+.e-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.e-content-wrapper {
+    padding-bottom: 30px;
+    padding-left: 40px;
+    max-width: 95%;
+}
+
+.e-body p {
+    font-family: 'Montserrat', sans-serif;
+    color: #aaa;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.e-lesson {
+    color: #c5a059;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    padding-top: 10px;
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+    display: inline-block;
+}
+
+/* --- ESTADOS ACTIVOS (HOVER/CLICK) --- */
+.e-item:hover .e-name,
+.e-item.active .e-name {
+    color: #c5a059;
+    /* Dorado */
+    transform: translateX(10px);
+}
+
+.e-item:hover .e-num,
+.e-item.active .e-num {
+    color: #c5a059;
+}
+
+/* En móvil, rotamos la X. En Desktop, es sutil. */
+.e-item.active .e-icon {
+    transform: rotate(45deg);
+    color: #fff;
+}
+
+/* Mostrar contenido al activar */
+.e-item.active .e-body {
+    max-height: 500px;
+    /* Suficiente para contenido largo */
+    opacity: 1;
+}
+
+
+/* --- COLUMNA VISUAL (DERECHA - INVISIBLE EN MÓVIL) --- */
+.visual-column {
+    display: none;
+}
+
+
+/* =========================================
+   DESKTOP (MAGIC LAYOUT) > 992px
+   ========================================= */
+@media (min-width: 992px) {
+
+    .split-layout {
+        /* Grid de 2 columnas: Lista (50%) - Imagen (50%) */
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: flex-start;
+    }
+
+    .list-column {
+        padding-bottom: 100px;
+        /* Espacio para scroll */
+    }
+
+    .e-name {
+        font-size: 2.5rem;
+    }
+
+    /* La magia del Sticky */
+    .visual-column {
+        display: block;
+        position: relative;
+        height: 100%;
+        /* Full height of parent grid */
+    }
+
+    .sticky-frame {
+        position: sticky;
+        /* Se pega al techo */
+        top: 120px;
+        /* Margen superior para no chocar con nav */
+        height: 600px;
+        /* Altura fija de la imagen */
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Overlay gradiente sobre la imagen para asegurar legibilidad si hubiera texto */
+    .sticky-frame::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        pointer-events: none;
+    }
+
+    .reveal-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        /* Inicia oculto para efecto fade */
+        transition: opacity 0.4s ease-in-out, transform 0.6s ease;
+        transform: scale(1.1);
+        /* Zoom sutil inicial */
+    }
+
+    .reveal-img.visible {
+        opacity: 1;
+        transform: scale(1);
+        /* Zoom out al aparecer */
+    }
+}

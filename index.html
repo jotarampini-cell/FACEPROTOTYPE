@@ -699,75 +699,41 @@
         </div>
     </section>
 
-    <!-- Section: The Living Bento Grid (Vault of Ideas) -->
-    <section class="bento-vault-section" id="bento-vault">
-        <div class="bento-bg-glow"></div>
+    <!-- Section: The Editorial Split (Premium Reader) -->
+    <section class="editorial-section" id="editorial">
+        <div class="tr-container split-layout">
 
-        <div class="tr-container"
-            style="position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column;">
-            <!-- Header & Filters -->
-            <div class="vault-header">
-                <span class="galaxy-tag">MINDSET DE INNOVACIÓN</span>
-                <h2 class="galaxy-title">INSPÍRATE AQUÍ</h2>
-                <p class="galaxy-sub">Explora el origen de las grandes ideas. Toca para revelar el secreto.</p>
-
-                <div class="vault-filters">
-                    <button class="filter-btn active" data-filter="all">Todo</button>
-                    <button class="filter-btn" data-filter="tech">Tecnología</button>
-                    <button class="filter-btn" data-filter="business">Negocios</button>
-                    <button class="filter-btn" data-filter="process">Procesos</button>
-                    <button class="filter-btn" data-filter="culture">Cultura</button>
+            <!-- LEFT: Scrollable List -->
+            <div class="list-column">
+                <div class="list-header">
+                    <span class="e-tag">CASOS DE ESTUDIO</span>
+                    <h2 class="e-title">MINDSET DE<br>INNOVACIÓN</h2>
                 </div>
-            </div>
 
-            <!-- The Grid (Scrollable Container) -->
-            <div class="bento-scroll-wrapper">
-                <div id="bento-grid-container" class="bento-grid">
+                <ul class="editorial-list" id="editorial-list">
                     <!-- Items injected by JS -->
+                </ul>
+            </div>
+
+            <!-- RIGHT: Sticky Visual (Desktop Only) -->
+            <div class="visual-column">
+                <div class="sticky-frame">
+                    <img src="" alt="Case Study Visualization" id="sticky-image" class="reveal-img">
                 </div>
             </div>
-        </div>
 
-        <!-- Lightbox Modal -->
-        <div class="bento-modal-overlay" id="bento-modal">
-            <div class="bento-modal-content">
-                <button class="modal-close-btn" id="bento-close-btn">&times;</button>
-
-                <span id="m-cat" class="modal-header-cat">CATEGORÍA</span>
-                <h3 id="m-title" class="modal-big-title">TÍTULO</h3>
-
-                <!-- Content Blocks -->
-                <div class="modal-section-block">
-                    <span class="modal-label">El Contexto</span>
-                    <p id="m-context" class="modal-text">...</p>
-                </div>
-
-                <div class="modal-section-block">
-                    <span class="modal-label">La Adaptación</span>
-                    <p id="m-adaptation" class="modal-text">...</p>
-                </div>
-
-                <div class="modal-section-block">
-                    <span class="modal-label">El Impacto</span>
-                    <p id="m-impact" class="modal-text">...</p>
-                </div>
-
-                <div class="modal-lesson-box">
-                    <p id="m-lesson" class="modal-lesson-text">"..."</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- LOAD BENTO ASSETS -->
-    <link rel="stylesheet" href="css/bento-grid.css">
-    <!-- Data Source (Updated with categories) -->
+    <!-- LOAD EDITORIAL ASSETS -->
+    <link rel="stylesheet" href="css/editorial-split.css">
+    <!-- Data Source -->
     <script src="js/improved_messages.js"></script>
     <!-- Render Logic -->
-    <script src="js/bento-grid.js"></script>
+    <script src="js/editorial-split.js"></script>
 
     <style>
-        /* Shared Header Styles if needed, mostly handled in bento-grid.css */
+        /* Cleanup: Ensure no conflicting styles from previous iterations */
         /* --- SHARED HEADER STYLES --- */
         .galaxy-header {
             text-align: center;
