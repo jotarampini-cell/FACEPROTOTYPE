@@ -67,24 +67,47 @@
 
     <!-- Hero Section: Full-Screen Capsule (Tony Robbins Style) -->
     <section id="hero" class="tr-hero-master">
-        <div class="tr-capsule-wrapper">
-            <div class="tr-capsule-container">
-                <!-- Background Video -->
-                <div class="hero-backdrop">
-                    <video autoplay muted loop playsinline class="hero-bg-video">
-                        <source src="assets/videos/hero-bg.mp4" type="video/mp4">
-                    </video>
+        <div class="tr-hero-with-card-container">
+            <div class="tr-capsule-wrapper">
+                <div class="tr-capsule-container">
+                    <!-- Background Image -->
+                    <div class="hero-backdrop"></div>
+
+                    <!-- Gradient Overlay -->
+                    <div class="hero-gradient-overlay"></div>
+
+                    <!-- Centered Content -->
+                    <div class="hero-content-center">
+                        <h1 class="hero-headline">
+                            El próximo nivel<br>para tu empresa te espera
+                        </h1>
+                        <a href="reto-de-ingenio.html" class="btn-pill-white">Comenzar ahora</a>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Gradient Overlay -->
-                <div class="hero-gradient-overlay"></div>
+            <!-- Event Card Sidebar (Right - 30%) -->
+            <div class="event-card-sidebar">
+                <div class="event-card-wrapper">
+                    <div class="card-tag">
+                        <span class="status-dot"></span> PRÓXIMO RETO
+                    </div>
 
-                <!-- Centered Content -->
-                <div class="hero-content-center">
-                    <h1 class="hero-headline">
-                        El próximo nivel<br>para tu empresa te espera
-                    </h1>
-                    <a href="reto-de-ingenio.html" class="btn-pill-white">Comenzar ahora</a>
+                    <div class="event-card">
+                        <img src="assets/images/reto-innova.jpg" alt="Reto Innova" class="card-image">
+
+                        <div class="card-content">
+                            <span class="card-category">METODOLOGÍA FACE</span>
+                            <h3 class="card-title">INNOVA<br>DESDE ADENTRO</h3>
+
+                            <button class="btn-glass-watch" onclick="window.location.href='reto-de-ingenio.html'">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5V19L19 12L8 5Z" />
+                                </svg>
+                                Ver
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -139,7 +162,7 @@
                 0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
-        /* --- BACKGROUND VIDEO --- */
+        /* --- BACKGROUND IMAGE --- */
         .hero-backdrop {
             position: absolute;
             top: 0;
@@ -147,14 +170,10 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            overflow: hidden;
-        }
-
-        .hero-bg-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+            background-image: url('assets/images/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         /* --- GRADIENT OVERLAY (Dark bottom for text legibility) --- */
@@ -264,6 +283,197 @@
             }
         }
 
+        /* ========================================
+           SIDE-BY-SIDE LAYOUT (Tony Robbins Style)
+           ======================================== */
+
+        /* Container that holds Hero + Event Card side-by-side */
+        .tr-hero-with-card-container {
+            max-width: 1600px;
+            width: 100%;
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+            /* Both elements same height */
+        }
+
+        /* Hero Capsule (Left - 70%) */
+        .tr-capsule-wrapper {
+            flex: 0 0 70%;
+            /* 70% of container width */
+        }
+
+        /* Event Card Sidebar (Right - 30%) */
+        .event-card-sidebar {
+            flex: 0 0 calc(30% - 40px);
+            /* 30% minus gap */
+            display: flex;
+            align-items: flex-end;
+            /* Align to bottom like Tony Robbins */
+            padding-bottom: 40px;
+        }
+
+        /* Event Card Wrapper */
+        .event-card-wrapper {
+            width: 100%;
+            max-width: 380px;
+        }
+
+        /* Card Tag (PRÓXIMO RETO) */
+        .card-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        /* Pulsing Green Dot */
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00d084;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00d084;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Event Card */
+        .event-card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/10;
+            border-radius: 16px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(15, 52, 96, 0.4);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .event-card:hover .card-image {
+            opacity: 0.5;
+        }
+
+        .card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: #ffffff;
+        }
+
+        .card-category {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        /* Glassmorphism Button */
+        .btn-glass-watch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-glass-watch:hover {
+            background: rgba(255, 255, 255, 0.35);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateX(3px);
+        }
+
+        /* ========================================
+           MOBILE: Vertical Stack Layout
+           ======================================== */
+        @media (max-width: 992px) {
+            .tr-hero-with-card-container {
+                flex-direction: column;
+                /* Stack vertically on mobile */
+                gap: 40px;
+            }
+
+            .tr-capsule-wrapper {
+                flex: 1;
+                width: 100%;
+            }
+
+            .event-card-sidebar {
+                flex: none;
+                width: 100%;
+                align-items: center;
+                /* Center on mobile */
+                padding-bottom: 0;
+            }
+
+            .event-card-wrapper {
+                max-width: 400px;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+        }
+
         /* Extra small screens - hide header CTA */
         @media (max-width: 400px) {
             .tr-header-cta {
@@ -271,6 +481,37 @@
             }
         }
     </style>
+
+    <!-- Section: Next Event (Separate from Hero) -->
+    <section class="next-event-section">
+        <div class="next-event-container">
+            <!-- Desktop: Spacer para empujar tarjeta a la derecha -->
+            <div class="event-spacer-desktop"></div>
+
+            <!-- Event Card -->
+            <div class="event-card-wrapper">
+                <div class="card-tag">
+                    <span class="status-dot"></span> PRÓXIMO RETO
+                </div>
+
+                <div class="event-card">
+                    <img src="assets/images/reto-innova.jpg" alt="Reto Innova" class="card-image">
+
+                    <div class="card-content">
+                        <span class="card-category">METODOLOGÍA FACE</span>
+                        <h3 class="card-title">INNOVA<br>DESDE ADENTRO</h3>
+
+                        <button class="btn-glass-watch" onclick="window.location.href='reto-de-ingenio.html'">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5V19L19 12L8 5Z" />
+                            </svg>
+                            Ver
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Section: The Problem (Pain) - White Background Contrast -->
     <section class="tr-problem-section">
