@@ -111,6 +111,29 @@
                 </div>
             </div>
         </div>
+
+        <!-- Tarjeta para móvil (fuera del capsule) -->
+        <div class="hero-card-wrapper-mobile">
+            <div class="card-tag">
+                <span class="status-dot"></span> PRÓXIMO RETO
+            </div>
+
+            <div class="event-card">
+                <img src="assets/images/reto-innova.jpg" alt="Reto Innova" class="card-image">
+
+                <div class="card-content">
+                    <span class="card-category">METODOLOGÍA FACE</span>
+                    <h3 class="card-title">INNOVA<br>DESDE ADENTRO</h3>
+
+                    <button class="btn-glass-watch" onclick="window.location.href='reto-de-ingenio.html'">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5V19L19 12L8 5Z" />
+                        </svg>
+                        Ver
+                    </button>
+                </div>
+            </div>
+        </div>
     </section>
 
 
@@ -247,6 +270,11 @@
         .hero-card-wrapper {
             width: 100%;
             max-width: 340px;
+        }
+
+        /* Ocultar versión móvil en desktop */
+        .hero-card-wrapper-mobile {
+            display: none;
         }
 
         .card-tag {
@@ -396,6 +424,10 @@
             .tr-hero-master {
                 padding: 15px;
                 min-height: 100vh;
+                flex-direction: column;
+                /* CLAVE: Apilar verticalmente capsule + tarjeta móvil */
+                gap: 0;
+                /* Sin gap, el margin-top de la tarjeta lo maneja */
             }
 
             .tr-capsule-wrapper {
@@ -434,11 +466,36 @@
             }
 
             .hero-card-wrapper {
-                max-width: 100%;
+                display: none;
+                /* Ocultar versión dentro del capsule en móvil */
+            }
+
+            /* Mostrar y estilizar versión móvil */
+            .hero-card-wrapper-mobile {
+                display: block;
+                margin-top: 24px;
+                /* Separación del capsule */
+                padding: 0 15px;
+                /* Margen lateral */
+                width: 100%;
+            }
+
+            .hero-card-wrapper-mobile .event-card {
+                border-radius: 12px;
+                /* Más sutil en móvil */
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+                /* Sombra más dramática */
             }
 
             .card-title {
                 font-size: 1.3rem;
+            }
+
+            /* Ajustar altura del capsule (sin tarjeta dentro) */
+            .tr-capsule-wrapper {
+                height: auto;
+                min-height: 500px;
+                /* Reducido ya que no lleva la tarjeta */
             }
         }
 
