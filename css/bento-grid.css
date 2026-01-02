@@ -1,0 +1,292 @@
+/* =========================================
+   THE LIVING BENTO GRID (Bóveda de Cristal)
+   ========================================= */
+
+/* --- LAYOUT SECTION --- */
+.bento-vault-section {
+    position: relative;
+    padding: 100px 0 140px;
+    background: radial-gradient(circle at 50% 10%, #150f1e 0%, #000000 100%);
+    min-height: 100vh;
+}
+
+/* Background Atmosphere */
+.bento-bg-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(138, 43, 226, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- HEADER & FILTERS --- */
+.vault-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.vault-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.vault-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    border-color: #c5a059;
+    color: #c5a059;
+    background: rgba(197, 160, 89, 0.05);
+}
+
+/* --- THE GRID (MASONRY-ish) --- */
+.bento-grid {
+    display: grid;
+    /* Responsive auto-fit grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: 240px;
+    /* Base height */
+    gap: 24px;
+    padding: 0 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* Size Variations (Desktop Only) */
+@media (min-width: 768px) {
+    .bento-item.wide {
+        grid-column: span 2;
+    }
+
+    .bento-item.tall {
+        grid-row: span 2;
+    }
+}
+
+/* --- BENTO ITEM --- */
+.bento-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+}
+
+/* Hover Effect: Lift & Glow */
+.bento-item:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(197, 160, 89, 0.5);
+    /* Gold border */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Inner Layout */
+.bento-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.bento-cat-tag {
+    font-size: 0.7rem;
+    color: #c5a059;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.bento-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.1;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.bento-item:hover .bento-title {
+    color: #fff;
+}
+
+.hover-reveal {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    border-left: 2px solid #c5a059;
+    padding-left: 10px;
+}
+
+.bento-item:hover .hover-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Corner Icon opacity */
+.bento-icon-corner {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.bento-item:hover .bento-icon-corner {
+    opacity: 0.3;
+}
+
+/* Filtering Animations */
+.bento-item.hidden {
+    display: none;
+    /* Simple toggle for now */
+}
+
+/* --- LIGHTBOX MODAL --- */
+.bento-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+}
+
+.bento-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.bento-modal-content {
+    background: #111;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 20px;
+    border: 1px solid #333;
+    position: relative;
+    padding: 40px;
+    box-shadow: 0 0 50px rgba(197, 160, 89, 0.2);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.bento-modal-overlay.active .bento-modal-content {
+    transform: scale(1);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Modal Typography */
+.modal-header-cat {
+    color: #c5a059;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal-big-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+    line-height: 1.1;
+}
+
+.modal-section-block {
+    margin-bottom: 30px;
+    border-left: 1px solid #333;
+    padding-left: 20px;
+}
+
+.modal-label {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-text {
+    font-size: 1rem;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+.modal-lesson-box {
+    background: rgba(197, 160, 89, 0.1);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.modal-lesson-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    color: #c5a059;
+    text-transform: uppercase;
+    text-align: center;
+}
