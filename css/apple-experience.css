@@ -636,5 +636,9 @@
     .program-card .editorial-title .font-sans {
         font-size: 2rem !important;
         /* Larger text for mobile - increased from 1.4rem */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        hyphens: auto;
     }
 }
