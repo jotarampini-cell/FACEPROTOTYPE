@@ -1,5 +1,5 @@
 /* =========================================
-   FACE MASTER SECTION (PIXEL PERFECT)
+   FACE MASTER SECTION - PIXEL PERFECT
    ========================================= */
 
 .face-master-section {
@@ -14,9 +14,10 @@
     max-width: 1200px;
     margin: 0 auto;
 
-    /* MOBILE GRID DEFINITION (Single Column) */
+    /* VISTA MÓVIL (Por defecto) */
     display: grid;
-    gap: 24px;
+    gap: 30px;
+    /* Espacio limpio entre tarjetas (Mejor que margin negativo) */
     grid-template-columns: 1fr;
     grid-template-areas:
         "title"
@@ -26,7 +27,7 @@
         "logos";
 }
 
-/* --- ASSIGNING GRID AREAS --- */
+/* --- ASIGNACIÓN DE ÁREAS --- */
 .face-title {
     grid-area: title;
 }
@@ -47,14 +48,14 @@
     grid-area: logos;
 }
 
-/* --- TYPOGRAPHY --- */
+/* --- TIPOGRAFÍA --- */
 .face-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    /* Escalado masivo para impacto */
+    font-size: clamp(2.2rem, 6vw, 4rem);
     font-weight: 800;
-    /* Heavy weight */
-    line-height: 1.05;
+    line-height: 1.0;
+    /* Súper apretado estilo Tony */
     letter-spacing: -0.04em;
-    /* Tight tracking */
     margin: 0;
     color: #000;
 }
@@ -62,37 +63,36 @@
 .face-description p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #444;
+    color: #333;
     margin-bottom: 25px;
     max-width: 500px;
 }
 
-/* --- BUTTON --- */
+/* --- BOTÓN --- */
 .face-pill-btn {
     display: inline-block;
-    background-color: #f2f2f2;
-    /* Light gray */
+    background-color: #f4f4f4;
     color: #000;
     font-weight: 700;
-    padding: 14px 30px;
+    padding: 16px 32px;
     border-radius: 100px;
     text-decoration: none;
-    transition: background 0.3s;
-    font-size: 0.9rem;
+    transition: all 0.3s;
+    font-size: 0.95rem;
 }
 
 .face-pill-btn:hover {
     background-color: #e0e0e0;
+    transform: translateY(-2px);
 }
 
-/* --- CARDS (Rounded Aesthetic) --- */
+/* --- TARJETAS E IMÁGENES --- */
 .face-image-card {
     position: relative;
     width: 100%;
     height: 400px;
-    /* Mobile Height */
-    border-radius: 24px 24px 8px 8px;
-    /* Tighter bottom radius for stacking */
+    border-radius: 24px;
+    /* Bordes redondeados modernos */
     overflow: hidden;
 }
 
@@ -100,7 +100,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Important: Position subject to allow text space if needed */
     object-position: center top;
 }
 
@@ -108,20 +107,16 @@
     position: relative;
     width: 100%;
     height: 220px;
-    border-radius: 8px 8px 24px 24px;
-    /* Tighter top radius to "connect" to image */
+    border-radius: 24px;
     overflow: hidden;
-    margin-top: -16px;
-    /* NEGATIVE MARGIN: Creates the "Connected" look */
-    z-index: 2;
-    /* Sits on top of image bottom */
+    /* En móvil se ven separadas, limpio y elegante */
 }
 
 .video-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.8);
+    filter: brightness(0.7);
 }
 
 .video-overlay-content {
@@ -133,107 +128,108 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 .face-play-btn {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    /* Efecto cristal */
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: white;
     padding: 12px 24px;
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-weight: 600;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.face-play-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .face-play-btn svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
 }
 
 
 /* --- LOGOS --- */
 .face-logos {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .logo-label {
     display: block;
     font-size: 0.85rem;
     color: #888;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .logo-row {
     display: flex;
-    gap: 25px;
+    gap: 30px;
     align-items: center;
     filter: grayscale(100%);
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .logo-row img {
-    height: 22px;
+    height: 24px;
     width: auto;
 }
 
 
 /* =========================================
-   DESKTOP TRANSFORMATION (Min-width: 992px)
-   The layout completely changes structure here
+   VISTA DE ESCRITORIO (Min-width: 992px)
+   Aquí ocurre la magia del Layout "Split"
    ========================================= */
 @media (min-width: 992px) {
 
     .face-container {
-        /* Define 2 Columns */
-        grid-template-columns: 1.3fr 1fr;
-        /* Image column is wider */
+        /* Cambiamos a 2 Columnas */
+        grid-template-columns: 1.2fr 1fr;
+        /* Imagen izquierda más ancha */
         gap: 60px;
-        /* Big gap between image and text */
+        /* Gran espacio central */
+        align-items: start;
 
-        /* THE MAGIC MAP: Rearranging the items */
+        /* EL MAPA MÁGICO: Reorganizamos los elementos visualmente */
         grid-template-areas:
             "image title"
             "image text"
             "image video"
             "logos video";
+        /* Logos bajo imagen, Video bajo texto */
     }
 
-    /* Adjust alignments */
-    .face-title {
-        align-self: end;
-        /* Sit at bottom of its cell */
-        margin-bottom: 10px;
-    }
-
-    .face-description {
-        align-self: start;
-    }
-
-    /* IMAGE CARD: Tall on Desktop */
+    /* TARJETA IMAGEN: Ocupa toda la altura izquierda */
     .face-image-card {
         height: 100%;
-        /* Stretch to fill grid */
         min-height: 600px;
         border-radius: 32px;
-        /* Bigger radius */
     }
 
-    /* VIDEO CARD: Separate on Desktop */
+    /* TARJETA VIDEO: Se acomoda abajo a la derecha */
     .face-video-card {
         height: 250px;
         border-radius: 32px;
-        margin-top: 40px;
-        /* Normal margin, no overlap */
+        margin-top: auto;
     }
 
-    /* LOGOS: Sit under the image */
+    /* TÍTULO */
+    .face-title {
+        align-self: end;
+        margin-bottom: 20px;
+    }
+
+    /* LOGOS: Se alinean al inicio de su celda */
     .face-logos {
-        margin-top: 0;
         align-self: start;
+        margin-top: 20px;
     }
 }
