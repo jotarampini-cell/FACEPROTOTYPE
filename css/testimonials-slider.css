@@ -288,8 +288,10 @@
     }
 
     .tony-cinematic-slider .sync-quote {
-        font-size: 1.12rem;
-        /* Reduced by 30% from 1.6rem */
+        font-size: 1.8rem;
+        /* Increased for impact */
+        line-height: 1.25;
+        padding: 0 10px;
     }
 
     .tony-cinematic-slider .sync-author {
@@ -320,7 +322,11 @@
     /* Mobile: Smaller avatars, hidden descriptions */
     .tony-cinematic-slider .avatar-carousel {
         display: flex;
-        gap: 30px;
+        gap: 10px;
+        /* Tighter gap for small screens */
+        align-items: flex-start;
+        justify-content: center;
+        /* Center items */
     }
 
     .tony-cinematic-slider .avatar-nav-img {
@@ -351,8 +357,21 @@
     }
 
     .tony-cinematic-slider .avatar-nav-role {
-        display: none;
-        /* Hide descriptions on mobile */
+        display: block;
+        /* Show descriptions on mobile */
+        font-size: 0.65rem;
+        font-weight: 400;
+        line-height: 1.3;
+        margin-top: 4px;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 90px;
+        /* Tighter width for 3 items */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        /* Limit to 3 lines */
+        -webkit-box-orient: vertical;
     }
 }
 

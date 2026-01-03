@@ -27,3 +27,35 @@ setInterval(() => {
     if (currentSlide >= totalSlides) currentSlide = 0;
     updateSlider();
 }, 6000);
+
+// Swipe Support
+const sliderSection = document.querySelector('.tony-cinematic-slider');
+let touchStartX = 0;
+let touchEndX = 0;
+
+if (sliderSection) {
+    sliderSection.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    sliderSection.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+}
+
+function handleSwipe() {
+    const threshold = 50;
+    if (touchEndX < touchStartX - threshold) {
+        // Swipe Left -> Next Slide
+        currentSlide++;
+        if (currentSlide >= totalSlides) currentSlide = 0;
+        updateSlider();
+    }
+    if (touchEndX > touchStartX + threshold) {
+        // Swipe Right -> Prev Slide
+        currentSlide--;
+        if (currentSlide < 0) currentSlide = totalSlides - 1;
+        updateSlider();
+    }
+}
