@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Estás reaccionando o creando el futuro? - Blog Reto de Ingenio</title>
+    <title>Innovar sin inventar: la lección japonesa para Venezuela - Blog FACE</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@400;500;700&display=swap"
         rel="stylesheet">
@@ -43,8 +43,6 @@
             background-color: var(--bg-hero);
             color: white;
             padding-top: 150px;
-            /* Adapted for Fixed Header */
-            /* IMPORTANTE: El padding-bottom debe ser suficiente para alojar la mitad de la imagen */
             padding-bottom: 250px;
             position: relative;
             text-align: center;
@@ -90,9 +88,7 @@
             position: relative;
             max-width: 1100px;
             margin: 0 auto;
-            /* EL TRUCO: Mover la imagen hacia abajo un 50% de su propia altura */
             margin-top: -200px;
-            /* Ajuste negativo para subirla y que se superponga */
             padding: 0 20px;
             z-index: 10;
         }
@@ -104,14 +100,12 @@
             object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            /* Sombra elegante */
         }
 
         /* --- CUERPO DEL ARTÍCULO (FONDO BLANCO) --- */
         .article-container {
             background-color: var(--bg-body);
             padding-top: 80px;
-            /* Espacio para compensar la imagen superpuesta */
             padding-bottom: 100px;
         }
 
@@ -243,10 +237,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            /* Padding para ver sombras */
             scroll-behavior: smooth;
             scrollbar-width: none;
-            /* Firefox */
         }
 
         .related-grid::-webkit-scrollbar {
@@ -255,7 +247,6 @@
 
         .related-card {
             min-width: 350px;
-            /* Ancho fijo para carrusel */
             background: white;
             border-radius: 12px;
             overflow: hidden;
@@ -518,7 +509,6 @@
                 line-height: 1.15;
             }
 
-            /* Menos espacio en móvil */
             .featured-image-wrapper {
                 margin-top: -100px;
                 padding: 0 15px;
@@ -537,7 +527,6 @@
                 font-size: 1.4rem;
             }
 
-            /* Ajuste para móvil */
             .related-card {
                 min-width: 280px;
             }
@@ -546,7 +535,6 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Hide header CTA on very small screens */
             .tr-header-cta {
                 font-size: 0.7rem;
                 padding: 6px 10px;
@@ -570,7 +558,6 @@
             }
         }
 
-        /* Extra small mobile - optimize even more */
         @media (max-width: 400px) {
             .tr-header-cta {
                 display: none;
@@ -597,15 +584,13 @@
     <!-- See menu.js for source -->
 
     <section class="hero-section">
-        <!-- Removed simulated header -->
-
         <div class="hero-content">
-            <h1 class="post-title">¿Estás reaccionando o creando el futuro de tu negocio?</h1>
+            <h1 class="post-title">Innovar sin inventar: la lección japonesa para Venezuela</h1>
 
             <!-- Social Share Buttons -->
             <div style="margin-top: 30px; text-align: center;">
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://twitter.com/intent/tweet?url=https://tudominio.com/blog-post.html&text=¿Estás%20reaccionando%20o%20creando%20el%20futuro%20de%20tu%20negocio?"
+                    <a href="https://twitter.com/intent/tweet?url=https://tudominio.com/blog-innovation-japonesa.html&text=Innovar%20sin%20inventar%3A%20la%20lección%20japonesa%20para%20Venezuela"
                         target="_blank"
                         style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; transition: all 0.3s; backdrop-filter: blur(10px);"
                         onmouseover="this.style.transform='translateY(-3px)'; this.style.background='rgba(255,255,255,0.2)';"
@@ -615,7 +600,7 @@
                                 d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                         </svg>
                     </a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://tudominio.com/blog-post.html"
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://tudominio.com/blog-innovation-japonesa.html"
                         target="_blank"
                         style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; transition: all 0.3s; backdrop-filter: blur(10px);"
                         onmouseover="this.style.transform='translateY(-3px)'; this.style.background='rgba(255,255,255,0.2)';"
@@ -625,7 +610,7 @@
                                 d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                         </svg>
                     </a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tudominio.com/blog-post.html"
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tudominio.com/blog-innovation-japonesa.html"
                         target="_blank"
                         style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; transition: all 0.3s; backdrop-filter: blur(10px);"
                         onmouseover="this.style.transform='translateY(-3px)'; this.style.background='rgba(255,255,255,0.2)';"
@@ -635,7 +620,7 @@
                                 d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
                     </a>
-                    <a href="https://api.whatsapp.com/send?text=¿Estás%20reaccionando%20o%20creando%20el%20futuro%20de%20tu%20negocio?%20https://tudominio.com/blog-post.html"
+                    <a href="https://api.whatsapp.com/send?text=Innovar%20sin%20inventar%3A%20la%20lección%20japonesa%20para%20Venezuela%20https://tudominio.com/blog-innovation-japonesa.html"
                         target="_blank"
                         style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; transition: all 0.3s; backdrop-filter: blur(10px);"
                         onmouseover="this.style.transform='translateY(-3px)'; this.style.background='rgba(255,255,255,0.2)';"
@@ -651,82 +636,116 @@
     </section>
 
     <div class="featured-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80"
-            alt="Futuro Negocios" class="featured-img">
+        <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80"
+            alt="Innovación japonesa Toyota" class="featured-img">
     </div>
 
     <section class="article-container">
         <article class="article-content">
-            <p><strong>¿Sientes que todo está cambiando muy rápido en el mundo de los negocios y estás en una búsqueda
-                    desenfrenada por adaptarte?</strong> No estás solo. Según la 28ª Encuesta Anual Global de Directores
-                Ejecutivos de PwC, el 42% de los CEOs cree que su empresa no será viable más allá de los próximos 10
-                años sin reinventarse.</p>
+            <p><strong>¿Cómo se innova en un país con una realidad tan única como la de Venezuela, que obliga a las
+                    empresas a ser creativas con recursos limitados?</strong></p>
 
-            <p>Casi cuatro de cada diez dicen que han comenzado a competir en nuevos sectores en los últimos cinco años.
-                Por esta razón, hoy más que nunca necesitamos principios empresariales que provean claridad.</p>
+            <p>Para encontrar la respuesta, no miremos a los titanes de la tecnología, sino a la historia de la
+                posguerra en Japón. El ingeniero de Toyota, Taiichi Ohno, se enfrentó a un dilema existencial. A
+                mediados del siglo pasado, mientras empresas como Ford producían miles de vehículos cada día, Toyota
+                apenas lograba fabricar unos pocos cientos al mes. Copiar ese modelo de producción masiva era un
+                suicidio financiero. Ohno sabía que necesitaba una nueva manera de producir.</p>
 
-            <h2>Primer principio: todo está en constante cambio.</h2>
-            <p>Hace 10 años pedir comida a domicilio en Venezuela estaba reservado a pocos restaurantes, a menudo
-                implicaba una logística compleja y a nadie parecía interesarle ese servicio. Con la llegada de la
-                pandemia todo cambió: se aceleraron los procesos de digitalización, la proliferación de teléfonos
-                inteligentes y la "appificación".</p>
+            <p>Su genialidad no fue inventar algo de la nada, sino observar y adaptar. Se inspiró en los supermercados
+                americanos, donde solo se reponía el producto que se vendía, y así, ideó el modelo Justo a Tiempo (JIT).
+                El resultado fue transformador: eliminó el desperdicio, costos de inventario y logró que la calidad de
+                sus vehículos alcanzara un nivel tal que, en un giro histórico, Toyota se convirtió en la primera
+                automotriz no americana en superar a Ford en ventas en el mercado de Estados Unidos.</p>
 
             <blockquote>
-                "El cambio ya no es un suceso extraño; es el estado natural del mundo de los negocios."
+                "La lección es clara y relevante. El éxito de Toyota no fue un golpe de suerte; fue el resultado de una
+                estrategia."
             </blockquote>
 
-            <p>Comprender la interconexión interindustrial transcurre por entender que la innovación ya no se produce en
-                un solo sector. Las ideas, tecnologías y conocimientos de una industria "saltan" a otras, generando un
-                efecto dominó que acelera la disrupción.</p>
+            <p>¿Qué claves empresariales podemos tomar de esta historia para ayudar a miles de empresas venezolanas a
+                innovar y prosperar?</p>
 
-            <h2>Segundo principio: agilidad empresarial.</h2>
-            <p>Al ver cómo la innovación se convierte en el estado natural de los negocios, la pregunta obligada es:
-                ¿qué podemos hacer al respecto? La respuesta es simple en teoría, pero compleja en la práctica:
-                <strong>reaccionar o anticipar</strong>.
-            </p>
+            <h2>Venezuela: de la ruina a la oportunidad</h2>
+            <p>La historia de Japón no es una anécdota lejana; es un espejo de nuestra realidad. Al igual que el país
+                asiático después de la guerra, Venezuela no tiene el lujo de la inversión masiva en I+D (investigación y
+                desarrollo). Nuestra escasez de capital y la diáspora de talento nos obligan a ser más ágiles e
+                inteligentes a nivel empresarial. La clave no reside en la invención radical, sino en la adaptación
+                estratégica.</p>
 
-            <p>El verdadero superpoder de un negocio no es simplemente sobrevivir a la tormenta, sino verla venir antes
-                de que llegue. Al anticiparnos, podemos prepararnos, no solo para adaptarnos, sino para ser nosotros
-                quienes definamos el camino.</p>
+            <p>El "milagro japonés" fue impulsado por la filosofía del "Catch-Up" (ponerse al día). El gobierno y las
+                empresas se hicieron una pregunta fundamental: ¿Cómo podemos acortar la brecha tecnológica sin perder
+                años en el intento? La respuesta fue simple: absorbiendo y perfeccionando las tecnologías, los procesos
+                y los modelos de negocio ya probados en otros mercados.</p>
 
-            <h3>El Problema: el enemigo invisible de los negocios</h3>
-            <p>Para llegar a la agilidad empresarial, primero tenemos que examinar el principal obstáculo que la frena:
-                la inercia organizacional. Autores como Michael Tushman y Charles O'Reilly lo definen como "inercia
-                organizacional", una fuerza poderosa que se forma por la repetición de hábitos.</p>
+            <blockquote>
+                "La lección es clara y hoy nos resulta más relevante que nunca. En Venezuela, la innovación no es un
+                acto de genio, es la capacidad de ver una solución que funciona en otro lugar y adaptarla a nuestra
+                realidad."
+            </blockquote>
 
-            <h3>La solución: anticipar para crear el futuro</h3>
-            <p>El antídoto a la inercia no es la reacción, sino la anticipación. Pensemos en el caso de
-                <strong>Amazon</strong>. Amazon no esperó a que la ola tecnológica llegara; la creó con AWS.
-            </p>
+            <p>Lo vemos en la proliferación de plataformas de delivery, en los modelos de tiendas de moda rápida o en el
+                software de gestión que simplifica procesos complejos. Esta es una estrategia espontánea que está
+                ocurriendo en miles de empresas y emprendimientos.</p>
 
-            <h2>Prácticas accionables para tu empresa</h2>
-            <p>Para pasar de la teoría a la práctica, te sugerimos los siguientes pasos, aplicables de inmediato:</p>
+            <p>La innovación, por naturaleza, es un proceso evolutivo que se construye sobre lo ya creado. Su verdadero
+                valor no reside en la idea original ni en verla funcionar en otro país, sino en la maestría de adaptarla
+                y optimizarla para mejorar la vida de las personas en un nuevo contexto económico y cultural.</p>
+
+            <h2>La ecuación del éxito de innovar sin inventar: FACE</h2>
+            <p>Para que esta adaptación sea una fuerza de crecimiento ágil y rápido, propongo una ecuación empresarial
+                simple y poderosa, inspirada en el modelo japonés. Los cuatro pilares de esta fórmula forman el acrónimo
+                FACE, que te guía en cada paso del proceso:</p>
 
             <ol>
                 <li>
-                    <strong>Rompe con la inercia a través de la experimentación.</strong><br>
-                    Deja de ver los resultados como un simple éxito o fracaso. Fomenta una cultura donde cada idea sea
-                    vista como un experimento.
+                    <strong>Foco:</strong> define el foco de tu negocio al identificar una necesidad real y un problema
+                    sin resolver en tu mercado. Convierte los desafíos en oportunidades.
                 </li>
                 <li>
-                    <strong>Mira más allá de tu industria.</strong><br>
-                    Dedica tiempo a realizar un benchmarking intersectorial. ¿Qué innovaciones de la industria
-                    tecnológica podrías adaptar?
+                    <strong>Adaptar:</strong> adapta las soluciones de otros mercados. Mira cómo se ha resuelto ese
+                    problema en otras partes del mundo. No se trata de copiar, sino de diseccionar el modelo de negocio
+                    para entender por qué funciona.
                 </li>
                 <li>
-                    <strong>Amplía tu concepto de innovación.</strong><br>
-                    Innovar no es solo inventar el próximo producto. Es optimizar procesos internos o reinventar tu
-                    modelo de negocio.
+                    <strong>Cultura:</strong> crea una cultura de innovación. El modelo no funcionará si la gente le
+                    teme al cambio o al fracaso. Fomenta un ambiente donde los empleados se sientan seguros para
+                    experimentar, proponer mejoras y aprender de los errores.
                 </li>
                 <li>
-                    <strong>Democratiza la innovación.</strong><br>
-                    Crea un programa donde los empleados puedan competir por brindar soluciones creativas a problemas
-                    reales.
+                    <strong>Ejecución:</strong> ejecuta el plan con estrategia y mejora continua. Adapta la solución a
+                    tu realidad local, ajustándose a la cultura y los recursos. Luego, con una mentalidad de mejora
+                    continua, perfecciona el modelo para que sea más eficiente y de mayor calidad.
                 </li>
             </ol>
 
+            <h2>La mentalidad empresarial: del superviviente al estratega</h2>
+            <p>El empresario venezolano de hoy es un superviviente. Ha desarrollado una capacidad increíble para sortear
+                obstáculos, improvisar y resistir. Esta resiliencia es una fortaleza, pero también una limitación cuando
+                se busca el crecimiento a largo plazo. La mentalidad actual a menudo se enfoca en la ganancia a corto
+                plazo y en la solución de problemas inmediatos, lo que a veces sacrifica la visión a largo plazo.</p>
+
+            <blockquote>
+                "La clave para el crecimiento reside en fusionar la mentalidad de supervivencia con una visión
+                estratégica."
+            </blockquote>
+
+            <p>Esto nos permite navegar el día a día sin perder de vista el panorama global, construyendo hoy el futuro
+                empresarial en Venezuela.</p>
+
+            <h2>Conclusión</h2>
+            <p>La increíble fuerza del modelado empresarial tiene el poder de romper paradigmas y sembrar nuevas ideas.
+                Para innovar no hace falta ser un genio, solo se necesita la apertura al aprendizaje y un proceso claro
+                para evaluar cada nueva idea.</p>
+
+            <p>Al abrazar la mentalidad del estratega, las empresas venezolanas pueden transformar sus desafíos en su
+                mayor ventaja competitiva. El futuro no pertenece a quienes inventen el próximo iPhone, es para quienes
+                dominen el arte de perfeccionar lo que ya existe, de eliminar el desperdicio y de crear valor con una
+                visión a largo plazo.</p>
+
             <p style="margin-top: 50px; font-size: 1.4rem; font-weight: bold; text-align: center;">
-                ¿Estás listo para dejar de reaccionar y empezar a crear el futuro?
+                En Venezuela tenemos el talento, la pasión y la resiliencia para resurgir. La clave está en dirigir esa
+                energía hacia una innovación estratégica que construya las bases de un crecimiento sólido y duradero
+                para las próximas décadas en el sector empresarial.
             </p>
         </article>
     </section>
@@ -754,7 +773,7 @@
                 </div>
             </a>
 
-            <!-- New Article: React vs Create Future -->
+            <!-- Article: React vs Create Future -->
             <a href="blog-post.html" class="related-card">
                 <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                     class="related-img">
@@ -796,23 +815,13 @@
                 </div>
             </a>
 
-            <a href="#" class="related-card">
-                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                    class="related-img">
-                <div class="related-body">
-                    <span class="related-tag">PRODUCTIVIDAD</span>
-                    <h4 class="related-h">Sistemas vs Metas</h4>
-                    <p class="related-excerpt">Por qué deberías enfocarte en procesos, no en resultados.</p>
-                </div>
-            </a>
-
         </div>
     </section>
 
     <div class="internal-promo-section-final">
         <div class="promo-grid-final">
 
-            <a href="#proximamente-eventos" class="promo-card-final">
+            <a href="reto-de-ingenio.html" class="promo-card-final">
                 <div class="promo-bg-layer">
                     <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                         alt="Fondo Eventos" class="bg-img-final">
@@ -822,11 +831,11 @@
                     <h2 class="promo-headline-final">CAMBIA TU HISTORIA</h2>
                     <p class="promo-sub-final">Domina estrategias probadas para crear impulso y cambiar la
                         trayectoria de tu vida y negocio.</p>
-                    <span class="pill-btn-final">Ver próximos eventos</span>
+                    <span class="pill-btn-final">Comenzar ahora</span>
                 </div>
             </a>
 
-            <a href="#proximamente-programas" class="promo-card-final">
+            <a href="programas.html" class="promo-card-final">
                 <div class="promo-bg-layer">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                         alt="Fondo Programas" class="bg-img-final">
@@ -847,7 +856,7 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-content">
-                <p>&copy; 2025 FACE Innovation. Todos los derechos reservados.</p>
+                <p>&copy; 2026 FACE Innovation. Todos los derechos reservados.</p>
                 <div class="social-links">
                     <a href="#" aria-label="LinkedIn">
                         <svg viewBox="0 0 24 24" fill="currentColor">
