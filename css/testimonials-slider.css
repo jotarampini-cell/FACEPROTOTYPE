@@ -1,5 +1,5 @@
 /* =========================================
-   CINEMATIC SLIDER (POLISHED REFERENCE STYLE)
+   CINEMATIC SLIDER (TONY ROBBINS REFERENCE)
    ========================================= */
 
 /* --- SHARED BASE STYLES --- */
@@ -13,7 +13,7 @@
     color: white;
     font-family: 'Inter', sans-serif;
     display: flex;
-    /* We handle alignment inside media queries */
+    /* Alignment is handled inside media queries */
 }
 
 /* --- 1. DYNAMIC BACKGROUNDS --- */
@@ -33,8 +33,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* CRITICAL: Position images to show subject on the LEFT for desktop */
-    object-position: center left;
+    /* CRITICAL: Force subject to the LEFT so text on the right doesn't cover face */
+    object-position: 20% center;
     opacity: 0;
     transform: scale(1.1);
     transition: opacity 1s ease, transform 12s linear;
@@ -50,15 +50,18 @@
 .tony-cinematic-slider .sync-quote {
     font-family: 'Inter', sans-serif;
     font-weight: 800;
-    line-height: 1.1;
+    /* Extra Bold like reference */
+    line-height: 1.05;
     letter-spacing: -0.04em;
+    /* Tight "Tony" tracking */
     margin-bottom: 30px;
-    text-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    /* Subtle shadow to ensure legibility even on bright spots */
+    text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .tony-cinematic-slider .author-img {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid rgba(255, 255, 255, 0.3);
@@ -84,12 +87,13 @@
    ========================================= */
 @media (min-width: 992px) {
     .tony-cinematic-slider {
+        /* Align content to the right side */
         justify-content: flex-end;
-        /* Push content to the RIGHT */
         align-items: center;
     }
 
-    /* Horizontal Gradient: Transparent Left -> Dark Right */
+    /* REFERENCE GRADIENT: Transparent Left -> Dark Right */
+    /* This creates the "Safety Zone" for text */
     .tony-cinematic-slider .bg-overlay {
         position: absolute;
         top: 0;
@@ -97,28 +101,36 @@
         width: 100%;
         height: 100%;
         z-index: 2;
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.9) 100%);
+        background: linear-gradient(90deg,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0) 30%,
+                rgba(0, 0, 0, 0.6) 60%,
+                rgba(0, 0, 0, 0.95) 100%);
     }
 
-    /* Content Wrapper: Sit on the right side */
+    /* Content Column: Fixed to Right Half */
     .tony-cinematic-slider .content-layer {
         position: relative;
         z-index: 10;
         width: 50%;
-        /* Occupy right half */
-        padding-right: 5%;
-        /* Spacing from edge */
+        /* Strictly right half */
+        height: 100%;
         display: flex;
-        justify-content: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 5%;
+        /* Right margin */
+        padding-left: 20px;
     }
 
     .tony-cinematic-slider .reviews-wrapper {
         position: relative;
         width: 100%;
         max-width: 650px;
-        height: 400px;
-        /* Left Align Text */
+        /* Text is Left Aligned within the Right Column */
         text-align: left;
+        height: 400px;
+        /* Space for absolute positioning */
     }
 
     .tony-cinematic-slider .sync-review {
@@ -139,11 +151,10 @@
     }
 
     .tony-cinematic-slider .sync-quote {
-        font-size: 3.5rem;
-        /* Large Desktop Font */
+        font-size: clamp(2.5rem, 4vw, 3.8rem);
     }
 
-    /* Horizontal Author Layout */
+    /* Horizontal Author Block */
     .tony-cinematic-slider .sync-author {
         display: flex;
         flex-direction: row;
@@ -153,7 +164,6 @@
         transform: translateY(20px);
         transition: all 0.6s ease 0.2s;
         justify-content: flex-start;
-        /* Align left */
     }
 
     .tony-cinematic-slider .sync-review.active .sync-author {
@@ -161,23 +171,23 @@
         transform: translateY(0);
     }
 
-    /* Controls: Align with text on the right */
+    /* NAVIGATION: Aligned Left with the Text Block */
     .tony-cinematic-slider .sync-controls {
         position: absolute;
-        bottom: 50px;
-        right: 5%;
-        /* Match content padding */
-        width: 50%;
-        /* Match content width */
+        bottom: 60px;
+        /* Distance from bottom */
+        /* This ensures nav aligns with the text above it */
+        left: 50%;
+        width: 45%;
+        padding-left: 20px;
         z-index: 20;
         display: flex;
         justify-content: flex-start;
-        /* Align left with text */
     }
 }
 
 /* =========================================
-   MOBILE LAYOUT (Centered Style)
+   MOBILE LAYOUT (Centered Stack)
    Max-width: 991px
    ========================================= */
 @media (max-width: 991px) {
@@ -186,7 +196,7 @@
         align-items: center;
     }
 
-    /* Vertical Gradient: Darker at bottom */
+    /* Mobile Gradient: Dark Bottom */
     .tony-cinematic-slider .bg-overlay {
         position: absolute;
         top: 0;
@@ -194,7 +204,7 @@
         width: 100%;
         height: 100%;
         z-index: 2;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 90%);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.9) 90%);
     }
 
     .tony-cinematic-slider .content-layer {
@@ -209,7 +219,6 @@
     .tony-cinematic-slider .reviews-wrapper {
         width: 100%;
         text-align: center;
-        /* Center text */
         height: 400px;
     }
 
@@ -229,16 +238,16 @@
     }
 
     .tony-cinematic-slider .sync-quote {
-        font-size: 1.8rem;
-        /* Mobile Font */
+        font-size: 1.6rem;
+        /* Smaller for mobile readability */
     }
 
-    /* Vertical Author Layout */
+    /* Vertical Author Stack */
     .tony-cinematic-slider .sync-author {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 12px;
         opacity: 0;
         transform: translateY(20px);
         transition: all 0.6s ease 0.2s;
@@ -249,7 +258,7 @@
         transform: translateY(0);
     }
 
-    /* Controls: Center bottom */
+    /* Controls Centered at Bottom */
     .tony-cinematic-slider .sync-controls {
         position: absolute;
         bottom: 30px;
@@ -260,16 +269,16 @@
         justify-content: center;
     }
 
-    /* Hide nav text on mobile to save space */
+    /* Hide Text Labels in Mobile Nav to save space */
     .tony-cinematic-slider .avatar-nav-info {
         display: none;
     }
 }
 
-/* --- NAVIGATION STYLES (Shared) --- */
+/* --- NAVIGATION AVATARS (Shared) --- */
 .tony-cinematic-slider .avatar-carousel {
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 .tony-cinematic-slider .avatar-nav-item {
@@ -277,7 +286,8 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.4;
+    /* Inactive state */
     transition: 0.3s;
 }
 
@@ -294,18 +304,22 @@
     border: 2px solid transparent;
     transition: 0.3s;
     filter: grayscale(100%);
+    /* Inactive is B&W */
     margin-bottom: 5px;
 }
 
 .tony-cinematic-slider .avatar-nav-item.active .avatar-nav-img {
     border-color: #fff;
-    transform: scale(1.1);
+    transform: scale(1.15);
     filter: grayscale(0%);
+    /* Active is Color */
 }
 
 .tony-cinematic-slider .avatar-nav-name {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .tony-cinematic-slider .avatar-nav-role {
