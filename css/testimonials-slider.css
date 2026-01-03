@@ -2,6 +2,7 @@
    CINEMATIC SLIDER (POLISHED REFERENCE STYLE)
    ========================================= */
 
+/* --- SHARED BASE STYLES --- */
 .tony-cinematic-slider {
     position: relative;
     width: 100%;
@@ -12,9 +13,7 @@
     color: white;
     font-family: 'Inter', sans-serif;
     display: flex;
-    /* Desktop Default: Align right-center to match the reference layout */
-    align-items: center;
-    justify-content: flex-end;
+    /* We handle alignment inside media queries */
 }
 
 /* --- 1. DYNAMIC BACKGROUNDS --- */
@@ -34,12 +33,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* CRITICAL: Position images to show subject on the LEFT for desktop */
+    object-position: center left;
     opacity: 0;
     transform: scale(1.1);
-    transition: opacity 1.2s ease, transform 12s linear;
-    /* Slower, more cinematic movement */
-    filter: brightness(0.65);
-    /* slightly brighter than before for clarity */
+    transition: opacity 1s ease, transform 12s linear;
 }
 
 .tony-cinematic-slider .sync-bg.active {
@@ -48,144 +46,235 @@
     z-index: 1;
 }
 
-.tony-cinematic-slider .bg-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    /* Gradient shifts: Darker on right side to make text readable */
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
-}
-
-/* --- 2. CONTENT LAYER (The Text) --- */
-.tony-cinematic-slider .content-layer {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    max-width: 1400px;
-    /* Wide container */
-    padding: 0 40px;
-    display: flex;
-    justify-content: flex-end;
-    /* Push text to the right side (Reference Style) */
-}
-
-.tony-cinematic-slider .reviews-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-    /* Limit text width */
-    height: 400px;
-    display: flex;
-    align-items: center;
-    /* Ensure text aligns left within its box */
-    text-align: left;
-}
-
-.tony-cinematic-slider .sync-review {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    /* Align left inside wrapper */
-    transform: translateY(-40%);
-    width: 100%;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-}
-
-.tony-cinematic-slider .sync-review.active {
-    opacity: 1;
-    transform: translateY(-50%);
-    pointer-events: all;
-}
-
-/* --- TYPOGRAPHY (Reference: "Events that liberate") --- */
+/* --- 2. TYPOGRAPHY (Shared) --- */
 .tony-cinematic-slider .sync-quote {
     font-family: 'Inter', sans-serif;
-    /* Massive size for impact */
-    font-size: clamp(2.2rem, 4.5vw, 4rem);
     font-weight: 800;
-    /* Extra Bold */
-    line-height: 1.05;
-    /* Tight vertical spacing */
-    letter-spacing: -0.05em;
-    /* Extremely tight tracking */
-    margin-bottom: 40px;
-    text-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-}
-
-/* AUTHOR DETAILS (Desktop: Horizontal Layout) */
-.tony-cinematic-slider .sync-author {
-    display: flex;
-    flex-direction: row;
-    /* Side by side */
-    align-items: center;
-    gap: 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease 0.2s;
-}
-
-.tony-cinematic-slider .sync-review.active .sync-author {
-    opacity: 1;
-    transform: translateY(0);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin-bottom: 30px;
+    text-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .tony-cinematic-slider .author-img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.tony-cinematic-slider .author-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .tony-cinematic-slider .author-details .name {
     display: block;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.1rem;
     letter-spacing: -0.02em;
 }
 
 .tony-cinematic-slider .author-details .role {
     display: block;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
     margin-top: 4px;
-    font-weight: 500;
 }
 
-/* --- 3. BOTTOM NAVIGATION (Clean & Floating) --- */
-.tony-cinematic-slider .sync-controls {
-    position: absolute;
-    bottom: 50px;
-    /* Align with the text content on the right */
-    right: 10%;
-    width: auto;
-    z-index: 20;
+/* =========================================
+   DESKTOP LAYOUT (The "Reference" Look)
+   Min-width: 992px
+   ========================================= */
+@media (min-width: 992px) {
+    .tony-cinematic-slider {
+        justify-content: flex-end;
+        /* Push content to the RIGHT */
+        align-items: center;
+    }
+
+    /* Horizontal Gradient: Transparent Left -> Dark Right */
+    .tony-cinematic-slider .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.9) 100%);
+    }
+
+    /* Content Wrapper: Sit on the right side */
+    .tony-cinematic-slider .content-layer {
+        position: relative;
+        z-index: 10;
+        width: 50%;
+        /* Occupy right half */
+        padding-right: 5%;
+        /* Spacing from edge */
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .tony-cinematic-slider .reviews-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 650px;
+        height: 400px;
+        /* Left Align Text */
+        text-align: left;
+    }
+
+    .tony-cinematic-slider .sync-review {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-40%);
+        width: 100%;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+
+    .tony-cinematic-slider .sync-review.active {
+        opacity: 1;
+        transform: translateY(-50%);
+        pointer-events: all;
+    }
+
+    .tony-cinematic-slider .sync-quote {
+        font-size: 3.5rem;
+        /* Large Desktop Font */
+    }
+
+    /* Horizontal Author Layout */
+    .tony-cinematic-slider .sync-author {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease 0.2s;
+        justify-content: flex-start;
+        /* Align left */
+    }
+
+    .tony-cinematic-slider .sync-review.active .sync-author {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Controls: Align with text on the right */
+    .tony-cinematic-slider .sync-controls {
+        position: absolute;
+        bottom: 50px;
+        right: 5%;
+        /* Match content padding */
+        width: 50%;
+        /* Match content width */
+        z-index: 20;
+        display: flex;
+        justify-content: flex-start;
+        /* Align left with text */
+    }
 }
 
+/* =========================================
+   MOBILE LAYOUT (Centered Style)
+   Max-width: 991px
+   ========================================= */
+@media (max-width: 991px) {
+    .tony-cinematic-slider {
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Vertical Gradient: Darker at bottom */
+    .tony-cinematic-slider .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 90%);
+    }
+
+    .tony-cinematic-slider .content-layer {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .tony-cinematic-slider .reviews-wrapper {
+        width: 100%;
+        text-align: center;
+        /* Center text */
+        height: 400px;
+    }
+
+    .tony-cinematic-slider .sync-review {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        width: 100%;
+        opacity: 0;
+        transition: all 0.8s ease;
+    }
+
+    .tony-cinematic-slider .sync-review.active {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    .tony-cinematic-slider .sync-quote {
+        font-size: 1.8rem;
+        /* Mobile Font */
+    }
+
+    /* Vertical Author Layout */
+    .tony-cinematic-slider .sync-author {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease 0.2s;
+    }
+
+    .tony-cinematic-slider .sync-review.active .sync-author {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Controls: Center bottom */
+    .tony-cinematic-slider .sync-controls {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        width: 100%;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Hide nav text on mobile to save space */
+    .tony-cinematic-slider .avatar-nav-info {
+        display: none;
+    }
+}
+
+/* --- NAVIGATION STYLES (Shared) --- */
 .tony-cinematic-slider .avatar-carousel {
     display: flex;
-    gap: 30px;
-    /* Removed glass background for cleaner look */
-    background: transparent;
-    border: none;
-    padding: 0;
+    gap: 20px;
 }
 
 .tony-cinematic-slider .avatar-nav-item {
     display: flex;
     flex-direction: column;
-    /* Image top, text bottom */
     align-items: center;
     cursor: pointer;
     opacity: 0.5;
@@ -198,102 +287,27 @@
 }
 
 .tony-cinematic-slider .avatar-nav-img {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid transparent;
     transition: 0.3s;
-    margin-bottom: 8px;
     filter: grayscale(100%);
-    /* Inactive are B&W */
+    margin-bottom: 5px;
 }
 
 .tony-cinematic-slider .avatar-nav-item.active .avatar-nav-img {
     border-color: #fff;
     transform: scale(1.1);
     filter: grayscale(0%);
-    /* Active is color */
-}
-
-.tony-cinematic-slider .avatar-nav-info {
-    text-align: center;
 }
 
 .tony-cinematic-slider .avatar-nav-name {
-    display: block;
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: -0.01em;
 }
 
 .tony-cinematic-slider .avatar-nav-role {
     display: none;
-}
-
-/* Too much text for nav */
-
-
-/* =========================================
-   MOBILE RESPONSIVENESS
-   (Transforms layout to Center-Center)
-   ========================================= */
-@media (max-width: 991px) {
-    .tony-cinematic-slider {
-        justify-content: center;
-        /* Re-center everything */
-    }
-
-    .tony-cinematic-slider .bg-overlay {
-        background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 90%);
-    }
-
-    .tony-cinematic-slider .content-layer {
-        justify-content: center;
-        padding: 0 20px;
-    }
-
-    .tony-cinematic-slider .reviews-wrapper {
-        text-align: center;
-        /* Center text */
-        max-width: 100%;
-    }
-
-    .tony-cinematic-slider .sync-review {
-        left: 50%;
-        transform: translate(-50%, -40%);
-    }
-
-    .tony-cinematic-slider .sync-review.active {
-        transform: translate(-50%, -50%);
-    }
-
-    .tony-cinematic-slider .sync-quote {
-        font-size: 1.8rem;
-    }
-
-    .tony-cinematic-slider .sync-author {
-        flex-direction: column;
-        /* Stack Avatar and Name */
-        transform: translateY(20px);
-    }
-
-    /* Center controls on mobile */
-    .tony-cinematic-slider .sync-controls {
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 30px;
-        width: 100%;
-    }
-
-    .tony-cinematic-slider .avatar-carousel {
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .tony-cinematic-slider .avatar-nav-info {
-        display: none;
-        /* Hide text in nav on mobile */
-    }
 }
