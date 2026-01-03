@@ -16,15 +16,14 @@
 
     /* VISTA MÓVIL */
     display: grid;
-    /* CORRECCIÓN 1: Usamos Gap real para separar, no unir */
+    /* CORRECCIÓN 1: Usamos Gap real para separar */
     gap: 20px;
     grid-template-columns: 1fr;
     grid-template-areas:
         "title"
         "text"
         "image"
-        "video"
-        "logos";
+        "video";
 }
 
 /* ASIGNACIÓN DE ÁREAS */
@@ -44,11 +43,6 @@
 
 .face-video-card {
     grid-area: video;
-}
-
-.face-logos {
-    grid-area: logos;
-    margin-top: 10px;
 }
 
 /* --- TIPOGRAFÍA --- */
@@ -87,7 +81,7 @@
     height: 400px;
     /* Altura generosa */
 
-    /* CORRECCIÓN 2: Bordes redondeados COMPLETOS (Arriba y Abajo) */
+    /* CORRECCIÓN 2: Bordes redondeados COMPLETOS */
     border-radius: 24px;
     overflow: hidden;
 }
@@ -106,11 +100,20 @@
     width: 100%;
     height: 220px;
 
-    /* CORRECCIÓN 3: Bordes redondeados COMPLETOS también aquí */
+    /* CORRECCIÓN 3: Bordes redondeados COMPLETOS */
     border-radius: 24px;
     overflow: hidden;
-    /* Eliminamos margin negativo para que flote libre */
     margin-top: 0;
+}
+
+/* BACKGROUND VIDEO STYLE */
+.video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    /* Oscurecer para que resalte el botón */
+    display: block;
 }
 
 .video-img {
@@ -118,7 +121,6 @@
     height: 100%;
     object-fit: cover;
     filter: brightness(0.7);
-    /* Oscurecer para contraste del botón */
 }
 
 /* 3. Botón (Centrado INTERNO) */
@@ -161,28 +163,6 @@
 }
 
 
-/* --- LOGOS --- */
-.logo-label {
-    display: block;
-    font-size: 0.85rem;
-    color: #888;
-    margin-bottom: 12px;
-}
-
-.logo-row {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-    filter: grayscale(100%);
-    opacity: 0.6;
-}
-
-.logo-row img {
-    height: 22px;
-    width: auto;
-}
-
-
 /* =========================================
    DESKTOP (Layout Lateral)
    ========================================= */
@@ -191,11 +171,11 @@
         grid-template-columns: 1.2fr 1fr;
         gap: 60px;
         align-items: center;
+        /* Remover logos del grid desktop */
         grid-template-areas:
             "image title"
             "image text"
-            "image video"
-            "logos video";
+            "image video";
     }
 
     /* Ajustes específicos de Desktop */
