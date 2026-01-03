@@ -1860,6 +1860,100 @@
         }
 
     </script>
+
+    <!-- Stats Section: Innovar sin inventar -->
+    <section class="tony-stats-section">
+        <div class="stats-container">
+
+            <div class="content-side">
+                <h2 class="stats-title">Innovar sin inventar</h2>
+
+                <p class="stats-desc">
+                    Según la 28ª Encuesta Anual Global de Directores Ejecutivos de PwC, el 42% de los CEOs cree que su
+                    empresa no será viable más allá de los próximos 10 años sin reinventarse. Por esta razón, hoy más
+                    que nunca las organizaciones deben mantenerse ágiles.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="42">0%</span>
+                        <span class="stat-label">de los CEOs cree que su empresa no sobrevivirá</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-label">Años es el tiempo límite de viabilidad sin reinventarse</span>
+                    </div>
+                </div>
+
+                <a href="#face" class="stats-pill-btn">Conoce FACE</a>
+            </div>
+
+            <div class="media-side">
+
+                <div class="vertical-video-card">
+
+                    <div class="floating-watch-btn">
+                        <button class="glass-play-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            Watch
+                        </button>
+                    </div>
+
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+                        alt="Innovación FACE" class="video-poster">
+
+                    <div class="video-brand-stamp">
+                        <span class="brand-eyebrow">METODOLOGÍA FACE</span>
+                        <h3 class="brand-title">
+                            INNOVA
+                            <span class="brand-subtitle">DESDE ADENTRO</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="video-testimonial">
+                    <p>"Mi parte favorita de este evento ha sido conectar con la realidad de mi industria..."</p>
+                    <cite>Carlos M., Director de Innovación</cite>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const stats = document.querySelectorAll('.stat-number');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = parseInt(target.getAttribute('data-target'));
+                        const isPercentage = target.innerText.includes('%') || target.nextElementSibling?.innerText.includes('%') || finalValue === 42;
+
+                        let start = 0;
+                        const duration = 2000; // Duración en ms
+                        const step = duration / finalValue;
+
+                        let timer = setInterval(() => {
+                            start++;
+                            // Si es el primer dato (42), añadimos %, si es el segundo (10), solo número
+                            target.innerText = isPercentage ? start + "%" : start;
+
+                            if (start >= finalValue) clearInterval(timer);
+                        }, step);
+
+                        observer.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            stats.forEach(stat => observer.observe(stat));
+        });
+    </script>
+
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
     <section class="tr-manifesto-section" id="manifesto">
