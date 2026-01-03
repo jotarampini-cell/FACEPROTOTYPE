@@ -112,7 +112,11 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        /* Changed from center */
+        align-items: flex-start;
+        padding-top: 8%;
+        /* Position quote at top */
         padding-right: 5%;
         padding-left: 20px;
     }
@@ -120,9 +124,11 @@
     .tony-cinematic-slider .reviews-wrapper {
         position: relative;
         width: 100%;
-        max-width: 650px;
+        max-width: 800px;
+        /* Increased from 650px */
         text-align: left;
-        height: 400px;
+        height: auto;
+        /* Changed from fixed 400px */
     }
 
     .tony-cinematic-slider .sync-review {
@@ -143,7 +149,10 @@
     }
 
     .tony-cinematic-slider .sync-quote {
-        font-size: clamp(2.5rem, 4vw, 3.8rem);
+        font-size: clamp(3rem, 5vw, 5rem);
+        /* Increased for impact */
+        line-height: 1.15;
+        /* Increased from 1.05 */
     }
 
     .tony-cinematic-slider .sync-author {
@@ -165,7 +174,8 @@
     /* NAVIGATION: LARGE AVATARS LIKE TONY */
     .tony-cinematic-slider .sync-controls {
         position: absolute;
-        bottom: 60px;
+        bottom: 80px;
+        /* Increased from 60px to match Tony's spacing */
         left: 50%;
         width: 45%;
         padding-left: 20px;
