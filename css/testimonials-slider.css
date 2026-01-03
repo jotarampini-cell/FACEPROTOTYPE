@@ -152,11 +152,11 @@
     }
 
     .tony-cinematic-slider .sync-quote {
-        font-size: clamp(2.1rem, 3.5vw, 3.5rem);
-        /* Reduced by 30% */
-        /* Increased for impact */
-        line-height: 1.15;
-        /* Increased from 1.05 */
+        font-size: clamp(1.8rem, 2.5vw, 2.8rem);
+        /* Reduced further for balance */
+        line-height: 1.25;
+        /* Increased for elegance */
+        margin-bottom: 20px;
     }
 
     .tony-cinematic-slider .sync-author {
