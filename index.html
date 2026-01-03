@@ -28,11 +28,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap"
         rel="stylesheet">
-    <!-- Inter font for stats section -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/face-master.css">
-    <link rel="stylesheet" href="css/stats-section.css">
     <link rel="stylesheet" href="style.css?v=ux_fix_final_20251230_1700">
     <link rel="stylesheet" href="premium-menu.css?v=ux_fix_final_20251230_1700">
     <link rel="stylesheet" href="css/podcast-home.css?v=ux_fix_final_20251230_1700">
@@ -716,7 +712,6 @@
     </div>
     </section>
     </div>
-
     <!-- Section: Hero Video - Full Screen Background -->
     <section class="hero-video-section">
         <video autoplay muted loop playsinline preload="metadata" class="bg-video"
@@ -736,13 +731,23 @@
     </section>
 
     <script>
-        // Force video to play after page load
-        document.addEventListener('DOMContentLoaded', function () {
-            const bgVideo = document.querySelector('.bg-video');
-            if (bgVideo) {
-                bgVideo.play().catch(e => console.log('Video autoplay prevented:', e));
+        // Ensure video plays on mobile devices
+        (function () {
+            const heroVideo = document.querySelector('.hero-video-section .bg-video');
+            if (heroVideo) {
+                // Try to play immediately
+                heroVideo.play().catch(() => {
+                    // If autoplay fails, try again on user interaction
+                    const playOnInteraction = () => {
+                        heroVideo.play();
+                        document.removeEventListener('touchstart', playOnInteraction);
+                        document.removeEventListener('click', playOnInteraction);
+                    };
+                    document.addEventListener('touchstart', playOnInteraction, { once: true });
+                    document.addEventListener('click', playOnInteraction, { once: true });
+                });
             }
-        });
+        })();
     </script>
 
     <!-- Section: Pillars (Interactive Typography) - White Background -->
@@ -1851,12 +1856,11 @@
                         const isPercentage = target.innerText.includes('%') || target.nextElementSibling?.innerText.includes('%') || finalValue === 42;
 
                         let start = 0;
-                        const duration = 2000; // Duración en ms
+                        const duration = 2000;
                         const step = duration / finalValue;
 
                         let timer = setInterval(() => {
                             start++;
-                            // Si es el primer dato (42), añadimos %, si es el segundo (10), solo número
                             target.innerText = isPercentage ? start + "%" : start;
 
                             if (start >= finalValue) clearInterval(timer);
