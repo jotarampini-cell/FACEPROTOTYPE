@@ -735,6 +735,16 @@
         </div>
     </section>
 
+    <script>
+        // Force video to play after page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const bgVideo = document.querySelector('.bg-video');
+            if (bgVideo) {
+                bgVideo.play().catch(e => console.log('Video autoplay prevented:', e));
+            }
+        });
+    </script>
+
     <!-- Section: Pillars (Interactive Typography) - White Background -->
     <section class="pillars-section">
         <div class="pillars-container">
