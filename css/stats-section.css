@@ -171,25 +171,28 @@
 }
 
 .brand-title {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    font-weight: 700;
-    line-height: 0.85;
+    font-weight: 900;
+    line-height: 1;
     color: white;
     margin: 0;
     text-transform: uppercase;
     font-style: italic;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .brand-subtitle {
     display: block;
     font-family: 'Oswald', sans-serif;
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1;
     color: rgba(255, 255, 255, 0.95);
     margin-top: 2px;
-    font-style: italic;
+    font-style: normal;
+    text-transform: uppercase;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 
