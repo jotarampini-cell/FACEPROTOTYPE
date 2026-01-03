@@ -1,5 +1,5 @@
 /* =========================================
-   FACE MASTER SECTION - OPCIÓN 2 (FUSIONADO)
+   FACE MASTER SECTION - REPLICA EXACTA
    ========================================= */
 
 .face-master-section {
@@ -11,63 +11,34 @@
 }
 
 .face-container {
-    max-width: 1200px;
+    max-width: 500px;
+    /* Ancho típico de móvil para centrar */
     margin: 0 auto;
-
-    /* VISTA MÓVIL */
-    display: grid;
-    /* CAMBIO CLAVE: Gap 0 entre filas para permitir la fusión */
-    gap: 0;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-        "title"
-        "text"
-        "image"
-        "video"
-        "logos";
+    display: flex;
+    flex-direction: column;
 }
 
-/* Ajustamos márgenes manuales ya que quitamos el gap general */
-.face-title {
-    grid-area: title;
-    margin-bottom: 20px;
-}
 
-.face-description {
-    grid-area: text;
+/* --- TIPOGRAFÍA Y TEXTOS --- */
+.face-text-content {
     margin-bottom: 30px;
 }
 
-.face-logos {
-    grid-area: logos;
-    margin-top: 30px;
-}
-
-/* Áreas de Grilla */
-.face-image-card {
-    grid-area: image;
-}
-
-.face-video-card {
-    grid-area: video;
-}
-
-
-/* --- TIPOGRAFÍA Y BOTONES (Igual que antes) --- */
 .face-title {
-    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-size: 2.2rem;
+    /* Tamaño grande para móvil */
     font-weight: 800;
-    line-height: 1.0;
+    line-height: 1.05;
     letter-spacing: -0.04em;
     color: #000;
+    margin-bottom: 20px;
 }
 
 .face-description p {
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.5;
     color: #333;
     margin-bottom: 25px;
-    max-width: 500px;
 }
 
 .face-pill-btn {
@@ -75,53 +46,35 @@
     background-color: #f4f4f4;
     color: #000;
     font-weight: 700;
-    padding: 16px 32px;
+    padding: 14px 30px;
     border-radius: 100px;
     text-decoration: none;
-    transition: all 0.3s;
-    font-size: 0.95rem;
-}
-
-.face-pill-btn:hover {
-    background-color: #e0e0e0;
-    transform: translateY(-2px);
 }
 
 
-/* --- LA FUSIÓN "TONY ROBBINS" (MÓVIL) --- */
+/* =========================================
+   LA FUSIÓN REAL (EL SECRETO)
+   ========================================= */
 
-/* 1. La Imagen Superior */
+.face-media-stack {
+    display: flex;
+    flex-direction: column;
+    /* IMPORTANTE: Sin espacio entre elementos */
+    gap: 0;
+    margin-bottom: 30px;
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.05));
+    /* Sombra suave a todo el bloque */
+}
+
+/* 1. Tarjeta Superior (Imagen) */
 .face-image-card {
     position: relative;
     width: 100%;
-    height: 400px;
-    overflow: hidden;
-
-    /* TRUCO DE FUSIÓN: */
-    /* Redondeamos arriba (24px), pero dejamos recto abajo (0px) */
+    height: 280px;
+    /* CLAVE: Redondeado arriba, RECTO abajo */
     border-radius: 24px 24px 0 0;
-
-    /* Aseguramos que toque el elemento siguiente */
-    margin-bottom: 0;
-    z-index: 2;
-    /* Se asegura de estar encima si hay superposición */
-}
-
-/* 2. El Video Inferior */
-.face-video-card {
-    position: relative;
-    width: 100%;
-    height: 220px;
     overflow: hidden;
-
-    /* TRUCO DE FUSIÓN: */
-    /* Recto arriba (0px) para pegar con la imagen, redondeado abajo (24px) */
-    border-radius: 0 0 24px 24px;
-
-    /* Opcional: Un borde blanco superior muy fino si quieres simular un corte */
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    margin-top: -1px;
-    /* Evita cualquier línea blanca fantasma entre las fotos */
+    z-index: 1;
 }
 
 .face-img {
@@ -131,57 +84,66 @@
     object-position: center top;
 }
 
+/* 2. Tarjeta Inferior (Video) */
+.face-video-card {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    /* CLAVE: RECTO arriba, redondeado abajo */
+    border-radius: 0 0 24px 24px;
+    /* CLAVE: overflow visible para que el botón pueda salirse hacia arriba */
+    overflow: visible;
+    /* Un pequeño margen negativo asegura que no haya línea blanca */
+    margin-top: -1px;
+    z-index: 2;
+}
+
 .video-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: brightness(0.7);
+    /* Oscurecer para contraste */
+    border-radius: 0 0 24px 24px;
+    /* Asegurar que la img interna también se redondee abajo */
 }
 
-.video-overlay-content {
+/* 3. El Botón Puente (The Bridge) */
+.video-overlay-bridge {
     position: absolute;
-    top: 0;
+    /* CLAVE: Posición negativa para subirlo justo a la mitad de la unión */
+    top: -26px;
     left: 0;
     width: 100%;
-    height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 2;
+    z-index: 10;
+    /* Siempre encima */
 }
 
 .face-play-btn {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: white;
-    padding: 12px 24px;
+    /* Fondo BLANCO SÓLIDO como en la referencia */
+    background: #ffffff;
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    /* Sombra fuerte para que "flote" */
+    padding: 14px 28px;
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 600;
+    gap: 8px;
+    font-weight: 700;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s;
-}
-
-.face-play-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-.face-play-btn svg {
-    width: 20px;
-    height: 20px;
+    font-size: 0.95rem;
 }
 
 
 /* --- LOGOS --- */
 .face-logos {
-    margin-top: 10px;
+    margin-top: 0;
 }
 
-/* Pequeño margen extra */
 .logo-label {
     display: block;
     font-size: 0.85rem;
@@ -191,65 +153,51 @@
 
 .logo-row {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     align-items: center;
     filter: grayscale(100%);
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .logo-row img {
-    height: 24px;
+    height: 20px;
     width: auto;
 }
 
-
 /* =========================================
-   VISTA DE ESCRITORIO (Min-width: 992px)
-   Aquí separamos las tarjetas para el layout lateral
+   MEDIA QUERY (Solo para asegurar que no se rompa en escritorio)
    ========================================= */
 @media (min-width: 992px) {
-
     .face-container {
-        /* Volvemos a activar el Gap grande para escritorio */
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 60px;
-
-        grid-template-columns: 1.2fr 1fr;
-        grid-template-areas:
-            "image title"
-            "image text"
-            "image video"
-            "logos video";
+        align-items: center;
     }
 
-    /* Restauramos márgenes automáticos del grid */
-    .face-title {
-        margin-bottom: 20px;
-        align-self: end;
-    }
-
-    .face-description {
-        margin-bottom: 0;
-        align-self: start;
-    }
-
-    .face-logos {
-        margin-top: 0;
-        align-self: start;
-    }
-
-    /* TARJETA IMAGEN (Escritorio): Totalmente redondeada */
-    .face-image-card {
-        height: 100%;
-        min-height: 600px;
-        /* En escritorio SÍ queremos bordes redondeados completos */
-        border-radius: 32px;
-    }
-
-    /* TARJETA VIDEO (Escritorio): Separada y redondeada */
+    /* En escritorio reseteamos los bordes para que sean bloques separados */
+    .face-image-card,
     .face-video-card {
-        height: 250px;
-        /* En escritorio SÍ queremos bordes redondeados completos */
         border-radius: 32px;
-        margin-top: auto;
+        height: auto;
+        min-height: 400px;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .video-overlay-bridge {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Botón centrado normal */
+    .face-play-btn {
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    .face-media-stack {
+        display: contents;
+        /* Deshacer el stack móvil */
     }
 }
