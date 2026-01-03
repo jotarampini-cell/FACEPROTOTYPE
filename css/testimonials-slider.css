@@ -272,29 +272,38 @@
     .tony-cinematic-slider .reviews-wrapper {
         width: 100%;
         text-align: center;
-        height: 400px;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        height: auto;
+        /* Remove fixed height */
+        padding-bottom: 120px;
+        /* Reserve space for controls */
     }
 
     .tony-cinematic-slider .sync-review {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -40%);
+        grid-area: 1 / 1;
+        /* Stack reviews */
+        position: relative;
         width: 100%;
         opacity: 0;
-        transition: all 0.8s ease;
+        pointer-events: none;
+        transition: all 0.5s ease;
+        transform: translateY(20px);
     }
 
     .tony-cinematic-slider .sync-review.active {
         opacity: 1;
-        transform: translate(-50%, -50%);
+        pointer-events: all;
+        transform: translateY(0);
     }
 
     .tony-cinematic-slider .sync-quote {
-        font-size: 1.8rem;
-        /* Increased for impact */
+        font-size: 1.5rem;
+        /* Slightly reduced to prevent huge overflow */
         line-height: 1.25;
         padding: 0 10px;
+        margin-bottom: 20px;
     }
 
     .tony-cinematic-slider .sync-author {
