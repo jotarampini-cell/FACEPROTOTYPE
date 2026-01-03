@@ -125,27 +125,30 @@
         position: relative;
         width: 100%;
         max-width: 800px;
-        /* Increased from 650px */
         text-align: left;
-        height: auto;
-        /* Changed from fixed 400px */
+        display: grid;
+        /* Use Grid to stack items */
+        grid-template-columns: 1fr;
+        align-items: start;
+        padding-top: 5vh;
+        /* Additional spacing from top */
     }
 
     .tony-cinematic-slider .sync-review {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-40%);
+        grid-area: 1 / 1;
+        /* Stack all reviews in same cell */
         width: 100%;
         opacity: 0;
         pointer-events: none;
         transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        transform: translateY(20px);
+        /* Slight slide up effect instead of centering */
     }
 
     .tony-cinematic-slider .sync-review.active {
         opacity: 1;
-        transform: translateY(-50%);
         pointer-events: all;
+        transform: translateY(0);
     }
 
     .tony-cinematic-slider .sync-quote {
