@@ -54,6 +54,11 @@
     text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
+/* HIDE AUTHOR SECTION - Author info now ONLY shown in bottom navigation */
+.tony-cinematic-slider .sync-author {
+    display: none !important;
+}
+
 .tony-cinematic-slider .author-img {
     width: 65px;
     height: 65px;
