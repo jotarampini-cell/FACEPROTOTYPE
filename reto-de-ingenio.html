@@ -251,189 +251,495 @@
         }
     </style>
 
-    <!-- Hero Section: The Capsule Design -->
-    <section class="capsule-hero-section">
-        <div class="capsule-hero-wrapper">
-            <div class="capsule-hero-container">
-                <div class="capsule-overlay"></div>
+    <!-- Hero Section: Full-Screen Capsule (Home Style) -->
+    <section id="hero" class="tr-hero-master">
+        <div class="tr-hero-with-card-container">
+            <div class="tr-capsule-wrapper">
+                <div class="tr-capsule-container">
+                    <!-- Background Image -->
+                    <div class="hero-backdrop"></div>
 
-                <div class="capsule-content">
-                    <div class="capsule-badge">NUEVO PROGRAMA</div>
+                    <!-- Gradient Overlay is handled by CSS ::after pseudo-element -->
 
-                    <h1 class="capsule-title">
-                        El Reto de
-                        <span>Ingenio: 21 Días</span>
-                    </h1>
+                    <!-- Centered Content -->
+                    <div class="hero-content-center">
+                        <h1 class="hero-headline">
+                            El Reto de<br>Ingenio: 21 Días
+                        </h1>
+                        <a href="#features" class="btn-pill-white"
+                            onclick="event.preventDefault(); document.querySelector('#features').scrollIntoView({behavior:'smooth'})">Conocer
+                            más</a>
+                    </div>
+                </div>
+            </div>
 
-                    <p class="capsule-desc">
-                        La respuesta que buscas no está en Google, está en tu nómina.
-                        Activa el verdadero potencial de tu equipo y deja de perder dinero hoy mismo.
-                    </p>
+            <!-- Event Card Sidebar (Right - 30%) -->
+            <div class="event-card-sidebar">
+                <div class="event-card-wrapper">
+                    <div class="card-tag">
+                        <span class="status-dot"></span> NUEVO PROGRAMA
+                    </div>
 
-                    <a href="#features" class="capsule-btn-gold"
-                        onclick="event.preventDefault(); document.querySelector('#features').scrollIntoView({behavior:'smooth'})">CONOCER
-                        MÁS</a>
+                    <div class="event-card">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                            alt="Reto de Ingenio" class="card-image">
+
+                        <div class="card-content">
+                            <div class="card-category">TRANSFORMACIÓN</div>
+                            <h3 class="card-title">
+                                <span class="font-serif">Activa</span>
+                                <span class="font-sans">TU EQUIPO</span>
+                            </h3>
+
+                            <div class="btn-glass-watch"
+                                onclick="document.querySelector('#features').scrollIntoView({behavior:'smooth'})">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                VER DETALLES
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <style>
-        /* CAPSULE HERO STYLES */
-        .capsule-hero-section {
+        /* --- TONY ROBBINS HERO VARIABLES --- */
+        :root {
+            --font-primary: 'Montserrat', sans-serif;
+            --color-white: #ffffff;
+            --color-dark: #000000;
+        }
+
+        /* ... (existing styles) ... */
+        .tr-hero-master {
+            position: relative;
             width: 100%;
             min-height: 100vh;
+            background-color: #000000;
+            /* Pure black background */
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: var(--font-primary);
             padding: 30px;
-            background-color: #050505;
         }
 
-        .capsule-hero-wrapper {
+        /* --- CAPSULE WRAPPER (Full viewport container) --- */
+        .tr-capsule-wrapper {
             width: 100%;
-            max-width: 1400px;
-            height: 850px;
+            max-width: 1600px;
+            /* Wider for more impact */
+            height: calc(100vh - 60px);
+            /* Full viewport minus master padding */
             position: relative;
         }
 
-        .capsule-hero-container {
+        /* --- CAPSULE CONTAINER (Rounded border with image background) --- */
+        .tr-capsule-container {
             position: relative;
             width: 100%;
             height: 100%;
             border-radius: 30px;
             overflow: hidden;
-            background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
+            /* Content at bottom like Tony Robbins */
+            justify-content: center;
             box-shadow:
                 0 0 80px rgba(255, 255, 255, 0.15),
-                0 0 120px rgba(197, 160, 89, 0.2),
                 0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
-        .capsule-overlay {
+        /* --- BACKGROUND IMAGE --- */
+        .hero-backdrop {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg,
-                    rgba(0, 0, 0, 0.95) 0%,
-                    rgba(0, 0, 0, 0.8) 35%,
-                    rgba(0, 0, 0, 0.1) 100%);
-            z-index: 1;
+            z-index: 0;
+            background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            /* Desktop image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        .capsule-content {
+        /* Mobile: Different background image */
+        @media (max-width: 992px) {
+            .hero-backdrop {
+                background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+                /* Mobile-specific image */
+            }
+        }
+
+        /* --- GRADIENT OVERLAY (Dark bottom with blue tint - Tony Robbins style) --- */
+        /* --- GRADIENT OVERLAY (Pseudo-element for robust mobile support) --- */
+        .tr-capsule-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    /* Totally transparent at top */
+                    rgba(0, 40, 120, 0.3) 40%,
+                    /* Subtle blue tint start */
+                    rgba(0, 35, 100, 0.8) 75%,
+                    /* Strong blue behind text */
+                    #001540 100%
+                    /* Deep Royal Blue at bottom */
+                );
+            pointer-events: none;
+            /* Allow clicks through */
+        }
+
+        /* --- CENTERED CONTENT (Headline + Button at bottom) --- */
+        .hero-content-center {
             position: relative;
-            z-index: 2;
-            padding-left: 8%;
-            max-width: 750px;
+            z-index: 10;
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            padding: 0 30px 80px;
+            /* Bottom padding like Tony Robbins */
+            color: var(--color-white);
         }
 
-        .capsule-badge {
-            display: inline-block;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #c5a059;
-            border: 1px solid #c5a059;
-            padding: 8px 16px;
-            margin-bottom: 25px;
-            background: rgba(197, 160, 89, 0.1);
-            backdrop-filter: blur(4px);
-            border-radius: 4px;
-        }
-
-        .capsule-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 4.5rem;
-            line-height: 1.1;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            color: #ffffff;
-        }
-
-        .capsule-title span {
-            color: #c5a059;
-            display: block;
-        }
-
-        .capsule-desc {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #d1d1d1;
+        /* --- HEADLINE (Tony Robbins Typography) --- */
+        .hero-headline {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            /* Reduced for cleaner look */
+            font-weight: 800;
+            line-height: 1.05;
+            /* Slightly more open */
+            letter-spacing: -0.02em;
             margin-bottom: 40px;
-            font-weight: 300;
-            max-width: 90%;
-            border-left: 3px solid rgba(255, 255, 255, 0.2);
-            padding-left: 20px;
+            text-transform: none;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
         }
 
-        .capsule-btn-gold {
+        /* --- CTA BUTTON (White pill) --- */
+        .btn-pill-white {
             display: inline-block;
-            background-color: #c5a059;
-            color: #000;
-            text-decoration: none;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
+            background-color: var(--color-white);
+            color: var(--color-dark);
             font-weight: 700;
-            text-transform: uppercase;
-            padding: 18px 45px;
-            border-radius: 4px;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+            font-size: 1rem;
+            padding: 16px 42px;
+            /* Sleeker pill shape */
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
         }
 
-        .capsule-btn-gold:hover {
-            background-color: #e0b461;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.4);
+        .btn-pill-white:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.5);
+            background-color: #f5f5f5;
         }
 
+        /* --- RESPONSIVE: MOBILE --- */
         @media (max-width: 900px) {
-            .capsule-hero-section {
+            .tr-hero-master {
                 padding: 15px;
-                min-height: 100vh;
             }
 
-            .capsule-hero-wrapper {
-                height: auto;
-                min-height: 600px;
+            .tr-capsule-wrapper {
+                height: calc(100vh - 30px);
+                /* Less padding on mobile */
             }
 
-            .capsule-hero-container {
-                flex-direction: column;
-                justify-content: flex-end;
+            .tr-capsule-container {
                 border-radius: 20px;
-                padding-bottom: 60px;
-                padding-top: 200px;
+                /* Slightly less rounded on mobile */
             }
 
-            .capsule-overlay {
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 1) 100%);
+            .hero-content-center {
+                padding: 0 20px 60px;
             }
 
-            .capsule-content {
-                padding-left: 30px;
-                padding-right: 30px;
-                text-align: center;
+            .hero-headline {
+                font-size: clamp(2.2rem, 8vw, 3rem);
+                margin-bottom: 35px;
+                line-height: 1;
+                /* Slightly more breathing room on mobile */
             }
 
-            .capsule-title {
-                font-size: 3rem;
+            .btn-pill-white {
+                width: 100%;
+                /* Full width on mobile */
+                padding: 18px 40px;
+                font-size: 1rem;
             }
 
-            .capsule-desc {
-                border-left: none;
-                padding-left: 0;
-                margin: 0 auto 30px auto;
+            /* More dramatic gradient on mobile for better text contrast */
+            .hero-gradient-overlay {
+                background: linear-gradient(180deg,
+                        rgba(0, 0, 0, 0.2) 0%,
+                        rgba(0, 0, 0, 0.5) 40%,
+                        rgba(0, 0, 0, 0.8) 70%,
+                        rgba(0, 0, 0, 0.95) 100%);
+            }
+        }
+
+        /* ========================================
+           SIDE-BY-SIDE LAYOUT (Tony Robbins Style)
+           ======================================== */
+
+        /* Container that holds Hero + Event Card side-by-side */
+        .tr-hero-with-card-container {
+            max-width: 1600px;
+            width: 100%;
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+            /* Both elements same height */
+        }
+
+        /* Hero Capsule (Left - 70%) */
+        .tr-capsule-wrapper {
+            flex: 0 0 70%;
+            /* 70% of container width */
+        }
+
+        /* Event Card Sidebar (Right - 30%) */
+        .event-card-sidebar {
+            flex: 0 0 calc(30% - 40px);
+            /* 30% minus gap */
+            display: flex;
+            align-items: flex-end;
+            /* Align to bottom like Tony Robbins */
+            padding-bottom: 40px;
+        }
+
+        /* Event Card Wrapper */
+        .event-card-wrapper {
+            width: 100%;
+            max-width: 380px;
+        }
+
+        /* Card Tag (NUEVO PROGRAMA) */
+        .card-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        /* Pulsing Green Dot */
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00d084;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00d084;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Event Card */
+        .event-card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/10;
+            border-radius: 30px;
+            /* Premium rounded corners */
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-card img,
+        .event-card video.card-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .event-card:hover img,
+        .event-card:hover video.card-video {
+            transform: scale(1.05);
+        }
+
+        /* Overlay Gradient for Text Readability - Updated for Video */
+        .event-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            /* darker overlay: 0.3 at top, 0.5 center, 0.9 bottom */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.9) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Card Content Container */
+        .card-content {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Category (Small top text) */
+        .card-category {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ffffff;
+            /* Pure white, no opacity */
+            margin-bottom: 5px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Title (Editorial Poster Style) */
+        .card-title {
+            margin: 0;
+            color: #ffffff;
+            /* Pure white */
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 3rem);
+            /* Larger */
+            font-weight: 900;
+            font-style: italic;
+            /* Editorial flair */
+            line-height: 0.85;
+            letter-spacing: -0.02em;
+        }
+
+        .font-sans {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            font-weight: 800;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            /* Wider spacing for contrast */
+        }
+
+        /* Giant Glassmorphism Watch Button */
+        .btn-glass-watch {
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 14px 32px;
+            /* Giant padding */
+            border-radius: 100px;
+            color: white;
+            font-size: 1.1rem;
+            /* Larger text */
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+        }
+
+        .btn-glass-watch:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-glass-watch svg {
+            width: 18px;
+            /* Larger icon */
+            height: 18px;
+            fill: white;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        /* ========================================
+           MOBILE: Vertical Stack Layout
+           ======================================== */
+        @media (max-width: 992px) {
+            .tr-hero-with-card-container {
+                flex-direction: column;
+                /* Stack vertically on mobile */
+                gap: 40px;
+            }
+
+            .tr-capsule-wrapper {
+                flex: 1;
+                width: 100%;
+            }
+
+            .event-card-sidebar {
+                flex: none;
+                width: 100%;
+                align-items: center;
+                /* Center on mobile */
+                padding-bottom: 0;
+            }
+
+            .event-card-wrapper {
+                max-width: 400px;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Extra small screens - hide header CTA */
+        @media (max-width: 400px) {
+            .tr-header-cta {
+                display: none;
             }
         }
     </style>
