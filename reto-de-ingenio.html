@@ -251,307 +251,199 @@
         }
     </style>
 
-    \u003c!-- Hero Section: Hermanos Separados (Improved Structure) --\u003e
-    \u003clink rel="preconnect" href="https://fonts.googleapis.com"\u003e
-    \u003clink rel="preconnect" href="https://fonts.gstatic.com" crossorigin\u003e
-    \u003clink
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap"
-    rel="stylesheet"\u003e
+    \u003c <!-- Hero Section: Hermanos Separados (Improved Structure) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap"
+        rel="stylesheet">
 
-    \u003csection id="hero" class="tr-layout-master"\u003e
+    <section id="hero" class="tr-layout-master">
 
-    \u003cdiv class="tr-hero-capsule"\u003e
-    \u003cdiv class="hero-bg-layer" style="background-image:
-    url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"\u003e\u003c/div\u003e
-    \u003cdiv class="hero-overlay-gradient"\u003e\u003c/div\u003e
+        <div class="tr-hero-capsule">
+            <div class="hero-bg-layer"
+                style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+            </div>
+            <div class="hero-overlay-gradient"></div>
 
-    \u003cdiv class="hero-text-content"\u003e
-    \u003ch1 class="hero-headline"\u003e
-    El Reto de\u003cbr\u003eIngenio: 21 Días
-    \u003c/h1\u003e
-    \u003cdiv class="hero-actions"\u003e
-    \u003ca href="#features" class="btn-hero-white" onclick="event.preventDefault();
-    document.querySelector('#features').scrollIntoView({behavior:'smooth'})"\u003eConocer más\u003c/a\u003e
-    \u003c/div\u003e
-    \u003c/div\u003e
-    \u003c/div\u003e
+            <div class="hero-text-content">
+                <h1 class="hero-headline">
+                    El Reto de<br>Ingenio: 21 Días
+                </h1>
+                <div class="hero-actions">
+                    <a href="#features" class="btn-hero-white"
+                        onclick="event.preventDefault(); document.querySelector('#features').scrollIntoView({behavior:'smooth'})">Conocer
+                        más</a>
+                </div>
+            </div>
+        </div>
 
-    \u003cdiv class="tr-floating-card-section"\u003e
+        <div class="tr-floating-card-section">
 
-    \u003cdiv class="event-status-row"\u003e
-    \u003cspan class="status-dot"\u003e\u003c/span\u003e
-    \u003cspan class="status-text"\u003eNUEVO PROGRAMA\u003c/span\u003e
-    \u003c/div\u003e
+            <div class="event-status-row">
+                <span class="status-dot"></span>
+                <span class="status-text">NUEVO PROGRAMA</span>
+            </div>
 
-    \u003cdiv class="glass-video-card"\u003e
-    \u003cdiv class="card-media-static"\u003e
-    \u003cimg
-    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-    alt="Metodología FACE" style="width:100%; height:100%; object-fit:cover;"\u003e
-    \u003cdiv class="video-gradient"\u003e\u003c/div\u003e
-    \u003c/div\u003e
+            <div class="glass-video-card">
+                <div class="card-media-wrapper">
+                    <video autoplay loop muted playsinline poster="assets/images/reto-innova.jpg" class="media-element">
+                        <source src="assets/video/reto-innova.mp4" type="video/mp4">
+                    </video>
 
-    \u003cdiv class="card-info"\u003e
-    \u003ch3 class="card-brand"\u003e
-    \u003cspan class="serif-part"\u003eActiva\u003c/span\u003e
-    \u003cspan class="sans-part"\u003eTU EQUIPO\u003c/span\u003e
-    \u003c/h3\u003e
+                    <div class="video-gradient"></div>
+                </div>
 
-    \u003cbutton class="btn-glass-watch"
-    onclick="document.querySelector('#features').scrollIntoView({behavior:'smooth'})"\u003e
-    \u003cdiv class="icon-circle"\u003e
-    \u003csvg viewBox="0 0 24 24" fill="currentColor"\u003e\u003cpath d="M8 5v14l11-7z"/\u003e\u003c/svg\u003e
-    \u003c/div\u003e
-    VER DETALLES
-    \u003c/button\u003e
-    \u003c/div\u003e
-    \u003c/div\u003e
-    \u003c/div\u003e
+                <div class="card-info">
+                    <h3 class="card-brand">
+                        <span class="serif-part">Activa</span>
+                        <span class="sans-part">TU EQUIPO</span>
+                    </h3>
 
-    \u003c/section\u003e
+                    <button class="btn-glass-watch"
+                        onclick="document.querySelector('#features').scrollIntoView({behavior:'smooth'})">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        VER DETALLES
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
     <style>
-        /* --- TONY ROBBINS HERO VARIABLES --- */
+        /* --- VARIABLES --- */
         :root {
-            --font-primary: 'Montserrat', sans-serif;
-            --color-white: #ffffff;
-            --color-dark: #000000;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --hero-mobile-height: calc(100vh - 30px);
+            --page-bg: #000000;
         }
 
-        /* ... (existing styles) ... */
-        .tr-hero-master {
+        /* 1. CONTENEDOR MAESTRO */
+        .tr-layout-master {
             position: relative;
             width: 100%;
-            min-height: 100vh;
-            background-color: #000000;
-            /* Pure black background */
+            background-color: var(--page-bg);
+            padding: 15px;
+            overflow: hidden;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-primary);
-            padding: 30px;
+            flex-direction: column;
         }
 
-        /* --- CAPSULE WRAPPER (Full viewport container) --- */
-        .tr-capsule-wrapper {
-            width: 100%;
-            max-width: 1600px;
-            /* Wider for more impact */
-            height: calc(100vh - 60px);
-            /* Full viewport minus master padding */
-            position: relative;
-        }
-
-        /* --- CAPSULE CONTAINER (Rounded border with image background) --- */
-        .tr-capsule-container {
+        /* =========================================
+           BLOQUE 1: HERO CAPSULE (BANNER)
+           ========================================= */
+        .tr-hero-capsule {
             position: relative;
             width: 100%;
-            height: 100%;
-            border-radius: 30px;
+            height: var(--hero-mobile-height);
+            border-radius: 24px;
             overflow: hidden;
             display: flex;
             align-items: flex-end;
-            /* Content at bottom like Tony Robbins */
             justify-content: center;
-            box-shadow:
-                0 0 80px rgba(255, 255, 255, 0.15),
-                0 20px 60px rgba(0, 0, 0, 0.6);
+            margin-bottom: 40px;
+            /* Separación en Móvil */
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
         }
 
-        /* --- BACKGROUND IMAGE --- */
-        .hero-backdrop {
+        .hero-bg-layer {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            /* Desktop image */
+            inset: 0;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            z-index: 0;
         }
 
-        /* Mobile: Different background image */
-        @media (max-width: 992px) {
-            .hero-backdrop {
-                background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-                /* Mobile-specific image */
-            }
-        }
-
-        /* --- GRADIENT OVERLAY (Dark bottom with blue tint - Tony Robbins style) --- */
-        /* --- GRADIENT OVERLAY (Pseudo-element for robust mobile support) --- */
-        .tr-capsule-container::after {
-            content: '';
+        .hero-overlay-gradient {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 5;
+            inset: 0;
+            z-index: 1;
             background: linear-gradient(180deg,
                     rgba(0, 0, 0, 0) 0%,
-                    /* Totally transparent at top */
-                    rgba(0, 40, 120, 0.3) 40%,
-                    /* Subtle blue tint start */
-                    rgba(0, 35, 100, 0.8) 75%,
-                    /* Strong blue behind text */
-                    #001540 100%
-                    /* Deep Royal Blue at bottom */
-                );
-            pointer-events: none;
-            /* Allow clicks through */
+                    rgba(0, 20, 70, 0.4) 50%,
+                    rgba(0, 30, 100, 0.8) 85%,
+                    #000000 100%);
         }
 
-        /* --- CENTERED CONTENT (Headline + Button at bottom) --- */
-        .hero-content-center {
+        .hero-text-content {
             position: relative;
             z-index: 10;
             width: 100%;
-            max-width: 900px;
+            padding: 30px 20px 60px;
             text-align: center;
-            padding: 0 30px 80px;
-            /* Bottom padding like Tony Robbins */
-            color: var(--color-white);
         }
 
-        /* --- HEADLINE (Tony Robbins Typography) --- */
         .hero-headline {
-            font-size: clamp(2.5rem, 5vw, 4.2rem);
-            /* Reduced for cleaner look */
+            font-family: var(--font-sans);
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
             font-weight: 800;
-            line-height: 1.05;
-            /* Slightly more open */
-            letter-spacing: -0.02em;
-            margin-bottom: 40px;
-            text-transform: none;
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
-        /* --- CTA BUTTON (White pill) --- */
-        .btn-pill-white {
+        .btn-hero-white {
             display: inline-block;
-            background-color: var(--color-white);
-            color: var(--color-dark);
+            padding: 16px 40px;
+            background: #fff;
+            color: #000;
+            font-family: var(--font-sans);
             font-weight: 700;
             font-size: 1rem;
-            padding: 16px 42px;
-            /* Sleeker pill shape */
             border-radius: 100px;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
         }
 
-        .btn-pill-white:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.5);
-            background-color: #f5f5f5;
+        .btn-hero-white:hover {
+            transform: scale(1.05) translateY(-2px);
         }
 
-        /* --- RESPONSIVE: MOBILE --- */
-        @media (max-width: 900px) {
-            .tr-hero-master {
-                padding: 15px;
-            }
-
-            .tr-capsule-wrapper {
-                height: calc(100vh - 30px);
-                /* Less padding on mobile */
-            }
-
-            .tr-capsule-container {
-                border-radius: 20px;
-                /* Slightly less rounded on mobile */
-            }
-
-            .hero-content-center {
-                padding: 0 20px 60px;
-            }
-
-            .hero-headline {
-                font-size: clamp(2.2rem, 8vw, 3rem);
-                margin-bottom: 35px;
-                line-height: 1;
-                /* Slightly more breathing room on mobile */
-            }
-
-            .btn-pill-white {
-                width: 100%;
-                /* Full width on mobile */
-                padding: 18px 40px;
-                font-size: 1rem;
-            }
-
-            /* More dramatic gradient on mobile for better text contrast */
-            .hero-gradient-overlay {
-                background: linear-gradient(180deg,
-                        rgba(0, 0, 0, 0.2) 0%,
-                        rgba(0, 0, 0, 0.5) 40%,
-                        rgba(0, 0, 0, 0.8) 70%,
-                        rgba(0, 0, 0, 0.95) 100%);
-            }
-        }
-
-        /* ========================================
-           SIDE-BY-SIDE LAYOUT (Tony Robbins Style)
-           ======================================== */
-
-        /* Container that holds Hero + Event Card side-by-side */
-        .tr-hero-with-card-container {
-            max-width: 1600px;
+        /* =========================================
+           BLOQUE 2: TARJETA (MÓVIL SEPARADO)
+           ========================================= */
+        .tr-floating-card-section {
+            position: relative;
             width: 100%;
-            display: flex;
-            gap: 40px;
-            align-items: stretch;
-            /* Both elements same height */
+            padding: 0 5px;
+            z-index: 5;
         }
 
-        /* Hero Capsule (Left - 70%) */
-        .tr-capsule-wrapper {
-            flex: 0 0 70%;
-            /* 70% of container width */
-        }
-
-        /* Event Card Sidebar (Right - 30%) */
-        .event-card-sidebar {
-            flex: 0 0 calc(30% - 40px);
-            /* 30% minus gap */
-            display: flex;
-            align-items: flex-end;
-            /* Align to bottom like Tony Robbins */
-            padding-bottom: 40px;
-        }
-
-        /* Event Card Wrapper */
-        .event-card-wrapper {
-            width: 100%;
-            max-width: 380px;
-        }
-
-        /* Card Tag (NUEVO PROGRAMA) */
-        .card-tag {
+        /* Etiqueta Superior */
+        .event-status-row {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #ffffff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
+            margin-bottom: 15px;
+            padding-left: 5px;
+            justify-content: flex-start;
         }
 
-        /* Pulsing Green Dot */
         .status-dot {
             width: 8px;
             height: 8px;
-            background-color: #00d084;
+            background: #00ff66;
             border-radius: 50%;
-            box-shadow: 0 0 10px #00d084;
+            box-shadow: 0 0 10px #00ff66;
             animation: pulse 2s infinite;
+        }
+
+        .status-text {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         @keyframes pulse {
@@ -566,185 +458,182 @@
             }
         }
 
-        /* Event Card */
-        .event-card {
+        /* Tarjeta de Video */
+        .glass-video-card {
             position: relative;
             width: 100%;
-            aspect-ratio: 16/10;
-            border-radius: 30px;
-            /* Premium rounded corners */
+            height: 240px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            background: #111;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
-        .event-card:hover {
-            transform: translateY(-5px);
+        .card-media-wrapper {
+            position: absolute;
+            inset: 0;
         }
 
-        .event-card img,
-        .event-card video.card-video {
+        .media-element {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 0;
         }
 
-        .event-card:hover img,
-        .event-card:hover video.card-video {
-            transform: scale(1.05);
-        }
-
-        /* Overlay Gradient for Text Readability - Updated for Video */
-        .event-card::after {
-            content: '';
+        .video-gradient {
             position: absolute;
             inset: 0;
-            /* darker overlay: 0.3 at top, 0.5 center, 0.9 bottom */
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.9) 100%);
-            z-index: 1;
-            pointer-events: none;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
         }
 
-        /* Card Content Container */
-        .card-content {
+        .card-info {
             position: absolute;
             inset: 0;
-            z-index: 2;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
-            text-align: center;
+            align-items: flex-start;
         }
 
-        /* Category (Small top text) */
-        .card-category {
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #ffffff;
-            /* Pure white, no opacity */
-            margin-bottom: 5px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Title (Editorial Poster Style) */
-        .card-title {
-            margin: 0;
-            color: #ffffff;
-            /* Pure white */
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+        .card-brand {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 2px;
-        }
-
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 3rem);
-            /* Larger */
-            font-weight: 900;
-            font-style: italic;
-            /* Editorial flair */
-            line-height: 0.85;
-            letter-spacing: -0.02em;
-        }
-
-        .font-sans {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(1.4rem, 4vw, 1.8rem);
-            font-weight: 800;
-            line-height: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            /* Wider spacing for contrast */
-        }
-
-        /* Giant Glassmorphism Watch Button */
-        .btn-glass-watch {
-            position: absolute;
-            bottom: 25px;
-            right: 25px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 14px 32px;
-            /* Giant padding */
-            border-radius: 100px;
             color: white;
-            font-size: 1.1rem;
-            /* Larger text */
-            font-weight: 700;
-            letter-spacing: 1px;
+            line-height: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .serif-part {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 900;
+            font-size: 1.8rem;
+        }
+
+        .sans-part {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            color: #ddd;
+        }
+
+        .btn-glass-watch {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 5px 16px 5px 5px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            text-transform: uppercase;
+            transition: 0.3s;
         }
 
         .btn-glass-watch:hover {
-            background: rgba(255, 255, 255, 0.35);
-            transform: scale(1.08) translateY(-2px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.3);
         }
 
-        .btn-glass-watch svg {
-            width: 18px;
-            /* Larger icon */
-            height: 18px;
-            fill: white;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        .icon-circle {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
         }
 
-        /* ========================================
-           MOBILE: Vertical Stack Layout
-           ======================================== */
-        @media (max-width: 992px) {
-            .tr-hero-with-card-container {
-                flex-direction: column;
-                /* Stack vertically on mobile */
-                gap: 40px;
+        .icon-circle svg {
+            width: 12px;
+            height: 12px;
+            margin-left: 2px;
+        }
+
+        /* =========================================================
+           DESKTOP TRANSFORMATION (AQUÍ UNIMOS TODO) - Min-width 992px
+           ========================================================= */
+        @media (min-width: 992px) {
+
+            .tr-layout-master {
+                padding: 0;
+                height: 100vh;
+                min-height: 700px;
+                display: block;
             }
 
-            .tr-capsule-wrapper {
-                flex: 1;
+            /* 1. HERO EXPANSIVO */
+            .tr-hero-capsule {
                 width: 100%;
-            }
-
-            .event-card-sidebar {
-                flex: none;
-                width: 100%;
+                height: 100%;
+                margin-bottom: 0;
+                border-radius: 0;
                 align-items: center;
-                /* Center on mobile */
-                padding-bottom: 0;
+                justify-content: flex-start;
+                text-align: left;
             }
 
-            .event-card-wrapper {
-                max-width: 400px;
+            /* Gradiente lateral para Desktop */
+            .hero-overlay-gradient {
+                background: radial-gradient(circle at 70% 50%, transparent 0%, rgba(0, 0, 0, 0.8) 100%),
+                    linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
             }
 
-            .card-title {
-                font-size: 1.3rem;
+            .hero-text-content {
+                max-width: 700px;
+                padding-left: 6vw;
+                text-align: left;
             }
-        }
 
-        /* Extra small screens - hide header CTA */
-        @media (max-width: 400px) {
-            .tr-header-cta {
-                display: none;
+            .hero-headline {
+                font-size: clamp(3.5rem, 5.5vw, 5.5rem);
+                letter-spacing: -0.04em;
+                line-height: 0.95;
+            }
+
+            /* 2. TARJETA FLOTANTE (ABSOLUTA) */
+            .tr-floating-card-section {
+                position: absolute;
+                bottom: 50px;
+                right: 50px;
+                width: 380px;
+                padding: 0;
+                z-index: 20;
+            }
+
+            .event-status-row {
+                justify-content: flex-end;
+                margin-right: 5px;
+            }
+
+            .glass-video-card {
+                height: 240px;
+                border-radius: 28px;
+                box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+                transition: transform 0.4s ease;
+            }
+
+            .glass-video-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .card-info {
+                align-items: flex-start;
+                justify-content: flex-end;
+            }
+
+            .serif-part {
+                font-size: 2rem;
+            }
+
+            .sans-part {
+                font-size: 1.1rem;
             }
         }
     </style>
