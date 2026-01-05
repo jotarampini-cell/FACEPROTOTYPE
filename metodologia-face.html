@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description"
+        content="Reto de Ingenio - Programa de transformación organizacional FACE. Desbloquea el potencial innovador de tu equipo en 30 días.">
+    <meta name="theme-color" content="#0066FF">
+    <title>Reto de Ingenio - FACE Innovation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Oswald:wght@500;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="premium-menu.css">
+</head>
+
+<body>
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress" class="reading-progress"></div>
+
+    <!-- Header -->
+    <!-- Global Header & Menu (Injected by JS) -->
+    <!-- See menu.js for source -->
+
+    <style>
+        /* PREMIUM MOBILE MENU - TONY ROBBINS EXACT */
+        .tr-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            height: 80px;
+            background-color: #000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .tr-menu-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff !important;
+            letter-spacing: 2px;
+        }
+
+        .tr-header-cta {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .tr-header-cta:hover {
+            background-color: #f5f5f5;
+        }
+
+        .tr-menu-close {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .tr-menu-close:hover {
+            transform: scale(1.1);
+        }
+
+        .tr-menu-close svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .tr-mobile-list {
+            list-style: none;
+            padding: 20px 24px !important;
+            margin: 0;
+            flex-grow: 1;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .tr-mobile-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tr-menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0 !important;
+            min-height: auto;
+            border-bottom: none !important;
+            cursor: pointer;
+            position: relative;
+            flex-wrap: wrap;
+            transition: background-color 0.2s ease;
+        }
+
+        .tr-menu-item a {
+            color: white !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 400 !important;
+            text-decoration: none !important;
+            flex-grow: 1;
+            text-transform: none !important;
+            letter-spacing: -0.01em;
+            text-align: left !important;
+            line-height: 1.2 !important;
+            padding: 0 !important;
+        }
+
+        .menu-parent-link {
+            display: block !important;
+            justify-content: flex-start !important;
+            text-align: left !important;
+        }
+
+        .chevron-icon {
+            width: 20px !important;
+            height: 20px !important;
+            color: white;
+            opacity: 0.6 !important;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, opacity 0.2s ease;
+            margin-left: auto;
+        }
+
+        .menu-parent.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        .tr-menu-item:hover .chevron-icon {
+            opacity: 0.9;
+        }
+
+        .tr-submenu {
+            list-style: none;
+            padding-left: 20px;
+            margin: 16px 0 0 0;
+            display: none;
+            width: 100%;
+        }
+
+        .tr-submenu.active {
+            display: block;
+        }
+
+        .tr-submenu li {
+            padding: 14px 0 !important;
+            border-bottom: none !important;
+        }
+
+        .tr-submenu a {
+            font-size: 0.9rem !important;
+            font-weight: 300 !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+            text-align: left !important;
+            display: block !important;
+            line-height: 1.2 !important;
+        }
+
+        .menu-arrow {
+            display: none;
+        }
+
+        .tr-menu-footer {
+            padding: 30px 20px 40px !important;
+            display: flex;
+            gap: 16px;
+            background-color: #000;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
+        }
+
+        .tr-btn-primary {
+            flex: 1;
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 18px 0 !important;
+            border-radius: 50px !important;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem !important;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .tr-btn-secondary {
+            flex: 1;
+            background-color: #1a1a1a !important;
+            color: #ffffff;
+            text-align: center;
+            padding: 18px 0 !important;
+            border-radius: 50px !important;
+            border: none !important;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem !important;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+        }
+
+        .tr-menu-item:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        .tr-btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+        }
+
+        .tr-btn-secondary:hover {
+            background-color: #2a2a2a !important;
+        }
+
+        .fullscreen-menu {
+            background-color: #000000 !important;
+            width: 100% !important;
+        }
+
+        .fullscreen-menu nav {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100vh !important;
+            background-color: #000000 !important;
+            width: 100% !important;
+        }
+    </style>
+
+    <!-- Hero Section: Hermanos Separados (Improved Structure) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+
+    <section id="hero" class="tr-layout-master">
+
+        <div class="tr-hero-capsule">
+            <div class="hero-bg-layer"
+                style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+            </div>
+            <div class="hero-overlay-gradient"></div>
+
+            <div class="hero-text-content">
+                <h1 class="hero-headline">
+                    Metodología FACE
+                </h1>
+                <div class="hero-actions">
+                    <a href="#features" class="btn-hero-white"
+                        onclick="event.preventDefault(); document.querySelector('#features').scrollIntoView({behavior:'smooth'})">Conocer
+                        más</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tr-floating-card-section">
+
+            <div class="event-status-row">
+                <span class="status-dot"></span>
+                <span class="status-text">NUEVO PROGRAMA</span>
+            </div>
+
+            <div class="glass-video-card">
+                <div class="card-media-wrapper">
+                    <video autoplay loop muted playsinline poster="assets/images/reto-innova.jpg" class="media-element">
+                        <source src="assets/video/reto-innova.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="video-gradient"></div>
+                </div>
+
+                <div class="card-info">
+                    <h3 class="card-brand">
+                        <span class="serif-part">Activa</span>
+                        <span class="sans-part">TU EQUIPO</span>
+                    </h3>
+
+                    <button class="btn-glass-watch"
+                        onclick="document.querySelector('#features').scrollIntoView({behavior:'smooth'})">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        VER DETALLES
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --hero-mobile-height: calc(100vh - 30px);
+            --page-bg: #000000;
+        }
+
+        /* 1. CONTENEDOR MAESTRO */
+        .tr-layout-master {
+            position: relative;
+            width: 100%;
+            background-color: var(--page-bg);
+            padding: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========================================
+           BLOQUE 1: HERO CAPSULE (BANNER)
+           ========================================= */
+        .tr-hero-capsule {
+            position: relative;
+            width: 100%;
+            height: var(--hero-mobile-height);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            margin-bottom: 40px;
+            /* Separación en Móvil */
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-bg-layer {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .hero-overlay-gradient {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 20, 70, 0.4) 50%,
+                    rgba(0, 30, 100, 0.8) 85%,
+                    #000000 100%);
+        }
+
+        .hero-text-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            padding: 30px 20px 60px;
+            text-align: center;
+        }
+
+        .hero-headline {
+            font-family: var(--font-sans);
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-hero-white {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #fff;
+            color: #000;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 100px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .btn-hero-white:hover {
+            transform: scale(1.05) translateY(-2px);
+        }
+
+        /* =========================================
+           BLOQUE 2: TARJETA (MÓVIL SEPARADO)
+           ========================================= */
+        .tr-floating-card-section {
+            position: relative;
+            width: 100%;
+            padding: 0 5px;
+            z-index: 5;
+        }
+
+        /* Etiqueta Superior */
+        .event-status-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            padding-left: 5px;
+            justify-content: flex-start;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff66;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff66;
+            animation: pulse 2s infinite;
+        }
+
+        .status-text {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Tarjeta de Video */
+        .glass-video-card {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #111;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-media-wrapper {
+            position: absolute;
+            inset: 0;
+        }
+
+        .media-element {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+        }
+
+        .card-info {
+            position: absolute;
+            inset: 0;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .card-brand {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            line-height: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .serif-part {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 900;
+            font-size: 1.8rem;
+        }
+
+        .sans-part {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            color: #ddd;
+        }
+
+        .btn-glass-watch {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 5px 16px 5px 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-glass-watch:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .icon-circle {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+        }
+
+        .icon-circle svg {
+            width: 12px;
+            height: 12px;
+            margin-left: 2px;
+        }
+
+        /* =========================================================
+           DESKTOP TRANSFORMATION (AQUÍ UNIMOS TODO) - Min-width 992px
+           ========================================================= */
+        @media (min-width: 992px) {
+
+            .tr-layout-master {
+                padding: 0;
+                height: 100vh;
+                min-height: 700px;
+                display: block;
+            }
+
+            /* 1. HERO EXPANSIVO */
+            .tr-hero-capsule {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 0;
+                border-radius: 0;
+                align-items: center;
+                justify-content: flex-start;
+                text-align: left;
+            }
+
+            /* Gradiente lateral para Desktop */
+            .hero-overlay-gradient {
+                background: radial-gradient(circle at 70% 50%, transparent 0%, rgba(0, 0, 0, 0.8) 100%),
+                    linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
+            }
+
+            .hero-text-content {
+                max-width: 700px;
+                padding-left: 6vw;
+                text-align: left;
+            }
+
+            .hero-headline {
+                font-size: clamp(3.5rem, 5.5vw, 5.5rem);
+                letter-spacing: -0.04em;
+                line-height: 0.95;
+            }
+
+            /* 2. TARJETA FLOTANTE (ABSOLUTA) */
+            .tr-floating-card-section {
+                position: absolute;
+                bottom: 50px;
+                right: 50px;
+                width: 380px;
+                padding: 0;
+                z-index: 20;
+            }
+
+            .event-status-row {
+                justify-content: flex-end;
+                margin-right: 5px;
+            }
+
+            .glass-video-card {
+                height: 240px;
+                border-radius: 28px;
+                box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+                transition: transform 0.4s ease;
+            }
+
+            .glass-video-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .card-info {
+                align-items: flex-start;
+                justify-content: flex-end;
+            }
+
+            .serif-part {
+                font-size: 2rem;
+            }
+
+            .sans-part {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+
+    <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
+    <section class="tr-manifesto-section" id="manifesto">
+        <div class="tr-container">
+            <!-- Subtitle removed as requested -->
+            <h2 class="tr-gold-title text-center">11 Principios de la Innovación F.A.C.E</h2>
+
+            <div class="manifesto-grid">
+                <!-- Card 01 -->
+                <div class="manifesto-card active" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">01</span>
+                        <h3 class="card-title">Propósito sobre Transacción</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>Buscamos la felicidad del cliente como nuestra verdadera razón de ser; las ganancias
+                                fluyen como resultado natural.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 02 -->
+                <div class="manifesto-card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">02</span>
+                        <h3 class="card-title">Adaptación sobre Invención</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>Valoramos la maestría de adaptar y optimizar lo existente por encima de la búsqueda de la
+                                originalidad radical.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 03 -->
+                <div class="manifesto-card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">03</span>
+                        <h3 class="card-title">La Gente sobre el Proceso</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>Construimos organizaciones que forjan mejores ciudadanos, no solo empleados eficientes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 04 -->
+                <div class="manifesto-card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">04</span>
+                        <h3 class="card-title">Resiliencia sobre Resignación</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>Transformamos los desafíos de nuestro entorno en nuestra mayor ventaja competitiva.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 05 -->
+                <div class="manifesto-card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">05</span>
+                        <h3 class="card-title">Mejora Continua</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>Abrazamos el Kaizen como forma de vida, perfeccionando constantemente modelos, productos
+                                y servicios.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 06 -->
+                <div class="manifesto-card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">06</span>
+                        <h3 class="card-title">Valor Compartido</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>Integramos lo social en el núcleo del negocio. El éxito económico y el progreso social se
+                                impulsan mutuamente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 07 -->
+                <div class="manifesto-card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">07</span>
+                        <h3 class="card-title">Visión a Largo Plazo</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>Cada decisión diaria se alinea con la Venezuela que queremos construir en las próximas
+                                décadas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 08 -->
+                <div class="manifesto-card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">08</span>
+                        <h3 class="card-title">Confianza sobre Control</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>Fomentamos un ambiente donde el error es una oportunidad de aprendizaje, no un motivo de
+                                castigo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 09 -->
+                <div class="manifesto-card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">09</span>
+                        <h3 class="card-title">Disponibilidad para Aprender</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>La disposición al aprendizaje es la cualidad más valiosa en cualquier colaborador de
+                                nuestra organización.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="manifesto-card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">10</span>
+                        <h3 class="card-title">Colaboración Estratégica</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>Creemos en construir ecosistemas donde el éxito de uno contribuye al progreso de todos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="manifesto-card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <span class="card-number">11</span>
+                        <h3 class="card-title">Construcción de País</h3>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="manifesto-body">
+                        <div class="body-inner">
+                            <p>Medimos nuestro éxito por el impacto positivo que generamos en el tejido social de
+                                Venezuela.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: The Cycle (F-A-E) - Dark Robbins -->
+    <section class="tr-cycle-immersive">
+        <div class="tr-glow-bg"></div>
+        <div class="tr-container relative">
+            <div class="tr-text-center mb-60">
+                <h4 class="tr-badge-gold">EL MOTOR DE LA INNOVACIÓN</h4>
+                <h2 class="tr-title-impact">El Ciclo del <span class="tr-italic-gold">Ingenio</span></h2>
+            </div>
+
+            <div class="tr-steps-wrapper">
+                <div class="tr-step-floating" data-step="F">
+                    <div class="step-card-inner">
+                        <span class="step-letter">F</span>
+                        <h3>Foco</h3>
+                        <p>Partimos de un dolor real y concreto. Sin claridad no hay avance.</p>
+                    </div>
+                </div>
+
+                <div class="tr-step-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </div>
+
+                <div class="tr-step-floating" data-step="A">
+                    <div class="step-card-inner">
+                        <span class="step-letter">A</span>
+                        <h3>Adaptación</h3>
+                        <p>Observamos el mundo y adaptamos con ingenio local al contexto venezolano.</p>
+                    </div>
+                </div>
+
+                <div class="tr-step-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </div>
+
+                <div class="tr-step-floating" data-step="E">
+                    <div class="step-card-inner">
+                        <span class="step-letter">E</span>
+                        <h3>Ejecución</h3>
+                        <p>Medimos, aprendemos y perfeccionamos a máxima velocidad operativa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: The Foundation (Culture) - White Block -->
+    <section class="tr-foundation-light">
+        <div class="tr-container flex-row-center">
+            <div class="tr-foundation-visual">
+                <span class="giant-letter-gold">C</span>
+            </div>
+            <div class="tr-foundation-content">
+                <h2 class="tr-section-title-dark">La Cultura es el <span class="tr-italic-dark">Cimiento</span></h2>
+                <p class="tr-description-dark">
+                    Sin una cultura que celebre la creatividad y el ingenio, los pasos de Foco, Adaptación y Ejecución
+                    no pueden prosperar. Es la fuerza invisible que sostiene todo el proceso.
+                </p>
+                <div class="tr-cta-wrapper">
+                    <button class="tr-btn-blue">DESCUBRE CÓMO TRANSFORMAR TU ADN</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Split Innovation (Mobile-First) -->
+    <section class="tr-split-innovation">
+        <div class="tr-split-wrapper">
+
+            <div class="tr-split-visual">
+                <div class="tr-visual-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80"
+                    alt="Ingenio" class="tr-img-fluid">
+                <div class="tr-floating-badge desktop-only">
+                    <span class="badge-num">100%</span>
+                    <span class="badge-txt">INGENIO <br>ACTIVO</span>
+                </div>
+            </div>
+
+            <div class="tr-split-text">
+                <div class="tr-text-container">
+                    <h4 class="tr-gold-tag" style="color: #ffffff;">EL MÉTODO F.A.C.E</h4>
+                    <h2 class="tr-main-headline">
+                        ESTRUCTURA PARA <br>
+                        <span class="tr-italic-gold">tu instinto</span>
+                    </h2>
+
+                    <div class="tr-copy">
+                        <p class="tr-lead-text">
+                            FACE nace de una verdad sencilla: <strong>El empresario venezolano ya está
+                                innovando</strong>,
+                            pero lo hace de manera informal.
+                        </p>
+                        <p class="tr-body-text">
+                            Creamos FACE para darle estructura a ese instinto. Es una metodología diseñada para que la
+                            innovación deje de ser un dolor de cabeza y se convierta en un proceso divertido y lógico.
+                        </p>
+
+                        <div class="tr-how-block">
+                            <h3 class="tr-how-title" style="color: #ffffff;">¿CÓMO FUNCIONA?</h3>
+                            <p class="tr-body-text">
+                                En lugar de buscar ideas abstractas, partimos de un <strong>dolor real</strong>.
+                                Adaptamos
+                                soluciones globales al contexto venezolano con agilidad.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tr-action-area">
+                        <button class="tr-btn-blue-full">EMPIEZA EL CAMBIO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section - Videos -->
+    <section id="education" class="education tr-education-section">
+        <div class="education-container">
+            <h4 class="tr-badge text-center">ACELERADOR DE RESULTADOS</h4>
+            <h2 class="section-title">NO INVENTES LA RUEDA. <span class="tr-italic-gold">ADÁPTALA.</span></h2>
+            <p class="section-subtitle">El empresario venezolano no necesita más teoría. Necesita FACE: El sistema
+                táctico para convertir la incertidumbre en rentabilidad inmediata.</p>
+
+            <div class="tr-experience-grid">
+                <!-- Card 1 -->
+                <div class="tr-experience-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80');">
+                    <div class="tr-card-overlay">
+                        <span class="tr-card-tag">● ENTRENAMIENTO EXCLUSIVO</span>
+                        <div class="tr-card-content">
+                            <h3>EL COSTO DE LA INACCIÓN</h3>
+                            <p>Por qué tu modelo actual está obsoleto.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="tr-card-btn">DESBLOQUEAR</button>
+                            <div class="tr-card-badge">
+                                <span class="badge-mini">MÉTODO</span>
+                                <span class="badge-main">FACE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="tr-experience-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80');">
+                    <div class="tr-card-overlay">
+                        <span class="tr-card-tag">● ENTRENAMIENTO EXCLUSIVO</span>
+                        <div class="tr-card-content">
+                            <h3>ADAPTACIÓN RADICAL</h3>
+                            <p>Hackeando la crisis venezolana.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="tr-card-btn">DESBLOQUEAR</button>
+                            <div class="tr-card-badge">
+                                <span class="badge-mini">MÉTODO</span>
+                                <span class="badge-main">FACE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="tr-experience-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80');">
+                    <div class="tr-card-overlay">
+                        <span class="tr-card-tag">● ENTRENAMIENTO EXCLUSIVO</span>
+                        <div class="tr-card-content">
+                            <h3>SISTEMA FACE</h3>
+                            <p>La hoja de ruta para la ejecución.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="tr-card-btn">DESBLOQUEAR</button>
+                            <div class="tr-card-badge">
+                                <span class="badge-mini">MÉTODO</span>
+                                <span class="badge-main">FACE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historic Acceleration Section (Disruption Data) -->
+    <section class="tr-disruption-data">
+        <div class="disruption-content">
+            <h2 class="disruption-title">LA NUEVA NORMALIDAD: <span style="color:#0077ff">DISRUPCIÓN TOTAL</span></h2>
+            <p class="disruption-text">
+                Al comparar los últimos 500 años de historia con las últimas dos décadas, no solo vemos un cambio, sino
+                una transformación radical en el ritmo de la innovación. Pasamos de un mundo donde el progreso era un
+                evento aislado y pausado, a uno donde la disrupción es la norma.
+            </p>
+            <p class="disruption-highlight">
+                El cambio ya no es un suceso extraño; es el estado natural del mundo de los negocios.
+            </p>
+            <p class="disruption-bridge">¿Tienes el sistema operativo para surfear esta ola?</p>
+            <button class="disruption-cta">SÍ, QUIERO BLINDAR MI EMPRESA</button>
+        </div>
+
+        <div class="disruption-chart">
+            <div class="tr-chart-container">
+                <div class="tr-axis-label label-start">1500 DC</div>
+                <div class="tr-axis-label label-end">HOY</div>
+
+                <div class="tr-floating-highlight">
+                    <span class="highlight-text">TU REALIDAD ACTUAL</span>
+                    <div class="pulse-dot"></div>
+                </div>
+
+                <div class="tr-svg-wrapper">
+                    <svg viewBox="0 0 800 400" preserveAspectRatio="none" class="tr-hockey-svg">
+                        <line x1="0" y1="398" x2="800" y2="398" stroke="#333" stroke-width="1"
+                            vector-effect="non-scaling-stroke" />
+                        <line x1="2" y1="0" x2="2" y2="400" stroke="#333" stroke-width="1"
+                            vector-effect="non-scaling-stroke" />
+
+                        <path d="M0,390 C400,390 600,390 650,350 Q750,300 790,10" fill="none" stroke="#b89650"
+                            class="tr-gold-line" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2025 FACE Innovation. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/footer.js"></script>
+    <script src="js/related-articles.js"></script>
+    <script src="js/mockAuth.js"></script>
+    <script src="js/authUI.js"></script>
+    <script src="js/header-scroll.js"></script>
+    <script src="script.js?v=3"></script>
+    <script src="menu.js"></script>
+</body>
+
+</html>

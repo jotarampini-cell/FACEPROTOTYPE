@@ -35,6 +35,9 @@ const MASTER_MENU_HTML = `
                 <li class="tr-menu-item">
                     <a href="index.html" class="menu-link">Inicio</a>
                 </li>
+                <li class="tr-menu-item">
+                    <a href="metodologia-face.html" class="menu-link">Metodología FACE</a>
+                </li>
                 <li class="tr-menu-item menu-parent">
                     <a href="programas.html" class="menu-link menu-parent-link">
                         Programas
