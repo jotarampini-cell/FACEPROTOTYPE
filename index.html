@@ -389,129 +389,68 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        /* --- RESPONSIVE MOBILE: RECREATE EXACT RETO CAPSULE STRUCTURE --- */
+        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 992px) {
-
-            /* Hide Ultimate desktop elements */
-            .hero-background-layer,
-            .hero-vignette-overlay,
-            .hero-eyebrow {
-                display: none !important;
-            }
-
-            /* Transform Ultimate hero into tr-hero-master */
             .tr-ultimate-hero {
-                position: relative;
-                width: 100%;
-                min-height: 100vh;
-                background-color: #000000;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-family: 'Montserrat', sans-serif;
                 padding: 15px;
             }
 
-            /* Container becomes tr-capsule-wrapper */
+            .hero-background-layer {
+                /* Keep background layer in mobile */
+                position: absolute;
+                inset: 15px;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+
+            .hero-image {
+                border-radius: 20px;
+            }
+
+            .hero-vignette-overlay {
+                border-radius: 20px;
+            }
+
             .tr-container-fluid {
                 position: relative;
                 width: 100%;
-                max-width: 1600px;
                 height: calc(100vh - 30px);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
                 padding: 0;
-                display: block;
             }
 
-            /* Create tr-capsule-container with border and shadows */
-            .tr-container-fluid::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 20px;
-                box-shadow: 0 0 80px rgba(255, 255, 255, 0.15),
-                    0 20px 60px rgba(0, 0, 0, 0.6);
-                z-index: 0;
-                pointer-events: none;
-            }
-
-            /* Background image (hero-backdrop equivalent) */
-            .hero-text-content::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-image: url('assets/images/hero-background-mobile.jpg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                border-radius: 20px;
-                z-index: -2;
-            }
-
-            /* Gradient overlay (tr-capsule-container::after equivalent) */
-            .hero-text-content::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(180deg,
-                        rgba(0, 0, 0, 0) 0%,
-                        rgba(0, 40, 120, 0.3) 40%,
-                        rgba(0, 35, 100, 0.8) 75%,
-                        #001540 100%);
-                border-radius: 20px;
-                z-index: -1;
-                pointer-events: none;
-            }
-
-            /* Hero text content (hero-content-center equivalent) */
             .hero-text-content {
                 position: relative;
                 z-index: 10;
                 width: 100%;
-                max-width: 900px;
                 text-align: center;
                 padding: 0 20px 60px;
                 color: #ffffff;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                height: calc(100vh - 30px);
-                margin: 0 auto;
+            }
+
+            .hero-eyebrow {
+                font-size: 0.7rem;
+                margin-bottom: 15px;
             }
 
             .hero-title {
                 font-size: clamp(2.2rem, 8vw, 3rem);
-                font-weight: 800;
                 line-height: 1;
-                letter-spacing: -0.02em;
                 margin-bottom: 35px;
-                text-transform: none;
-                text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
             }
 
             .hero-actions {
                 width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
 
             .btn-ultimate-white {
                 width: 100%;
                 padding: 18px 40px;
                 font-size: 1rem;
-                text-align: center;
             }
 
-            /* Event card goes below capsule in mobile */
             .hero-floating-system {
                 position: relative;
                 bottom: auto;
@@ -521,9 +460,8 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 20px;
-                padding: 40px 20px;
+                padding: 40px 20px 0;
                 z-index: 10;
-                margin-top: 40px;
             }
 
             .live-indicator {
@@ -533,16 +471,9 @@
             .glass-card-container {
                 width: 100%;
                 max-width: 400px;
-                position: relative;
-            }
-
-            /* Ensure video displays in mobile */
-            .card-media video {
-                display: block;
             }
         }
 
-        /* Very small mobile */
         @media (max-width: 400px) {
             .hero-title {
                 font-size: 2.2rem;
