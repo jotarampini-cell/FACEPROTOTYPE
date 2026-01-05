@@ -499,15 +499,19 @@
 
             .hero-actions {
                 width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
             .btn-ultimate-white {
                 width: 100%;
                 padding: 18px 40px;
                 font-size: 1rem;
+                text-align: center;
             }
 
-            /* Hide floating system in mobile - move it outside capsule */
+            /* Event card goes below capsule in mobile */
             .hero-floating-system {
                 position: relative;
                 bottom: auto;
@@ -519,8 +523,7 @@
                 gap: 20px;
                 padding: 40px 20px;
                 z-index: 10;
-                margin-top:
-                    40px;
+                margin-top: 40px;
             }
 
             .live-indicator {
@@ -530,6 +533,12 @@
             .glass-card-container {
                 width: 100%;
                 max-width: 400px;
+                position: relative;
+            }
+
+            /* Ensure video displays in mobile */
+            .card-media video {
+                display: block;
             }
         }
 
