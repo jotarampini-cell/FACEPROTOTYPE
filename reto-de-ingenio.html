@@ -251,59 +251,64 @@
         }
     </style>
 
-    <!-- Hero Section: Full-Screen Capsule (Home Style) -->
-    <section id="hero" class="tr-hero-master">
-        <div class="tr-hero-with-card-container">
-            <div class="tr-capsule-wrapper">
-                <div class="tr-capsule-container">
-                    <!-- Background Image -->
-                    <div class="hero-backdrop"></div>
+    \u003c!-- Hero Section: Hermanos Separados (Improved Structure) --\u003e
+    \u003clink rel="preconnect" href="https://fonts.googleapis.com"\u003e
+    \u003clink rel="preconnect" href="https://fonts.gstatic.com" crossorigin\u003e
+    \u003clink
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap"
+    rel="stylesheet"\u003e
 
-                    <!-- Gradient Overlay is handled by CSS ::after pseudo-element -->
+    \u003csection id="hero" class="tr-layout-master"\u003e
 
-                    <!-- Centered Content -->
-                    <div class="hero-content-center">
-                        <h1 class="hero-headline">
-                            El Reto de<br>Ingenio: 21 Días
-                        </h1>
-                        <a href="#features" class="btn-pill-white"
-                            onclick="event.preventDefault(); document.querySelector('#features').scrollIntoView({behavior:'smooth'})">Conocer
-                            más</a>
-                    </div>
-                </div>
-            </div>
+    \u003cdiv class="tr-hero-capsule"\u003e
+    \u003cdiv class="hero-bg-layer" style="background-image:
+    url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"\u003e\u003c/div\u003e
+    \u003cdiv class="hero-overlay-gradient"\u003e\u003c/div\u003e
 
-            <!-- Event Card Sidebar (Right - 30%) -->
-            <div class="event-card-sidebar">
-                <div class="event-card-wrapper">
-                    <div class="card-tag">
-                        <span class="status-dot"></span> NUEVO PROGRAMA
-                    </div>
+    \u003cdiv class="hero-text-content"\u003e
+    \u003ch1 class="hero-headline"\u003e
+    El Reto de\u003cbr\u003eIngenio: 21 Días
+    \u003c/h1\u003e
+    \u003cdiv class="hero-actions"\u003e
+    \u003ca href="#features" class="btn-hero-white" onclick="event.preventDefault();
+    document.querySelector('#features').scrollIntoView({behavior:'smooth'})"\u003eConocer más\u003c/a\u003e
+    \u003c/div\u003e
+    \u003c/div\u003e
+    \u003c/div\u003e
 
-                    <div class="event-card">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                            alt="Reto de Ingenio" class="card-image">
+    \u003cdiv class="tr-floating-card-section"\u003e
 
-                        <div class="card-content">
-                            <div class="card-category">TRANSFORMACIÓN</div>
-                            <h3 class="card-title">
-                                <span class="font-serif">Activa</span>
-                                <span class="font-sans">TU EQUIPO</span>
-                            </h3>
+    \u003cdiv class="event-status-row"\u003e
+    \u003cspan class="status-dot"\u003e\u003c/span\u003e
+    \u003cspan class="status-text"\u003eNUEVO PROGRAMA\u003c/span\u003e
+    \u003c/div\u003e
 
-                            <div class="btn-glass-watch"
-                                onclick="document.querySelector('#features').scrollIntoView({behavior:'smooth'})">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
-                                VER DETALLES
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    \u003cdiv class="glass-video-card"\u003e
+    \u003cdiv class="card-media-static"\u003e
+    \u003cimg
+    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+    alt="Metodología FACE" style="width:100%; height:100%; object-fit:cover;"\u003e
+    \u003cdiv class="video-gradient"\u003e\u003c/div\u003e
+    \u003c/div\u003e
+
+    \u003cdiv class="card-info"\u003e
+    \u003ch3 class="card-brand"\u003e
+    \u003cspan class="serif-part"\u003eActiva\u003c/span\u003e
+    \u003cspan class="sans-part"\u003eTU EQUIPO\u003c/span\u003e
+    \u003c/h3\u003e
+
+    \u003cbutton class="btn-glass-watch"
+    onclick="document.querySelector('#features').scrollIntoView({behavior:'smooth'})"\u003e
+    \u003cdiv class="icon-circle"\u003e
+    \u003csvg viewBox="0 0 24 24" fill="currentColor"\u003e\u003cpath d="M8 5v14l11-7z"/\u003e\u003c/svg\u003e
+    \u003c/div\u003e
+    VER DETALLES
+    \u003c/button\u003e
+    \u003c/div\u003e
+    \u003c/div\u003e
+    \u003c/div\u003e
+
+    \u003c/section\u003e
 
     <style>
         /* --- TONY ROBBINS HERO VARIABLES --- */
