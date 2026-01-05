@@ -389,16 +389,17 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        /* --- RESPONSIVE MOBILE: EXACT CAPSULE STRUCTURE FROM RETO --- */
+        /* --- RESPONSIVE MOBILE: RECREATE EXACT RETO CAPSULE STRUCTURE --- */
         @media (max-width: 992px) {
 
-            /* Desktop classes hidden in mobile */
+            /* Hide Ultimate desktop elements */
             .hero-background-layer,
-            .hero-vignette-overlay {
+            .hero-vignette-overlay,
+            .hero-eyebrow {
                 display: none !important;
             }
 
-            /* Ultimate hero acts as capsule master in mobile */
+            /* Transform Ultimate hero into tr-hero-master */
             .tr-ultimate-hero {
                 position: relative;
                 width: 100%;
@@ -407,20 +408,21 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-family: var(--font-sans);
+                font-family: 'Montserrat', sans-serif;
                 padding: 15px;
             }
 
-            /* Container fluid becomes capsule wrapper */
+            /* Container becomes tr-capsule-wrapper */
             .tr-container-fluid {
                 position: relative;
                 width: 100%;
                 max-width: 1600px;
                 height: calc(100vh - 30px);
                 padding: 0;
+                display: block;
             }
 
-            /* Create capsule container layer */
+            /* Create tr-capsule-container with border and shadows */
             .tr-container-fluid::before {
                 content: '';
                 position: absolute;
@@ -429,29 +431,47 @@
                 width: 100%;
                 height: 100%;
                 border-radius: 20px;
-                overflow: hidden;
                 box-shadow: 0 0 80px rgba(255, 255, 255, 0.15),
                     0 20px 60px rgba(0, 0, 0, 0.6);
                 z-index: 0;
+                pointer-events: none;
             }
 
-            /* Background image layer */
-            .tr-container-fluid::after {
+            /* Background image (hero-backdrop equivalent) */
+            .hero-text-content::before {
                 content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 1;
+                position: fixed;
+                top: 15px;
+                left: 15px;
+                right: 15px;
+                bottom: calc(100vh - (100vh - 30px) - 15px);
                 background-image: url('assets/images/hero-background-mobile.jpg');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
                 border-radius: 20px;
+                z-index: 0;
             }
 
-            /* Hero text content - similar to hero-content-center */
+            /* Gradient overlay (tr-capsule-container::after equivalent) */
+            .hero-text-content::after {
+                content: '';
+                position: fixed;
+                top: 15px;
+                left: 15px;
+                right: 15px;
+                bottom: calc(100vh - (100vh - 30px) - 15px);
+                background: linear-gradient(180deg,
+                        rgba(0, 0, 0, 0) 0%,
+                        rgba(0, 40, 120, 0.3) 40%,
+                        rgba(0, 35, 100, 0.8) 75%,
+                        #001540 100%);
+                border-radius: 20px;
+                z-index: 5;
+                pointer-events: none;
+            }
+
+            /* Hero text content (hero-content-center equivalent) */
             .hero-text-content {
                 position: relative;
                 z-index: 10;
@@ -463,28 +483,21 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                align-items: center;
-                height: 100%;
+                height: calc(100vh - 30px);
                 margin: 0 auto;
-            }
-
-            .hero-eyebrow {
-                font-size: 0.7rem;
-                margin-bottom: 15px;
-                order: 1;
             }
 
             .hero-title {
                 font-size: clamp(2.2rem, 8vw, 3rem);
+                font-weight: 800;
                 line-height: 1;
-                margin-bottom: 35px;
                 letter-spacing: -0.02em;
-                order: 2;
+                margin-bottom: 35px;
+                text-transform: none;
                 text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
             }
 
             .hero-actions {
-                order: 3;
                 width: 100%;
             }
 
@@ -494,24 +507,7 @@
                 font-size: 1rem;
             }
 
-            /* Gradient overlay on content */
-            .hero-text-content::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -20px;
-                right: -20px;
-                bottom: -60px;
-                background: linear-gradient(180deg,
-                        rgba(0, 0, 0, 0) 0%,
-                        rgba(0, 40, 120, 0.3) 40%,
-                        rgba(0, 35, 100, 0.8) 75%,
-                        #001540 100%);
-                z-index: -1;
-                border-radius: 0 0 20px 20px;
-            }
-
-            /* Floating system goes below */
+            /* Hide floating system in mobile - move it outside capsule */
             .hero-floating-system {
                 position: relative;
                 bottom: auto;
@@ -523,6 +519,8 @@
                 gap: 20px;
                 padding: 40px 20px;
                 z-index: 10;
+                margin-top:
+                    40px;
             }
 
             .live-indicator {
@@ -532,11 +530,10 @@
             .glass-card-container {
                 width: 100%;
                 max-width: 400px;
-                position: relative;
             }
         }
 
-        /* Smaller mobile screens */
+        /* Very small mobile */
         @media (max-width: 400px) {
             .hero-title {
                 font-size: 2.2rem;
