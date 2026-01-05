@@ -131,7 +131,7 @@
         :root {
             --font-sans: 'Inter', sans-serif;
             --font-serif: 'Playfair Display', serif;
-            --hero-mobile-height: 65vh;
+            --hero-mobile-height: calc(100vh - 30px);
             --page-bg: #000000;
         }
 
@@ -174,7 +174,11 @@
             position: absolute;
             inset: 0;
             z-index: 1;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 50%, #000 100%);
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 20, 70, 0.4) 50%,
+                    rgba(0, 30, 100, 0.8) 85%,
+                    #000000 100%);
         }
 
         .hero-text-content {
