@@ -214,8 +214,7 @@
                 <div class="tr-col">
                     <h4 class="tr-heading">Programas</h4>
                     <ul class="tr-links">
-                        <li><a href="innova-desde-adentro.html">Bootcamp Innova desde Adentro</a></li>
-                        <li><a href="innova-desde-adentro.html">Coeficiente de Ingenio</a></li>
+                        <li><a href="innova-desde-adentro.html">Innova desde Adentro</a></li>
                         <li><a href="programas.html">Todos los Programas</a></li>
                         <li><a href="evaluacion.html">Evaluación de Perfil</a></li>
                     </ul>
