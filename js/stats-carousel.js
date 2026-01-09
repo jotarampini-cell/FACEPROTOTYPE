@@ -1,9 +1,9 @@
 
-/* Re-pegado por seguridad */
 class StatsCarousel {
     constructor() {
         this.track = document.querySelector('.carousel-track');
-        this.cards = Array.from(document.querySelectorAll('.light-stat-card'));
+        // Usamos el selector de la nueva tarjeta
+        this.cards = Array.from(document.querySelectorAll('.gradient-stat-card'));
         this.dots = Array.from(document.querySelectorAll('.dot'));
         this.prevBtn = document.querySelector('.carousel-nav.prev');
         this.nextBtn = document.querySelector('.carousel-nav.next');
@@ -16,7 +16,6 @@ class StatsCarousel {
         if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.next());
         this.dots.forEach((dot, index) => dot.addEventListener('click', () => this.goTo(index)));
 
-        // Touch Swipe
         let startX = 0;
         this.track.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX, { passive: true });
         this.track.addEventListener('touchend', e => {
@@ -37,8 +36,9 @@ class StatsCarousel {
 
     updateCarousel() {
         const isMobile = window.innerWidth <= 900;
-        const cardWidth = isMobile ? 260 : 300; // Coincidir con CSS
-        const gap = 30; // Coincidir con CSS
+        // Coincidir con el ancho CSS (Mobile: 260px, Desktop: 300px)
+        const cardWidth = isMobile ? 260 : 300;
+        const gap = 30;
 
         const moveAmount = (this.currentIndex * (cardWidth + gap)) + (cardWidth / 2);
         this.track.style.transform = `translateX(calc(-${moveAmount}px))`;
