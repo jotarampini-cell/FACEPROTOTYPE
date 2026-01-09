@@ -1789,7 +1789,15 @@
                         ESTA PLATAFORMA ES TU <br>
                         <span class="text-cyan-glow">CENTRO DE MANDO.</span>
                     </h2>
-                    <p class="service-body-large">
+
+                    <!-- Mobile version: Short and impactful -->
+                    <p class="service-body-mobile">
+                        <strong>Tu plataforma de operaciones</strong> para convertir la cultura en el activo más
+                        rentable de tu empresa.
+                    </p>
+
+                    <!-- Desktop version: Full context -->
+                    <p class="service-body-desktop">
                         Innovar en una estructura establecida es una guerra contra la inercia. No tienes que pelearla
                         solo.
                         <strong>Hemos construido esta infraestructura para ti.</strong> Te entregamos los datos, los
@@ -2052,11 +2060,34 @@
         }
 
         .text-cyan-glow {
-            color: #00f3ff;
-            text-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+            background: linear-gradient(135deg, #00f3ff 0%, #00d4ff 50%, #00f3ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 25px rgba(0, 243, 255, 0.5));
+            font-weight: 700;
         }
 
-        .service-body-large {
+        /* Mobile version: Short and punchy */
+        .service-body-mobile {
+            display: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #ffffff;
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .service-body-mobile strong {
+            color: #00f3ff;
+            font-weight: 700;
+        }
+
+        /* Desktop version: Full context */
+        .service-body-desktop {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.2rem;
             line-height: 1.8;
@@ -2064,6 +2095,11 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        .service-body-desktop strong {
+            color: #00f3ff;
+            font-weight: 600;
         }
 
         .service-body-large strong {
@@ -2260,11 +2296,13 @@
         /* Responsive */
         @media (max-width: 900px) {
             .tech-service-section {
-                padding: 80px 20px 60px;
+                padding: 100px 20px 70px;
+                /* +25% more vertical space */
             }
 
             .header-centered {
-                margin-bottom: 40px;
+                margin-bottom: 50px;
+                /* More breathing room */
                 padding: 0 25px;
             }
 
@@ -2275,29 +2313,46 @@
             }
 
             .service-title {
-                font-size: 1.8rem !important;
-                line-height: 1.15;
-                margin-bottom: 20px;
-                letter-spacing: -0.5px;
+                font-size: 2.8rem !important;
+                /* Increased from 1.8rem */
+                font-weight: 700;
+                line-height: 1.05;
+                /* Tighter line height */
+                margin-bottom: 15px;
+                /* More separation from cyan */
+                letter-spacing: -1px;
+                /* Negative tracking for impact */
             }
 
             .text-cyan-glow {
-                font-size: 1.9rem;
+                font-size: 3rem !important;
+                /* LARGER than main title */
+                font-weight: 900;
+                /* Ultra bold */
                 display: block;
-                margin-top: 5px;
+                margin-top: 10px;
+                margin-bottom: 30px;
+                /* More separation from paragraph */
+                filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.6));
+                /* Intense glow */
             }
 
-            .service-body-large {
-                font-size: 0.95rem;
-                line-height: 1.7;
-                margin-top: 25px;
-                max-width: 100%;
-                padding: 0 20px;
+            /* Show mobile paragraph, hide desktop */
+            .service-body-mobile {
+                display: block;
+                font-size: 1.05rem;
+                line-height: 1.6;
+                margin-top: 30px;
                 text-align: center;
             }
 
+            .service-body-desktop {
+                display: none;
+            }
+
             .tech-marquee-wrapper {
-                margin-top: 40px;
+                margin-top: 50px;
+                /* More space before cards */
             }
 
             .marquee-row {
@@ -2361,7 +2416,8 @@
         /* Extra small devices */
         @media (max-width: 480px) {
             .tech-service-section {
-                padding: 60px 20px 50px;
+                padding: 80px 20px 60px;
+                /* Increased from 60px */
             }
 
             .header-centered {
@@ -2374,22 +2430,23 @@
             }
 
             .service-title {
-                font-size: 1.5rem !important;
-                line-height: 1.2;
-                margin-bottom: 18px;
+                font-size: 2.2rem !important;
+                /* Increased from 1.5rem */
+                line-height: 1.1;
+                margin-bottom: 12px;
             }
 
             .text-cyan-glow {
-                font-size: 1.6rem;
-                margin-top: 5px;
+                font-size: 2.5rem !important;
+                /* Still larger than title */
+                font-weight: 900;
+                margin-bottom: 25px;
             }
 
-            .service-body-large {
-                font-size: 0.875rem;
-                line-height: 1.65;
-                margin-top: 20px;
-                padding: 0 15px;
-                text-align: center;
+            .service-body-mobile {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-top: 25px;
             }
 
             .tech-stat-card {
