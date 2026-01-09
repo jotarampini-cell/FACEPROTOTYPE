@@ -1,0 +1,4578 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description"
+        content="Innova desde Adentro - Programa de transformación organizacional FACE. Desbloquea el potencial innovador de tu equipo en 30 días.">
+    <meta name="theme-color" content="#0066FF">
+    <title>Innova desde Adentro - FACE Innovation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Oswald:wght@500;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="premium-menu.css">
+</head>
+
+<body>
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress" class="reading-progress"></div>
+
+    <!-- Header -->
+    <!-- Global Header & Menu (Injected by JS) -->
+    <!-- See menu.js for source -->
+
+    <style>
+        /* PREMIUM MOBILE MENU - TONY ROBBINS EXACT */
+        .tr-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            height: 80px;
+            background-color: #000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .tr-menu-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff !important;
+            letter-spacing: 2px;
+        }
+
+        .tr-header-cta {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .tr-header-cta:hover {
+            background-color: #f5f5f5;
+        }
+
+        .tr-menu-close {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .tr-menu-close:hover {
+            transform: scale(1.1);
+        }
+
+        .tr-menu-close svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .tr-mobile-list {
+            list-style: none;
+            padding: 20px 24px !important;
+            margin: 0;
+            flex-grow: 1;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .tr-mobile-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tr-menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0 !important;
+            min-height: auto;
+            border-bottom: none !important;
+            cursor: pointer;
+            position: relative;
+            flex-wrap: wrap;
+            transition: background-color 0.2s ease;
+        }
+
+        .tr-menu-item a {
+            color: white !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 400 !important;
+            text-decoration: none !important;
+            flex-grow: 1;
+            text-transform: none !important;
+            letter-spacing: -0.01em;
+            text-align: left !important;
+            line-height: 1.2 !important;
+            padding: 0 !important;
+        }
+
+        .menu-parent-link {
+            display: block !important;
+            justify-content: flex-start !important;
+            text-align: left !important;
+        }
+
+        .chevron-icon {
+            width: 20px !important;
+            height: 20px !important;
+            color: white;
+            opacity: 0.6 !important;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, opacity 0.2s ease;
+            margin-left: auto;
+        }
+
+        .menu-parent.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        .tr-menu-item:hover .chevron-icon {
+            opacity: 0.9;
+        }
+
+        .tr-submenu {
+            list-style: none;
+            padding-left: 20px;
+            margin: 16px 0 0 0;
+            display: none;
+            width: 100%;
+        }
+
+        .tr-submenu.active {
+            display: block;
+        }
+
+        .tr-submenu li {
+            padding: 14px 0 !important;
+            border-bottom: none !important;
+        }
+
+        .tr-submenu a {
+            font-size: 0.9rem !important;
+            font-weight: 300 !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+            text-align: left !important;
+            display: block !important;
+            line-height: 1.2 !important;
+        }
+
+        .menu-arrow {
+            display: none;
+        }
+
+        .tr-menu-footer {
+            padding: 30px 20px 40px !important;
+            display: flex;
+            gap: 16px;
+            background-color: #000;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
+        }
+
+        .tr-btn-primary {
+            flex: 1;
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 18px 0 !important;
+            border-radius: 50px !important;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem !important;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .tr-btn-secondary {
+            flex: 1;
+            background-color: #1a1a1a !important;
+            color: #ffffff;
+            text-align: center;
+            padding: 18px 0 !important;
+            border-radius: 50px !important;
+            border: none !important;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem !important;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+        }
+
+        .tr-menu-item:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        .tr-btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+        }
+
+        .tr-btn-secondary:hover {
+            background-color: #2a2a2a !important;
+        }
+
+        .fullscreen-menu {
+            background-color: #000000 !important;
+            width: 100% !important;
+        }
+
+        .fullscreen-menu nav {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100vh !important;
+            background-color: #000000 !important;
+            width: 100% !important;
+        }
+
+        /* --- SECCIÓN ARTÍCULOS RELACIONADOS (SLIDER) --- */
+        .related-section {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .related-header {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .related-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: #111;
+        }
+
+        .slider-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #c5a059;
+            color: white;
+            border-color: #c5a059;
+        }
+
+        /* Grid Scrollable */
+        .related-grid {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        .related-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .related-card {
+            min-width: 350px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .related-body {
+            padding: 25px;
+        }
+
+        .related-tag {
+            color: #c5a059;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .related-h {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .related-excerpt {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .related-card {
+                min-width: 280px;
+            }
+        }
+    </style>
+
+    <!-- Hero Section: Hermanos Separados (Improved Structure) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+
+    <section id="hero" class="tr-layout-master">
+
+        <div class="tr-hero-capsule">
+            <div class="hero-bg-layer"
+                style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+            </div>
+            <div class="hero-overlay-gradient"></div>
+
+            <div class="hero-text-content">
+                <h1 class="hero-headline">
+                    Innova desde Adentro:<br>rompe las reglas, aumenta las ganancias.
+                </h1>
+                <div class="hero-actions">
+                    <a href="#features" class="btn-hero-white"
+                        onclick="event.preventDefault(); document.querySelector('#features').scrollIntoView({behavior:'smooth'})">Conocer
+                        más</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tr-floating-card-section">
+
+            <div class="event-status-row">
+                <span class="status-dot"></span>
+                <span class="status-text">PRÓXIMO RETO</span>
+            </div>
+
+            <div class="glass-video-card">
+                <div class="card-media">
+                    <video autoplay loop muted playsinline poster="assets/images/reto-innova.jpg">
+                        <source src="assets/video/reto-innova.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-gradient"></div>
+                </div>
+
+                <div class="card-info">
+                    <h3 class="card-brand">
+                        <span class="serif-part">INNOVA</span>
+                        <span class="sans-part">DESDE ADENTRO</span>
+                    </h3>
+
+                    <button class="btn-glass-watch">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        VER AHORA
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --hero-mobile-height: calc(100vh - 30px);
+            --page-bg: #000000;
+        }
+
+        /* 1. CONTENEDOR MAESTRO */
+        .tr-layout-master {
+            position: relative;
+            width: 100%;
+            background-color: var(--page-bg);
+            padding: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========================================
+           BLOQUE 1: HERO CAPSULE (BANNER)
+           ========================================= */
+        .tr-hero-capsule {
+            position: relative;
+            width: 100%;
+            height: var(--hero-mobile-height);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            margin-bottom: 40px;
+            /* Separación en Móvil */
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-bg-layer {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .hero-overlay-gradient {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 20, 70, 0.4) 50%,
+                    rgba(0, 30, 100, 0.8) 85%,
+                    #000000 100%);
+        }
+
+        .hero-text-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            padding: 30px 20px 60px;
+            text-align: center;
+        }
+
+        .hero-headline {
+            font-family: var(--font-sans);
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-hero-white {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #fff;
+            color: #000;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 100px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .btn-hero-white:hover {
+            transform: scale(1.05) translateY(-2px);
+        }
+
+        /* =========================================
+           BLOQUE 2: TARJETA (MÓVIL SEPARADO)
+           ========================================= */
+        .tr-floating-card-section {
+            position: relative;
+            width: 100%;
+            padding: 0 5px;
+            z-index: 5;
+        }
+
+        /* Etiqueta Superior */
+        .event-status-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            padding-left: 5px;
+            justify-content: flex-start;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff66;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff66;
+            animation: pulse 2s infinite;
+        }
+
+        .status-text {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Tarjeta de Video */
+        .glass-video-card {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #111;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-media {
+            position: absolute;
+            inset: 0;
+        }
+
+        .card-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+        }
+
+        .card-info {
+            position: absolute;
+            inset: 0;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .card-brand {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            line-height: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .serif-part {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 900;
+            font-size: 1.8rem;
+        }
+
+        .sans-part {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            color: #ddd;
+        }
+
+        .btn-glass-watch {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 5px 16px 5px 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-glass-watch:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .icon-circle {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+        }
+
+        .icon-circle svg {
+            width: 12px;
+            height: 12px;
+            margin-left: 2px;
+        }
+
+        /* =========================================================
+           DESKTOP TRANSFORMATION (AQUÍ UNIMOS TODO) - Min-width 992px
+           ========================================================= */
+        @media (min-width: 992px) {
+
+            .tr-layout-master {
+                padding: 0;
+                height: 100vh;
+                min-height: 700px;
+                display: block;
+            }
+
+            /* 1. HERO EXPANSIVO */
+            .tr-hero-capsule {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 0;
+                border-radius: 0;
+                align-items: center;
+                justify-content: flex-start;
+                text-align: left;
+            }
+
+            /* Gradiente lateral para Desktop */
+            .hero-overlay-gradient {
+                background: radial-gradient(circle at 70% 50%, transparent 0%, rgba(0, 0, 0, 0.8) 100%),
+                    linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
+            }
+
+            .hero-text-content {
+                max-width: 700px;
+                padding-left: 6vw;
+                text-align: left;
+            }
+
+            .hero-headline {
+                font-size: clamp(3.5rem, 5.5vw, 5.5rem);
+                letter-spacing: -0.04em;
+                line-height: 0.95;
+            }
+
+            /* 2. TARJETA FLOTANTE (ABSOLUTA) */
+            .tr-floating-card-section {
+                position: absolute;
+                bottom: 50px;
+                right: 50px;
+                width: 380px;
+                padding: 0;
+                z-index: 20;
+            }
+
+            .event-status-row {
+                justify-content: flex-end;
+                margin-right: 5px;
+            }
+
+            .glass-video-card {
+                height: 240px;
+                border-radius: 28px;
+                box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+                transition: transform 0.4s ease;
+            }
+
+            .glass-video-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .card-info {
+                align-items: flex-start;
+                justify-content: flex-end;
+            }
+
+            .serif-part {
+                font-size: 2rem;
+            }
+
+            .sans-part {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+
+    <!-- Permission + Video Unified Section -->
+    <section class="permission-video-section">
+        <div class="tr-container">
+
+            <div class="permission-content">
+                <h3 class="permission-lead">
+                    Imagina qué pasaría si, durante los próximos días, le dieras a cada persona de tu equipo el poder
+                    más grande que existe:
+                </h3>
+
+                <h1 class="permission-word">PERMISO</h1>
+
+                <div class="gold-divider"></div>
+
+                <p class="permission-sub">
+                    Permiso para hablar. Permiso para cuestionar. <br>
+                    <span class="text-white">Permiso para mejorar.</span>
+                </p>
+            </div>
+
+            <div class="video-container-wrapper">
+                <div class="video-frame">
+                    <iframe width="100%" height="100%"
+                        src="https://www.youtube.com/embed/wFzeoy19b_A?rel=0&modestbranding=1&controls=1"
+                        title="Video Reto de Ingenio" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen style="position: absolute; top: 0; left: 0;">
+                    </iframe>
+                </div>
+                <div class="video-shadow"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Benefits / Transformation Section (Silver/Platinum Style) -->
+    <section class="benefits-silver-section">
+        <div class="tr-container">
+
+            <div class="section-header-light">
+                <h2 class="silver-title">
+                    DEJA DE TENER EMPLEADOS. <br>
+                    EMPIEZA A TENER <span class="text-platinum">SOCIOS</span>.
+                </h2>
+                <p class="silver-subtitle">
+                    Cuando lanzas este reto, la mentalidad cambia de "Hago lo que me dicen" a <strong>"Este negocio
+                        también es mío"</strong>.
+                </p>
+            </div>
+
+            <div class="silver-grid">
+
+                <div class="platinum-card">
+                    <div class="icon-silver-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#silver-grad)" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <defs>
+                                <linearGradient id="silver-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#999999" />
+                                    <stop offset="50%" style="stop-color:#444444" />
+                                    <stop offset="100%" style="stop-color:#999999" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                            <path d="M4 22h16"></path>
+                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                        </svg>
+                    </div>
+                    <h3>GAMIFICACIÓN</h3>
+                    <p>Convierte el trabajo diario en una competencia divertida, sana y con propósito.</p>
+                </div>
+
+                <div class="platinum-card">
+                    <div class="icon-silver-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#silver-grad)" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                            </polygon>
+                        </svg>
+                    </div>
+                    <h3>RECONOCIMIENTO</h3>
+                    <p>Da protagonismo y voz a quienes siempre han estado en la sombra, activando su lealtad.</p>
+                </div>
+
+                <div class="platinum-card">
+                    <div class="icon-silver-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#silver-grad)" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>RESULTADOS</h3>
+                    <p>Obtén soluciones reales, rápidas y baratas que ningún consultor externo podría darte.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* BENEFITS SILVER SECTION */
+        .benefits-silver-section {
+            background-color: #F3F5F7;
+            padding: 120px 20px;
+            color: #111111;
+            position: relative;
+        }
+
+        .benefits-silver-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#ccc 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .section-header-light {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .silver-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #111111;
+            line-height: 1.2;
+        }
+
+        .text-platinum {
+            background: linear-gradient(to right, #434343 0%, #9FA6AC 50%, #434343 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
+        }
+
+        .silver-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: #555555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .silver-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .platinum-card {
+            background: #FFFFFF;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .platinum-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #d1d1d1;
+        }
+
+        .icon-silver-box {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px auto;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .icon-silver-box svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        .platinum-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .platinum-card p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-silver-section {
+                padding: 60px 20px;
+            }
+
+            .silver-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+    </style>
+
+    <!-- All-Access Pass Section -->
+    <section class="all-access-section">
+        <div class="tr-container">
+
+            <h2 class="section-headline">
+                ESTE ES TU PASE <span class="text-gold">TODO INCLUIDO</span>
+            </h2>
+
+            <div class="split-layout">
+
+                <div class="content-side">
+
+                    <div class="access-item active" onclick="goToSlide(0)" data-index="0">
+                        <div class="ghost-number">01</div>
+                        <h3 class="item-title">A LA MEDIDA DE TU NEGOCIO</h3>
+                        <div class="item-body">
+                            <p>No es genérico. Se diseña para tus nudos críticos específicos. Analizamos tu estructura
+                                actual y desbloqueamos los cuellos de botella operativos.</p>
+                            <div class="mobile-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Estrategia Laptop">
+                            </div>
+                        </div>
+                        <div class="timer-bar">
+                            <div class="timer-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="access-item" onclick="goToSlide(1)" data-index="1">
+                        <div class="ghost-number">02</div>
+                        <h3 class="item-title">EXPERTOS EN INNOVACIÓN Y CULTURA</h3>
+                        <div class="item-body">
+                            <p>Tienes un acompañamiento de guías expertos en todo el camino. No estarás adivinando;
+                                tendrás mentores que ya han transformado empresas similares.</p>
+                            <div class="mobile-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Mentoria Tablet">
+                            </div>
+                        </div>
+                        <div class="timer-bar">
+                            <div class="timer-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="access-item" onclick="goToSlide(2)" data-index="2">
+                        <div class="ghost-number">03</div>
+                        <h3 class="item-title">LAS BASES DE TU ÉXITO FUTURO</h3>
+                        <div class="item-body">
+                            <p>Capacitas a tu propio personal. Al finalizar, tu equipo sabrá cómo replicar estos retos
+                                de innovación sin nuestra ayuda, dejando capacidad instalada real.</p>
+                            <div class="mobile-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Capacitación Equipo">
+                            </div>
+                        </div>
+                        <div class="timer-bar">
+                            <div class="timer-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Indicators -->
+                    <div class="progress-indicators">
+                        <span class="indicator active" onclick="goToSlide(0)"></span>
+                        <span class="indicator" onclick="goToSlide(1)"></span>
+                        <span class="indicator" onclick="goToSlide(2)"></span>
+                    </div>
+
+                </div>
+
+                <div class="image-side">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                            class="desktop-img active">
+
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                            class="desktop-img">
+
+                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                            class="desktop-img">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* ALL-ACCESS PASS SECTION */
+        .all-access-section {
+            background-color: #000000;
+            padding: 100px 20px;
+            color: #ffffff;
+        }
+
+        .section-headline {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .section-headline .text-gold {
+            color: #c5a059;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .access-item {
+            margin-bottom: 30px;
+            cursor: pointer;
+            opacity: 0.4;
+            transition: all 0.4s ease;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #333;
+        }
+
+        .access-item.active {
+            opacity: 1;
+            border-left: 2px solid #c5a059;
+            box-shadow: 0 0 40px rgba(197, 160, 89, 0.15);
+        }
+
+        /* GHOST NUMBERS */
+        .ghost-number {
+            position: absolute;
+            left: -20px;
+            top: -10px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 6rem;
+            font-weight: 700;
+            color: #c5a059;
+            opacity: 0.08;
+            line-height: 1;
+            pointer-events: none;
+            z-index: 0;
+            transition: all 0.4s ease;
+        }
+
+        .access-item.active .ghost-number {
+            opacity: 0.15;
+            transform: scale(1.1);
+        }
+
+        .item-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        .item-body {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
+        }
+
+        .access-item.active .item-body {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 0;
+        }
+
+        .item-body p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            color: #ffffff;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .timer-bar {
+            width: 100%;
+            height: 2px;
+            background: #222;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+            display: none;
+        }
+
+        .timer-fill {
+            height: 100%;
+            background-color: #c5a059;
+            width: 0%;
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+        }
+
+        .access-item.active .timer-bar {
+            display: block;
+        }
+
+        /* PROGRESS INDICATORS */
+        .progress-indicators {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .indicator:hover {
+            background: #555;
+            transform: scale(1.2);
+        }
+
+        .indicator.active {
+            background: #c5a059;
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.6);
+        }
+
+        .indicator.active::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            border: 2px solid #c5a059;
+            border-radius: 50%;
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+        }
+
+        .mobile-img-wrapper {
+            display: none;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .mobile-img-wrapper img {
+            width: 100%;
+            display: block;
+        }
+
+        .image-side {
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-frame {
+            width: 100%;
+            position: relative;
+            padding-top: 66%;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid #222;
+        }
+
+        .desktop-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            transform: scale(1.05);
+        }
+
+        .desktop-img.active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.8s ease-in-out, transform 8s linear;
+        }
+
+        @media (max-width: 900px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .image-side {
+                display: none;
+            }
+
+            .access-item {
+                border-left: none;
+                padding-left: 0;
+                border-bottom: 1px solid #222;
+                padding-bottom: 20px;
+            }
+
+            .ghost-number {
+                left: 0;
+                font-size: 4rem;
+            }
+
+            .access-item.active .mobile-img-wrapper {
+                display: block;
+                animation: fadeIn 0.5s ease;
+            }
+
+            .timer-bar {
+                margin-top: 20px;
+            }
+
+            .progress-indicators {
+                margin-top: 30px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        (function () {
+            const items = document.querySelectorAll('.access-item');
+            const desktopImages = document.querySelectorAll('.desktop-img');
+            const indicators = document.querySelectorAll('.indicator');
+            const slideTime = 8000;
+            let activeIndex = 0;
+            let rotateInterval;
+            let isPaused = false;
+
+            function setActive(index) {
+                items.forEach((item, i) => {
+                    item.classList.remove('active');
+                    const bar = item.querySelector('.timer-fill');
+                    bar.style.transition = 'none';
+                    bar.style.width = '0%';
+
+                    desktopImages[i].classList.remove('active');
+                    indicators[i].classList.remove('active');
+                });
+
+                items[index].classList.add('active');
+                desktopImages[index].classList.add('active');
+                indicators[index].classList.add('active');
+
+                setTimeout(() => {
+                    if (!isPaused) {
+                        const activeBar = items[index].querySelector('.timer-fill');
+                        activeBar.style.transition = `width ${slideTime}ms linear`;
+                        activeBar.style.width = '100%';
+                    }
+                }, 50);
+
+                activeIndex = index;
+            }
+
+            function startLoop() {
+                clearInterval(rotateInterval);
+                setActive(activeIndex);
+
+                // Auto-rotation enabled for all devices, but checks visibility
+                rotateInterval = setInterval(() => {
+                    const section = document.querySelector('.all-access-section');
+                    if (!section) return;
+
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top < window.innerHeight && rect.bottom >= 0);
+
+                    if (!isPaused && isVisible) {
+                        let nextIndex = (activeIndex + 1) % items.length;
+                        setActive(nextIndex);
+                    }
+                }, slideTime);
+            }
+
+            function pauseRotation() {
+                isPaused = true;
+                const activeBar = items[activeIndex].querySelector('.timer-fill');
+                const currentWidth = activeBar.style.width;
+                activeBar.style.transition = 'none';
+                activeBar.style.width = currentWidth;
+            }
+
+            function resumeRotation() {
+                isPaused = false;
+                const activeBar = items[activeIndex].querySelector('.timer-fill');
+                activeBar.style.transition = `width ${slideTime}ms linear`;
+                activeBar.style.width = '100%';
+            }
+
+            // Pause on hover
+            items.forEach(item => {
+                item.addEventListener('mouseenter', pauseRotation);
+                item.addEventListener('mouseleave', resumeRotation);
+            });
+
+            window.goToSlide = function (index) {
+                activeIndex = index;
+                isPaused = false;
+                startLoop();
+            }
+
+            startLoop();
+        })();
+    </script>
+
+    <!-- PARTE 1: LEAD MAGNET (El Reto Digital 10 Días) -->
+    <section id="digital-challenge" class="nova-series-section">
+        <div class="cinematic-grain"></div>
+        <div class="tr-container">
+
+            <div class="series-header">
+                <div class="live-badge">
+                    <span class="blink-dot"></span> ACCESO EXCLUSIVO
+                </div>
+                <h2 class="series-title">ACCEDE GRATIS AL RETO <br><span class="text-gold-gradient">INNOVA DESDE
+                        ADENTRO</span></h2>
+                <p class="series-subtitle">
+                    Rompe las reglas, aumenta tus ganancias. Son 10 Episodios. 3 Fases. <strong>Potencial ilimitado para
+                        tu negocio.</strong>
+                </p>
+            </div>
+
+            <div class="progress-trigger">
+                <span class="prog-label">TU PROGRESO: 0%</span>
+                <div class="prog-track">
+                    <div class="prog-bar"></div>
+                </div>
+            </div>
+
+            <div class="vault-grid">
+
+                <div class="vault-card locked">
+                    <div class="vault-visual">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Día 1">
+                        <div class="blur-curtain"></div>
+                        <div class="lock-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6-9h-1V6a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zM9 6a3 3 0 1 1 6 0v2H9V6z" />
+                            </svg>
+                        </div>
+                        <span class="ep-tag">DÍA 01</span>
+                    </div>
+                    <div class="vault-info">
+                        <h4>La Ruptura del Sello</h4>
+                        <p>Destruyendo la apatía y activando la inmunidad.</p>
+                    </div>
+                </div>
+
+                <div class="vault-card locked">
+                    <div class="vault-visual">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Día 2">
+                        <div class="blur-curtain"></div>
+                        <div class="lock-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6-9h-1V6a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zM9 6a3 3 0 1 1 6 0v2H9V6z" />
+                            </svg>
+                        </div>
+                        <span class="ep-tag">DÍA 02-03</span>
+                    </div>
+                    <div class="vault-info">
+                        <h4>El Radar de Oportunidades</h4>
+                        <p>Cómo encontrar dinero oculto en tu operación.</p>
+                    </div>
+                </div>
+
+                <div class="vault-card locked">
+                    <div class="vault-visual">
+                        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Día 4">
+                        <div class="blur-curtain"></div>
+                        <div class="lock-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6-9h-1V6a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zM9 6a3 3 0 1 1 6 0v2H9V6z" />
+                            </svg>
+                        </div>
+                        <span class="ep-tag">DÍA 04-05</span>
+                    </div>
+                    <div class="vault-info">
+                        <h4>La Traducción a Dólares</h4>
+                        <p>El lenguaje financiero para vender tus ideas.</p>
+                    </div>
+                </div>
+
+                <div class="vault-card locked">
+                    <div class="vault-visual">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Día 6">
+                        <div class="blur-curtain"></div>
+                        <div class="lock-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6-9h-1V6a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zM9 6a3 3 0 1 1 6 0v2H9V6z" />
+                            </svg>
+                        </div>
+                        <span class="ep-tag">DÍA 06-10</span>
+                    </div>
+                    <div class="vault-info">
+                        <h4>Prototipo & Graduación</h4>
+                        <p>Ejecución masiva y el ascenso a Socio.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="nova-cta-wrapper">
+                <div class="glow-effect"></div>
+                <div class="cta-content">
+                    <h3 class="cta-heading">¿QUIERES LA LLAVE MAESTRA?</h3>
+                    <p>Déjanos tus datos. Te enviamos el acceso inmediato a los 10 videos + El Manual de Trabajo
+                        Digital.
+                    </p>
+
+                    <form class="crm-form-inline" onsubmit="event.preventDefault(); alert('Lead Capturado');">
+                        <input type="email" placeholder="Tu correo corporativo aquí..." required>
+                        <button type="submit" class="neon-gold-btn">DESBLOQUEAR AHORA</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        /* =========================================
+       SECCIÓN 1: NOVA SERIES (DARK CINEMA)
+       ========================================= */
+        .nova-series-section {
+            background-color: #080808;
+            padding: 120px 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto Grano de Cine */
+        .cinematic-grain {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .tr-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            /* FORCE STACKING for this section */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* HEADER */
+        .series-header {
+            text-align: center;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            color: #c5a059;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .blink-dot {
+            width: 6px;
+            height: 6px;
+            background: #c5a059;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .series-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 0.9;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(to right, #c5a059, #e5c079, #c5a059);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .series-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* PROGRESS BAR */
+        .progress-trigger {
+            max-width: 300px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+
+        .prog-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .prog-track {
+            width: 100%;
+            height: 4px;
+            background: #222;
+            border-radius: 2px;
+        }
+
+        .prog-bar {
+            width: 5%;
+            height: 100%;
+            background: #c5a059;
+            border-radius: 2px;
+            box-shadow: 0 0 10px #c5a059;
+        }
+
+        /* THE VAULT GRID */
+        .vault-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .vault-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .vault-card:hover {
+            transform: translateY(-8px);
+            border-color: #c5a059;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .vault-visual {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .vault-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: 0.5s;
+        }
+
+        .blur-curtain {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            transition: 0.4s;
+        }
+
+        .lock-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #444;
+            color: #ffffff;
+            transition: 0.4s;
+        }
+
+        .lock-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Efecto Hover: Desbloqueo Visual */
+        .vault-card:hover .vault-visual img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .vault-card:hover .blur-curtain {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(0px);
+        }
+
+        .vault-card:hover .lock-icon {
+            background: #c5a059;
+            color: black;
+            border-color: #c5a059;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .ep-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: black;
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .vault-info {
+            padding: 25px;
+        }
+
+        .vault-info h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .vault-info p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        /* CTA GLOW BOX */
+        .nova-cta-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #111;
+            border-radius: 16px;
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+
+        .glow-effect {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 60%);
+            animation: rotateGlow 10s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotateGlow {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            padding: 50px 30px;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .cta-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .cta-content p {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .crm-form-inline {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .crm-form-inline input {
+            padding: 16px 24px;
+            border-radius: 50px;
+            border: 1px solid #444;
+            background: #000;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .neon-gold-btn {
+            padding: 16px 30px;
+            background: #c5a059;
+            color: black;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+            white-space: nowrap;
+        }
+
+        .neon-gold-btn:hover {
+            background: white;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+        }
+
+        @media(max-width: 768px) {
+            .crm-form-inline {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <!-- Challenge Modular Section -->
+    <section class="challenge-modular-section">
+        <div class="tr-container-wide">
+
+            <div class="modular-grid">
+
+                <div class="identity-card">
+                    <h3 class="id-logo">RETO DE<br><span class="text-gold">INNOVAR DESDE ADENTRO</span></h3>
+                </div>
+
+                <div class="headline-block">
+                    <h2 class="modular-heading">
+                        LA PRÓXIMA GRAN IDEA <br>
+                        YA EXISTE EN TU <span class="text-outline-gold">EMPRESA.</span>
+                    </h2>
+                </div>
+
+                <div class="content-block">
+                    <p class="intro-text">
+                        <strong>Solo que está atrapada en la mente de quien menos esperas.</strong>
+                    </p>
+                    <p class="sub-text">
+                        Tu recepcionista sabe qué frustra al cliente. Tu operario sabe por qué la máquina falla. Ellos
+                        ven oportunidades que tú no ves, pero nadie les pregunta.
+                    </p>
+                    <p class="sub-text">
+                        Este reto les da permiso para innovar y transformar esas ideas sueltas en mejoras reales para tu
+                        negocio:
+                    </p>
+
+                    <ul class="pillars-list">
+                        <li>
+                            <div class="pillar-icon-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="url(#dark-grad)" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="dark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#333333" />
+                                            <stop offset="50%" style="stop-color:#111111" />
+                                            <stop offset="100%" style="stop-color:#333333" />
+                                        </linearGradient>
+                                        <linearGradient id="white-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#ffffff" />
+                                            <stop offset="50%" style="stop-color:#f5f5f5" />
+                                            <stop offset="100%" style="stop-color:#ffffff" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5"></path>
+                                    <path d="M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>EN PROCESOS:</strong> Ideas para hacer el trabajo más rápido y fácil.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pillar-icon-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="url(#dark-grad)" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                    </path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>EN PRODUCTOS:</strong> Mejoras de calidad detectadas por quien las fabrica.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pillar-icon-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="url(#dark-grad)" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a8 8 0 0 1 4.51 0l-3.95 3.95H22.05A10 10 0 0 0 12 2z">
+                                    </path>
+                                    <path
+                                        d="M12 22a10 10 0 0 0 9.95-9h-11.64l3.95 3.95a8 8 0 0 1-4.51 0l3.95-3.95H1.95A10 10 0 0 0 12 22z">
+                                    </path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>EN SERVICIO:</strong> Detalles únicos que enamoran al cliente.
+                            </div>
+                        </li>
+                    </ul>
+
+                    <blockquote class="insight-quote">
+                        "Las mejores ideas están en la planta, no en PowerPoint"
+                        <cite>— CEO transformado</cite>
+                    </blockquote>
+
+                    <a href="#registro" class="cta-link">ACTIVA EL PODER OCULTO &rarr;</a>
+                </div>
+
+                <div class="visual-block">
+                    <div class="system-window">
+                        <div class="window-bar">
+                            <div class="traffic-lights">
+                                <span class="light red"></span>
+                                <span class="light yellow"></span>
+                                <span class="light green"></span>
+                            </div>
+                            <span class="window-title">Module_01: Permission_Protocol.mp4</span>
+                        </div>
+                        <div class="video-embed">
+                            <iframe
+                                src="https://www.youtube.com/embed/lmyZMtPVodo?rel=0&modestbranding=1&controls=1&loop=1&playlist=lmyZMtPVodo"
+                                title="Liderazgo Video" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="window-shadow"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PARTE 2: BOOTCAMP PRESENCIAL (Producto Premium) -->
+    <section id="bootcamp" class="platinum-bootcamp-section">
+
+        <!-- BLOQUE A: La Promesa (Hero/Intro) -->
+        <section id="bootcamp-intro" class="bootcamp-hero-split">
+            <div class="tr-container">
+                <div class="split-content">
+                    <div class="text-side reveal-on-scroll">
+                        <span class="gold-badge">INTERVENCIÓN CULTURAL</span>
+                        <h2 class="b-title">BOOTCAMP <br><span class="text-gold">INNOVA 360°</span></h2>
+                        <p class="b-desc">
+                            No venimos a dar una charla motivacional. Venimos a instalar un <strong>Sistema Operativo de
+                                Innovación</strong>.
+                            <br><br>
+                            En 3 días de inmersión total, hackeamos la inercia de tu organización para convertir a cada
+                            empleado operativo en un socio estratégico capaz de entender el negocio y proteger la
+                            rentabilidad.
+                        </p>
+                        <div class="stats-row">
+                            <div class="stat">
+                                <span class="num">3</span>
+                                <span class="lbl">DÍAS INTENSIVOS</span>
+                            </div>
+                            <div class="stat">
+                                <span class="num">100%</span>
+                                <span class="lbl">PRÁCTICO</span>
+                            </div>
+                            <div class="stat">
+                                <span class="num">FOCO</span>
+                                <span class="lbl">EN RENTABILIDAD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-side reveal-on-scroll">
+                        <div class="video-wrapper-gold">
+                            <video autoplay loop muted playsinline poster="assets/images/bootcamp-poster.jpg">
+                                <source src="assets/video/bootcamp-trailer.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-overlay">
+                                <div class="play-btn-solid">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
+                                <span>VER LA EXPERIENCIA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOQUE B: La Metodología (Tabs) -->
+        <section class="bootcamp-methodology">
+            <div class="tr-container">
+
+                <div class="method-header reveal-on-scroll">
+                    <h3>LA HOJA DE RUTA</h3>
+                    <p>Así transformamos la mentalidad de tu equipo en 72 horas.</p>
+                </div>
+
+                <div class="tabs-nav reveal-on-scroll">
+                    <button class="tab-btn active" onclick="openPhase(event, 'phase1')">
+                        <span class="tab-num">01</span> ACTIVAR
+                    </button>
+                    <button class="tab-btn" onclick="openPhase(event, 'phase2')">
+                        <span class="tab-num">02</span> CANALIZAR
+                    </button>
+                    <button class="tab-btn" onclick="openPhase(event, 'phase3')">
+                        <span class="tab-num">03</span> EMPODERAR
+                    </button>
+                </div>
+
+                <div id="phase1" class="tab-content active-content">
+                    <div class="content-grid">
+                        <div class="c-text">
+                            <h4>PSICOLOGÍA Y PERMISO</h4>
+                            <p class="big-p">"Rompemos el miedo para liberar el genio".</p>
+                            <p>El mayor enemigo de la innovación es el silencio. En el Día 1, creamos un espacio de
+                                <strong>Seguridad Psicológica</strong> donde proponer cambios es seguro.
+                            </p>
+
+                            <ul class="check-list">
+                                <li><strong>La Ceremonia de Inmunidad:</strong> Un ritual físico donde trituramos las
+                                    "excusas" y el "no se puede".</li>
+                                <li><strong>El Billete Semilla ($1):</strong> Entregamos capital real para simbolizar
+                                    que
+                                    ahora son socios del negocio.</li>
+                                <li><strong>El Radar 360°:</strong> Enseñamos a observar la operación con "ojos de
+                                    dueño"
+                                    para detectar desperdicios.</li>
+                            </ul>
+                        </div>
+                        <div class="c-visual">
+                            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Fase 1">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="phase2" class="tab-content">
+                    <div class="content-grid">
+                        <div class="c-text">
+                            <h4>INGENIO Y NEGOCIO</h4>
+                            <p class="big-p">"Las ideas bonitas no sirven. Queremos casos de negocio".</p>
+                            <p>En el Día 2, enseñamos a tu equipo el lenguaje del dinero. No basta con tener una idea;
+                                hay
+                                que saber sustentar por qué es rentable para la empresa.</p>
+
+                            <ul class="check-list">
+                                <li><strong>Recursividad Radical:</strong> La regla de oro es "Resolver con lo que hay".
+                                    Innovar sin pedir presupuesto extra.</li>
+                                <li><strong>Traducción Financiera:</strong> Enseñamos al operativo a traducir su idea en
+                                    ahorros o ganancias proyectadas.</li>
+                                <li><strong>El Caso de Negocio:</strong> Preparan su propuesta para defenderla con
+                                    argumentos sólidos, no opiniones.</li>
+                            </ul>
+                        </div>
+                        <div class="c-visual">
+                            <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Fase 2">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="phase3" class="tab-content">
+                    <div class="content-grid">
+                        <div class="c-text">
+                            <h4>AUTORIDAD Y CULTURA</h4>
+                            <p class="big-p">"Dejamos de pedir permiso, empezamos a presentar resultados".</p>
+                            <p>El Día 3 es la prueba de fuego. Eliminamos la burocracia para que las mejores ideas
+                                reciban
+                                luz verde inmediata y se ejecuten.</p>
+
+                            <ul class="check-list">
+                                <li><strong>La Mesa de Inversión:</strong> Un "Shark Tank" interno donde los equipos
+                                    venden
+                                    sus proyectos a la directiva.</li>
+                                <li><strong>El Golden Ticket:</strong> Un carnet de autoridad delegada para ejecutar las
+                                    mejoras aprobadas sin trabas.</li>
+                                <li><strong>El Pin de Innovador:</strong> El símbolo de estatus final que certifica su
+                                    nueva identidad como socios.</li>
+                            </ul>
+                        </div>
+                        <div class="c-visual">
+                            <img src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Fase 3">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BLOQUE C: Preguntas Frecuentes -->
+        <section class="bootcamp-faq">
+            <div class="tr-container">
+                <h3 class="faq-headline reveal-on-scroll">PREGUNTAS FRECUENTES</h3>
+
+                <div class="faq-grid reveal-on-scroll">
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            ¿Este programa interrumpe la operación de mi empresa?
+                            <span class="plus-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No. El diseño del Bootcamp es de "Inmersión Ágil". Trabajamos con grupos rotativos o en
+                                bloques estratégicos para asegurar que la operación continúe mientras transformamos la
+                                cultura. De hecho, el objetivo es que la operación sea más rápida y fluida después del
+                                día
+                                3.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            ¿Es solo para gerentes o para todos?
+                            <span class="plus-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>La magia de "Innova desde Adentro" es la democratización. Recomendamos encarecidamente
+                                incluir personal operativo, de limpieza, de ventas y administrativo. A menudo, las
+                                mejores
+                                ideas de ahorro vienen de quien está más cerca del problema manual, no del gerente.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            ¿Los empleados realmente aprenden de finanzas?
+                            <span class="plus-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, pero no contabilidad compleja. Aprenden "Inteligencia Financiera Operativa". Les
+                                enseñamos a entender cuánto cuesta un error, cuánto vale un cliente y cómo una pequeña
+                                mejora en su puesto impacta el número final del negocio.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            ¿Qué pasa con las ideas generadas?
+                            <span class="plus-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No se quedan en papel. El objetivo de la Fase 3 (Shark Tank) es que salgas del Bootcamp
+                                con
+                                una lista de "Proyectos Aprobados" listos para implementación inmediata, con
+                                responsables asignados y fechas de entrega.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            ¿En qué se diferencia esto de un "Team Building" tradicional?
+                            <span class="plus-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>La diferencia es el objetivo. Un Team Building busca que la gente se "sienta bien" y se
+                                integre. Este Bootcamp busca que la gente "trabaje mejor" y resuelva problemas. No
+                                venimos a jugar, venimos a trabajar sobre tus nudos críticos reales usando metodología
+                                de innovación, no dinámicas recreativas.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Mi equipo es muy resistente al cambio. ¿Funcionará?
+                            <span class="plus-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutamente. La resistencia suele ser miedo disfrazado o falta de herramientas. La Fase
+                                1 (Activar) está diseñada con psicología conductual específicamente para desarmar el
+                                cinismo y la apatía. Hemos visto a los empleados más "difíciles" convertirse en los
+                                líderes de innovación más potentes una vez que se sienten escuchados y empoderados.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            ¿Funciona para mi industria específica?
+                            <span class="plus-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí. La metodología "Innova desde Adentro" es agnóstica a la industria. Nosotros ponemos
+                                la estructura (el "CÓMO"), pero tu equipo pone el conocimiento experto de tu negocio (el
+                                "QUÉ"). Funciona igual de bien en una planta industrial, una firma de abogados, un
+                                retail o una empresa de tecnología.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Manejamos información sensible. ¿Cómo protegen la confidencialidad?
+                            <span class="plus-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>La seguridad es nuestra prioridad. Firmamos un acuerdo de confidencialidad (NDA) estricto
+                                antes de iniciar. Además, todo el material generado, las ideas y los prototipos se
+                                quedan 100% en propiedad de la empresa. Nada sale de sus instalaciones.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="final-cta-wrapper reveal-on-scroll">
+                    <a href="#contacto" class="btn-platinum-cta">AGENDAR DIAGNÓSTICO DE CULTURA</a>
+                    <p class="cta-note">Hablemos 15 minutos para ver si tu equipo está listo.</p>
+                </div>
+
+            </div>
+        </section>
+
+        </div>
+    </section>
+
+    <style>
+        /* =========================================
+       BOOTCAMP: HERO/INTRO SPLIT
+       ========================================= */
+        .platinum-bootcamp-section {
+            background-color: #f0f2f5;
+            padding: 0;
+            color: #111;
+        }
+
+        .bootcamp-hero-split {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+            padding: 100px 20px;
+        }
+
+        .split-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-side {}
+
+        .gold-badge {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid #c5a059;
+            color: #c5a059;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .b-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1;
+            margin-bottom: 25px;
+            color: #111;
+        }
+
+        .text-gold {
+            color: #c5a059;
+        }
+
+        .b-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 30px;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .stat .num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #c5a059;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat .lbl {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        .video-side {}
+
+        .video-wrapper-gold {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 3px solid #c5a059;
+        }
+
+        .video-wrapper-gold video {
+            width: 100%;
+            display: block;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            gap: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .play-overlay:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .play-overlay:hover .play-btn-solid {
+            background: #ffffff;
+            color: #c5a059;
+            transform: scale(1.1);
+        }
+
+        .play-btn-solid {
+            width: 70px;
+            height: 70px;
+            background: #c5a059;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .play-btn-solid svg {
+            width: 28px;
+            height: 28px;
+            margin-left: 4px;
+        }
+
+        .play-overlay span {
+            font-family: 'Oswald', sans-serif;
+            color: white;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        /* =========================================
+       BOOTCAMP: METODOLOGÍA (TABS)
+       ========================================= */
+        .bootcamp-methodology {
+            background-color: #111;
+            padding: 100px 20px;
+            color: white;
+        }
+
+        .method-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .method-header h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 15px;
+            color: #c5a059;
+        }
+
+        .method-header p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: #999;
+        }
+
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: #999;
+            padding: 15px 30px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-btn:hover {
+            border-color: #c5a059;
+            color: white;
+        }
+
+        .tab-btn.active {
+            background: #c5a059;
+            border-color: #c5a059;
+            color: black;
+        }
+
+        .tab-num {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active-content {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .c-text h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            color: #c5a059;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .big-p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .c-text p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .check-list li {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: #ddd;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #c5a059;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .c-visual img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* =========================================
+       BOOTCAMP: FAQ
+       ========================================= */
+        .bootcamp-faq {
+            background: #f0f2f5;
+            padding: 100px 20px;
+        }
+
+        .faq-headline {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 60px;
+            color: #111;
+        }
+
+        .faq-grid {
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            border: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: #111;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            transition: 0.3s;
+        }
+
+        .faq-question:hover {
+            color: #c5a059;
+        }
+
+        .plus-icon {
+            font-size: 1.5rem;
+            color: #c5a059;
+            transition: 0.3s;
+        }
+
+        .faq-question.active .plus-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-answer p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+            padding: 20px 0;
+        }
+
+        .final-cta-wrapper {
+            text-align: center;
+        }
+
+        .btn-platinum-cta {
+            display: inline-block;
+            background: #111;
+            color: white;
+            padding: 20px 60px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-platinum-cta:hover {
+            background: #c5a059;
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        .cta-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .split-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .c-visual {
+                order: -1;
+            }
+
+            .stats-row {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bootcamp-hero-split {
+                padding: 60px 20px;
+            }
+
+            .bootcamp-methodology {
+                padding: 60px 20px;
+            }
+
+            .bootcamp-faq {
+                padding: 60px 20px;
+            }
+
+            .tabs-nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .tab-btn {
+                justify-content: center;
+            }
+        }
+
+        /* REVEAL ON SCROLL */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+
+    <script>
+        // TAB FUNCTIONALITY
+        function openPhase(evt, phaseId) {
+            // Hide all tab contents
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active-content');
+            }
+
+            // Remove active class from all buttons
+            const tabButtons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+
+            // Show the selected tab content
+            document.getElementById(phaseId).classList.add('active-content');
+
+            // Add active class to the clicked button
+            evt.currentTarget.classList.add('active');
+        }
+
+        // FAQ ACCORDION FUNCTIONALITY
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isActive = button.classList.contains('active');
+
+            // Close all other FAQs
+            const allQuestions = document.querySelectorAll('.faq-question');
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            allQuestions.forEach(q => q.classList.remove('active'));
+            allAnswers.forEach(a => a.style.maxHeight = null);
+
+            // Toggle the clicked one
+            if (!isActive) {
+                button.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        }
+
+        // REVEAL ON SCROLL
+        document.addEventListener('DOMContentLoaded', function () {
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+            const revealOnScroll = () => {
+                revealElements.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    const elementVisible = 100;
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        el.classList.add('visible');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Initial check
+        });
+    </script>
+
+    <style>
+        /* CHALLENGE MODULAR SECTION - LIGHT MODE */
+        .challenge-modular-section {
+            background: radial-gradient(circle at top right, #f8f9fb 0%, #F3F5F7 100%);
+            padding: 120px 20px;
+            color: #111111;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .tr-container-wide {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .modular-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            grid-template-areas:
+                "badge title"
+                "content video";
+            gap: 60px;
+        }
+
+        .identity-card {
+            grid-area: badge;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-top: 4px solid #c5a059;
+            padding: 40px 30px;
+            border-radius: 8px;
+            height: fit-content;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .id-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #999;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .id-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            line-height: 1;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            color: #111111;
+        }
+
+        .id-meta {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #c5a059;
+            font-weight: 600;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 15px;
+        }
+
+        .id-meta span:first-child {
+            animation: subtle-pulse 3s infinite;
+        }
+
+        @keyframes subtle-pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .id-meta .separator {
+            margin: 0 8px;
+            color: #ccc;
+        }
+
+        .headline-block {
+            grid-area: title;
+            display: flex;
+            align-items: center;
+        }
+
+        .modular-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 4.5vw, 4rem);
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin: 0;
+            color: #111111;
+        }
+
+        .text-outline-gold {
+            color: transparent;
+            -webkit-text-stroke: 1.5px #c5a059;
+            text-shadow: 0 0 20px rgba(197, 160, 89, 0.2);
+        }
+
+        .content-block {
+            grid-area: content;
+            padding-right: 20px;
+        }
+
+        .intro-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .intro-text strong {
+            color: #111111;
+            font-weight: 700;
+        }
+
+        .sub-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .pillars-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+        .pillars-list li {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .pillar-icon-box {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pillars-list li:hover .pillar-icon-box {
+            background: linear-gradient(135deg, #c5a059 0%, #d4af69 100%);
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.35);
+        }
+
+        .pillars-list li:hover .pillar-icon-box svg {
+            stroke: url(#white-grad);
+        }
+
+        .pillar-icon-box svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .pillars-list strong {
+            color: #c5a059;
+        }
+
+        .insight-quote {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #333;
+            margin: 30px 0 30px 0;
+            padding-left: 25px;
+            border-left: 4px solid #c5a059;
+            line-height: 1.6;
+        }
+
+        .insight-quote cite {
+            display: block;
+            font-size: 0.9rem;
+            font-style: normal;
+            color: #888;
+            margin-top: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .cta-link {
+            color: #111111;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #c5a059;
+            padding-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        .cta-link:hover {
+            color: #c5a059;
+            border-color: #111111;
+        }
+
+        .visual-block {
+            grid-area: video;
+            position: relative;
+            transition: transform 0.1s ease-out;
+        }
+
+        .system-window {
+            background: #000;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .window-bar {
+            background: #f5f5f5;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .light {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .light.red {
+            background: #ff5f56;
+        }
+
+        .light.yellow {
+            background: #ffbd2e;
+        }
+
+        .light.green {
+            background: #27c93f;
+        }
+
+        .window-title {
+            color: #666;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+
+        .video-embed {
+            position: relative;
+            padding-top: 56.25%;
+            width: 100%;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .window-shadow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        @media (max-width: 900px) {
+            .challenge-modular-section {
+                padding: 80px 20px;
+            }
+
+            .modular-grid {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "badge"
+                    "title"
+                    "video"
+                    "content";
+                gap: 40px;
+            }
+
+            .identity-card {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 30px 20px;
+            }
+
+            .id-logo {
+                font-size: 2rem;
+                margin-bottom: 0;
+            }
+
+            .id-meta {
+                border-top: none;
+                padding-top: 0;
+                border-left: 1px solid #333;
+                padding-left: 20px;
+                margin-left: 20px;
+                font-size: 0.8rem;
+            }
+
+            .modular-heading {
+                font-size: 2.2rem;
+            }
+
+            .content-block {
+                padding-right: 0;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+            }
+
+            .pillars-list li {
+                font-size: 0.95rem;
+            }
+
+            /* VIDEO OPTIMIZATION */
+            .system-window {
+                border-radius: 8px;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            }
+
+            .window-bar {
+                padding: 10px 12px;
+            }
+
+            .traffic-lights {
+                gap: 6px;
+            }
+
+            .light {
+                width: 8px;
+                height: 8px;
+            }
+
+            .window-title {
+                font-size: 0.7rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .video-embed {
+                padding-top: 75%;
+            }
+
+            .window-shadow {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .challenge-modular-section {
+                padding: 60px 15px;
+            }
+
+            .modular-grid {
+                gap: 30px;
+            }
+
+            .identity-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .id-logo {
+                font-size: 1.8rem;
+            }
+
+            .id-meta {
+                border-left: none;
+                padding-left: 0;
+                margin-left: 0;
+                border-top: 1px solid #333;
+                padding-top: 15px;
+                width: 100%;
+            }
+
+            .modular-heading {
+                font-size: 1.8rem;
+            }
+
+            .system-window {
+                border-radius: 6px;
+            }
+
+            .window-bar {
+                padding: 8px 10px;
+            }
+
+            .window-title {
+                font-size: 0.65rem;
+            }
+
+            .video-embed {
+                padding-top: 90%;
+            }
+        }
+    </style>
+
+    <style>
+        /* MOBILE HEADER OPTIMIZATION */
+        @media (max-width: 768px) {
+            .tr-header-cta {
+                padding: 8px 14px !important;
+                font-size: 0.72rem !important;
+                letter-spacing: 0.5px !important;
+                height: auto !important;
+                min-height: 0 !important;
+                line-height: normal !important;
+                white-space: nowrap;
+                margin: 0 5px !important;
+            }
+
+            /* Adjust logo and menu to ensure spacing */
+            .header-container {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                gap: 5px !important;
+            }
+
+            .logo {
+                font-size: 1.1rem !important;
+                flex-shrink: 0;
+            }
+
+            .menu-icon {
+                flex-shrink: 0;
+                width: 36px !important;
+                height: 36px !important;
+            }
+        }
+    </style>
+
+    <style>
+        /* PERMISSION + VIDEO UNIFIED SECTION */
+        .permission-video-section {
+            background-color: #141414;
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .permission-video-section .tr-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* TEXT STYLES */
+        .permission-lead {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: #ddd;
+            margin-bottom: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .permission-word {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(4rem, 10vw, 7rem);
+            font-weight: 700;
+            color: #c5a059;
+            line-height: 1;
+            margin: 10px 0 30px 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 40px rgba(197, 160, 89, 0.2);
+        }
+
+        .gold-divider {
+            width: 60px;
+            height: 3px;
+            background-color: #c5a059;
+            margin: 0 auto 30px auto;
+        }
+
+        .permission-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 60px;
+        }
+
+        .permission-sub .text-white {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* VIDEO PLAYER STYLES */
+        .video-container-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeUpVideo 1s ease-out 0.5s backwards;
+        }
+
+        .video-frame {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            min-height: 400px;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            z-index: 2;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .video-frame:hover {
+            transform: translateY(-5px);
+            border-color: #c5a059;
+        }
+
+        .video-cover {
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .play-btn-pulse {
+            position: relative;
+            z-index: 3;
+            width: 70px;
+            height: 70px;
+            background: #c5a059;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+            animation: pulse 2s infinite;
+            transition: 0.3s;
+        }
+
+        .video-frame:hover .play-btn-pulse {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        .video-shadow {
+            position: absolute;
+            bottom: -20px;
+            left: 5%;
+            width: 90%;
+            height: 20px;
+            background: radial-gradient(ellipse at center, rgba(197, 160, 89, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(197, 160, 89, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+            }
+        }
+
+        @keyframes fadeUpVideo {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .permission-video-section {
+                padding: 60px 15px;
+            }
+
+            .permission-video-section .tr-container {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+
+            .permission-lead {
+                font-size: 1.1rem;
+                line-height: 1.4;
+                margin-bottom: 15px;
+            }
+
+            .permission-word {
+                font-size: clamp(2.5rem, 12vw, 4rem);
+                letter-spacing: 2px;
+                margin: 15px 0 20px 0;
+            }
+
+            .gold-divider {
+                width: 50px;
+                margin: 0 auto 20px auto;
+            }
+
+            .permission-sub {
+                font-size: 1rem;
+                margin-bottom: 40px;
+                line-height: 1.5;
+            }
+
+            .video-container-wrapper {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .video-frame {
+                aspect-ratio: 9 / 16;
+                max-width: 400px;
+                margin: 0 auto;
+                min-height: 500px;
+                border-radius: 12px;
+            }
+
+            .video-shadow {
+                bottom: -15px;
+                height: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .permission-video-section {
+                padding: 40px 10px;
+            }
+
+            .permission-lead {
+                font-size: 1rem;
+            }
+
+            .permission-word {
+                font-size: 2.5rem;
+                letter-spacing: 1px;
+            }
+
+            .permission-sub {
+                font-size: 0.9rem;
+                margin-bottom: 30px;
+            }
+
+            .video-frame {
+                aspect-ratio: 9 / 16;
+                max-width: 320px;
+                margin: 0 auto;
+                min-height: 450px;
+                border-radius: 8px;
+            }
+        }
+    </style>
+
+    <!-- ZEN DIAGNOSTIC SECTION -->
+    <section id="diagnostico" class="zen-diagnostic-section">
+
+        <div class="zen-glow"></div>
+
+        <div class="zen-container">
+
+            <div class="zen-header text-center">
+                <span class="zen-label">ALGORITMO DE ANÁLISIS</span>
+                <h2 class="zen-title">DESCUBRE TU <span class="text-gold">COEFICIENTE DE INGENIO</span></h2>
+            </div>
+
+            <div class="quiz-wrapper">
+
+                <div class="progress-line">
+                    <div class="progress-active" id="zen-progress"></div>
+                </div>
+
+                <div id="quiz-flow">
+
+                    <div class="quiz-step active" id="step-1">
+                        <div class="step-number">01</div>
+                        <h3 class="step-question">¿Cuándo fue la última vez que le preguntaste a un operativo: <br><span
+                                class="highlight">"¿En qué crees que estamos fallando?"</span></h3>
+
+                        <div class="zen-options">
+                            <button class="zen-opt" onclick="zenNext(1, 0)">
+                                <div class="opt-marker">A</div>
+                                <div class="opt-text">Nunca. Asumo que si algo falla, me lo dirán.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(1, 10)">
+                                <div class="opt-marker">B</div>
+                                <div class="opt-text">Quizás hace un año, en evaluaciones anuales.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(1, 20)">
+                                <div class="opt-marker">C</div>
+                                <div class="opt-text">A veces, cuando veo problemas evidentes.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(1, 30)">
+                                <div class="opt-marker">D</div>
+                                <div class="opt-text">Tenemos reuniones semanales específicas para esto.</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step-2">
+                        <div class="step-number">02</div>
+                        <h3 class="step-question">¿Cuándo fue la última vez que hablaste con un empleado <span
+                                class="highlight">SOLO de los comentarios negativos</span> de clientes?</h3>
+
+                        <div class="zen-options">
+                            <button class="zen-opt" onclick="zenNext(2, 0)">
+                                <div class="opt-marker">A</div>
+                                <div class="opt-text">Solo cuando hay una queja grave para buscar culpables.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(2, 10)">
+                                <div class="opt-marker">B</div>
+                                <div class="opt-text">Revisamos las quejas en reportes generales mensuales.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(2, 20)">
+                                <div class="opt-marker">C</div>
+                                <div class="opt-text">Escucho lo malo, pero a veces me lo tomo personal.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(2, 30)">
+                                <div class="opt-marker">D</div>
+                                <div class="opt-text">Analizamos lo malo constantemente sin culpas.</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step-3">
+                        <div class="step-number">03</div>
+                        <h3 class="step-question">Si un empleado sugiere cambiar un proceso establecido, <span
+                                class="highlight">¿cuál es la reacción inmediata?</span></h3>
+
+                        <div class="zen-options">
+                            <button class="zen-opt" onclick="zenNext(3, 0)">
+                                <div class="opt-marker">A</div>
+                                <div class="opt-text">"Aquí siempre se ha hecho así. No toques nada".</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(3, 10)">
+                                <div class="opt-marker">B</div>
+                                <div class="opt-text">"Déjame pensarlo". (Y usualmente la idea se olvida).</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(3, 20)">
+                                <div class="opt-marker">C</div>
+                                <div class="opt-text">Le digo que lo intente bajo su propio riesgo.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(3, 30)">
+                                <div class="opt-marker">D</div>
+                                <div class="opt-text">"Tienes permiso para hacer una prueba piloto hoy".</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step-4">
+                        <div class="step-number">04</div>
+                        <h3 class="step-question">Tienes un problema operativo que cuesta dinero diario. <span
+                                class="highlight">¿Quién puede solucionarlo?</span></h3>
+
+                        <div class="zen-options">
+                            <button class="zen-opt" onclick="zenNext(4, 0)">
+                                <div class="opt-marker">A</div>
+                                <div class="opt-text">Solo yo. Nadie mueve un dedo sin mi orden.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(4, 10)">
+                                <div class="opt-marker">B</div>
+                                <div class="opt-text">Deben llenar una solicitud y esperar aprobación.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(4, 20)">
+                                <div class="opt-marker">C</div>
+                                <div class="opt-text">El supervisor, pero prefiere consultarme antes.</div>
+                            </button>
+                            <button class="zen-opt" onclick="zenNext(4, 30)">
+                                <div class="opt-marker">D</div>
+                                <div class="opt-text">El operario. Tiene autonomía para ejecutar mejoras.</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step-lead">
+                        <div class="step-number">FINAL</div>
+                        <h3 class="step-question">Cálculo Completado. <br><span class="highlight">¿A dónde enviamos tu
+                                reporte estratégico?</span></h3>
+
+                        <div class="zen-form-wrapper">
+                            <form id="zen-form" onsubmit="zenCalculate(event)">
+                                <div class="input-line">
+                                    <input type="text" placeholder="Tu Nombre" required>
+                                    <span class="focus-border"></span>
+                                </div>
+                                <div class="input-line">
+                                    <input type="email" placeholder="Tu Correo Corporativo" required>
+                                    <span class="focus-border"></span>
+                                </div>
+                                <button type="submit" class="zen-submit-btn">
+                                    <span>REVELAR RESULTADO</span>
+                                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
+                                        stroke-width="2" fill="none">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </form>
+                            <p class="privacy-note">🔒 Tus datos están seguros y no serán compartidos.</p>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step-result">
+                        <div class="consulting-report">
+
+                            <div class="report-header">
+                                <div class="rh-left">
+                                    <span class="report-label">DIAGNÓSTICO GENERADO</span>
+                                    <h2 class="report-archetype text-gold" id="res-archetype">ANALIZANDO DATA...</h2>
+                                    <p class="report-subtitle" id="res-subtitle">...</p>
+                                </div>
+                                <div class="rh-right">
+                                    <div class="score-badge">
+                                        <span class="sb-label">NIVEL DE RIESGO</span>
+                                        <span class="sb-value" id="res-risk-level">ALTO</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="report-body">
+
+                                <div class="analysis-section">
+                                    <h3 class="section-title">
+                                        <span class="icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <circle cx="11" cy="11" r="8"></circle>
+                                                <path d="m21 21-4.35-4.35"></path>
+                                            </svg>
+                                        </span>
+                                        TU PATOLOGÍA ACTUAL
+                                    </h3>
+                                    <p class="analysis-text" id="res-diagnosis">...</p>
+                                </div>
+
+                                <div class="strategy-section">
+                                    <h3 class="section-title">
+                                        <span class="icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                                <path d="M2 17l10 5 10-5"></path>
+                                                <path d="M2 12l10 5 10-5"></path>
+                                            </svg>
+                                        </span>
+                                        TU IMPERATIVO ESTRATÉGICO
+                                    </h3>
+                                    <p class="strategy-text" id="res-imperative">...</p>
+                                </div>
+
+                                <div class="roadmap-box">
+                                    <h3 class="box-title">TU PLAN DE ACCIÓN (90 DÍAS)</h3>
+                                    <div class="roadmap-grid">
+                                        <div class="r-step">
+                                            <span class="r-num">DÍA 1-30</span>
+                                            <strong id="res-plan-1-title">...</strong>
+                                            <p id="res-plan-1-desc">...</p>
+                                        </div>
+                                        <div class="r-step">
+                                            <span class="r-num">DÍA 31-60</span>
+                                            <strong id="res-plan-2-title">...</strong>
+                                            <p id="res-plan-2-desc">...</p>
+                                        </div>
+                                        <div class="r-step">
+                                            <span class="r-num">DÍA 61-90</span>
+                                            <strong id="res-plan-3-title">...</strong>
+                                            <p id="res-plan-3-desc">...</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="value-cta-box">
+                                    <div class="vcb-text">
+                                        <h4>
+                                            <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\"
+                                                stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"
+                                                stroke-linejoin=\"round\"
+                                                style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                                                <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                                                <rect x="2" y="7" width="20" height="5"></rect>
+                                                <line x1="12" y1="22" x2="12" y2="7"></line>
+                                                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                                                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+                                            </svg>
+                                            TU PRIMER PASO (GRATIS)
+                                        </h4>
+                                        <p>No intentes aplicar todo esto solo. Hemos desbloqueado un entrenamiento
+                                            específico para tu perfil:</p>
+                                        <p class="video-recommendation" id="res-video">...</p>
+                                    </div>
+                                    <div class="vcb-action">
+                                        <a href="#digital-challenge" class="btn-report-action"
+                                            onclick="document.querySelector('#digital-challenge').scrollIntoView({behavior:'smooth'})">VER
+                                            CLASE RECOMENDADA</a>
+                                        <a href="#bootcamp" class="link-secondary">Ver Programa Presencial</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        :root {
+            --zen-bg: #000000;
+            --zen-gold: #c5a059;
+            --zen-text: #ffffff;
+            --zen-muted: #666666;
+        }
+
+        .zen-diagnostic-section {
+            background-color: var(--zen-bg);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 850px;
+            /* Altura consistente */
+            font-family: 'Montserrat', sans-serif;
+            color: var(--zen-text);
+            border-top: 1px solid #111;
+        }
+
+        /* LUZ AMBIENTAL */
+        .zen-glow {
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .zen-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        .zen-header {
+            margin-bottom: 60px;
+        }
+
+        .zen-label {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--zen-muted);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .zen-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--zen-text);
+            margin: 0;
+        }
+
+        .text-gold {
+            color: var(--zen-gold);
+        }
+
+        /* BARRA PROGRESO */
+        .progress-line {
+            width: 100%;
+            height: 2px;
+            background: #1a1a1a;
+            margin-bottom: 50px;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .progress-active {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--zen-gold);
+            box-shadow: 0 0 10px var(--zen-gold);
+            transition: width 0.6s ease;
+        }
+
+        /* PASOS (SLIDES) */
+        .quiz-step {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .quiz-step.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 5rem;
+            color: #111;
+            line-height: 1;
+            margin-bottom: -30px;
+            position: relative;
+            z-index: -1;
+            user-select: none;
+        }
+
+        .step-question {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        .highlight {
+            color: var(--zen-gold);
+            font-weight: 600;
+        }
+
+        /* OPCIONES (BOTONES) */
+        .zen-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .zen-opt {
+            background: transparent;
+            border: 1px solid #222;
+            padding: 20px 25px;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            width: 100%;
+        }
+
+        .opt-marker {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #333;
+            color: #555;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            flex-shrink: 0;
+        }
+
+        .opt-text {
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        /* HOVER & SELECTED */
+        .zen-opt:hover {
+            border-color: #444;
+            background: rgba(255, 255, 255, 0.02);
+            transform: translateX(5px);
+        }
+
+        .zen-opt.selected {
+            border-color: var(--zen-gold);
+            background: rgba(197, 160, 89, 0.08);
+        }
+
+        .zen-opt.selected .opt-marker {
+            background: var(--zen-gold);
+            color: black;
+            border-color: var(--zen-gold);
+        }
+
+        .zen-opt.selected .opt-text {
+            color: white;
+        }
+
+        /* FORMULARIO LEAD */
+        .zen-form-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .input-line {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-line input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+            color: white;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .input-line input:focus {
+            outline: none;
+            border-bottom-color: var(--zen-gold);
+        }
+
+        /* Animación Focus */
+        .focus-border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--zen-gold);
+            transition: 0.4s;
+        }
+
+        .input-line input:focus~.focus-border {
+            width: 100%;
+        }
+
+        .zen-submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: white;
+            color: black;
+            border: none;
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .zen-submit-btn:hover {
+            background: var(--zen-gold);
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+        }
+
+        .privacy-note {
+            text-align: center;
+            color: #444;
+            font-size: 0.8rem;
+            margin-top: 20px;
+        }
+
+
+        /* --- ESTILOS DEL REPORTE CONSULTIVO --- */
+        .consulting-report {
+            background: #ffffff;
+            color: #111;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+            border-top: 6px solid #c5a059;
+        }
+
+        /* Header Oscuro */
+        .report-header {
+            background: #111;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid #333;
+        }
+
+        .report-label {
+            color: #666;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .report-archetype {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            line-height: 1;
+            margin: 0 0 10px 0;
+            color: #c5a059;
+            text-transform: uppercase;
+        }
+
+        .report-subtitle {
+            color: #ccc;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            max-width: 500px;
+        }
+
+        .score-badge {
+            text-align: center;
+            border: 1px solid #444;
+            padding: 15px 25px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .sb-label {
+            display: block;
+            color: #888;
+            font-size: 0.65rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .sb-value {
+            display: block;
+            color: #ff4444;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+        }
+
+        /* Cuerpo del Reporte */
+        .report-body {
+            padding: 40px;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: #111;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .icon {
+            font-size: 1.4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #c5a059;
+        }
+
+        .section-title .icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #c5a059;
+        }
+
+        .analysis-text,
+        .strategy-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        /* Caja de Hoja de Ruta */
+        .roadmap-box {
+            background: #f4f6f8;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .box-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            color: #111;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .r-step {
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+            border-bottom: 3px solid #c5a059;
+        }
+
+        .r-num {
+            display: block;
+            font-size: 0.7rem;
+            color: #999;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .r-step strong {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #111;
+        }
+
+        .r-step p {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* CTA Final */
+        .value-cta-box {
+            background: #111;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .vcb-text h4 {
+            color: #c5a059;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .vcb-text h4 svg {
+            stroke: #c5a059;
+        }
+
+        .vcb-text p {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+
+        .video-recommendation {
+            color: white !important;
+            font-weight: 600;
+            font-size: 1.1rem !important;
+        }
+
+        .vcb-action {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .btn-report-action {
+            background: #c5a059;
+            color: black;
+            padding: 12px 20px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .btn-report-action:hover {
+            background: white;
+        }
+
+        .link-secondary {
+            color: #888;
+            font-size: 0.8rem;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .zen-title {
+                font-size: 2rem;
+            }
+
+            .quiz-step {
+                padding-bottom: 40px;
+            }
+
+            .report-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .roadmap-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-cta-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script>
+        /* --- MOTOR DE DIAGNÓSTICO PROFUNDO (v3.0) --- */
+        /* Basado en: Guía de Innovación por Arquetipo Empresarial */
+
+        // Variables de estado
+        let archetypeScores = {
+            'micro': 0,    // Microempresa (<10)
+            'medium': 0,   // Empresa Mediana / Scaling (50-250)
+            'family': 0,   // Empresa Familiar
+            'corp': 0      // Corporación / Sector Público
+        };
+        let currentQuizStep = 1;
+
+        // Función para registrar respuesta
+        function zenNext(step, points) {
+            // Mapeo de puntos a arquetipos
+            let archetype = '';
+            if (points === 0) archetype = 'corp';    // Respuestas "A" típicamente corp
+            else if (points === 10) archetype = 'family';  // Respuestas "B" típicamente family
+            else if (points === 20) archetype = 'medium';  // Respuestas "C" típicamente medium
+            else if (points === 30) archetype = 'micro';   // Respuestas "D" típicamente micro
+
+            archetypeScores[archetype] += 1;
+
+            // Feedback visual
+            const btn = event.currentTarget;
+            btn.classList.add('selected');
+
+            setTimeout(() => {
+                document.getElementById(`step-${step}`).classList.remove('active');
+
+                if (step < 4) {
+                    currentQuizStep = step + 1;
+                    document.getElementById(`step-${currentQuizStep}`).classList.add('active');
+                    updateZenProgress(currentQuizStep);
+                } else {
+                    document.getElementById('step-lead').classList.add('active');
+                    updateZenProgress(5);
+                }
+            }, 400);
+        }
+
+        function updateZenProgress(step) {
+            const pct = (step / 6) * 100;
+            document.getElementById('zen-progress').style.width = pct + '%';
+        }
+
+        // Función Principal: Generar Diagnóstico
+        function zenCalculate(e) {
+            e.preventDefault();
+
+            document.getElementById('step-lead').classList.remove('active');
+            document.getElementById('step-result').classList.add('active');
+            updateZenProgress(6);
+
+            // Determinar ganador
+            let winner = Object.keys(archetypeScores).reduce((a, b) =>
+                archetypeScores[a] > archetypeScores[b] ? a : b
+            );
+
+            // BASE DE CONOCIMIENTO
+            const knowledgeBase = {
+                'micro': {
+                    name: "EL MICRO-INNOVADOR",
+                    subtitle: "Arquetipo: Microempresa (< 10 Empleados)",
+                    risk: "CRÍTICO (Dependencia)",
+
+                    diagnosis: "Tu organización sufre del <strong>'Complejo del Llanero Solitario'</strong>. Tienes una flexibilidad operativa envidiable, pero la innovación depende al 100% de tu energía y presencia física. Si tú te detienes, la empresa se congela. Estás atrapado en la operación diaria, lo que impide construir un sistema escalable.",
+
+                    imperative: "Tu misión no es trabajar más duro, es <strong>Institucionalizar la Experimentación</strong>. Debes transitar de 'Hacerlo Todo' a 'Diseñar el Hábito'. Necesitas aplicar metodologías ligeras (Lean Startup) para validar ideas rápido sin quemar tu poco capital disponible.",
+
+                    plan1: { t: "Visión y Foco", d: "Define tu 'Verdadera Motivación' y simplifica los 3 procesos más críticos que te roban tiempo hoy." },
+                    plan2: { t: "Experimentación", d: "Ejecuta tu primer ciclo 'Construir-Medir-Aprender' con 5 clientes reales usando un MVP de bajo costo." },
+                    plan3: { t: "Consolidación", d: "Formaliza la reunión semanal de 'Aprendizaje Rápido' (15 min) para dejar de depender de tu intuición." },
+
+                    video: "VIDEO 03: HACKEO DE PROCESOS (Cómo sistematizar tu negocio)"
+                },
+
+                'medium': {
+                    name: "EL SCALING-INNOVATOR",
+                    subtitle: "Arquetipo: Empresa Mediana (50-250 Empleados)",
+                    risk: "ALTO (Complejidad)",
+
+                    diagnosis: "Estás en la 'Trampa de la Adolescencia Corporativa'. Has crecido y tienes recursos, pero la complejidad estructural está empezando a matar tu agilidad. Tus mandos medios, que antes impulsaban, ahora pueden estar resistiéndose al cambio por miedo a perder control.",
+
+                    imperative: "Debes evolucionar de Operador a <strong>Arquitecto Delegativo</strong>. Tu rol ya no es tener las ideas, sino crear la estructura para que otros innoven. Necesitas descentralizar el poder a través del Intraemprendimiento formal.",
+
+                    plan1: { t: "Diagnóstico", d: "Define los 'Retos Prioritarios' y formaliza un Capital Semilla Interno para financiar ideas de empleados." },
+                    plan2: { t: "Exploración", d: "Selecciona 2 equipos multidisciplinarios y dales 'Tiempo Protegido' (10%) para aplicar Design Thinking." },
+                    plan3: { t: "Lanzamiento", d: "Presentación de MVPs y cálculo de rentabilidad proyectada para aprobar escalamiento." },
+
+                    video: "VIDEO 05: EL GOLDEN TICKET (Delegación de Autoridad)"
+                },
+
+                'family': {
+                    name: "EL GUARDIÁN DEL LEGADO",
+                    subtitle: "Arquetipo: Empresa Familiar",
+                    risk: "MEDIO (Aversión al Riesgo)",
+
+                    diagnosis: "Tu mayor activo es la visión a largo plazo, pero tu mayor freno es la <strong>Aversión al Riesgo Patrimonial</strong>. Existe un miedo latente a que la innovación 'rompa' lo que construyeron los fundadores. La sucesión y la gobernanza difusa están bloqueando la modernización necesaria.",
+
+                    imperative: "La innovación no es una amenaza, es tu <strong>Seguro de Supervivencia</strong>. Debes usar la innovación como el campo de entrenamiento para la Siguiente Generación, permitiéndoles liderar proyectos piloto fuera del núcleo del negocio para ganar legitimidad.",
+
+                    plan1: { t: "Gobernanza", d: "Auditoría de Gobernanza: Definir un 'Protocolo de Innovación' que separe el riesgo familiar del empresarial." },
+                    plan2: { t: "Involucración NG", d: "Asignar a la Siguiente Generación a liderar un proyecto 'Quick-Win' de bajo riesgo." },
+                    plan3: { t: "Validación", d: "Evaluar resultados no solo por dinero, sino por alineación con el Propósito y Valores de la familia." },
+
+                    video: "VIDEO 01: LA CEREMONIA DE INMUNIDAD (Romper el miedo)"
+                },
+
+                'corp': {
+                    name: "EL GIGANTE SILENCIOSO",
+                    subtitle: "Arquetipo: Gran Corporación / Sector Público",
+                    risk: "ALTO (Inercia)",
+
+                    diagnosis: "Tienes el talento y los recursos, pero sufres de <strong>Inercia Burocrática y Silos</strong>. Tu cultura tiene 'anticuerpos' que atacan cualquier idea nueva. El miedo al error político hace que tus gerentes elijan 'no hacer nada' antes que arriesgarse a fallar.",
+
+                    imperative: "Necesitas crear <strong>'Sandboxes' (Cajas de Arena)</strong>. Zonas protegidas fuera de la burocracia normal donde equipos pequeños tengan licencia para romper reglas y probar rápido, con patrocinio ejecutivo directo.",
+
+                    plan1: { t: "Patrocinio", d: "Identificar un Sponsor Ejecutivo (Escudo Político) y mapear los silos que bloquearán el cambio." },
+                    plan2: { t: "Incubación", d: "Lanzamiento de pilotos en modo 'Stealth' (oculto) fuera de los procesos estándar de aprobación." },
+                    plan3: { t: "Escalado", d: "Medición de impacto y plan de sucesión para reintegrar el éxito a la estructura formal." },
+
+                    video: "VIDEO 09: EL DEMO DAY (Presentación de Resultados)"
+                }
+            };
+
+            // Renderizar Datos
+            const result = knowledgeBase[winner];
+
+            document.getElementById('res-archetype').innerText = result.name;
+            document.getElementById('res-subtitle').innerText = result.subtitle;
+            document.getElementById('res-risk-level').innerText = result.risk;
+
+            document.getElementById('res-diagnosis').innerHTML = result.diagnosis;
+            document.getElementById('res-imperative').innerHTML = result.imperative;
+
+            document.getElementById('res-plan-1-title').innerText = result.plan1.t;
+            document.getElementById('res-plan-1-desc').innerText = result.plan1.d;
+
+            document.getElementById('res-plan-2-title').innerText = result.plan2.t;
+            document.getElementById('res-plan-2-desc').innerText = result.plan2.d;
+
+            document.getElementById('res-plan-3-title').innerText = result.plan3.t;
+            document.getElementById('res-plan-3-desc').innerText = result.plan3.d;
+
+            document.getElementById('res-video').innerText = result.video;
+        }
+    </script>
+
+
+    <!-- Related Articles Section (Imported) -->
+    <section class="related-section">
+        <div class="related-header">
+            <h3 class="related-title">Artículos Relacionados</h3>
+            <div class="slider-nav">
+                <div class="nav-btn" onclick="scrollGrid(-1)">&#10094;</div>
+                <div class="nav-btn" onclick="scrollGrid(1)">&#10095;</div>
+            </div>
+        </div>
+
+        <div class="related-grid" id="relatedGrid">
+
+            <!-- New Article: Innovación japonesa -->
+            <a href="blog-innovation-japonesa.html" class="related-card">
+                <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">INNOVACIÓN</span>
+                    <h4 class="related-h">Innovar sin inventar: la lección japonesa</h4>
+                    <p class="related-excerpt">Cómo Venezuela puede aprender del modelo Toyota para transformar desafíos
+                        en ventajas competitivas.</p>
+                </div>
+            </a>
+
+            <!-- Article: React vs Create Future -->
+            <a href="blog-post.html" class="related-card">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">ESTRATEGIA</span>
+                    <h4 class="related-h">¿Estás reaccionando o creando el futuro?</h4>
+                    <p class="related-excerpt">El cambio ya no es un suceso extraño; es el estado natural. Descubre cómo
+                        anticiparte.</p>
+                </div>
+            </a>
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">LIDERAZGO</span>
+                    <h4 class="related-h">Liderazgo Adaptativo: Guía 2024</h4>
+                    <p class="related-excerpt">Cómo guiar a tu equipo en tiempos de incertidumbre.</p>
+                </div>
+            </a>
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">CULTURA</span>
+                    <h4 class="related-h">La cultura se come a la estrategia</h4>
+                    <p class="related-excerpt">Por qué tus planes fallan si no cambias la mentalidad.</p>
+                </div>
+            </a>
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">INNOVACIÓN</span>
+                    <h4 class="related-h">Los 10 tipos de innovación</h4>
+                    <p class="related-excerpt">No todo es tecnología. Descubre dónde puedes innovar.</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <script>
+        function scrollGrid(direction) {
+            const grid = document.getElementById('relatedGrid');
+            const scrollAmount = 350;
+            grid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2025 FACE Innovation. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/footer.js"></script>
+    <script src="js/related-articles.js"></script>
+    <script src="js/mockAuth.js"></script>
+    <script src="js/authUI.js"></script>
+    <script src="js/header-scroll.js"></script>
+    <script src="script.js?v=3"></script>
+    <script src="menu.js"></script>
+
+
+</body>
+
+</html>
