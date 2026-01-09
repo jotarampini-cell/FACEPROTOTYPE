@@ -1979,13 +1979,54 @@
             padding: 0 20px;
         }
 
-        /* --- 2. BLOQUE PROMO (EL REGALO) --- */
+        /* --- CÁPSULA DE VALOR (PROMO BLOCK) --- */
         .promo-block {
+            position: relative;
             text-align: center;
-            max-width: 850px;
-            margin: 0 auto 100px;
+            max-width: 900px;
+            /* Márgenes: más espacio arriba y abajo para que la cápsula "respire" */
+            margin: 40px auto 100px;
+
+            /* --- EL EFECTO CÁPSULA --- */
+            /* 1. Forma redondeada pronunciada */
+            border-radius: 60px;
+
+            /* 2. Fondo con degradado sutil tech (Hielo a Blanco) */
+            background: linear-gradient(180deg, #f0fcff 0%, #ffffff 80%);
+
+            /* 3. Borde fino y tecnológico */
+            border: 1px solid #dbeef5;
+            /* Cyan muy pálido */
+
+            /* 4. Padding interno generoso para que el contenido no toque los bordes curvos */
+            padding: 70px 50px;
+
+            /* 5. Sombras complejas para volumen y flotabilidad */
+            box-shadow:
+                /* Sombra externa suave que lo eleva */
+                0 20px 50px -15px rgba(0, 188, 212, 0.15),
+                /* Luz interna sutil en el borde superior (Efecto cristal) */
+                inset 0 4px 15px rgba(255, 255, 255, 0.8),
+                inset 0 -4px 15px rgba(0, 188, 212, 0.03);
+
+            overflow: hidden;
+            z-index: 2;
         }
 
+        /* Decoración Opcional: Un destello sutil en la parte superior para más dinamismo */
+        .promo-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00bcd4, transparent);
+            opacity: 0.4;
+            filter: blur(2px);
+        }
+
+        /* El badge ahora contrasta mejor */
         .promo-badge {
             display: inline-flex;
             align-items: center;
@@ -1993,24 +2034,25 @@
             background: #00bcd4;
             color: white;
             font-weight: 800;
-            padding: 8px 20px;
+            padding: 8px 24px;
             border-radius: 50px;
             margin-bottom: 30px;
             font-family: 'Oswald', sans-serif;
             font-size: 0.85rem;
             letter-spacing: 2px;
-            box-shadow: 0 10px 20px rgba(0, 188, 212, 0.25);
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.25);
             text-transform: uppercase;
         }
 
+        /* Título con más impacto */
         .promo-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 3.5rem;
-            line-height: 1;
-            color: #000;
-            margin-bottom: 30px;
+            font-size: 3.2rem;
+            /* Un poco más grande */
+            line-height: 1.05;
+            color: #111;
+            margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: -1px;
         }
 
         /* Texto Degradado en el Título */
@@ -2023,11 +2065,14 @@
             /* Sombra suave de color */
         }
 
+        /* Descripción contenida para que no se ensanche demasiado */
         .promo-description {
             font-size: 1.15rem;
             line-height: 1.7;
             color: #444;
-            margin-bottom: 40px;
+            margin: 0 auto 45px;
+            /* Centrado horizontal */
+            max-width: 750px;
         }
 
         .promo-description strong {
@@ -2275,8 +2320,22 @@
                 padding: 60px 0;
             }
 
+            /* RESPONSIVE PARA LA CÁPSULA */
+            .promo-block {
+                /* En móvil reducimos la curva para ganar espacio */
+                border-radius: 35px;
+                padding: 50px 25px;
+                margin: 20px auto 80px;
+                width: auto;
+                /* Asegura que respete los márgenes del contenedor padre */
+            }
+
             .promo-title {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
+            }
+
+            .promo-description {
+                font-size: 1rem;
             }
 
             .gradient-stat-card {
