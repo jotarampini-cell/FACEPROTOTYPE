@@ -1778,7 +1778,6 @@
 
     <!-- Service Section: La Plataforma de Aliados (Professional Grade) -->
     <section class="clean-master-section">
-        <div class="clean-bg-grid"></div>
 
         <div class="clean-container">
 
@@ -1956,28 +1955,20 @@
     </section>
 
     <style>
-        /* --- ESTRUCTURA GENERAL --- */
+        /* --- 1. ESTRUCTURA DE FONDO (BLANCO PURO) --- */
         .clean-master-section {
-            background-color: #ffffff;
-            /* Blanco Puro */
-            padding: 100px 0;
+            background-color: #ffffff !important;
+            /* Forzar blanco puro */
+            padding: 120px 0;
             position: relative;
             overflow: hidden;
             font-family: 'Montserrat', sans-serif;
-            color: #1a1a1a;
-            border-top: 1px solid #f0f0f0;
+            color: #000000;
         }
 
-        /* Grid de fondo muy sutil (Tech Vibe) */
+        /* ELIMINAMOS LA CUADRÍCULA PARA LIMPIEZA TOTAL */
         .clean-bg-grid {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            z-index: 0;
-            pointer-events: none;
+            display: none;
         }
 
         .clean-container {
@@ -1988,11 +1979,11 @@
             padding: 0 20px;
         }
 
-        /* --- BLOQUE 1: EL REGALO --- */
+        /* --- 2. BLOQUE PROMO (EL REGALO) --- */
         .promo-block {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
+            max-width: 850px;
+            margin: 0 auto 100px;
         }
 
         .promo-badge {
@@ -2001,102 +1992,106 @@
             justify-content: center;
             background: #00bcd4;
             color: white;
-            font-weight: 700;
-            padding: 6px 16px;
+            font-weight: 800;
+            padding: 8px 20px;
             border-radius: 50px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-family: 'Oswald', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             letter-spacing: 2px;
-            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 188, 212, 0.25);
+            text-transform: uppercase;
         }
 
         .promo-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 3rem;
-            line-height: 1.1;
-            color: #111;
-            margin-bottom: 25px;
+            font-size: 3.5rem;
+            line-height: 1;
+            color: #000;
+            margin-bottom: 30px;
             text-transform: uppercase;
+            letter-spacing: -1px;
         }
 
+        /* Texto Degradado en el Título */
         .text-gradient-cyan {
-            color: #00bcd4;
             display: block;
-            background: -webkit-linear-gradient(45deg, #00bcd4, #0097a7);
+            background: linear-gradient(90deg, #00bcd4 0%, #008ba3 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 20px 40px rgba(0, 188, 212, 0.15);
+            /* Sombra suave de color */
         }
 
         .promo-description {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #555;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #444;
             margin-bottom: 40px;
         }
 
         .promo-description strong {
             color: #000;
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        /* Botón CTA Principal */
+        /* Botón Negro Sólido (Alto Contraste) */
         .btn-clean-primary {
-            background: #111;
+            background: #000;
             color: #fff;
-            padding: 18px 45px;
-            border-radius: 6px;
+            padding: 20px 50px;
+            border-radius: 8px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             font-family: 'Oswald', sans-serif;
             font-weight: 700;
             letter-spacing: 1px;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .btn-clean-primary:hover {
             background: #00bcd4;
             color: white;
-            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
-            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 188, 212, 0.4);
+            transform: translateY(-5px);
         }
 
         .cta-note {
             font-size: 0.8rem;
             color: #888;
-            margin-top: 15px;
+            margin-top: 20px;
             letter-spacing: 0.5px;
         }
 
-        /* --- SEPARADOR --- */
+        /* --- 3. SEPARADOR --- */
         .section-divider {
             width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+            background: linear-gradient(90deg, transparent, #eee, transparent);
             margin: 80px 0;
         }
 
-        /* --- BLOQUE 2: ESTADÍSTICAS --- */
+        /* --- 4. BLOQUE ESTADÍSTICAS --- */
         .stats-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .stats-subtitle {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            color: #888;
-            letter-spacing: 2px;
+            font-size: 1.8rem;
+            color: #999;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .stats-text {
-            font-size: 1rem;
-            color: #666;
+            font-size: 1.1rem;
+            color: #555;
         }
 
         /* CARRUSEL */
@@ -2108,9 +2103,9 @@
         .carousel-track-wrapper {
             overflow: hidden;
             width: 100%;
-            padding: 50px 0;
-            margin: -50px 0;
-            /* Máscara suave */
+            padding: 60px 0;
+            margin: -60px 0;
+            /* Máscara suave lateral */
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
             mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
         }
@@ -2124,87 +2119,97 @@
             transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        /* TARJETAS CON DEGRADADO (Sin Imágenes) */
+        /* --- TARJETA "TECH CARD" (El cambio importante) --- */
         .gradient-stat-card {
-            width: 300px;
-            min-width: 300px;
-            height: 380px;
+            width: 320px;
+            min-width: 320px;
+            height: 400px;
             flex-shrink: 0;
-            /* Degradado Sutil Tech */
-            background: linear-gradient(135deg, #ffffff 0%, #f0faff 100%);
-            border: 1px solid #eef2f5;
-            border-radius: 20px;
-            padding: 40px 30px;
+
+            /* FONDO DEGRADADO SUTIL (No plano) */
+            /* De blanco puro arriba a un gris azulado casi blanco abajo */
+            background: linear-gradient(160deg, #ffffff 0%, #f6fbff 100%);
+
+            border: 1px solid #edf2f7;
+            border-radius: 24px;
+            /* Bordes más redondeados */
+            padding: 45px 35px;
 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+
+            /* SOMBRA DE ELEVACIÓN (Para despegar del fondo blanco) */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+
             opacity: 0.6;
             transform: scale(0.92);
-            filter: grayscale(80%);
-            transition: all 0.4s ease;
+            filter: grayscale(100%);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
             overflow: hidden;
         }
 
-        /* Línea superior decorativa */
+        /* Línea Neón Superior */
         .gradient-stat-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 6px;
             background: #00bcd4;
             opacity: 0;
             transition: 0.3s;
         }
 
+        /* ESTADO ACTIVO */
         .gradient-stat-card.active {
             opacity: 1;
             transform: scale(1.05);
             filter: grayscale(0%);
             z-index: 10;
             background: #ffffff;
-            box-shadow: 0 20px 50px rgba(0, 188, 212, 0.12);
+            /* Sombra de alta gama al activarse */
+            box-shadow: 0 30px 60px rgba(0, 188, 212, 0.15), 0 0 0 1px rgba(0, 188, 212, 0.1);
         }
 
         .gradient-stat-card.active::before {
             opacity: 1;
         }
 
-        /* Elementos Tarjeta */
+        /* ELEMENTOS DENTRO DE LA TARJETA */
         .card-icon {
-            width: 50px;
-            height: 50px;
-            background: #e0f7fa;
-            border-radius: 12px;
+            width: 60px;
+            height: 60px;
+            background: #eefbfc;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #00bcd4;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             transition: 0.3s;
         }
 
         .active .card-icon {
             background: #00bcd4;
             color: white;
-            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 188, 212, 0.3);
         }
 
         .card-icon svg {
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
         }
 
         .card-num {
             font-family: 'Oswald', sans-serif;
-            font-size: 4rem;
+            font-size: 4.5rem;
             line-height: 1;
             color: #1a1a1a;
-            margin: 0 0 10px 0;
+            margin: 0 0 15px 0;
+            letter-spacing: -2px;
         }
 
         .active .card-num {
@@ -2212,23 +2217,24 @@
         }
 
         .card-desc {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             line-height: 1.5;
             color: #555;
             margin-bottom: auto;
+            font-weight: 500;
         }
 
         .card-footer {
-            padding-top: 20px;
+            padding-top: 25px;
             border-top: 1px solid #f0f0f0;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .card-source {
             font-family: 'Oswald', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: #999;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         /* CONTROLES */
@@ -2236,8 +2242,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: #fff;
             border: 1px solid #eee;
             border-radius: 50%;
@@ -2248,34 +2254,35 @@
             cursor: pointer;
             z-index: 20;
             transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         .carousel-nav:hover {
             color: #00bcd4;
             border-color: #00bcd4;
             transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 188, 212, 0.2);
         }
 
         .carousel-nav.prev {
-            left: 40px;
+            left: 20px;
         }
 
         .carousel-nav.next {
-            right: 40px;
+            right: 20px;
         }
 
         /* DOTS */
         .clean-dots {
-            gap: 12px;
-            margin-top: 40px;
+            gap: 15px;
+            margin-top: 60px;
             display: flex;
             justify-content: center;
         }
 
         .clean-dots .dot {
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             background: #ddd;
             border: none;
             border-radius: 50%;
@@ -2285,25 +2292,28 @@
 
         .clean-dots .dot.active {
             background: #00bcd4;
-            transform: scale(1.3);
+            transform: scale(1.4);
         }
 
         /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 900px) {
             .clean-master-section {
-                padding: 60px 0;
+                padding: 80px 0;
             }
 
             .promo-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .gradient-stat-card {
-                width: 260px;
-                min-width: 260px;
-                height: 360px;
+                width: 280px;
+                min-width: 280px;
+                height: 380px;
                 opacity: 0.7;
-                /* Más visibles en móvil */
+                /* Más visibles las inactivas en móvil */
+                background: #ffffff;
+                /* Simplificar en móvil */
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             }
 
             .carousel-track-wrapper {
