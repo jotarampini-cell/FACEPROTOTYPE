@@ -3,15 +3,1152 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=innova-desde-adentro.html">
-    <title>Redireccionando...</title>
-    <script>
-        window.location.href = "innova-desde-adentro.html";
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Descubre qué tan preparado está tu negocio con nuestros quizzes especializados. Evalúa diferentes áreas críticas y recibe recomendaciones personalizadas.">
+    <title>Nuestros Quizzes - FACE Innovation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="premium-menu.css">
 </head>
 
 <body>
-    <p>Si no eres redirigido, <a href="innova-desde-adentro.html">haz click aquí</a>.</p>
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress" class="reading-progress"></div>
+
+    <!-- Header -->
+    <!-- Global Header & Menu (Injected by JS) -->
+    <!-- See menu.js for source -->
+
+    <!-- Split Header Section -->
+    <header class="split-header">
+        <div class="header-left">
+            <h1>NUESTROS<br><span class="gold-text">QUIZZES</span></h1>
+        </div>
+        <div class="header-right">
+            <p>Evalúa el estado de tu empresa en diferentes áreas críticas. Cada quiz te proporciona un mapa claro de
+                tus fortalezas y oportunidades de mejora.</p>
+        </div>
+    </header>
+
+    <style>
+        /* Split Header Styles */
+        .split-header {
+            background-color: #0a0a0a;
+            padding: 130px 50px 100px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .header-left h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #ffffff;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .gold-text {
+            color: #c5a059;
+        }
+
+        .header-right {
+            max-width: 500px;
+        }
+
+        .header-right p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .split-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 110px 30px 90px 30px;
+                gap: 20px;
+            }
+
+            .header-left h1 {
+                font-size: 3rem;
+            }
+
+            .header-right {
+                max-width: 100%;
+            }
+
+            .header-right p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .split-header {
+                padding: 100px 20px 80px 20px;
+            }
+
+            .header-left h1 {
+                font-size: 2.2rem;
+            }
+
+            .header-right p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Remove any header borders/shadows that create lines */
+        .split-header,
+        .main-header,
+        .tr-header,
+        header {
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+
+    <!-- Programs Section - Tony Robbins Style -->
+    <section class="programs-premium-section" id="programas-grid">
+        <div class="programs-premium-grid">
+
+            <!-- Diagnóstico Empresarial -->
+            <a href="quiz-diagnostico.html" class="premium-program-card" data-gradient="reto">
+                <div class="card-bg-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');">
+                </div>
+                <div class="card-gradient-overlay"></div>
+                <div class="card-content-overlay">
+                    <span class="premium-badge">DIAGNÓSTICO</span>
+                    <h2 class="premium-card-title">DIAGNÓSTICO EMPRESARIAL</h2>
+                    <p class="premium-card-desc">Descubre el estado actual de tu empresa en 2 minutos. Identifica tu
+                        cuello de botella principal y recibe recomendaciones personalizadas.</p>
+                </div>
+            </a>
+
+            <!-- Coeficiente de Ingenio -->
+            <a href="quiz-reto-ingenio.html" class="premium-program-card" data-gradient="maestria">
+                <div class="card-bg-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');">
+                </div>
+                <div class="card-gradient-overlay"></div>
+                <div class="card-content-overlay">
+                    <span class="premium-badge">INGENIO</span>
+                    <h2 class="premium-card-title">COEFICIENTE DE INGENIO</h2>
+                    <p class="premium-card-desc">Descubre el "Punto Ciego" de tu empresa. Evalúa si tienes ceguera
+                        operativa, innovación dormida o liderazgo intuitivo.</p>
+                </div>
+            </a>
+
+            <!-- Análisis de Liderazgo -->
+            <a href="#" onclick="showProximityModal('Análisis de Liderazgo'); return false;"
+                class="premium-program-card" data-gradient="liderazgo">
+                <div class="card-bg-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');">
+                </div>
+                <div class="card-gradient-overlay"></div>
+                <div class="card-content-overlay">
+                    <span class="premium-badge">LIDERAZGO</span>
+                    <h2 class="premium-card-title">ANÁLISIS DE LIDERAZGO</h2>
+                    <p class="premium-card-desc">Evalúa tu estilo de liderazgo y descubre cómo maximizar tu impacto en
+                        el equipo. Feedback 360° automatizado.</p>
+                    <span class="coming-soon-tag">PRÓXIMAMENTE</span>
+                </div>
+            </a>
+
+            <!-- Evaluación Cultural -->
+            <a href="#" onclick="showProximityModal('Evaluación Cultural'); return false;" class="premium-program-card"
+                data-gradient="riqueza">
+                <div class="card-bg-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');">
+                </div>
+                <div class="card-gradient-overlay"></div>
+                <div class="card-content-overlay">
+                    <span class="premium-badge">CULTURA</span>
+                    <h2 class="premium-card-title">EVALUACIÓN CULTURAL</h2>
+                    <p class="premium-card-desc">Mide el ADN de tu organización. Descubre si tu cultura impulsa o frena
+                        el crecimiento de tu empresa.</p>
+                    <span class="coming-soon-tag">PRÓXIMAMENTE</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <style>
+        /* PREMIUM PROGRAMS SECTION - TONY ROBBINS STYLE */
+        .programs-premium-section {
+            padding: 0px 30px 60px 30px;
+            background: linear-gradient(to bottom,
+                    #0a0a0a 0%,
+                    #0a0a0a 450px,
+                    #ffffff 450px,
+                    #ffffff 100%);
+            border: none;
+            outline: none;
+        }
+
+        .programs-premium-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            position: relative;
+            border: none;
+            outline: none;
+        }
+
+        /* Premium Program Card - Full Clickable */
+        .premium-program-card {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            border-radius: 16px;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            outline: none;
+        }
+
+        .premium-program-card:hover {
+            transform: translateY(-8px) scale(1.01);
+        }
+
+        /* Background Image */
+        .card-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .premium-program-card:hover .card-bg-image {
+            transform: scale(1.05);
+        }
+
+        /* Gradient Overlays - Unique for each card */
+        .card-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Reto de Ingenio - Blue/Purple gradient */
+        .premium-program-card[data-gradient="reto"] .card-gradient-overlay {
+            background: linear-gradient(135deg,
+                    rgba(15, 32, 70, 0.75) 0%,
+                    rgba(30, 60, 114, 0.65) 50%,
+                    rgba(67, 83, 153, 0.55) 100%);
+        }
+
+        /* Maestría Empresarial - Gold/Orange gradient */
+        .premium-program-card[data-gradient="maestria"] .card-gradient-overlay {
+            background: linear-gradient(135deg,
+                    rgba(60, 40, 20, 0.75) 0%,
+                    rgba(120, 70, 30, 0.65) 50%,
+                    rgba(197, 160, 89, 0.55) 100%);
+        }
+
+        /* Academia de Líderes - Teal/Green gradient */
+        .premium-program-card[data-gradient="liderazgo"] .card-gradient-overlay {
+            background: linear-gradient(135deg,
+                    rgba(15, 52, 67, 0.75) 0%,
+                    rgba(22, 78, 99, 0.65) 50%,
+                    rgba(30, 115, 140, 0.55) 100%);
+        }
+
+        /* Libertad Financiera - Deep Purple/Magenta gradient */
+        .premium-program-card[data-gradient="riqueza"] .card-gradient-overlay {
+            background: linear-gradient(135deg,
+                    rgba(45, 15, 60, 0.75) 0%,
+                    rgba(75, 25, 95, 0.65) 50%,
+                    rgba(120, 50, 130, 0.55) 100%);
+        }
+
+        .premium-program-card:hover .card-gradient-overlay {
+            opacity: 0.92;
+        }
+
+        /* Content Overlay */
+        .card-content-overlay {
+            position: relative;
+            z-index: 2;
+            padding: 50px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        /* Premium Badge */
+        .premium-badge {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #c5a059;
+            background: rgba(197, 160, 89, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+
+        /* Premium Card Title */
+        .premium-card-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        .premium-program-card:hover .premium-card-title {
+            transform: translateX(8px);
+        }
+
+        /* Premium Card Description */
+        .premium-card-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+            max-width: 90%;
+            font-weight: 300;
+        }
+
+        /* Coming Soon Tag */
+        .coming-soon-tag {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 15px;
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            width: fit-content;
+        }
+
+        /* RELATED ARTICLES SECTION */
+        .related-section {
+            background: #ffffff;
+            padding: 80px 30px;
+            border: none;
+            border-top: none;
+        }
+
+        .related-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            color: #0a0a0a;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .related-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .related-card {
+            background: #f8f8f8;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            background: #ffffff;
+            border-color: #c5a059;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .related-body {
+            padding: 25px;
+        }
+
+        .related-tag {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            color: #c5a059;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .related-h {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: #0a0a0a;
+            margin: 12px 0;
+            line-height: 1.3;
+        }
+
+        .related-excerpt {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #666666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Mobile Carousel for Related Articles */
+        @media (max-width: 768px) {
+            .related-section {
+                padding: 60px 0;
+            }
+
+            .related-title {
+                padding: 0 20px;
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 20px;
+                padding: 0 20px 20px 20px;
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .related-card {
+                min-width: 280px;
+                max-width: 280px;
+                scroll-snap-align: start;
+                flex-shrink: 0;
+            }
+
+            .related-grid::-webkit-scrollbar {
+                height: 8px;
+            }
+
+            .related-grid::-webkit-scrollbar-track {
+                background: #f0f0f0;
+                border-radius: 10px;
+            }
+
+            .related-grid::-webkit-scrollbar-thumb {
+                background: #c5a059;
+                border-radius: 10px;
+            }
+
+            .related-grid::-webkit-scrollbar-thumb:hover {
+                background: #b08f4a;
+            }
+        }
+
+        /* VIDEO CTA SECTION */
+        .video-cta-section {
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 30px;
+            overflow: hidden;
+        }
+
+        .bg-video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .bg-video-poster {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(197, 160, 89, 0.3) 100%);
+            z-index: 2;
+        }
+
+        .video-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .video-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .video-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 18px 45px;
+            background: #c5a059;
+            color: #000;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .btn-gold:hover {
+            background: #e0b461;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.4);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            body {
+                overflow-x: hidden !important;
+            }
+
+            .programs-premium-section {
+                padding: 0px 15px 40px 15px !important;
+                background: linear-gradient(to bottom,
+                        #0a0a0a 0%,
+                        #0a0a0a 357px,
+                        #ffffff 357px,
+                        #ffffff 100%) !important;
+                overflow-x: hidden;
+            }
+
+            .programs-premium-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+                margin: 0 auto !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+
+            .premium-program-card {
+                height: 350px !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                display: block !important;
+            }
+
+            .card-bg-image {
+                display: block !important;
+            }
+
+            .card-gradient-overlay {
+                display: block !important;
+            }
+
+            .card-content-overlay {
+                display: flex !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .programs-premium-section {
+                padding: 0px 15px 50px 15px !important;
+            }
+
+            .card-content-overlay {
+                padding: 30px !important;
+            }
+
+            .premium-card-title {
+                font-size: 1.8rem !important;
+            }
+
+            .premium-card-desc {
+                font-size: 0.95rem !important;
+                max-width: 100% !important;
+            }
+
+            .premium-badge {
+                font-size: 0.7rem !important;
+                padding: 6px 10px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .premium-program-card {
+                height: 320px !important;
+            }
+
+            .card-content-overlay {
+                padding: 25px !important;
+            }
+
+            .premium-card-title {
+                font-size: 1.6rem !important;
+            }
+
+            .premium-card-desc {
+                font-size: 0.95rem !important;
+            }
+        }
+    </style>
+
+    <!-- Related Articles Section -->
+    <section class="related-section">
+        <div class="related-header">
+            <h3 class="related-title">Artículos Relacionados</h3>
+            <div class="slider-nav">
+                <div class="nav-btn" onclick="scrollGrid(-1)">&#10094;</div>
+                <div class="nav-btn" onclick="scrollGrid(1)">&#10095;</div>
+            </div>
+        </div>
+
+        <div class="related-grid" id="relatedGrid">
+
+            <!-- New Article: React vs Create Future -->
+            <a href="blog-post.html" class="related-card">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">ESTRATEGIA</span>
+                    <h4 class="related-h">¿Estás reaccionando o creando el futuro?</h4>
+                    <p class="related-excerpt">El cambio ya no es un suceso extraño; es el estado natural. Descubre cómo
+                        anticiparte.</p>
+                </div>
+            </a>
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">LIDERAZGO</span>
+                    <h4 class="related-h">Liderazgo Adaptativo: Guía 2024</h4>
+                    <p class="related-excerpt">Cómo guiar a tu equipo en tiempos de incertidumbre.</p>
+                </div>
+            </a>
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">CULTURA</span>
+                    <h4 class="related-h">La cultura se come a la estrategia</h4>
+                    <p class="related-excerpt">Por qué tus planes fallan si no cambias la mentalidad.</p>
+                </div>
+            </a>
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">INNOVACIÓN</span>
+                    <h4 class="related-h">Los 10 tipos de innovación</h4>
+                    <p class="related-excerpt">No todo es tecnología. Descubre dónde puedes innovar.</p>
+                </div>
+            </a>
+
+            <a href="#" class="related-card">
+                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="related-img">
+                <div class="related-body">
+                    <span class="related-tag">PRODUCTIVIDAD</span>
+                    <h4 class="related-h">Sistemas vs Metas</h4>
+                    <p class="related-excerpt">Por qué deberías enfocarte en procesos, no en resultados.</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Video CTA Section -->
+    <section class="video-cta-section">
+        <div class="bg-video-wrapper">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                class="bg-video-poster" alt="Video Background">
+        </div>
+        <div class="video-overlay"></div>
+
+        <div class="video-content">
+            <h2 class="video-title">¿NO SABES POR DÓNDE EMPEZAR?</h2>
+            <p class="video-desc">Agenda una llamada de diagnóstico gratuita con uno de nuestros estrategas y descubre
+                el camino exacto para ti.</p>
+            <a href="index.html#adn-innovador-section" class="btn-gold">COMENZAR AHORA</a>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof-section">
+        <div class="social-proof-container">
+            <h2 class="social-proof-title">Resultados que Hablan por Sí Mismos</h2>
+
+            <div class="social-proof-grid">
+                <div class="proof-metric">
+                    <div class="proof-number" data-target="500" data-suffix="+">0+</div>
+                    <div class="proof-label">Empresas Transformadas</div>
+                </div>
+
+                <div class="proof-metric">
+                    <div class="proof-number" data-target="95" data-suffix="%">0%</div>
+                    <div class="proof-label">Satisfacción</div>
+                </div>
+
+                <div class="proof-metric">
+                    <div class="proof-number" data-target="3000" data-suffix="+">0+</div>
+                    <div class="proof-label">Líderes Capacitados</div>
+                </div>
+
+                <div class="proof-metric">
+                    <div class="proof-number" data-target="89" data-suffix="%">0%</div>
+                    <div class="proof-label">Reportan ROI Positivo</div>
+                </div>
+            </div>
+
+            <div class="logos-container">
+                <div class="logos-title">Empresas que Confían en Nosotros</div>
+                <div class="logos-grid">
+                    <span class="client-logo">ACME CORP</span>
+                    <span class="client-logo">INNOVATE</span>
+                    <span class="client-logo">GROWTHCO</span>
+                    <span class="client-logo">NEXUS</span>
+                    <span class="client-logo">ZENITH</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proximity Modal (Newsletter Capture) -->
+    <div class="proximity-modal" id="proximityModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProximityModal()">×</button>
+            <h3><span id="modalProgramName">Este programa</span> estará disponible pronto</h3>
+            <p>Déjanos tu email y serás el primero en saberlo cuando lancemos este programa exclusivo.</p>
+            <form class="notify-form" onsubmit="handleNotifyForm(event)">
+                <input type="email" placeholder="tu@email.com" required>
+                <button type="submit">Notificarme</button>
+                <div class="notify-success"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Universal -->
+    <footer
+        style="background-color: #0a0a0a; color: #ffffff; padding: 60px 20px 30px; font-family: 'Montserrat', sans-serif;">
+        <div class="tr-container" style="max-width: 1200px; margin: 0 auto;">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                <div>
+                    <h3
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 15px; color: #c5a059;">
+                        FACE</h3>
+                    <p style="color: #999; line-height: 1.6; font-size: 0.95rem;">Innovación sin inventar. Transformamos
+                        el ingenio de tus colaboradores en ventaja competitiva.</p>
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        Navegación</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><a href="index.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Inicio</a></li>
+                        <li style="margin-bottom: 10px;"><a href="programas.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Programas</a></li>
+                        <li style="margin-bottom: 10px;"><a href="blog.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Blog</a></li>
+                        <li style="margin-bottom: 10px;"><a href="index.html#manifesto"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Manifiesto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        Programas</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><a href="reto-de-ingenio.html"
+                                style="color: #999; text-decoration: none; transition: 0.3s;">Reto de Ingenio</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        Contacto</h4>
+                    <p style="color: #999; margin-bottom: 10px; font-size: 0.95rem;">info@faceinnovation.com</p>
+                    <p style="color: #999; font-size: 0.95rem;">Caracas, Venezuela</p>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid #222; padding-top: 20px; text-align: center; color: #666; font-size: 0.85rem;">
+                <p style="margin: 0;">© 2025 FACE Innovation. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/header-scroll.js"></script>
+    <script src="script.js?v=3"></script>
+    <script src="menu.js"></script>
+    <script src="js/ux-enhancements.js"></script>
+
+    <script>
+        // Modal de Proximidad
+        function showProximityModal(programName) {
+            const modal = document.getElementById('proximityModal');
+            const modalProgramName = document.getElementById('modalProgramName');
+            if (modal && modalProgramName) {
+                modalProgramName.textContent = programName;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeProximityModal() {
+            const modal = document.getElementById('proximityModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function handleNotifyForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const successMsg = form.querySelector('.notify-success');
+            if (successMsg) {
+                successMsg.textContent = '¡Gracias! Te notificaremos cuando esté disponible.';
+                successMsg.style.color = '#c5a059';
+                successMsg.style.marginTop = '10px';
+                form.reset();
+
+                setTimeout(() => {
+                    closeProximityModal();
+                    successMsg.textContent = '';
+                }, 2000);
+            }
+        }
+
+        // Cerrar modal al hacer click fuera
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('proximityModal');
+            if (modal && event.target === modal) {
+                closeProximityModal();
+            }
+        });
+    </script>
+
+    <style>
+        /* PREMIUM SOCIAL PROOF SECTION */
+        .social-proof-section {
+            padding: 100px 30px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-proof-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .social-proof-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-proof-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 80px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .social-proof-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .proof-metric {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .proof-metric:hover {
+            background: rgba(197, 160, 89, 0.1);
+            border-color: rgba(197, 160, 89, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .proof-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: #c5a059;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .proof-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logos-container {
+            text-align: center;
+        }
+
+        .logos-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 3px;
+            transition: color 0.3s ease;
+        }
+
+        .client-logo:hover {
+            color: #c5a059;
+        }
+
+        /* PROXIMITY MODAL */
+        .proximity-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 50px;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #c5a059;
+        }
+
+        .modal-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #0a0a0a;
+        }
+
+        .modal-content p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .notify-form input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .notify-form button {
+            width: 100%;
+            padding: 15px;
+            background: #c5a059;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .notify-form button:hover {
+            background: #e0b461;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            .social-proof-section {
+                padding: 60px 20px;
+            }
+
+            .social-proof-title {
+                font-size: 2.5rem;
+                margin-bottom: 50px;
+            }
+
+            .social-proof-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                margin-bottom: 50px;
+            }
+
+            .proof-number {
+                font-size: 3rem;
+            }
+
+            .proof-label {
+                font-size: 0.9rem;
+            }
+
+            .logos-grid {
+                gap: 40px;
+            }
+
+            .client-logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .social-proof-title {
+                font-size: 2rem;
+            }
+
+            .social-proof-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .modal-content {
+                padding: 35px;
+            }
+
+            .modal-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </body>
 
 </html>
