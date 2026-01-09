@@ -1,15 +1,18 @@
 
+
 class StatsCarousel {
     constructor() {
         this.track = document.querySelector('.carousel-track');
-        this.cards = Array.from(document.querySelectorAll('.gradient-stat-card'));
+        this.cards = Array.from(document.querySelectorAll('.elite-stat-card'));
         this.dots = Array.from(document.querySelectorAll('.dot'));
         this.wrapper = document.querySelector('.stats-carousel-wrapper'); // Contenedor padre
         this.prevBtn = document.querySelector('.carousel-nav.prev');
         this.nextBtn = document.querySelector('.carousel-nav.next');
 
-        this.currentIndex = 0;
-        this.init();
+        const activeInDom = this.cards.findIndex(card => card.classList.contains('active'));
+        this.currentIndex = activeInDom !== -1 ? activeInDom : 0;
+
+        if (this.cards.length > 0) this.init();
     }
 
     init() {
