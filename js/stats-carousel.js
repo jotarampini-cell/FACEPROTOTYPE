@@ -1,4 +1,4 @@
-/* --- TECH STATS CAROUSEL --- */
+/* --- CARRUSEL JS DEFINITIVO --- */
 class StatsCarousel {
     constructor() {
         this.track = document.querySelector('.carousel-track');
@@ -8,53 +8,19 @@ class StatsCarousel {
         this.nextBtn = document.querySelector('.carousel-nav.next');
 
         this.currentIndex = 0;
-        this.cardWidth = 320; // Ancho base de tarjeta
-        this.gap = 30; // Espacio entre tarjetas
-        this.autoRotateInterval = null;
-        this.isHovered = false;
-
-        // Configuración inicial
         this.init();
     }
 
     init() {
-        // Listeners Botones
-        if (this.prevBtn) this.prevBtn.addEventListener('click', () => { this.stopAutoRotate(); this.prev(); });
-        if (this.nextBtn) this.nextBtn.addEventListener('click', () => { this.stopAutoRotate(); this.next(); });
-
-        // Listeners Puntos
+        if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prev());
+        if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.next());
         this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => { this.stopAutoRotate(); this.goTo(index); });
+            dot.addEventListener('click', () => this.goTo(index));
         });
 
-        // Pause on Hover
-        this.track.addEventListener('mouseenter', () => { this.isHovered = true; this.stopAutoRotate(); });
-        this.track.addEventListener('mouseleave', () => { this.isHovered = false; this.startAutoRotate(); });
-
-        // Touch Swipe (Móvil)
         this.initTouch();
-
-        // Iniciar
-        this.updateDimensions(); // Ajustar anchos
-        window.addEventListener('resize', () => this.updateDimensions());
-        this.startAutoRotate();
-        this.updateCarousel();
-    }
-
-    updateDimensions() {
-        // Read actual width from DOM for perfect alignment
-        const firstCard = this.cards[0];
-        if (firstCard) {
-            this.cardWidth = firstCard.offsetWidth;
-        }
-
-        // Recalculate gap based on screen size
-        if (window.innerWidth <= 900) {
-            this.gap = 20;
-        } else {
-            this.gap = 30;
-        }
-        this.updateCarousel();
+        window.addEventListener('resize', () => this.updateCarousel());
+        this.updateCarousel(); // Render inicial
     }
 
     goTo(index) {
@@ -68,61 +34,48 @@ class StatsCarousel {
     prev() { this.goTo(this.currentIndex - 1); }
 
     updateCarousel() {
-        // Ancho tarjeta + gap
-        // Desktop: 320 + 30 = 350 | Mobile: 260 + 15 = 275
-        const isMobile = window.innerWidth <= 768;
-        const cardWidth = isMobile ? 260 : 320;
-        const gap = isMobile ? 15 : 30;
+        // Ajuste de anchos según CSS
+        const isMobile = window.innerWidth <= 900;
+        const cardWidth = isMobile ? 280 : 320;
+        const gap = 40;
+
         const itemFullWidth = cardWidth + gap;
+        // Calculo para centrar: (Posición * Ancho) + (Mitad tarjeta)
+        // El padding-left: 50vw del CSS hace el resto.
+        const moveAmount = (this.currentIndex * itemFullWidth);
+        // Nota: en el CSS del usuario decía padding: 0 50vw. 
+        // Si el padding es 50vw, entonces el inicio del track está en el centro.
+        // Pero el primer item tiene width. 
+        // El usuario proporcionó: const moveAmount = (this.currentIndex * itemFullWidth) + (cardWidth / 2);
+        // Sin embargo, si el padding pone el INICIO del track en el centro, 
+        // necesitamos moverlo a la izquierda por cardWidth/2 para que el CENTRO de la tarjeta esté en el centro.
+        // Vamos a usar la fórmula exacta del usuario para respetar su "Surgical Update".
 
-        // EL TRUCO: No necesitamos calcular el centro de la pantalla
-        // porque el padding CSS ya empuja el primer item al centro.
-        // Solo necesitamos mover el track hacia la izquierda.
+        // Update: Reading user request carefully again.
+        // JS provided by user:
+        // const moveAmount = (this.currentIndex * itemFullWidth) + (cardWidth / 2);
+        // this.track.style.transform = `translateX(calc(-${moveAmount}px))`;
 
-        const moveAmount = this.currentIndex * itemFullWidth;
+        const moveAmountCalc = (this.currentIndex * itemFullWidth) + (cardWidth / 2);
 
-        this.track.style.transform = `translateX(-${moveAmount}px)`;
+        // Usamos calc para restar desde el centro
+        this.track.style.transform = `translateX(calc(-${moveAmountCalc}px))`;
 
-        // Actualizar clases Active
-        this.cards.forEach((card, index) => {
-            if (index === this.currentIndex) {
-                card.classList.add('active');
-            } else {
-                card.classList.remove('active');
-            }
-        });
-
-        // Actualizar Dots
-        this.dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentIndex);
-        });
-    }
-
-    startAutoRotate() {
-        this.autoRotateInterval = setInterval(() => {
-            if (!this.isHovered) this.next();
-        }, 4000); // 4 segundos
-    }
-
-    stopAutoRotate() {
-        if (this.autoRotateInterval) clearInterval(this.autoRotateInterval);
+        // Clases
+        this.cards.forEach((card, index) => card.classList.toggle('active', index === this.currentIndex));
+        this.dots.forEach((dot, index) => dot.classList.toggle('active', index === this.currentIndex));
     }
 
     initTouch() {
         let startX = 0;
         let endX = 0;
-        this.track.addEventListener('touchstart', e => { startX = e.changedTouches[0].screenX; this.stopAutoRotate(); }, { passive: true });
+        this.track.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX, { passive: true });
         this.track.addEventListener('touchend', e => {
             endX = e.changedTouches[0].screenX;
-            if (startX - endX > 50) this.next(); // Swipe Left
-            if (endX - startX > 50) this.prev(); // Swipe Right
-            this.startAutoRotate();
+            if (startX - endX > 50) this.next();
+            if (endX - startX > 50) this.prev();
         }, { passive: true });
     }
 }
 
-// Inicializar globalmente para poder usar onclick en HTML
-let statsCarousel;
-document.addEventListener('DOMContentLoaded', () => {
-    statsCarousel = new StatsCarousel();
-});
+document.addEventListener('DOMContentLoaded', () => { new StatsCarousel(); });
