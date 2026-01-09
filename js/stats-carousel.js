@@ -68,30 +68,20 @@ class StatsCarousel {
     prev() { this.goTo(this.currentIndex - 1); }
 
     updateCarousel() {
-        // 1. Obtener el ancho del contenedor visible (la ventana del carrusel)
-        const containerWrapper = document.querySelector('.carousel-track-wrapper');
-        if (!containerWrapper) return;
-        const containerWidth = containerWrapper.offsetWidth;
-
-        // 2. Obtener el ancho de una tarjeta (incluyendo gap si es necesario)
-        // Usamos la primera tarjeta como referencia
-        const cardElement = this.cards[0];
-        if (!cardElement) return;
-
-        // Ancho real + margen (gap)
-        const cardWidth = cardElement.offsetWidth;
-        // Asumimos gap de 30px desktop / 20px mobile según CSS
-        const gap = window.innerWidth <= 768 ? 20 : 30;
-
+        // Ancho tarjeta + gap
+        // Desktop: 320 + 30 = 350 | Mobile: 260 + 15 = 275
+        const isMobile = window.innerWidth <= 768;
+        const cardWidth = isMobile ? 260 : 320;
+        const gap = isMobile ? 15 : 30;
         const itemFullWidth = cardWidth + gap;
 
-        // 3. Calcular la posición para que la tarjeta activa quede CENTRADA
-        // Fórmula: (AnchoContenedor / 2) - (AnchoTarjeta / 2) - (PosiciónTarjeta * AnchoTotalItem)
-        const centerOffset = (containerWidth / 2) - (cardWidth / 2);
-        const moveAmount = (this.currentIndex * itemFullWidth) - centerOffset;
+        // EL TRUCO: No necesitamos calcular el centro de la pantalla
+        // porque el padding CSS ya empuja el primer item al centro.
+        // Solo necesitamos mover el track hacia la izquierda.
 
-        // Aplicar transformación
-        this.track.style.transform = `translateX(${-moveAmount}px)`;
+        const moveAmount = this.currentIndex * itemFullWidth;
+
+        this.track.style.transform = `translateX(-${moveAmount}px)`;
 
         // Actualizar clases Active
         this.cards.forEach((card, index) => {

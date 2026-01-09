@@ -2078,77 +2078,83 @@
             font-weight: 600;
         }
 
-        /* --- CORRECCIÓN CAROUSEL (Centrado Perfecto) --- */
+        /* --- CORRECCIÓN CAROUSEL (Centrado Perfecto & Visual Upgrade) --- */
+
+        /* --- CONTENEDOR PRINCIPAL --- */
         .stats-carousel-wrapper {
             position: relative;
             width: 100%;
             max-width: 1200px;
-            /* Ancho máximo del contenido */
             margin: 60px auto 0;
-            padding: 0 60px;
-            /* Espacio para las flechas */
+            /* Ajustamos el padding para que no interfiera con el cálculo de ancho total */
+            padding: 0;
             box-sizing: border-box;
-            /* Vital para que el padding no rompa el ancho */
+            /* IMPORTANTE: Visible para que las sombras neón no se corten */
             overflow: visible;
-            /* Permitir que las sombras se vean */
         }
 
-        /* El Marco que oculta lo que sobra */
+        /* El Marco Ventana (Mask) */
         .carousel-track-wrapper {
             overflow: hidden;
             width: 100%;
-            padding: 40px 10px;
-            /* Espacio vertical para el efecto hover y sombras */
-            margin: -40px -10px;
-            /* Compensar el padding visual */
+            /* Padding vertical generoso para que el scale(1.05) y la sombra no se corten */
+            padding: 50px 0;
+            margin: -50px 0;
+            position: relative;
         }
 
         .carousel-track {
             display: flex;
             gap: 30px;
-            /* Espacio entre tarjetas */
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            width: max-content;
-            /* El track debe ser tan ancho como su contenido */
-            margin: 0 auto;
-            /* Intentar centrar si sobra espacio */
+            /* Espacio Desktop */
             align-items: center;
-            /* Alinear verticalmente */
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            /* Movimiento fluido */
+            width: max-content;
+
+            /* --- SOLUCIÓN AL CORTE --- */
+            /* Padding Fantasma: centra el primer y último ítem */
+            padding: 0 calc(50% - 160px);
+            box-sizing: content-box;
         }
 
-        /* --- TARJETAS (Ajuste de Tamaño) --- */
+        /* --- TARJETAS --- */
         .tech-stat-card {
             width: 320px;
-            /* Ancho FIJO */
             min-width: 320px;
-            /* Asegura que no se aplasten */
             flex-shrink: 0;
-            background: linear-gradient(145deg, #0f0f0f 0%, #0a0a0a 100%);
-            border: 1px solid #1f2937;
-            border-radius: 12px;
-            padding: 30px 25px;
-            position: relative;
-            transition: all 0.4s ease;
-            opacity: 0.4;
-            /* Inactivas muy tenues */
-            transform: scale(0.9);
-            /* Inactivas pequeñas */
             height: 300px;
-            /* Altura fija para uniformidad */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
+            background: linear-gradient(145deg, #121212 0%, #050505 100%);
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 35px 30px;
+            position: relative;
+
+            /* Optimización Rendimiento */
+            will-change: transform, opacity;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0.4;
+            transform: scale(0.9);
+            filter: blur(1px);
         }
 
-        /* Estado Activo (La tarjeta central) */
+        /* Estado Activo */
         .tech-stat-card.active {
             opacity: 1;
             transform: scale(1.05);
-            /* Grande */
+            filter: blur(0);
             border-color: #00f3ff;
+            background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+
+            /* Sombra Neón Mejorada */
             box-shadow:
-                0 15px 50px rgba(0, 0, 0, 0.6),
-                0 0 30px rgba(0, 243, 255, 0.1);
+                0 20px 60px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(0, 243, 255, 0.15),
+                inset 0 0 20px rgba(0, 243, 255, 0.05);
             z-index: 10;
         }
 
@@ -2205,37 +2211,40 @@
             padding-top: 15px;
         }
 
-        /* --- NAVEGACIÓN --- */
+        /* --- NAVEGACIÓN (Glassmorphism) --- */
         .carousel-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid #333;
+            width: 56px;
+            height: 56px;
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #00f3ff;
+            color: #fff;
             cursor: pointer;
             z-index: 20;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .carousel-nav:hover {
             background: rgba(0, 243, 255, 0.1);
             border-color: #00f3ff;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            color: #00f3ff;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+            transform: translateY(-50%) scale(1.1);
         }
 
         .carousel-nav.prev {
-            left: 0;
+            left: 20px;
         }
 
         .carousel-nav.next {
-            right: 0;
+            right: 20px;
         }
 
         .carousel-nav svg {
@@ -2243,22 +2252,24 @@
             height: 24px;
         }
 
-        /* Dots */
+        /* Dots Container */
         .carousel-dots {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 40px;
         }
 
         .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
+            width: 40px;
+            /* Long style */
+            height: 6px;
             background: #333;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
             transition: 0.3s;
+            padding: 0;
         }
 
         .dot:hover {
@@ -2267,8 +2278,9 @@
 
         .dot.active {
             background: #00f3ff;
-            box-shadow: 0 0 10px #00f3ff;
-            transform: scale(1.2);
+            width: 60px;
+            /* Stretch active */
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
         }
 
         /* CTA Center */
@@ -2300,157 +2312,96 @@
             transform: translateX(5px);
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .tech-service-section {
-                padding: 100px 20px 70px;
-                /* +25% more vertical space */
+        /* --- RESPONSIVE MOBILE (< 768px) --- */
+        @media (max-width: 768px) {
+            .stats-carousel-wrapper {
+                padding: 0;
+                margin-top: 40px;
             }
 
-            .header-centered {
-                margin-bottom: 50px;
-                /* More breathing room */
-                padding: 0 25px;
+            .carousel-track {
+                gap: 15px;
+                /* Recálculo móvil: 50% - 130px (mitad de 260px) */
+                padding: 0 calc(50% - 130px);
             }
 
-            .tech-badge-pro {
-                font-size: 0.65rem;
-                padding: 6px 12px;
-                margin-bottom: 20px;
+            .tech-stat-card {
+                width: 260px;
+                min-width: 260px;
+                height: 320px;
+                padding: 25px 20px;
             }
 
-            .service-title {
-                font-size: 2.8rem !important;
-                /* Increased from 1.8rem */
-                font-weight: 700;
-                line-height: 1.05;
-                /* Tighter line height */
-                margin-bottom: 15px;
-                /* More separation from cyan */
-                letter-spacing: -1px;
-                /* Negative tracking for impact */
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                background: rgba(0, 0, 0, 0.4);
+                border-color: rgba(255, 255, 255, 0.05);
             }
 
-            .text-cyan-glow {
-                font-size: 3rem !important;
-                /* LARGER than main title */
-                font-weight: 900;
-                /* Ultra bold */
-                display: block;
-                margin-top: 10px;
-                margin-bottom: 30px;
-                /* More separation from paragraph */
-                filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.6));
-                /* Intense glow */
+            .carousel-nav.prev {
+                left: 10px;
             }
 
-            /* Show mobile paragraph, hide desktop */
-            .service-body-mobile {
-                display: block;
-                font-size: 1.05rem;
-                line-height: 1.6;
-                margin-top: 30px;
-                text-align: center;
+            .carousel-nav.next {
+                right: 10px;
             }
 
-            .service-body-desktop {
-                display: none;
+            .carousel-nav svg {
+                width: 18px;
+                height: 18px;
             }
-
-            /* RESPONSIVE (Móvil) */
-            @media (max-width: 768px) {
-                .stats-carousel-wrapper {
-                    padding: 0;
-                    /* Full width, no padding */
-                    overflow: hidden;
-                    width: 100%;
-                }
-
-                .carousel-track-wrapper {
-                    padding: 40px 0;
-                    /* Only vertical padding */
-                    margin: 0;
-                    /* Reset margins */
-                    width: 100%;
-                }
-
-                /* Mostrar flechas en móvil para engagement */
-                .carousel-nav {
-                    display: flex;
-                    width: 35px;
-                    /* Más pequeñas */
-                    height: 35px;
-                    background: rgba(0, 0, 0, 0.6);
-                }
-
-                .carousel-nav svg {
-                    width: 18px;
-                    height: 18px;
-                }
-
-                .tech-stat-card {
-                    width: 260px;
-                    /* Reducido para ver bordes */
-                    min-width: 260px;
-                    height: 280px;
-                }
-
-                .carousel-track {
-                    gap: 15px;
-                    /* Slightly tighter gap */
-                    padding-left: 0;
-                }
-            }
+        }
 
 
 
 
-            .ts-icon-svg {
-                width: 36px;
-                height: 36px;
-                margin-bottom: 15px;
-            }
+        .ts-icon-svg {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 15px;
+        }
 
-            .ts-icon-svg svg {
-                width: 20px;
-                height: 20px;
-            }
+        .ts-icon-svg svg {
+            width: 20px;
+            height: 20px;
+        }
 
-            .ts-num {
-                font-size: 2.5rem;
-                margin: 0 0 12px 0;
-            }
+        .ts-num {
+            font-size: 2.5rem;
+            margin: 0 0 12px 0;
+        }
 
-            .ts-desc {
-                font-size: 0.85rem;
-                margin: 0 0 15px 0;
-            }
+        .ts-desc {
+            font-size: 0.85rem;
+            margin: 0 0 15px 0;
+        }
 
-            .ts-source {
-                font-size: 0.6rem;
-                padding-top: 10px;
-            }
+        .ts-source {
+            font-size: 0.6rem;
+            padding-top: 10px;
+        }
 
-            /* Faster marquee on mobile for better UX */
-            .scroll-left .marquee-content {
-                animation: scrollLeft 40s linear infinite;
-            }
+        /* Faster marquee on mobile for better UX */
+        .scroll-left .marquee-content {
+            animation: scrollLeft 40s linear infinite;
+        }
 
-            .scroll-right .marquee-content {
-                animation: scrollRight 40s linear infinite;
-            }
+        .scroll-right .marquee-content {
+            animation: scrollRight 40s linear infinite;
+        }
 
-            .service-cta-center {
-                margin-top: 50px;
-            }
+        .service-cta-center {
+            margin-top: 50px;
+        }
 
-            .btn-tech-solid-large {
-                padding: 18px 35px;
-                font-size: 1rem;
-                width: 100%;
-                max-width: 350px;
-                justify-content: center;
-            }
+        .btn-tech-solid-large {
+            padding: 18px 35px;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 350px;
+            justify-content: center;
+        }
         }
 
         /* Extra small devices */
