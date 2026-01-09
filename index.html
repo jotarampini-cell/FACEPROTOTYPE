@@ -1781,14 +1781,13 @@
         <div class="tech-grid-bg"></div>
 
         <div class="header-centered">
-            <div class="tech-badge-pro">SISTEMA OPERATIVO CULTURAL</div>
             <h2 class="service-title">
                 ESTA PLATAFORMA ES TU <span class="text-cyan-glow">CENTRO DE MANDO.</span>
             </h2>
             <p class="service-body-large">
                 Innovar en una estructura establecida es una guerra contra la inercia. No tienes que pelearla solo.
                 <strong>Hemos construido esta infraestructura para ti.</strong> Te entregamos los datos, los protocolos
-                y la evidencia táctica.
+                y la evidencia táctica para que demuestres que la cultura es el activo más rentable.
             </p>
         </div>
 
@@ -1846,12 +1845,35 @@
                         <span class="ts-source">FUENTE: FAMILY BUSINESS INST.</span>
                     </div>
 
+                    <div class="tech-stat-card">
+                        <div class="ts-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 9h.01M12 9h.01M16 9h.01" />
+                            </svg></div>
+                        <h4 class="ts-num">60%</h4>
+                        <p class="ts-desc">De empleados sienten que sus opiniones son ignoradas.</p>
+                        <span class="ts-source">FUENTE: WORKFORCE INST.</span>
+                    </div>
+
+                    <div class="tech-stat-card">
+                        <div class="ts-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg></div>
+                        <h4 class="ts-num">40%</h4>
+                        <p class="ts-desc">Más rápido es el "Time-to-Market" con métodos ágiles.</p>
+                        <span class="ts-source">FUENTE: MCKINSEY AGILE</span>
+                    </div>
+
                 </div>
             </div>
 
             <div class="carousel-dots">
-                <button class="dot"></button>
                 <button class="dot active"></button>
+                <button class="dot"></button>
+                <button class="dot"></button>
+                <button class="dot"></button>
                 <button class="dot"></button>
                 <button class="dot"></button>
             </div>
@@ -1862,7 +1884,6 @@
         /* --- 1. ESTRUCTURA Y FONDO --- */
         .tech-service-section {
             background-color: #000000;
-            /* Negro Puro de fondo */
             padding: 100px 0;
             position: relative;
             overflow: hidden;
@@ -1870,7 +1891,6 @@
             color: white;
         }
 
-        /* Grid de Fondo (Sutil) */
         .tech-grid-bg {
             position: absolute;
             inset: 0;
@@ -1883,40 +1903,21 @@
             opacity: 0.5;
         }
 
-        /* --- 2. HEADER (Legibilidad Máxima) --- */
+        /* --- 2. HEADER --- */
         .header-centered {
             position: relative;
             z-index: 10;
             text-align: center;
             max-width: 900px;
-            margin: 0 auto 80px;
-            /* Buen espacio antes del carrusel */
+            /* AJUSTE: Mayor separación abajo (100px) para separar del carrusel */
+            margin: 0 auto 100px;
             padding: 0 20px;
-        }
-
-        .tech-badge-pro {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #00f3ff;
-            /* Fondo Cyan Sólido para contraste máximo */
-            color: #000;
-            /* Texto negro sobre cyan */
-            padding: 6px 16px;
-            border-radius: 4px;
-            margin-bottom: 30px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            font-weight: 700;
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
         }
 
         .service-title {
             font-family: 'Oswald', sans-serif;
             color: white;
             font-size: 3rem;
-            /* Grande y claro */
             line-height: 1.1;
             margin-bottom: 25px;
             text-transform: uppercase;
@@ -1926,20 +1927,18 @@
             color: #00f3ff;
             display: block;
             text-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
-            /* Glow intenso */
         }
 
         .service-body-large {
             font-size: 1.1rem;
             line-height: 1.6;
             color: #e0e0e0;
-            /* Gris muy claro, casi blanco */
             max-width: 800px;
             margin: 0 auto;
             font-weight: 400;
         }
 
-        /* --- 3. CARRUSEL (Estructura) --- */
+        /* --- 3. CARRUSEL --- */
         .stats-carousel-wrapper {
             position: relative;
             width: 100%;
@@ -1952,9 +1951,8 @@
             overflow: hidden;
             width: 100%;
             padding: 60px 0;
-            /* Espacio vertical para sombras */
             margin: -60px 0;
-            /* Máscara ajustada: Muestra más a los lados para no sentir claustrofobia */
+            /* Máscara suave */
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
             mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
         }
@@ -1964,66 +1962,48 @@
             gap: 40px;
             align-items: center;
             width: max-content;
-            /* Relleno para centrar matemáticamente el primer item */
             padding: 0 50vw;
             transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        /* --- 4. TARJETAS (High Contrast Design) --- */
+        /* --- 4. TARJETAS --- */
         .tech-stat-card {
             width: 320px;
             min-width: 320px;
             height: 360px;
-            /* Altura cómoda */
             flex-shrink: 0;
-
-            /* FONDO CLAVE: Gris Grafito, NO Negro. Esto crea el contraste. */
             background: #1a1a1a;
-
-            /* Borde visible siempre */
             border: 1px solid #444;
             border-radius: 12px;
             padding: 40px 30px;
-
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
-            /* Estado Inactivo */
             opacity: 0.5;
             transform: scale(0.9);
             filter: grayscale(100%);
             transition: all 0.5s ease;
         }
 
-        /* ESTADO ACTIVO (Pop Visual) */
         .tech-stat-card.active {
             opacity: 1;
             transform: scale(1.1);
-            /* Zoom notable */
             filter: grayscale(0%);
             z-index: 10;
-
-            /* Borde Cyan Brillante */
             border-color: #00f3ff;
             background: #222;
-            /* Ligeramente más claro aún */
-
-            /* Sombra Potente */
             box-shadow:
                 0 20px 60px rgba(0, 0, 0, 0.9),
                 0 0 40px rgba(0, 243, 255, 0.2);
         }
 
-        /* Tipografía Interna */
+        /* Tipografía Tarjeta */
         .ts-icon-svg {
             color: #fff;
-            /* Icono blanco en inactivo para contraste */
             margin-bottom: 20px;
             transition: 0.3s;
             background: rgba(255, 255, 255, 0.1);
-            /* Fondo sutil icono */
             width: 50px;
             height: 50px;
             display: flex;
@@ -2034,9 +2014,7 @@
 
         .active .ts-icon-svg {
             color: #000;
-            /* Icono negro */
             background: #00f3ff;
-            /* Fondo Cyan */
             box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
         }
 
@@ -2057,7 +2035,6 @@
         .ts-desc {
             font-size: 1rem;
             color: #ddd;
-            /* Texto casi blanco para leer fácil */
             line-height: 1.5;
             margin-bottom: 20px;
         }
@@ -2072,7 +2049,36 @@
             display: block;
         }
 
-        /* --- 5. CONTROLES (Visibles y Grandes) --- */
+        /* --- 5. PUNTOS DE NAVEGACIÓN (Más grandes y separados) --- */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* AJUSTE: Mayor separación */
+            margin-top: 50px;
+            /* AJUSTE: Más lejos de las cartas */
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            /* AJUSTE: Más grandes */
+            background: #333;
+            border: 2px solid #555;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: #00f3ff;
+            border-color: #00f3ff;
+            box-shadow: 0 0 15px #00f3ff;
+            /* Más brillo */
+            transform: scale(1.3);
+        }
+
+        /* --- 6. CONTROLES FLECHAS (Ocultas en móvil) --- */
         .carousel-nav {
             position: absolute;
             top: 50%;
@@ -2080,7 +2086,6 @@
             width: 60px;
             height: 60px;
             background: #222;
-            /* Fondo sólido para que se vea */
             border: 2px solid #444;
             border-radius: 50%;
             display: flex;
@@ -2095,7 +2100,7 @@
         .carousel-nav:hover {
             background: #00f3ff;
             border-color: #00f3ff;
-            color: #00f3ff;
+            color: #000;
             box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
         }
 
@@ -2107,32 +2112,7 @@
             right: 40px;
         }
 
-        /* Dots */
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 40px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            background: #333;
-            border: 2px solid #555;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .dot.active {
-            background: #00f3ff;
-            border-color: #00f3ff;
-            box-shadow: 0 0 10px #00f3ff;
-            transform: scale(1.3);
-        }
-
-        /* --- 6. RESPONSIVE REAL (Móvil Legible) --- */
+        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 900px) {
             .service-title {
                 font-size: 2.2rem;
@@ -2140,18 +2120,14 @@
 
             .header-centered {
                 padding: 0 15px;
-                margin-bottom: 40px;
+                margin-bottom: 60px;
             }
 
+            /* Mantener separación */
             .service-body-large {
                 font-size: 1rem;
             }
 
-            .stats-carousel-wrapper {
-                margin-top: 20px;
-            }
-
-            /* En móvil quitamos la máscara para aprovechar el 100% del ancho */
             .carousel-track-wrapper {
                 -webkit-mask-image: none;
                 mask-image: none;
@@ -2163,29 +2139,17 @@
                 min-width: 280px;
                 height: 340px;
                 opacity: 0.6;
-                /* Hacemos las inactivas más visibles en móvil */
             }
 
-            /* Flechas debajo en móvil */
+            /* AJUSTE: Flechas ELIMINADAS en móvil */
             .carousel-nav {
-                top: auto;
-                bottom: -80px;
-                transform: none;
-                width: 50px;
-                height: 50px;
-                background: rgba(30, 30, 30, 0.8);
+                display: none;
             }
 
-            .carousel-nav.prev {
-                left: 25%;
-            }
-
-            .carousel-nav.next {
-                right: 25%;
-            }
-
+            /* Puntos un poco más cerca en móvil para que quepan */
             .carousel-dots {
-                margin-top: 20px;
+                gap: 15px;
+                margin-top: 30px;
             }
         }
     </style>
