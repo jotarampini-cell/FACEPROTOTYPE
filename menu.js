@@ -46,7 +46,7 @@ const MASTER_MENU_HTML = `
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <ul class="tr-submenu" id="programas-submenu">
-                        <li><a href="innova-desde-adentro.html" class="menu-link menu-sublink">Coeficiente de Ingenio</a></li>
+                        <li><a href="innova-desde-adentro.html" class="menu-link menu-sublink">Innova desde Adentro</a></li>
                     </ul>
                 </li>
                 <li class="tr-menu-item menu-parent">
