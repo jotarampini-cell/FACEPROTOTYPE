@@ -2258,22 +2258,122 @@
 
         /* Responsive */
         @media (max-width: 900px) {
+            .tech-service-section {
+                padding: 80px 20px 60px;
+            }
+
             .header-centered {
-                margin-bottom: 50px;
+                margin-bottom: 40px;
+            }
+
+            .tech-badge-pro {
+                font-size: 0.7rem;
+                padding: 6px 12px;
             }
 
             .service-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 20px;
             }
 
             .service-body-large {
                 font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .tech-marquee-wrapper {
+                margin-top: 40px;
+            }
+
+            .marquee-row {
+                margin-bottom: 20px;
             }
 
             .tech-stat-card {
-                width: 280px;
-                height: auto;
-                min-height: 260px;
+                width: 260px;
+                min-height: 280px;
+                padding: 25px 20px;
+            }
+
+            .ts-icon-svg {
+                width: 36px;
+                height: 36px;
+                margin-bottom: 15px;
+            }
+
+            .ts-icon-svg svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .ts-num {
+                font-size: 2.5rem;
+                margin: 0 0 12px 0;
+            }
+
+            .ts-desc {
+                font-size: 0.85rem;
+                margin: 0 0 15px 0;
+            }
+
+            .ts-source {
+                font-size: 0.6rem;
+                padding-top: 10px;
+            }
+
+            /* Faster marquee on mobile for better UX */
+            .scroll-left .marquee-content {
+                animation: scrollLeft 40s linear infinite;
+            }
+
+            .scroll-right .marquee-content {
+                animation: scrollRight 40s linear infinite;
+            }
+
+            .service-cta-center {
+                margin-top: 50px;
+            }
+
+            .btn-tech-solid-large {
+                padding: 18px 35px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 350px;
+                justify-content: center;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .tech-service-section {
+                padding: 60px 15px 50px;
+            }
+
+            .service-title {
+                font-size: 1.75rem;
+            }
+
+            .service-body-large {
+                font-size: 0.95rem;
+            }
+
+            .tech-stat-card {
+                width: 240px;
+                padding: 20px 18px;
+            }
+
+            .ts-num {
+                font-size: 2.2rem;
+            }
+
+            .ts-desc {
+                font-size: 0.8rem;
+            }
+
+            .btn-tech-solid-large {
+                padding: 16px 30px;
+                font-size: 0.95rem;
             }
         }
     </style>
