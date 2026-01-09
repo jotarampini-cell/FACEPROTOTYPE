@@ -1,4 +1,4 @@
-/* --- CARRUSEL JS --- */
+
 class StatsCarousel {
     constructor() {
         this.track = document.querySelector('.carousel-track');
@@ -55,5 +55,4 @@ class StatsCarousel {
         }, { passive: true });
     }
 }
-
 document.addEventListener('DOMContentLoaded', () => { new StatsCarousel(); });
