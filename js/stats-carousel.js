@@ -2,7 +2,6 @@
 class StatsCarousel {
     constructor() {
         this.track = document.querySelector('.carousel-track');
-        // Usamos el selector de la nueva tarjeta
         this.cards = Array.from(document.querySelectorAll('.gradient-stat-card'));
         this.dots = Array.from(document.querySelectorAll('.dot'));
         this.prevBtn = document.querySelector('.carousel-nav.prev');
@@ -36,8 +35,7 @@ class StatsCarousel {
 
     updateCarousel() {
         const isMobile = window.innerWidth <= 900;
-        // Coincidir con el ancho CSS (Mobile: 260px, Desktop: 300px)
-        const cardWidth = isMobile ? 260 : 300;
+        const cardWidth = isMobile ? 280 : 320;
         const gap = 30;
 
         const moveAmount = (this.currentIndex * (cardWidth + gap)) + (cardWidth / 2);
