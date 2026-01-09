@@ -2374,15 +2374,25 @@
                     width: 100%;
                 }
 
+                /* Mostrar flechas en móvil para engagement */
                 .carousel-nav {
-                    display: none;
+                    display: flex;
+                    width: 35px;
+                    /* Más pequeñas */
+                    height: 35px;
+                    background: rgba(0, 0, 0, 0.6);
+                }
+
+                .carousel-nav svg {
+                    width: 18px;
+                    height: 18px;
                 }
 
                 .tech-stat-card {
-                    width: 280px;
-                    min-width: 280px;
+                    width: 260px;
+                    /* Reducido para ver bordes */
+                    min-width: 260px;
                     height: 280px;
-                    /* Ensure gap doesn't break layout */
                 }
 
                 .carousel-track {
