@@ -3,7 +3,7 @@
 class StatsCarousel {
     constructor() {
         this.track = document.querySelector('.carousel-track');
-        this.cards = Array.from(document.querySelectorAll('.elite-stat-card'));
+        this.cards = Array.from(document.querySelectorAll('.apple-card'));
         this.dots = Array.from(document.querySelectorAll('.dot'));
         this.wrapper = document.querySelector('.stats-carousel-wrapper'); // Contenedor padre
         this.prevBtn = document.querySelector('.carousel-nav.prev');
