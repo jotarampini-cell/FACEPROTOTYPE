@@ -2357,30 +2357,42 @@
                 display: none;
             }
 
-            .stats-carousel-wrapper {
-                padding: 0 20px;
-                /* Menos padding lateral */
-                overflow: hidden;
-                /* En móvil sí cortamos el exceso */
+            /* RESPONSIVE (Móvil) */
+            @media (max-width: 768px) {
+                .stats-carousel-wrapper {
+                    padding: 0;
+                    /* Full width, no padding */
+                    overflow: hidden;
+                    width: 100%;
+                }
+
+                .carousel-track-wrapper {
+                    padding: 40px 0;
+                    /* Only vertical padding */
+                    margin: 0;
+                    /* Reset margins */
+                    width: 100%;
+                }
+
+                .carousel-nav {
+                    display: none;
+                }
+
+                .tech-stat-card {
+                    width: 280px;
+                    min-width: 280px;
+                    height: 280px;
+                    /* Ensure gap doesn't break layout */
+                }
+
+                .carousel-track {
+                    gap: 15px;
+                    /* Slightly tighter gap */
+                    padding-left: 0;
+                }
             }
 
-            .carousel-nav {
-                display: none;
-            }
 
-            /* Ocultar flechas */
-
-            .tech-stat-card {
-                width: 280px;
-                /* Un poco más angostas en móvil */
-                min-width: 280px;
-                height: 280px;
-            }
-
-            .carousel-track {
-                gap: 20px;
-                /* Menos espacio entre cards */
-            }
 
 
             .ts-icon-svg {
