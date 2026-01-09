@@ -1776,6 +1776,367 @@
         });
     </script>
 
+    <!-- Wake Up Call Section: Dark Tech Design -->
+    <section class="tech-wakeup-section">
+        <div class="tech-grid-bg"></div>
+        <div class="tr-container">
+            <div class="wakeup-grid">
+
+                <div class="visual-tech-col reveal-on-scroll">
+                    <div class="tech-video-card">
+                        <div class="card-header-tech">
+                            <span class="sys-dot"></span>
+                            <span class="sys-text">SISTEMA FACE O.S.</span>
+                        </div>
+                        <div class="video-container">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
+                                alt="Innovation System"
+                                style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+                            <div class="tech-overlay"></div>
+
+                            <button class="tech-play-btn">
+                                <span class="icon-play">▶</span>
+                                <span class="txt-play">VER MANIFIESTO</span>
+                            </button>
+                        </div>
+                        <div class="card-footer-tech">
+                            <div class="tech-stat-tiny">
+                                <strong>STATUS:</strong> <span class="cyan-text">ONLINE</span>
+                            </div>
+                            <div class="tech-stat-tiny">
+                                <strong>VERSION:</strong> 4.0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-tech-col reveal-on-scroll">
+                    <h2 class="tech-main-title">
+                        INNOVAR DUELE. <br>
+                        <span class="text-outline-cyan">QUEDARSE IGUAL, MATA.</span>
+                    </h2>
+
+                    <p class="tech-body-text">
+                        Sabemos la verdad: Intentar cambiar la cultura agota. La burocracia te frena y el "siempre se
+                        hizo así" desmotiva. Pero en la economía actual, la comodidad es el lugar más peligroso para
+                        vivir.
+                    </p>
+
+                    <div class="tech-stats-row">
+                        <div class="t-stat-box">
+                            <h3 class="t-stat-num">70%</h3>
+                            <p class="t-stat-desc">
+                                De los intentos de innovación <strong>fallan</strong> por resistencia humana, no por
+                                falta de software.
+                            </p>
+                        </div>
+                        <div class="t-stat-box highlight-box">
+                            <h3 class="t-stat-num">3.5x</h3>
+                            <p class="t-stat-desc">
+                                Más rentabilidad logran las empresas que <strong>democratizan</strong> la innovación en
+                                todos los niveles.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tech-action-area">
+                        <p class="prompt-text">No seas parte de la estadística del fracaso.</p>
+                        <a href="innova-desde-adentro.html" class="btn-tech-primary">
+                            ACTIVAR EL CAMBIO AHORA
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* --- VARIABLES TECH --- */
+        :root {
+            --tk-bg: #050505;
+            --tk-cyan: #00f3ff;
+            --tk-cyan-dim: rgba(0, 243, 255, 0.1);
+            --tk-text: #e2e8f0;
+            --tk-gray: #64748b;
+            --tk-border: #1f2937;
+        }
+
+        /* SECCIÓN CONTAINER */
+        .tech-wakeup-section {
+            background-color: var(--tk-bg);
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+            color: var(--tk-text);
+            border-bottom: 1px solid #222;
+        }
+
+        /* Fondo Grid Tecnológico */
+        .tech-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .wakeup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- COLUMNA VISUAL (TARJETA TECH) --- */
+        .tech-video-card {
+            background: #0a0c10;
+            border: 1px solid var(--tk-border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.05);
+            transition: transform 0.4s ease;
+        }
+
+        .tech-video-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--tk-cyan);
+            box-shadow: 0 0 60px rgba(0, 243, 255, 0.15);
+        }
+
+        /* Header de la Tarjeta */
+        .card-header-tech {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--tk-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .sys-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--tk-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--tk-cyan);
+        }
+
+        .sys-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            color: var(--tk-cyan);
+            letter-spacing: 2px;
+        }
+
+        /* Video */
+        .video-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .tech-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #0a0c10 0%, transparent 60%);
+        }
+
+        /* Botón Play */
+        .tech-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--tk-cyan);
+            color: var(--tk-cyan);
+            padding: 15px 30px;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+
+        .tech-play-btn:hover {
+            background: var(--tk-cyan);
+            color: #000;
+            box-shadow: 0 0 30px var(--tk-cyan);
+        }
+
+        .icon-play {
+            font-size: 0.8rem;
+        }
+
+        /* Footer Tarjeta */
+        .card-footer-tech {
+            padding: 15px 20px;
+            border-top: 1px solid var(--tk-border);
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            color: #666;
+        }
+
+        .cyan-text {
+            color: var(--tk-cyan);
+        }
+
+        /* --- COLUMNA TEXTO --- */
+        .tech-main-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .text-outline-cyan {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--tk-cyan);
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .tech-body-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 50px;
+            border-left: 2px solid var(--tk-border);
+            padding-left: 20px;
+        }
+
+        /* Estadísticas */
+        .tech-stats-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .t-stat-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--tk-border);
+            padding: 25px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .t-stat-box:hover {
+            border-color: #444;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Caja Destacada (La ganancia) */
+        .highlight-box {
+            border-color: var(--tk-cyan-dim);
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.05) 0%, transparent 100%);
+        }
+
+        .t-stat-num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            color: white;
+            margin: 0 0 10px 0;
+            line-height: 1;
+        }
+
+        .highlight-box .t-stat-num {
+            color: var(--tk-cyan);
+            text-shadow: 0 0 15px var(--tk-cyan-dim);
+        }
+
+        .t-stat-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .t-stat-desc strong {
+            color: white;
+        }
+
+        /* Action Area */
+        .tech-action-area {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .prompt-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .btn-tech-primary {
+            background: var(--tk-cyan);
+            color: #000;
+            padding: 18px 40px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+
+        .btn-tech-primary:hover {
+            background: white;
+            box-shadow: 0 0 30px var(--tk-cyan);
+            transform: translateX(10px);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .wakeup-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .tech-video-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .video-container {
+                height: 300px;
+            }
+
+            .tech-stats-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .tech-main-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
     <!-- Content moved to metodologia-face.html -->
