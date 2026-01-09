@@ -1806,10 +1806,21 @@
                     </p>
                 </div>
 
-                <div class="tech-marquee-wrapper reveal-on-scroll">
+                <div class="stats-carousel-wrapper reveal-on-scroll">
 
-                    <div class="marquee-row scroll-left">
-                        <div class="marquee-content">
+                    <button class="carousel-nav prev" aria-label="Anterior">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button class="carousel-nav next" aria-label="Siguiente">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="carousel-track-wrapper">
+                        <div class="carousel-track">
 
                             <div class="tech-stat-card">
                                 <div class="ts-icon-svg">
@@ -1820,20 +1831,19 @@
                                 </div>
                                 <h4 class="ts-num text-gray">70%</h4>
                                 <p class="ts-desc">De las transformaciones fallan por resistencia cultural y falta de
-                                    compromiso directivo.</p>
-                                <span class="ts-source">FUENTE: MCKINSEY & CO. (2022)</span>
+                                    compromiso.</p>
+                                <span class="ts-source">FUENTE: MCKINSEY & CO.</span>
                             </div>
 
-                            <div class="tech-stat-card highlight">
+                            <div class="tech-stat-card highlight active">
                                 <div class="ts-icon-svg">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                                     </svg>
                                 </div>
                                 <h4 class="ts-num text-cyan">3x</h4>
-                                <p class="ts-desc">Retorno para accionistas en empresas resilientes e innovadoras vs el
-                                    promedio del S&P.</p>
-                                <span class="ts-source">FUENTE: BOSTON CONSULTING GROUP</span>
+                                <p class="ts-desc">Retorno para accionistas en empresas resilientes vs promedio S&P.</p>
+                                <span class="ts-source">FUENTE: BCG CONSULTING</span>
                             </div>
 
                             <div class="tech-stat-card">
@@ -1843,9 +1853,9 @@
                                     </svg>
                                 </div>
                                 <h4 class="ts-num text-gray">34%</h4>
-                                <p class="ts-desc">De los empleados prefieren renunciar antes que expresar sus
-                                    preocupaciones reales a la gerencia.</p>
-                                <span class="ts-source">FUENTE: UKG WORKFORCE INST.</span>
+                                <p class="ts-desc">Empleados renuncian antes que expresar sus preocupaciones a la
+                                    gerencia.</p>
+                                <span class="ts-source">FUENTE: UKG WORKFORCE</span>
                             </div>
 
                             <div class="tech-stat-card">
@@ -1856,38 +1866,10 @@
                                     </svg>
                                 </div>
                                 <h4 class="ts-num text-gray">70%</h4>
-                                <p class="ts-desc">De los empleados reportan sentirse desconectados de la cultura de su
-                                    lugar de trabajo.</p>
-                                <span class="ts-source">FUENTE: PSICO-SMART / WORK INST.</span>
+                                <p class="ts-desc">Empleados se sienten desconectados de la cultura de su lugar de
+                                    trabajo.</p>
+                                <span class="ts-source">FUENTE: WORK INSTITUTE</span>
                             </div>
-
-                            <!-- Duplicados para loop continuo -->
-                            <div class="tech-stat-card">
-                                <div class="ts-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <path d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
-                                        <path d="M13 17l-4-4" />
-                                    </svg></div>
-                                <h4 class="ts-num text-gray">70%</h4>
-                                <p class="ts-desc">De las transformaciones fallan por resistencia cultural y falta de
-                                    compromiso directivo.</p>
-                                <span class="ts-source">FUENTE: MCKINSEY & CO.</span>
-                            </div>
-                            <div class="tech-stat-card highlight">
-                                <div class="ts-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                                    </svg></div>
-                                <h4 class="ts-num text-cyan">3x</h4>
-                                <p class="ts-desc">Retorno para accionistas en empresas resilientes e innovadoras vs el
-                                    promedio del S&P.</p>
-                                <span class="ts-source">FUENTE: BOSTON CONSULTING GROUP</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="marquee-row scroll-right">
-                        <div class="marquee-content">
 
                             <div class="tech-stat-card">
                                 <div class="ts-icon-svg">
@@ -1896,8 +1878,8 @@
                                     </svg>
                                 </div>
                                 <h4 class="ts-num text-gray">19%</h4>
-                                <p class="ts-desc">De las empresas familiares logran sobrevivir y pasar exitosamente a
-                                    la 3ra generación.</p>
+                                <p class="ts-desc">Empresas familiares sobreviven a la 3ra generación sin innovación.
+                                </p>
                                 <span class="ts-source">FUENTE: FAMILY BUSINESS INST.</span>
                             </div>
 
@@ -1908,9 +1890,9 @@
                                     </svg>
                                 </div>
                                 <h4 class="ts-num text-cyan">40%</h4>
-                                <p class="ts-desc">Más rápido es el "Time-to-Market" al implementar metodologías ágiles
-                                    de innovación.</p>
-                                <span class="ts-source">FUENTE: FULLSCALE / MCKINSEY</span>
+                                <p class="ts-desc">Más rápido es el "Time-to-Market" al implementar metodologías ágiles.
+                                </p>
+                                <span class="ts-source">FUENTE: MCKINSEY AGILE</span>
                             </div>
 
                             <div class="tech-stat-card">
@@ -1921,9 +1903,9 @@
                                     </svg>
                                 </div>
                                 <h4 class="ts-num text-gray">60%</h4>
-                                <p class="ts-desc">De los empleados sienten que sus opiniones y puntos de vista son
-                                    ignorados.</p>
-                                <span class="ts-source">FUENTE: THE WORKFORCE INSTITUTE</span>
+                                <p class="ts-desc">Empleados sienten que sus opiniones son ignoradas sistemáticamente.
+                                </p>
+                                <span class="ts-source">FUENTE: WORKFORCE INST.</span>
                             </div>
 
                             <div class="tech-stat-card highlight">
@@ -1939,30 +1921,19 @@
                                 <span class="ts-source">FUENTE: GALLUP</span>
                             </div>
 
-                            <!-- Duplicados para loop continuo -->
-                            <div class="tech-stat-card">
-                                <div class="ts-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <path d="M12 7v14M5 12l7-7 7 7" />
-                                    </svg></div>
-                                <h4 class="ts-num text-gray">19%</h4>
-                                <p class="ts-desc">De las empresas familiares logran sobrevivir y pasar exitosamente a
-                                    la 3ra generación.</p>
-                                <span class="ts-source">FUENTE: FAMILY BUSINESS INST.</span>
-                            </div>
-                            <div class="tech-stat-card highlight">
-                                <div class="ts-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                                    </svg></div>
-                                <h4 class="ts-num text-cyan">40%</h4>
-                                <p class="ts-desc">Más rápido es el "Time-to-Market" al implementar metodologías ágiles
-                                    de innovación.</p>
-                                <span class="ts-source">FUENTE: FULLSCALE / MCKINSEY</span>
-                            </div>
                         </div>
                     </div>
 
+                    <div class="carousel-dots">
+                        <button class="dot active" onclick="statsCarousel.goTo(0)"></button>
+                        <button class="dot" onclick="statsCarousel.goTo(1)"></button>
+                        <button class="dot" onclick="statsCarousel.goTo(2)"></button>
+                        <button class="dot" onclick="statsCarousel.goTo(3)"></button>
+                        <button class="dot" onclick="statsCarousel.goTo(4)"></button>
+                        <button class="dot" onclick="statsCarousel.goTo(5)"></button>
+                        <button class="dot" onclick="statsCarousel.goTo(6)"></button>
+                        <button class="dot" onclick="statsCarousel.goTo(7)"></button>
+                    </div>
                 </div>
 
                 <div class="service-cta-center">
@@ -2107,88 +2078,81 @@
             font-weight: 600;
         }
 
-        /* Marquee Container */
-        .tech-marquee-wrapper {
-            margin-top: 60px;
-            overflow: hidden;
+        /* --- CORRECCIÓN CAROUSEL (Centrado Perfecto) --- */
+        .stats-carousel-wrapper {
             position: relative;
+            width: 100%;
+            max-width: 1200px;
+            /* Ancho máximo del contenido */
+            margin: 60px auto 0;
+            padding: 0 60px;
+            /* Espacio para las flechas */
+            box-sizing: border-box;
+            /* Vital para que el padding no rompa el ancho */
+            overflow: visible;
+            /* Permitir que las sombras se vean */
         }
 
-        .marquee-row {
+        /* El Marco que oculta lo que sobra */
+        .carousel-track-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 40px 10px;
+            /* Espacio vertical para el efecto hover y sombras */
+            margin: -40px -10px;
+            /* Compensar el padding visual */
+        }
+
+        .carousel-track {
             display: flex;
-            margin-bottom: 30px;
+            gap: 30px;
+            /* Espacio entre tarjetas */
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            width: max-content;
+            /* El track debe ser tan ancho como su contenido */
+            margin: 0 auto;
+            /* Intentar centrar si sobra espacio */
+            align-items: center;
+            /* Alinear verticalmente */
         }
 
-        .marquee-content {
-            display: flex;
-            gap: 40px;
-            padding-left: 40px;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-        }
-
-        .scroll-left .marquee-content {
-            animation: scrollLeft 60s linear infinite;
-        }
-
-        .scroll-right .marquee-content {
-            animation: scrollRight 60s linear infinite;
-        }
-
-        @keyframes scrollLeft {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        @keyframes scrollRight {
-            0% {
-                transform: translateX(-50%);
-            }
-
-            100% {
-                transform: translateX(0);
-            }
-        }
-
-        /* Stat Cards Professional */
+        /* --- TARJETAS (Ajuste de Tamaño) --- */
         .tech-stat-card {
-            background: #0a0c10;
-            border: 1px solid #1f2937;
-            border-radius: 8px;
-            padding: 30px 25px;
             width: 320px;
-            white-space: normal;
-            transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            /* Ancho FIJO */
+            min-width: 320px;
+            /* Asegura que no se aplasten */
             flex-shrink: 0;
+            background: linear-gradient(145deg, #0f0f0f 0%, #0a0a0a 100%);
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 30px 25px;
+            position: relative;
+            transition: all 0.4s ease;
+            opacity: 0.4;
+            /* Inactivas muy tenues */
+            transform: scale(0.9);
+            /* Inactivas pequeñas */
+            height: 300px;
+            /* Altura fija para uniformidad */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 300px;
         }
 
-        .tech-stat-card:hover {
-            border-color: #444;
-            background: #111;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .tech-stat-card.highlight {
-            background: linear-gradient(145deg, rgba(0, 243, 255, 0.03) 0%, transparent 100%);
-            border-color: rgba(0, 243, 255, 0.15);
-        }
-
-        .tech-stat-card.highlight:hover {
+        /* Estado Activo (La tarjeta central) */
+        .tech-stat-card.active {
+            opacity: 1;
+            transform: scale(1.05);
+            /* Grande */
             border-color: #00f3ff;
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+            box-shadow:
+                0 15px 50px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(0, 243, 255, 0.1);
+            z-index: 10;
         }
 
-        /* SVG Icons */
+        /* Elementos Internos */
         .ts-icon-svg {
             width: 40px;
             height: 40px;
@@ -2199,20 +2163,13 @@
             border-radius: 8px;
             margin-bottom: 20px;
             color: #888;
-            transition: 0.3s;
         }
 
-        .tech-stat-card.highlight .ts-icon-svg {
+        .active .ts-icon-svg {
             color: #00f3ff;
             background: rgba(0, 243, 255, 0.1);
         }
 
-        .ts-icon-svg svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        /* Typography */
         .ts-num {
             font-family: 'Oswald', sans-serif;
             font-size: 3rem;
@@ -2221,47 +2178,97 @@
             letter-spacing: -1px;
         }
 
-        .text-gray {
-            color: #64748b;
-        }
-
         .text-cyan {
             color: #00f3ff;
-            text-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        }
+
+        .text-gray {
+            color: #64748b;
         }
 
         .ts-desc {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.9rem;
-            color: #ffffff;
+            color: #94a3b8;
             line-height: 1.5;
-            margin: 0 0 20px 0;
-            flex-grow: 1;
+            margin-bottom: 20px;
         }
 
-        .ts-desc strong {
-            color: white;
-            font-weight: 600;
-        }
-
-        /* Source Citation */
         .ts-source {
             display: block;
             font-family: 'Oswald', sans-serif;
             font-size: 0.65rem;
-            color: #666;
+            color: #444;
             letter-spacing: 1px;
-            border-top: 1px solid #1a1a1a;
-            padding-top: 12px;
-            margin-top: auto;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            border-top: 1px solid #222;
+            padding-top: 15px;
         }
 
-        .tech-stat-card:hover .ts-source {
-            color: #666;
-            border-color: #333;
+        /* --- NAVEGACIÓN --- */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00f3ff;
+            cursor: pointer;
+            z-index: 20;
+            transition: 0.3s;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(0, 243, 255, 0.1);
+            border-color: #00f3ff;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        }
+
+        .carousel-nav.prev {
+            left: 0;
+        }
+
+        .carousel-nav.next {
+            right: 0;
+        }
+
+        .carousel-nav svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Dots */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #333;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot:hover {
+            background: #666;
+        }
+
+        .dot.active {
+            background: #00f3ff;
+            box-shadow: 0 0 10px #00f3ff;
+            transform: scale(1.2);
         }
 
         /* CTA Center */
@@ -2350,20 +2357,31 @@
                 display: none;
             }
 
-            .tech-marquee-wrapper {
-                margin-top: 50px;
-                /* More space before cards */
+            .stats-carousel-wrapper {
+                padding: 0 20px;
+                /* Menos padding lateral */
+                overflow: hidden;
+                /* En móvil sí cortamos el exceso */
             }
 
-            .marquee-row {
-                margin-bottom: 20px;
+            .carousel-nav {
+                display: none;
             }
+
+            /* Ocultar flechas */
 
             .tech-stat-card {
-                width: 260px;
-                min-height: 280px;
-                padding: 25px 20px;
+                width: 280px;
+                /* Un poco más angostas en móvil */
+                min-width: 280px;
+                height: 280px;
             }
+
+            .carousel-track {
+                gap: 20px;
+                /* Menos espacio entre cards */
+            }
+
 
             .ts-icon-svg {
                 width: 36px;
@@ -2875,6 +2893,8 @@
             });
         });
     </script>
+
+    <script src="js/stats-carousel.js"></script>
 
 </body>
 
