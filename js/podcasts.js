@@ -272,7 +272,7 @@ const BRIDGE_PROGRAMS = {
         title: 'RETO DE INGENIO: 21 DÍAS',
         desc: 'Activa el verdadero potencial de tu equipo. La respuesta no está en Google, está en tu nómina.',
         btn: 'VER PROGRAMA',
-        url: 'reto-de-ingenio.html',
+        url: 'innova-desde-adentro.html',
         bg: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80',
         gradient: 'linear-gradient(135deg, rgba(15, 32, 70, 0.9) 0%, rgba(30, 60, 114, 0.8) 100%)'
     },
