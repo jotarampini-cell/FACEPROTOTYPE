@@ -1,10 +1,12 @@
-/* --- SECCIÓN RADAR DE NOTICIAS (Editorial Style) --- */
+/* --- SECCIÓN RADAR (Compacta y Lateral) --- */
 .news-radar-section {
     background-color: #ffffff;
-    /* Blanco Periodístico */
-    padding: 100px 0;
+    padding: 80px 0;
+    /* Un poco más compacto */
     font-family: 'Montserrat', sans-serif;
     color: #111;
+    overflow: hidden;
+    /* Evita scroll horizontal de la página completa */
 }
 
 .news-container {
@@ -15,115 +17,126 @@
 
 /* HEADER */
 .news-header {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .news-label {
     font-family: 'Oswald', sans-serif;
     font-size: 0.8rem;
-    color: #666;
+    color: #888;
     letter-spacing: 2px;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .news-title {
     font-family: 'Playfair Display', serif;
-    /* Toque de autoridad */
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #000;
-    margin: 0 0 20px 0;
+    margin: 0;
     line-height: 1;
 }
 
 .news-divider {
     width: 100%;
-    height: 1px;
+    height: 2px;
     background-color: #000;
-    /* La línea negra clásica */
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-/* LAYOUT DE NOTICIAS */
-.news-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    /* Columna Izq más ancha */
-    gap: 60px;
-    margin-bottom: 60px;
+/* LAYOUT HÍBRIDO: Fijo Izquierda + Slider Derecha */
+.news-grid-layout {
+    display: flex;
+    gap: 40px;
+    height: 450px;
+    /* Altura fija para alinear todo */
+    margin-bottom: 50px;
 }
 
-/* ARTÍCULO PRINCIPAL (Izquierda) */
-.news-main-card {
+/* 1. ARTÍCULO DESTACADO (Izquierda - 50%) */
+.news-featured {
+    flex: 1;
+    /* Ocupa la mitad */
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    /* Evita desbordes flex */
 }
 
-.news-img-wrapper {
+.featured-img-wrapper {
+    height: 240px;
     width: 100%;
-    height: 350px;
     overflow: hidden;
-    margin-bottom: 25px;
-    background-color: #f0f0f0;
+    margin-bottom: 20px;
+    background: #eee;
 }
 
-.news-img {
+.featured-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: 0.5s;
     filter: grayscale(100%);
-    /* FOTOS EN BLANCO Y NEGRO (Clásico) */
 }
 
-.news-main-card:hover .news-img {
-    transform: scale(1.05);
+.news-featured:hover .featured-img {
     filter: grayscale(0%);
-    /* Color al pasar el mouse */
+    transform: scale(1.05);
 }
 
 .news-meta {
-    display: flex;
-    gap: 15px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    text-transform: uppercase;
     color: #00bcd4;
-    /* Tu acento Cyan */
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .news-source {
     color: #000;
     font-weight: 800;
+    margin-right: 10px;
 }
 
-.news-headline-main {
+.news-date {
+    color: #999;
+}
+
+.featured-headline {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     line-height: 1.2;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #000;
 }
 
-.news-excerpt {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #444;
-    margin-bottom: 25px;
+.featured-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-excerpt {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    /* Corta texto si es muy largo */
 }
 
 .news-link-action {
     font-family: 'Oswald', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: #000;
     text-decoration: none;
     border-bottom: 2px solid #00bcd4;
-    /* Subrayado Cyan */
     padding-bottom: 2px;
     transition: 0.3s;
 }
@@ -133,41 +146,82 @@
     color: #fff;
 }
 
-/* BARRA LATERAL (Derecha) */
-.news-sidebar {
+/* 2. SLIDER LATERAL (Derecha - 50%) */
+.news-slider-container {
+    flex: 1;
+    /* Ocupa la otra mitad */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border-left: 1px solid #eee;
+    /* Separador sutil */
+    padding-left: 40px;
 }
 
-.news-item-side {
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #e0e0e0;
-    /* Separador gris fino */
+.slider-hint {
+    font-size: 0.7rem;
+    color: #ccc;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-align: right;
 }
 
-.news-item-side.no-border {
-    border-bottom: none;
-    margin-bottom: 0;
+.news-slider-track {
+    display: flex;
+    overflow-x: auto;
+    /* PERMITE EL SCROLL LATERAL */
+    gap: 25px;
+    padding-bottom: 20px;
+    /* Espacio para scrollbar */
+    scroll-snap-type: x mandatory;
+    /* Efecto magnético */
+    -webkit-overflow-scrolling: touch;
 }
 
-.news-headline-side {
+/* Estilo de la Scrollbar sutil */
+.news-slider-track::-webkit-scrollbar {
+    height: 4px;
+}
+
+.news-slider-track::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.news-slider-track::-webkit-scrollbar-thumb {
+    background: #00bcd4;
+    border-radius: 4px;
+}
+
+/* TARJETAS DEL SLIDER */
+.news-slide-card {
+    min-width: 260px;
+    /* Ancho fijo de cada tarjeta */
+    width: 260px;
+    scroll-snap-align: start;
+    /* Se detiene al inicio */
+    padding-right: 10px;
+    border-right: 1px solid #f0f0f0;
+    /* Separador visual entre tarjetas */
+}
+
+.slide-headline {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 10px;
     color: #000;
     line-height: 1.3;
 }
 
-.news-excerpt-side {
-    font-size: 0.95rem;
+.slide-excerpt {
+    font-size: 0.9rem;
     color: #666;
-    line-height: 1.5;
+    line-height: 1.4;
     margin-bottom: 15px;
 }
 
 .news-link-sm {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     color: #00bcd4;
@@ -179,45 +233,54 @@
     text-decoration: underline;
 }
 
-/* FOOTER DEL BLOQUE */
+/* BOTÓN PÍLDORA (REDONDEADO) */
 .news-footer {
     text-align: center;
-    padding-top: 40px;
-    border-top: 4px solid #000;
-    /* Cierre fuerte abajo */
+    margin-top: 10px;
 }
 
-.btn-news-outline {
+.btn-news-pill {
     display: inline-block;
-    padding: 15px 40px;
-    border: 1px solid #000;
+    padding: 15px 45px;
+    background-color: transparent;
+    border: 2px solid #000;
     color: #000;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
+    font-size: 0.9rem;
     text-transform: uppercase;
     text-decoration: none;
     transition: 0.3s;
+    letter-spacing: 1px;
+
+    /* LA MAGIA REDONDEADA */
+    border-radius: 50px;
 }
 
-.btn-news-outline:hover {
+.btn-news-pill:hover {
     background-color: #000;
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-    .news-grid {
-        grid-template-columns: 1fr;
-        /* Una sola columna */
-        gap: 40px;
+    .news-grid-layout {
+        flex-direction: column;
+        /* Uno arriba del otro en móvil */
+        height: auto;
     }
 
-    .news-sidebar {
-        border-top: 4px solid #000;
-        padding-top: 40px;
+    .news-slider-container {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid #eee;
+        padding-top: 30px;
     }
 
-    .news-title {
-        font-size: 2.5rem;
+    .news-slider-track {
+        /* En móvil aseguramos que se vea que hay más contenido */
+        padding-right: 30px;
     }
 }
