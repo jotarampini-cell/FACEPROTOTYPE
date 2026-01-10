@@ -2039,6 +2039,119 @@
             display: none;
         }
 
+        /* --- LUXURY PROMO SECTION (Monolith Design) --- */
+        .luxury-promo-section {
+            background-color: #ffffff;
+            padding: 100px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .luxury-container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* --- EL MONOLITO (Tarjeta Negra) --- */
+        .monolith-card {
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 30px;
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            border: 1px solid #1a1a1a;
+        }
+
+        .monolith-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- BADGE --- */
+        .monolith-badge {
+            display: inline-block;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 35px;
+            background: transparent;
+        }
+
+        /* --- TIPOGRAFÍA --- */
+        .monolith-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            line-height: 1;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .text-white-bold {
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .monolith-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #cccccc;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-weight: 300;
+        }
+
+        .monolith-desc strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* --- BOTÓN DE LUJO (Blanco) --- */
+        .btn-luxury-white {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 22px 50px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-luxury-white:hover {
+            background-color: #e6e6e6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
+        }
+
+        .monolith-note {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #666;
+            letter-spacing: 0.5px;
+        }
+
         .clean-container {
             max-width: 1400px;
             margin: 0 auto;
