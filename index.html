@@ -2515,8 +2515,10 @@
             }
 
             .evidence-card {
-                width: 300px;
-                min-width: 300px;
+                /* Usamos un ancho relativo máximo para evitar desbordes en pantallas muy pequeñas */
+                width: 85vw;
+                max-width: 300px;
+                min-width: 280px;
                 min-height: 400px;
                 opacity: 0.5;
             }
