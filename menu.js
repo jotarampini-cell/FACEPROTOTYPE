@@ -59,6 +59,7 @@ const MASTER_MENU_HTML = `
                     <ul class="tr-submenu" id="explorar-submenu">
                         <li><a href="blog.html" class="menu-link menu-sublink">Blog</a></li>
                         <li><a href="podcasts.html" class="menu-link menu-sublink">Podcast</a></li>
+                        <li><a href="recursos-gratis.html" class="menu-link menu-sublink">Recursos Gratis</a></li>
                         <li><a href="quiz.html" class="menu-link menu-sublink">Diagnóstico (Quiz)</a></li>
                     </ul>
                 </li>
