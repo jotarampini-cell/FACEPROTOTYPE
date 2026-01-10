@@ -1,0 +1,223 @@
+/* --- SECCIÓN RADAR DE NOTICIAS (Editorial Style) --- */
+.news-radar-section {
+    background-color: #ffffff;
+    /* Blanco Periodístico */
+    padding: 100px 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #111;
+}
+
+.news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* HEADER */
+.news-header {
+    margin-bottom: 60px;
+}
+
+.news-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.news-title {
+    font-family: 'Playfair Display', serif;
+    /* Toque de autoridad */
+    font-size: 3rem;
+    color: #000;
+    margin: 0 0 20px 0;
+    line-height: 1;
+}
+
+.news-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    /* La línea negra clásica */
+    margin-top: 20px;
+}
+
+/* LAYOUT DE NOTICIAS */
+.news-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    /* Columna Izq más ancha */
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+/* ARTÍCULO PRINCIPAL (Izquierda) */
+.news-main-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-img-wrapper {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    background-color: #f0f0f0;
+}
+
+.news-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: grayscale(100%);
+    /* FOTOS EN BLANCO Y NEGRO (Clásico) */
+}
+
+.news-main-card:hover .news-img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+    /* Color al pasar el mouse */
+}
+
+.news-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #00bcd4;
+    /* Tu acento Cyan */
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.news-source {
+    color: #000;
+    font-weight: 800;
+}
+
+.news-headline-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.news-excerpt {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.news-link-action {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    border-bottom: 2px solid #00bcd4;
+    /* Subrayado Cyan */
+    padding-bottom: 2px;
+    transition: 0.3s;
+}
+
+.news-link-action:hover {
+    background-color: #00bcd4;
+    color: #fff;
+}
+
+/* BARRA LATERAL (Derecha) */
+.news-sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-item-side {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+    /* Separador gris fino */
+}
+
+.news-item-side.no-border {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.news-headline-side {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #000;
+    line-height: 1.3;
+}
+
+.news-excerpt-side {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.news-link-sm {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #00bcd4;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.news-link-sm:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER DEL BLOQUE */
+.news-footer {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 4px solid #000;
+    /* Cierre fuerte abajo */
+}
+
+.btn-news-outline {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid #000;
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-news-outline:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+        /* Una sola columna */
+        gap: 40px;
+    }
+
+    .news-sidebar {
+        border-top: 4px solid #000;
+        padding-top: 40px;
+    }
+
+    .news-title {
+        font-size: 2.5rem;
+    }
+}
