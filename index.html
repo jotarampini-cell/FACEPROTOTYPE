@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&family=Playfair+Display:wght@700;900&family=Merriweather:wght@900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/face-master.css">
     <link rel="stylesheet" href="css/stats-section.css">
@@ -1910,9 +1910,8 @@
                                 <p class="card-desc">Mayor rentabilidad en equipos con alto compromiso laboral.</p>
                             </div>
                             <div class="card-bottom">
-                                <img src="https://via.placeholder.com/100x40/000000/ffffff?text=GALLUP"
-                                    alt="Logo Gallup" class="source-logo">
-                                <span class="card-source">FUENTE: GALLUP</span>
+                                <span class="source-label">FUENTE</span>
+                                <div class="brand-typo logo-gallup">GALLUP</div>
                             </div>
                         </div>
 
@@ -2260,22 +2259,103 @@
             align-items: flex-start;
         }
 
-        .source-logo {
-            display: block;
-            max-width: 120px;
-            height: auto;
-            margin-bottom: 15px;
-            opacity: 0.9;
+        /* --- ESTILOS DE LOGOS TIPOGRÁFICOS --- */
+
+        /* Base para todos los logos */
+        .brand-typo {
+            font-size: 1.4rem;
+            line-height: 1;
+            color: #FFFFFF;
+            margin-bottom: 0;
+            display: inline-block;
         }
 
-        .card-source {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.75rem;
-            color: #ffffff !important;
-            /* BLANCO PURO */
-            letter-spacing: 1px;
+        /* 1. McKINSEY & CO (Serifa Clásica Elegante) */
+        .logo-mckinsey {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: -0.5px;
+        }
+
+        /* 2. BCG (Sans Serif Bold, Geométrica) */
+        .logo-bcg {
+            font-family: 'Montserrat', 'Arial Black', sans-serif;
+            font-weight: 800;
+            letter-spacing: -1px;
             text-transform: uppercase;
-            opacity: 0.8;
+        }
+
+        /* 3. DELOITTE (Sans Serif Clean + Punto Verde) */
+        .logo-deloitte {
+            font-family: 'Montserrat', 'Helvetica', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        /* El punto verde característico de Deloitte */
+        .logo-deloitte::after {
+            content: '.';
+            color: #86bc25;
+            /* Verde Deloitte */
+            font-size: 1.8rem;
+            line-height: 0;
+            position: relative;
+            top: 2px;
+        }
+
+        /* 4. FORBES (Serifa Gruesa) */
+        .logo-forbes {
+            font-family: 'Merriweather', 'Times New Roman', serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 5. GALLUP (Sans Simple y Moderna) */
+        .logo-gallup {
+            font-family: 'Arial', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            /* Mucho aire */
+        }
+
+        /* 6. HBR (Negra y Condensada) */
+        .logo-hbr {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-style: italic;
+            /* Ligera inclinación */
+            text-transform: uppercase;
+        }
+
+        /* 7. GARTNER (Sans Serif Tech) */
+        .logo-gartner {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: capitalize;
+            /* Primera mayúscula */
+        }
+
+        /* 8. INNOSIGHT (Sans Moderna y Tech) */
+        .logo-innosight {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Label pequeño arriba del logo */
+        .source-label {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
         }
 
         /* CONTROLES */
