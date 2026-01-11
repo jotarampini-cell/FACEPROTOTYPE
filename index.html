@@ -39,6 +39,7 @@
 
 <body>
     <!-- Splash Screen -->
+    <!-- Splash Screen -->
     <div class="splash-screen" id="splash">
         <div class="face-logo-animated">
             <span class="letter">F</span>
@@ -707,7 +708,7 @@
             <div class="apple-reel">
 
                 <!-- CASO 01 -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="ford"
                     data-img="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80"
                     data-title="TOYOTA & FORD"
                     data-context="Ford había perfeccionado las líneas de ensamblaje. Los supermercados japoneses reponían productos solo cuando se agotaban."
@@ -723,7 +724,7 @@
                 </div>
 
                 <!-- CASO 02 -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="netflix"
                     data-img="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=600&q=80"
                     data-title="NETFLIX & CORREO"
                     data-context="Blockbuster cobraba multas que frustraban a los clientes. El servicio postal funcionaba de manera confiable."
@@ -739,7 +740,7 @@
                 </div>
 
                 <!-- CASO 03 -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="apple"
                     data-img="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
                     data-title="STEVE JOBS & XEROX"
                     data-context="Xerox PARC inventó la interfaz gráfica y el mouse en 1973, pero no lo comercializaron."
@@ -755,7 +756,7 @@
                 </div>
 
                 <!-- CASO 04 -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="mcdonalds"
                     data-img="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80"
                     data-title="MCDONALD'S"
                     data-context="Henry Ford había perfeccionado las líneas de ensamblaje para producir autos en masa."
@@ -770,7 +771,7 @@
                 </div>
 
                 <!-- CASO 05 -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="spotify"
                     data-img="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80"
                     data-title="SPOTIFY"
                     data-context="Napster ofrecía música instantánea gratis, pero era ilegal. La industria musical estaba en crisis."
@@ -785,7 +786,7 @@
                 </div>
 
                 <!-- CASO 06 -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="uber"
                     data-img="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80"
                     data-title="UBER"
                     data-context="Millones de autos privados estaban vacíos la mayor parte del día. Los smartphones tenían GPS integrado."
@@ -800,7 +801,7 @@
                 </div>
 
                 <!-- CASO 07 -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="airbnb"
                     data-img="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80"
                     data-title="AIRBNB"
                     data-context="Habitaciones vacías en millones de casas. Craigslist permitía publicar anuncios pero era inseguro."
@@ -815,7 +816,7 @@
                 </div>
 
                 <!-- CASO 08 -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="instagram"
                     data-img="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80"
                     data-title="INSTAGRAM"
                     data-context="Burbn era una app compleja con 20 funciones: check-ins, juegos, fotos, comentarios."
@@ -830,7 +831,7 @@
                 </div>
 
                 <!-- CASO 09 -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="ford"
                     data-img="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
                     data-title="FORD"
                     data-context="Los mataderos de Chicago usaban cintas transportadoras para desarmar cerdos eficientemente."
@@ -845,7 +846,7 @@
                 </div>
 
                 <!-- CASO 10 -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="cirque"
                     data-img="https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=600&q=80"
                     data-title="CIRQUE DU SOLEIL"
                     data-context="Los circos tradicionales competían en precio con animales caros. El teatro cobraba precios premium."
@@ -859,8 +860,8 @@
                     </div>
                 </div>
 
-                <!-- Items 11-25 added for completeness would go here, user can duplicate pattern -->
-                <div class="apple-card" onclick="openFaceModal(this)"
+                <!-- Items 11-25 added for completeness would go here,                <!-- CASO 11 -->
+                <div class="apple-card" onclick="openFaceModal(this)" data-id="nespresso"
                     data-img="https://images.unsplash.com/photo-1512418490979-92798cec1380?auto=format&fit=crop&w=600&q=80"
                     data-title="NESPRESSO"
                     data-context="El café casero era malo. El café de barista era excelente pero lento y caro."
@@ -888,29 +889,47 @@
         <!-- Pagination Dots -->
         <div class="apple-pagination" id="apple-dots"></div>
 
-        <div class="face-modal-overlay" id="faceModal">
-            <div class="face-modal-card">
-                <button class="close-face" onclick="closeFaceModal()">✕</button>
+        <div class="pro-modal-overlay" id="pro-modal">
+            <div class="pro-modal-card">
 
-                <div class="face-grid">
-                    <div class="fg-header">
-                        <span class="fg-tag">ANÁLISIS FACE</span>
-                        <h3 id="f-title">TÍTULO</h3>
+                <button class="pro-close" onclick="closeProModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <div class="pro-modal-body">
+                    <div class="modal-header-row">
+                        <span class="pro-category">ANATOMÍA DE LA INNOVACIÓN</span>
+                        <h3 class="pro-title" id="pm-title">
+                        </h3>
                     </div>
 
-                    <div class="fg-item">
-                        <span class="fg-label">El Contexto</span>
-                        <p id="f-context">...</p>
+                    <div class="pro-divider-modal"></div>
+
+                    <div class="analysis-grid">
+
+                        <div class="analysis-step">
+                            <span class="step-icon">01</span>
+                            <span class="step-label">LA OBSERVACIÓN</span>
+                            <p class="step-desc" id="pm-source">
+                            </p>
+                        </div>
+
+                        <div class="analysis-step">
+                            <span class="step-icon">02</span>
+                            <span class="step-label">LA ADAPTACIÓN</span>
+                            <p class="step-desc" id="pm-bridge">
+                            </p>
+                        </div>
+
                     </div>
 
-                    <div class="fg-item">
-                        <span class="fg-label">La Innovación</span>
-                        <p id="f-innovation">...</p>
-                    </div>
-
-                    <div class="fg-item full-width face-highlight">
-                        <span class="fg-label-gold">Filosofía FACE</span>
-                        <p id="f-face">...</p>
+                    <div class="analysis-result">
+                        <span class="result-label">RESULTADO FINAL</span>
+                        <h4 class="result-text" id="pm-result">
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -1423,7 +1442,7 @@
     </style>
 
     <script>
-        // Mensajes mejorados con estructura de 4 partes
+        // Mensajes mejorados ca de 4 partes
         const galaxyIdeas = [
             {
                 t: "Toyota & Ford",
@@ -1629,7 +1648,7 @@
             const blur = (1 - depth) * 2;
             const opacity = 0.6 + (depth * 0.4);
 
-            el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            el.style.transform = `translate(-50 %, -50 %) scale(${scale})`;
             el.style.filter = `blur(${blur}px)`;
             el.style.opacity = opacity;
 
@@ -1680,8 +1699,8 @@
             });
         }, observerOptions);
 
-        if (galaxySection) {
-            galaxyObserver.observe(galaxySection);
+        if (section) {
+            galaxyObserver.observe(section);
         }
 
     </script>
@@ -3054,7 +3073,7 @@
     </section>
 
     <script>
-        // Ensure video plays on mobile devices
+        // Ensure video plays oices
         (function () {
             const heroVideos = document.querySelectorAll('.hero-video-section .bg-video');
             heroVideos.forEach(heroVideo => {
@@ -3223,6 +3242,26 @@
 
     <script src="js/stats-carousel.js"></script>
 
+    <!-- Failsafe Splash Screen Removal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const splash = document.getElementById('splash');
+            if (splash) {
+                setTimeout(() => {
+                    splash.style.opacity = '0';
+                    setTimeout(() => splash.style.display = 'none', 500);
+                }, 500); // Wait 0.5s then fade out
+            }
+        });
+        // Fallback in case DOMContentLoaded already fired or hangs
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash');
+            if (splash) {
+                splash.style.opacity = '0';
+                setTimeout(() => splash.style.display = 'none', 500);
+            }
+        });
+    </script>
 </body>
 
 </html>

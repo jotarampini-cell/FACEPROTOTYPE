@@ -1,49 +1,135 @@
 /**
  * APPLE EXPERIENCE LOGIC (Master Version)
- * Minimalist, Data-Attribute Driven.
+ * Updated to support Pro Modal with ID-based lookup.
+ * Now acts as the 'Brain' for the Apple Carousel.
  */
 
-// LÓGICA MINIMALISTA
-const modal = document.getElementById('faceModal');
+/* --- DATA: CASOS DE INNOVACIÓN (Base de Datos) --- */
+const innovationCases = [
+    { id: "ford", t: "FORD + MATADEROS", source: "En 1913, Henry Ford visitó un matadero. Vio cómo las reses se movían en ganchos mientras los carniceros hacían cortes fijos.", bridge: "Invirtió el proceso: En lugar de 'desarmar' una vaca en movimiento, decidió 'armar' un auto en movimiento.", result: "LA LÍNEA DE ENSAMBLAJE" },
+    { id: "netflix", t: "NETFLIX + GIMNASIO", source: "Blockbuster cobraba por película y multas por retraso. Los gimnasios cobraban una cuota fija mensual por uso ilimitado.", bridge: "Netflix eliminó el pago por unidad, adoptando el modelo de suscripción 'All-you-can-eat' del fitness.", result: "MODELO DE SUSCRIPCIÓN (SaaS)" },
+    { id: "uber", t: "UBER + BOLSA", source: "Los mercados financieros ajustan precios en tiempo real según oferta y demanda. Los taxis tenían tarifa fija.", bridge: "Aplicaron algoritmos de 'Dynamic Pricing' al transporte para equilibrar la oferta de choferes en horas pico.", result: "PRICING DINÁMICO" },
+    { id: "ikea", t: "IKEA + TOSTADAS", source: "Kamprad vio que 'transportar aire' (muebles armados) era caro al intentar meter una mesa en su auto.", bridge: "Decidió vender muebles desarmados en cajas planas, transfiriendo el ensamblaje al cliente a cambio de precio.", result: "LOGÍSTICA FLAT-PACK" },
+    { id: "airbnb", t: "AIRBNB + CEREALES", source: "Sin dinero para lanzar, los fundadores vieron que los coleccionistas pagaban fortunas por cajas de cereal raras.", bridge: "Vendieron cajas de cereal 'Obama O's' para financiar la empresa, probando que el diseño agrega valor al commodity.", result: "BOOTSTRAPPING CREATIVO" },
+    { id: "spotify", t: "SPOTIFY + PIRATERÍA", source: "Napster probó que la gente quería acceso instantáneo a toda la música gratis. La industria luchaba contra esto.", bridge: "Legalizaron la experiencia pirata: Acceso universal instantáneo, financiado con anuncios o suscripción.", result: "MODELO FREEMIUM" },
+    { id: "zara", t: "ZARA + PESCADERÍA", source: "El pescado fresco se vende rápido o se tira. La moda tradicional planeaba a 6 meses.", bridge: "Trataron la ropa como un perecedero. Producción en lotes pequeños y rápida para crear escasez y urgencia.", result: "FAST FASHION" },
+    { id: "dyson", t: "DYSON + ASERRADERO", source: "Dyson vio un ciclón industrial gigante que separaba aserrín del aire sin filtros.", bridge: "Miniaturizó esa tecnología industrial para eliminar la bolsa de papel de las aspiradoras domésticas.", result: "TECNOLOGÍA CICLÓNICA" },
+    { id: "nike", t: "NIKE + WAFFLES", source: "Bill Bowerman miraba su waflera. Notó cómo la masa creaba una forma de rejilla con agarre y ligereza.", bridge: "Vertió caucho en la waflera para crear una suela de zapato con tracción superior y peso mínimo.", result: "SUELA WAFFLE" },
+    { id: "cirque", t: "CIRQUE DU SOLEIL + TEATRO", source: "El circo competía en precio y animales. El teatro cobraba tickets altos por narrativa.", bridge: "Eliminaron los animales e inyectaron narrativa teatral para cobrar precios de Broadway.", result: "OCÉANO AZUL" },
+    { id: "apple", t: "APPLE + XEROX", source: "Xerox tenía el ratón y la interfaz gráfica, pero lo veía como administrativo.", bridge: "Jobs lo vio como una herramienta creativa. Simplificó el diseño para el usuario común.", result: "INTERFAZ GRÁFICA (GUI)" },
+    { id: "tesla", t: "TESLA + LAPTOPS", source: "Los autos eléctricos usaban baterías pesadas. Las laptops usaban litio eficiente.", bridge: "Conectaron miles de baterías de laptop en serie para propulsar un coche deportivo.", result: "RECOMBINACIÓN TECNOLÓGICA" },
+    { id: "starbucks", t: "STARBUCKS + ITALIA", source: "En Italia, el café es un evento social, un 'tercer lugar'. En EE.UU era solo cafeína.", bridge: "Schultz importó la atmósfera y el ritual italiano, no solo el grano de café.", result: "EXPERIENCIA DE CLIENTE" },
+    { id: "mcdonalds", t: "MCDONALDS + FÓRMULA 1", source: "Observaron la eficiencia de los Pit Stops y las líneas de fábrica.", bridge: "Crearon una cocina coreografiada donde una hamburguesa se hacía en 30 segundos.", result: "SISTEMA SPEEDEE" },
+    { id: "linkedin", t: "LINKEDIN + GRAFOS", source: "La teoría de redes dice que estamos conectados. Los CVs eran documentos muertos.", bridge: "Digitalizaron la red de contactos. El valor es quién te conoce, no solo tu perfil.", result: "NETWORKING ESCALABLE" },
+    { id: "google", t: "GOOGLE + ACADÉMICA", source: "Los papers académicos se citan entre sí. Los más citados son los más importantes.", bridge: "Aplicaron ese sistema de 'votos por citas' a las páginas web para crear PageRank.", result: "ALGORITMO DE BÚSQUEDA" },
+    { id: "amazon", t: "AMAZON + WALMART", source: "Walmart optimizó la logística terrestre con centros de distribución perfectos.", bridge: "Bezos copió esa red pero la virtualizó: centros cercanos a ciudades, entrega rápida.", result: "FULFILLMENT CENTERS" },
+    { id: "instagram", t: "INSTAGRAM + POLAROID", source: "Las Polaroid eran instantáneas pero físicas. La gente amaba lo cuadrado y retro.", bridge: "Digitalizaron la nostalgia: Fotos cuadradas, filtros vintage, compartir instantáneo.", result: "NOSTALGIA DIGITAL" },
+    { id: "slack", t: "SLACK + IRC", source: "IRC era un chat técnico para desarrolladores. Funcionaba pero era feo.", bridge: "Pulieron la interfaz, agregaron integraciones y lo vendieron a empresas como 'email killer'.", result: "CHAT EMPRESARIAL" },
+    { id: "whatsapp", t: "WHATSAPP + SMS", source: "Los SMS costaban $0.10 cada uno. Internet móvil empezaba a ser tarifa plana.", bridge: "Enviaron mensajes por internet en lugar de la red telefónica. Mismo servicio, costo cero.", result: "MENSAJERÍA GRATUITA" },
+    { id: "youtube", t: "YOUTUBE + CITAS", source: "Nació para subir videos de citas. Nadie lo usó así. La gente prefería subir cualquier cosa.", bridge: "Pivotaron a permitir TODO tipo de video. El contenido lo define el usuario, no YouTube.", result: "PLATAFORMA ABIERTA" },
+    { id: "nespresso", t: "NESPRESSO + IMPRESORAS", source: "Las impresoras se regalan y las empresas ganan con los cartuchos ('razor and blades').", bridge: "Vendieron máquinas baratas y ganaron con cápsulas caras. Café como servicio recurrente.", result: "MODELO RAZOR-BLADE CAFÉ" },
+    { id: "duolingo", t: "DUOLINGO + VIDEOJUEGOS", source: "Los videojuegos usan vidas, niveles y recompensas para generar adicción.", bridge: "Aplicaron esa psicología al aprendizaje: Rachas, puntos, logros. Aprender = jugar.", result: "GAMIFICACIÓN EDUCATIVA" },
+    { id: "zoom", t: "ZOOM + SIMPLICIDAD", source: "Cisco Webex y Skype requerían instalar software, crear cuenta, configurar. Era complicado.", bridge: "Redujeron la fricción a cero: Un link, un click, funciona. Simplicidad brutal.", result: "UN CLICK = MEETING" },
+    { id: "wikipedia", t: "WIKIPEDIA + LINUX", source: "Linux probó que miles de voluntarios podían construir software complejo sin paga.", bridge: "Aplicaron 'open source' al conocimiento. Miles de editores construyendo gratis una enciclopedia.", result: "CONOCIMIENTO CROWDSOURCED" }
+];
 
-// Elementos del Modal
-const fTitle = document.getElementById('f-title');
-const fContext = document.getElementById('f-context');
-const fInnovation = document.getElementById('f-innovation');
-const fFace = document.getElementById('f-face');
+/* --- LÓGICA DEL MODAL MAESTRO --- */
 
 function openFaceModal(element) {
-    // 0. Safety Check
-    if (!modal) {
-        console.error('Modal element #faceModal not found');
+    // 1. Identificar qué tarjeta es (Estrategia Robustez por ID)
+    const cardId = element.dataset.id;
+
+    // Fallback: Por Título si no hay ID (limpiando espacios)
+    let cardTitle = '';
+    if (!cardId) {
+        const h3 = element.querySelector('h3');
+        if (h3) cardTitle = h3.innerText.trim().toUpperCase();
+    }
+
+    // 2. Buscar en la "Base de Datos" (Array)
+    let caseData;
+
+    if (cardId) {
+        caseData = innovationCases.find(item => item.id === cardId);
+    } else {
+        // Búsqueda flexible por texto (busca si el titulo coincide parcialmente con la parte izquierda de "TITULO + COSA")
+        if (cardTitle) {
+            caseData = innovationCases.find(item => {
+                const parts = item.t.split('+');
+                const mainTitle = parts[0].trim().toUpperCase();
+                return cardTitle.includes(mainTitle) || mainTitle.includes(cardTitle);
+            });
+        }
+    }
+
+    if (!caseData) {
+        console.error("No se encontraron datos para este caso:", cardId || cardTitle);
         return;
     }
 
-    // 1. Extraer datos del HTML del elemento clickeado
-    const data = element.dataset;
+    // 3. Inyectar datos en el Nuevo Modal (Pro Modal)
+    // Título con formato especial "+"
+    const titleParts = caseData.t.split('+');
+    const pmTitle = document.getElementById('pm-title');
 
-    // 2. Rellenar el Modal
-    fTitle.innerText = data.title || 'SIN TÍTULO';
-    fContext.innerText = data.context || '...';
-    fInnovation.innerText = data.innovation || '...';
-    fFace.innerText = data.face || '...';
+    if (pmTitle) {
+        if (titleParts.length > 1) {
+            pmTitle.innerHTML = `${titleParts[0]}<span class="gold-plus">+</span>${titleParts[1]}`;
+        } else {
+            pmTitle.innerText = caseData.t;
+        }
+    }
 
-    // 3. Mostrar Modal
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
+    const pmSource = document.getElementById('pm-source');
+    const pmBridge = document.getElementById('pm-bridge');
+    const pmResult = document.getElementById('pm-result');
+
+    if (pmSource) pmSource.innerText = caseData.source;
+    if (pmBridge) pmBridge.innerText = caseData.bridge;
+    if (pmResult) pmResult.innerText = caseData.result;
+
+    // 4. Mostrar Modal
+    const modal = document.getElementById('pro-modal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Bloquear scroll
+    }
 }
 
-function closeFaceModal() {
+function closeProModal() {
+    const modal = document.getElementById('pro-modal');
     if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = ''; // Restaurar scroll
     }
 }
 
-// Navigation Arrow Function (Desktop) - Updated to support multiple reels
+// Inicialización de Listeners cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('pro-modal');
+
+    // Cerrar al tocar fuera
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeProModal();
+        });
+    }
+
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeProModal();
+    });
+
+    // Initialize pagination logic (Legacy support kept for functionality)
+    initPagination();
+    initProgramsPagination();
+    initVideoHover();
+});
+
+
+// --- LEGACY NAVIGATION LOGIC (KEEPING THIS FOR CAROUSEL FUNCTIONALITY) ---
+
 function scrollAppleReel(direction, sectionId = null) {
-    // If sectionId provided, target that specific section's reel
-    // Otherwise default to first reel for backward compatibility
     let reel;
     if (sectionId) {
         const section = document.getElementById(sectionId);
@@ -54,8 +140,8 @@ function scrollAppleReel(direction, sectionId = null) {
 
     if (!reel) return;
 
-    const cardWidth = 380 + 8; // Updated card width + gap (8px)
-    const scrollAmount = cardWidth * 3; // Scroll 3 cards at a time
+    const cardWidth = 380 + 8; // width + gap
+    const scrollAmount = cardWidth * 1;
 
     if (direction === 'next') {
         reel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
@@ -64,33 +150,7 @@ function scrollAppleReel(direction, sectionId = null) {
     }
 }
 
-// Inicialización de Listeners cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    // Cerrar al tocar fuera
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeFaceModal();
-        });
-    }
-
-    // Cerrar con tecla ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeFaceModal();
-    });
-
-    // Initialize pagination
-    initPagination();
-
-    // Initialize programs pagination if exists
-    initProgramsPagination();
-
-    // Initialize Video Hover
-    initVideoHover();
-});
-
-// Pagination Logic - Updated to support multiple reels
 function initPagination() {
-    // Initialize pagination for Mindset section (apple-experience)
     const mindsetSection = document.getElementById('apple-experience');
     if (mindsetSection) {
         const reel = mindsetSection.querySelector('.apple-reel');
@@ -98,7 +158,7 @@ function initPagination() {
         const dotsContainer = document.getElementById('apple-dots');
 
         if (reel && cards.length && dotsContainer) {
-            // Create dots
+            dotsContainer.innerHTML = ''; // Clear existing
             cards.forEach((_, index) => {
                 const dot = document.createElement('span');
                 dot.className = 'pagination-dot';
@@ -107,7 +167,6 @@ function initPagination() {
                 dotsContainer.appendChild(dot);
             });
 
-            // Update active dot on scroll
             reel.addEventListener('scroll', () => updateActiveDot('apple-experience'));
         }
     }
@@ -115,7 +174,6 @@ function initPagination() {
 
 function scrollToCard(index, sectionId = null) {
     let reel, cards;
-
     if (sectionId) {
         const section = document.getElementById(sectionId);
         reel = section ? section.querySelector('.apple-reel') : null;
@@ -126,29 +184,22 @@ function scrollToCard(index, sectionId = null) {
     }
 
     if (!reel || !cards[index]) return;
-
     const cardWidth = cards[index].offsetWidth;
     const gap = 8;
     const scrollPosition = index * (cardWidth + gap);
-
     reel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
 }
 
 function updateActiveDot(sectionId = null) {
     let reel, cards, dots;
-
     if (sectionId) {
         const section = document.getElementById(sectionId);
         reel = section ? section.querySelector('.apple-reel') : null;
-
-        // Get the correct cards based on section
         if (sectionId === 'programs-showcase') {
             cards = section ? section.querySelectorAll('.program-card') : [];
         } else {
             cards = section ? section.querySelectorAll('.apple-card') : [];
         }
-
-        // Get dots from the section's specific pagination container
         const dotsContainer = sectionId === 'apple-experience' ?
             document.getElementById('apple-dots') :
             document.getElementById('programs-dots');
@@ -171,18 +222,16 @@ function updateActiveDot(sectionId = null) {
     });
 }
 
-// Programs Pagination (Separate instance)
 function initProgramsPagination() {
     const programsSection = document.getElementById('programs-showcase');
     if (!programsSection) return;
-
     const dotsContainer = document.getElementById('programs-dots');
     if (!dotsContainer) return;
 
     const reel = programsSection.querySelector('.apple-reel');
     const programCards = programsSection.querySelectorAll('.program-card');
 
-    // Create dots for programs
+    dotsContainer.innerHTML = '';
     programCards.forEach((_, index) => {
         const dot = document.createElement('span');
         dot.className = 'pagination-dot';
@@ -191,7 +240,6 @@ function initProgramsPagination() {
         dotsContainer.appendChild(dot);
     });
 
-    // Add scroll listener to update active dot
     if (reel) {
         reel.addEventListener('scroll', () => updateActiveDot('programs-showcase'));
     }
@@ -200,35 +248,23 @@ function initProgramsPagination() {
 function scrollToProgram(index) {
     const reel = document.querySelector('#programs-showcase .apple-reel');
     const cards = document.querySelectorAll('.program-card');
-
     if (!reel || !cards[index]) return;
-
     const cardWidth = cards[index].offsetWidth;
-    const gap = 8; // Updated to match CSS
+    const gap = 8;
     const scrollPosition = index * (cardWidth + gap);
-
     reel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
 }
 
-// Video Hover Logic (Desktop Only)
 function initVideoHover() {
     const card = document.getElementById('card-innova');
     const video = document.getElementById('video-innova');
-
     if (!card || !video) return;
-
-    // Play on Hover (Desktop Only)
     card.addEventListener('mouseenter', () => {
-        // Check if desktop (min-width: 992px)
         if (window.matchMedia('(min-width: 992px)').matches) {
             video.play().catch(e => console.log('Video play interrupted', e));
         }
     });
-
-    // Pause on Leave
     card.addEventListener('mouseleave', () => {
         video.pause();
-        // Optional: Reset to start?
-        // video.currentTime = 0; 
     });
 }

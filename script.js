@@ -153,14 +153,14 @@ function initHeroAnimation() {
 }
 
 // Add background flash animation via style injection
-const style = document.createElement('style');
-style.textContent = `
+const heroStyle = document.createElement('style');
+heroStyle.textContent = `
     @keyframes bg-flash {
         0%, 100% { background-color: #FFFFFF; }
         50% { background-color: #F0F9FF; }
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(heroStyle);
 
 // ====================================
 // FACE CARDS INTERACTION
@@ -642,7 +642,7 @@ window.toggleCard = function (card) {
 /* --- RELATED ARTICLES SLIDER --- */
 function scrollGrid(direction) {
     const grid = document.getElementById('relatedGrid');
-    if(grid) {
+    if (grid) {
         const scrollAmount = 350; // Ancho aproximado de tarjeta
         grid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
     }

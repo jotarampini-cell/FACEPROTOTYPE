@@ -361,137 +361,186 @@
     line-height: 1.3;
 }
 
-/* --- MODAL (POPUP) --- */
-.face-modal-overlay {
+/* --- MODAL (FICHA TÉCNICA - PRO) --- */
+.pro-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(20px);
-    /* EFECTO CRISTAL APPLE */
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.9);
+    /* Fondo muy oscuro para enfocar */
+    backdrop-filter: blur(15px);
+    /* Desenfoque del fondo */
     z-index: 9999;
     display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
 }
 
-.face-modal-overlay.active {
+.pro-modal-overlay.active {
     display: flex;
     opacity: 1;
 }
 
-.face-modal-card {
-    background: #111;
-    width: 90%;
-    max-width: 700px;
-    border-radius: 20px;
+.pro-modal-card {
+    background: #0a0a0a;
+    /* Negro casi puro */
     border: 1px solid #333;
-    padding: 40px;
+    /* Borde sutil */
+    width: 90%;
+    max-width: 800px;
+    padding: 60px;
     position: relative;
-    transform: scale(0.95);
-    transition: transform 0.3s;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 1);
+    border-radius: 4px;
+    /* Bordes técnicos */
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
 }
 
-.face-modal-overlay.active .face-modal-card {
-    transform: scale(1);
+.pro-modal-overlay.active .pro-modal-card {
+    transform: translateY(0);
 }
 
-.close-face {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
+/* Tipografía Interna */
+.pro-category {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 700;
 }
 
-.close-face:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* GRID DEL CONTENIDO */
-.face-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.fg-header,
-.full-width {
-    grid-column: span 2;
-}
-
-.fg-header h3 {
+.pro-title {
     font-family: 'Oswald', sans-serif;
-    color: white;
-    font-size: 2.5rem;
-    margin: 10px 0 0;
+    font-size: 3.5rem;
+    color: #fff;
+    margin: 0;
     line-height: 1;
     text-transform: uppercase;
 }
 
-.fg-tag {
+.gold-plus {
     color: #c5a059;
-    font-size: 0.8rem;
+    margin: 0 5px;
+}
+
+/* El signo + en dorado */
+
+.pro-divider-modal {
+    width: 100%;
+    height: 1px;
+    background: #222;
+    margin: 40px 0;
+}
+
+/* Grid de Pasos */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.step-icon {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 10px;
     font-weight: 700;
+    line-height: 1;
+}
+
+.step-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #c5a059;
+    /* Dorado sutil */
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.step-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #ddd;
+    font-weight: 300;
+}
+
+/* Resultado */
+.analysis-result {
+    background: #111;
+    padding: 25px;
+    border-left: 3px solid #c5a059;
+}
+
+.result-label {
+    font-size: 0.7rem;
+    color: #666;
     letter-spacing: 2px;
     text-transform: uppercase;
-}
-
-.fg-label {
     display: block;
-    color: #666;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
-.fg-item p {
-    color: #dddddd;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Caja Dorada FACE */
-.face-highlight {
-    background: rgba(197, 160, 89, 0.08);
-    border: 1px solid rgba(197, 160, 89, 0.25);
-    padding: 25px;
-    border-radius: 12px;
-}
-
-.fg-label-gold {
-    display: block;
-    color: #c5a059;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-#f-face {
-    color: #ffffff;
-    font-size: 1.1rem;
+.result-text {
     font-family: 'Oswald', sans-serif;
-    font-weight: 300;
-    letter-spacing: 0.5px;
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Botón Cerrar */
+.pro-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: 1px solid #333;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pro-close:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .analysis-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .pro-title {
+        font-size: 2.5rem;
+    }
+
+    .pro-modal-card {
+        padding: 30px;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
 }
 
 /* --- PAGINATION DOTS --- */
