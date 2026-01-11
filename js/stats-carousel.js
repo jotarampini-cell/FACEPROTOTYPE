@@ -1,77 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
-    class StatsCarousel {
-        constructor() {
-            this.track = document.querySelector('.carousel-track');
-            this.cards = Array.from(document.querySelectorAll('.evidence-card'));
-            this.dots = Array.from(document.querySelectorAll('.dot'));
-            this.wrapper = document.querySelector('.stats-carousel-wrapper');
-            this.prevBtn = document.querySelector('.carousel-nav.prev');
-            this.nextBtn = document.querySelector('.carousel-nav.next');
 
-            this.currentIndex = 0;
+    const track = document.getElementById('statsTrack');
+    const cards = Array.from(document.querySelectorAll('.stat-card'));
+    const dots = Array.from(document.querySelectorAll('.stat-dot')); // Seleccionamos los puntos
+    const prevBtn = document.querySelector('.stats-nav.prev');
+    const nextBtn = document.querySelector('.stats-nav.next');
+    const wrapper = document.querySelector('.stats-carousel-wrapper');
 
-            // Si ya hay una clase 'active' en el HTML, comenzamos ahí
-            const activeInDom = this.cards.findIndex(c => c.classList.contains('active'));
-            if (activeInDom > -1) this.currentIndex = activeInDom;
+    let currentIndex = 0;
 
-            if (this.cards.length > 0) this.init();
-        }
+    // Si no hay elementos, salir para evitar errores
+    if (!track || cards.length === 0) return;
 
-        init() {
-            // Click Events
-            if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prev());
-            if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.next());
-            this.dots.forEach((dot, index) => dot.addEventListener('click', () => this.goTo(index)));
+    function updateCarousel() {
+        const cardWidth = cards[0].offsetWidth;
+        const style = window.getComputedStyle(track);
+        const gap = parseFloat(style.gap) || 40;
 
-            // Touch / Swipe Logic
-            let startX = 0;
-            this.wrapper.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX, { passive: true });
-            this.wrapper.addEventListener('touchend', e => {
-                const diff = startX - e.changedTouches[0].screenX;
-                if (diff > 50) this.next();
-                if (diff < -50) this.prev();
-            }, { passive: true });
+        // El movimiento es: Indice * (Ancho + Espacio)
+        const itemFullWidth = cardWidth + gap;
+        const moveAmount = currentIndex * itemFullWidth;
 
-            // Responsive Resize
-            window.addEventListener('resize', () => this.updateCarousel());
+        // Movemos el track
+        track.style.transform = `translateX(-${moveAmount}px)`;
 
-            // Inicialización retardada para asegurar carga de estilos
-            setTimeout(() => this.updateCarousel(), 50);
-        }
-
-        goTo(index) {
-            // Lógica circular infinita
-            if (index < 0) index = this.cards.length - 1;
-            if (index >= this.cards.length) index = 0;
-
-            this.currentIndex = index;
-            this.updateCarousel();
-        }
-
-        next() { this.goTo(this.currentIndex + 1); }
-        prev() { this.goTo(this.currentIndex - 1); }
-
-        updateCarousel() {
-            if (!this.wrapper || !this.cards.length) return;
-
-            // 1. Obtener dimensiones reales
-            const cardWidth = this.cards[0].offsetWidth;
-            const style = window.getComputedStyle(this.track);
-            const gap = parseFloat(style.gap) || 0;
-
-            // 2. CALCULAR DESPLAZAMIENTO
-            // Como usamos padding-left: 50vw en CSS para poner el inicio en el centro,
-            // solo necesitamos movernos a la izquierda la suma de las tarjetas anteriores.
-            const moveAmount = this.currentIndex * (cardWidth + gap);
-
-            // 3. Aplicar
-            this.track.style.transform = `translateX(-${moveAmount}px)`;
-
-            // 4. Clases Activas (Estilo visual)
-            this.cards.forEach((c, i) => c.classList.toggle('active', i === this.currentIndex));
-            this.dots.forEach((d, i) => d.classList.toggle('active', i === this.currentIndex));
-        }
+        // Actualizamos clases ACTIVE (Tarjetas y Puntos)
+        cards.forEach((c, i) => c.classList.toggle('active', i === currentIndex));
+        dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
     }
 
-    new StatsCarousel();
+    function next() {
+        // Loop infinito: si llega al final, vuelve al 0
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCarousel();
+    }
+
+    function prev() {
+        // Loop infinito hacia atrás
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCarousel();
+    }
+
+    // --- EVENT LISTENERS ---
+
+    // 1. Flechas (Click)
+    if (nextBtn) nextBtn.addEventListener('click', next);
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+
+    // 2. Puntos (Click)
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+    });
+
+    // 3. Swipe Táctil (Móvil)
+    let startX = 0;
+    if (wrapper) {
+        wrapper.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX, { passive: true });
+        wrapper.addEventListener('touchend', e => {
+            const endX = e.changedTouches[0].screenX;
+            const diff = startX - endX;
+
+            // Si el deslizamiento es mayor a 50px
+            if (diff > 50) next();     // Deslizó a la izquierda -> Siguiente
+            if (diff < -50) prev();    // Deslizó a la derecha -> Anterior
+        }, { passive: true });
+    }
+
+    // Inicializar
+    setTimeout(updateCarousel, 100);
+    window.addEventListener('resize', updateCarousel);
 });
