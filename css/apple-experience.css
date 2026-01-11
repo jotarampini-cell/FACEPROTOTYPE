@@ -685,6 +685,137 @@
     }
 
     /* Two-line title for mobile - both lines equally prominent */
+}
+
+
+/* --- TONY STATS SECTION (RECOVERY) --- */
+.tony-stats-section {
+    padding: 80px 5%;
+    background: #000;
+    color: #fff;
+    position: relative;
+    border-top: 1px solid #222;
+}
+
+.stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stats-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.stats-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #aeaeae;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* CAROUSEL GRID */
+.stats-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding-bottom: 30px;
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
+}
+
+.stats-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.evidence-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 30px;
+    border-radius: 8px;
+    min-width: 280px;
+    flex: 0 0 auto;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.evidence-card:hover {
+    transform: translateY(-5px);
+    border-color: #c5a059;
+}
+
+.card-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    color: #c5a059;
+    margin: 0 0 10px 0;
+    line-height: 1;
+}
+
+.card-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #ddd;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    min-height: 60px;
+    /* Aligner */
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #222;
+    padding-top: 15px;
+}
+
+.source-label {
+    font-size: 0.65rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.brand-typo {
+    font-family: serif;
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* Dots helper (reuse apple pagination styles or override) */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #333;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.dot.active {
+    background: #c5a059;
+    transform: scale(1.2);
+}
+
+/* Restored Mobile Styles */
+@media (max-width: 768px) {
     .apple-title .title-top {
         display: block;
         font-size: clamp(1.8rem, 7vw, 2.2rem);

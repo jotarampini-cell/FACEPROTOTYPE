@@ -280,3 +280,48 @@ function initVideoHover() {
         video.pause();
     });
 }
+
+/* --- TONY STATS CAROUSEL LOGIC --- */
+document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.querySelector('.stats-grid');
+    const dots = document.querySelectorAll('.pro-dots .dot');
+
+    if (!grid || !dots.length) return;
+
+    // 1. Scroll updates Dots
+    grid.addEventListener('scroll', () => {
+        const scrollLeft = grid.scrollLeft;
+        // Calculate dynamic card width including gap
+        const firstCard = grid.querySelector('.evidence-card');
+        if (!firstCard) return;
+
+        const style = window.getComputedStyle(grid);
+        const gap = parseFloat(style.gap) || 20; // Default to 20 if gap not set
+        const cardWidth = firstCard.offsetWidth + gap;
+
+        const index = Math.round(scrollLeft / cardWidth);
+
+        dots.forEach((dot, i) => {
+            if (i === index) dot.classList.add('active');
+            else dot.classList.remove('active');
+        });
+    });
+
+    // 2. Dots update Scroll
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            const firstCard = grid.querySelector('.evidence-card');
+            if (!firstCard) return;
+
+            const style = window.getComputedStyle(grid);
+            const gap = parseFloat(style.gap) || 20;
+            const cardWidth = firstCard.offsetWidth + gap;
+
+            grid.scrollTo({
+                left: index * cardWidth,
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+
