@@ -5085,6 +5085,11 @@ body {
     z-index: 1;
     max-width: 900px;
     padding: 20px;
+    text-align: center;
+    /* Centrar todo el contenido */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
 
 /* TIPOGRAFÍA */
@@ -5110,6 +5115,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     color: #eeeeee;
+    text-align: center;
+    /* Asegurar centrado explícito */
 }
 
 /* BOTÓN HERO */
@@ -5127,6 +5134,7 @@ body {
     letter-spacing: 1px;
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     border: 2px solid #ffffff;
+    margin: 0;
 }
 
 .btn-hero:hover {

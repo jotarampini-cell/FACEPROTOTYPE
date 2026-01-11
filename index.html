@@ -620,13 +620,13 @@
         <video autoplay muted loop playsinline preload="metadata" class="bg-video"
             poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
             aria-label="Video de fondo mostrando innovación empresarial">
-            <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+            <source src="assets/videos/hero-innovacion.mp4" type="video/mp4">
             Tu navegador no soporta videos HTML5.
         </video>
 
         <div class="video-overlay"></div>
 
-        <div class="hero-content tr-container">
+        <div class="hero-content">
             <h1 class="hero-title">Innova en cada área de tu empresa</h1>
             <p class="hero-subtitle">Rompe con viejas ideas y falta de progreso con estrategias de innovación</p>
             <a href="evaluacion.html" class="btn-hero">INICIAR AHORA</a>
@@ -3034,6 +3034,46 @@
             </div>
         </div>
     </section>
+
+    <!-- Section: Hero Video CTA - Duplicate for Bottom of Page -->
+    <section class="hero-video-section">
+        <video autoplay muted loop playsinline preload="metadata" class="bg-video"
+            poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
+            aria-label="Video de fondo mostrando innovación empresarial">
+            <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <div class="video-overlay"></div>
+
+        <div class="hero-content tr-container">
+            <h1 class="hero-title">¿Listo para crear innovación para tu empresa?</h1>
+            <p class="hero-subtitle">Ahora es tu momento, conecta con nosotros para conocer más.</p>
+            <a href="evaluacion.html" class="btn-hero">CONOCER MÁS</a>
+        </div>
+    </section>
+
+    <script>
+        // Ensure video plays on mobile devices
+        (function () {
+            const heroVideos = document.querySelectorAll('.hero-video-section .bg-video');
+            heroVideos.forEach(heroVideo => {
+                if (heroVideo) {
+                    // Try to play immediately
+                    heroVideo.play().catch(() => {
+                        // If autoplay fails, try again on user interaction
+                        const playOnInteraction = () => {
+                            heroVideo.play();
+                            document.removeEventListener('touchstart', playOnInteraction);
+                            document.removeEventListener('click', playOnInteraction);
+                        };
+                        document.addEventListener('touchstart', playOnInteraction, { once: true });
+                        document.addEventListener('click', playOnInteraction, { once: true });
+                    });
+                }
+            });
+        })();
+    </script>
 
     <!-- Responsive Mobile -->
     <style>
