@@ -1,163 +1,246 @@
-/* === STATS CAROUSEL CSS (Complete Fix) === */
+/* === STATS CAROUSEL: MONOCHROME EDITION === */
 
-/* Container for carousel - Centered */
+/* Contenedor Principal */
+.tony-stats-section {
+    background-color: #000000;
+    padding: 100px 0;
+    border-top: 1px solid #1a1a1a;
+    color: #fff;
+    overflow: hidden;
+    /* Vital para evitar scroll horizontal */
+}
+
+.stats-container {
+    max-width: 100%;
+    /* Ancho completo para efecto inmersivo */
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Títulos */
+.stats-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.stats-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #888;
+    margin-bottom: 60px;
+}
+
+/* === CARRUSEL WRAPPER === */
 .stats-carousel-wrapper {
     position: relative;
     width: 100%;
-    overflow: visible;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 80px;
-    min-height: 400px;
+    height: 500px;
+    /* Altura fija para centrado vertical */
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* MÁSCARA DE DEGRADADO: Esto hace que se desvanezca a los lados */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+/* === PISTA DE TARJETAS (TRACK) === */
+.carousel-track {
+    display: flex;
+    gap: 40px;
+    /* Espacio entre tarjetas */
+    width: max-content;
+
+    /* TRUCO DE CENTRADO MATEMÁTICO */
+    /* Empujamos el inicio de la lista al centro exacto de la pantalla (50vw) */
+    padding-left: 50vw;
+    /* Luego restamos la mitad del ancho de una tarjeta (190px) para centrarla */
+    margin-left: -190px;
+
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Movimiento ultra suave Apple */
     align-items: center;
 }
 
-.carousel-track {
+/* === TARJETA (CARD) === */
+.evidence-card {
+    width: 380px;
+    min-width: 380px;
+    height: 320px;
+    background: #0a0a0a;
+    /* Negro un poco más claro que el fondo */
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 40px 30px;
+
     display: flex;
-    gap: 30px;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* ESTADO INACTIVO (Por defecto) */
+    opacity: 0.3;
+    transform: scale(0.85);
+    filter: blur(1px);
+    /* Desenfoque ligero a las inactivas */
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Navigation Arrows - Desktop Only */
+/* ESTADO ACTIVO (FOCUS) */
+.evidence-card.active {
+    opacity: 1;
+    transform: scale(1.1);
+    /* Crece */
+    filter: blur(0px);
+    background: #111;
+    border-color: #ffffff;
+    /* Borde Blanco Puro */
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.05);
+    /* Resplandor blanco sutil */
+    z-index: 10;
+}
+
+/* Tipografía Interna */
+.card-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4.5rem;
+    /* Número GIGANTE */
+    color: #fff;
+    margin: 0 0 10px 0;
+    line-height: 0.9;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.card-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #999;
+    line-height: 1.5;
+}
+
+.evidence-card.active .card-description {
+    color: #fff;
+}
+
+/* Texto blanco al activar */
+
+/* Footer Tarjeta */
+.card-footer {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.source-label {
+    font-size: 0.6rem;
+    color: #555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.brand-typo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* === CONTROLES === */
 .carousel-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(197, 160, 89, 0.15);
-    border: 1px solid #c5a059;
-    color: #c5a059;
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    font-size: 32px;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 100;
+    z-index: 20;
     transition: all 0.3s ease;
 }
 
 .carousel-nav:hover {
-    background: #c5a059;
+    background: #fff;
     color: #000;
+    transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-nav.prev {
-    left: 10px;
+    left: 10%;
 }
 
+/* Posición ajustada */
 .carousel-nav.next {
-    right: 10px;
+    right: 10%;
 }
 
-/* Evidence Card Styling */
-.evidence-card {
-    background: #111;
-    border: 1px solid #222;
-    padding: 35px;
-    border-radius: 8px;
-    min-width: 380px;
-    max-width: 380px;
-    flex: 0 0 auto;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0.6;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 280px;
-}
-
-.evidence-card.active {
-    opacity: 1;
-    transform: scale(1.08);
-    border-color: #c5a059;
-    box-shadow: 0 8px 30px rgba(197, 160, 89, 0.2);
-}
-
-/* Card Footer - Editorial */
-.evidence-card .card-footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 12px;
-    border-top: 1px solid #222;
-    padding-top: 20px;
-    margin-top: auto;
-}
-
-.evidence-card .source-label {
-    font-size: 0.65rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-}
-
-.evidence-card .brand-typo {
-    font-family: serif;
-    font-weight: bold;
-    color: #fff;
-    font-size: 0.9rem;
-}
-
-/* Carousel Dots Navigation */
+/* Dots */
 .carousel-dots {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 40px;
-    padding: 0;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .carousel-dots .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+    width: 6px;
+    height: 6px;
     background: #333;
     border: none;
+    border-radius: 50%;
     cursor: pointer;
-    padding: 0;
-    transition: all 0.3s ease;
-}
-
-.carousel-dots .dot:hover {
-    background: #555;
-    transform: scale(1.2);
+    transition: 0.3s;
 }
 
 .carousel-dots .dot.active {
-    background: #c5a059;
-    transform: scale(1.3);
+    background: #fff;
+    transform: scale(1.5);
 }
 
-/* Mobile Responsive */
+/* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
-
-    /* Hide arrows on mobile - swipe only */
-    .carousel-nav {
-        display: none !important;
+    .stats-carousel-wrapper {
+        -webkit-mask-image: none;
+        mask-image: none;
+        /* Quitamos máscara en móvil */
+        height: 400px;
     }
 
-    .stats-carousel-wrapper {
-        padding: 0 20px;
-        overflow: hidden;
-        min-height: 350px;
+    .carousel-track {
+        padding-left: 50vw;
+        margin-left: -150px;
+        /* Ajuste para tarjeta móvil */
+        gap: 20px;
     }
 
     .evidence-card {
+        width: 300px;
         min-width: 300px;
-        max-width: 300px;
-        padding: 25px;
+        height: 300px;
     }
 
-    .evidence-card .card-footer {
-        gap: 8px;
+    .carousel-nav {
+        display: none;
     }
 
-    .carousel-dots {
-        margin-top: 30px;
+    /* Solo swipe en móvil */
+    .card-number {
+        font-size: 3.5rem;
     }
 }

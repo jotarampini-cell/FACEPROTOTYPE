@@ -8,75 +8,66 @@ document.addEventListener('DOMContentLoaded', () => {
             this.prevBtn = document.querySelector('.carousel-nav.prev');
             this.nextBtn = document.querySelector('.carousel-nav.next');
 
-            // Iniciar en la tarjeta activa o la 0
-            const activeIndex = this.cards.findIndex(c => c.classList.contains('active'));
-            this.currentIndex = activeIndex > -1 ? activeIndex : 0;
+            this.currentIndex = 0;
+
+            // Si ya hay una clase 'active' en el HTML, comenzamos ahí
+            const activeInDom = this.cards.findIndex(c => c.classList.contains('active'));
+            if (activeInDom > -1) this.currentIndex = activeInDom;
 
             if (this.cards.length > 0) this.init();
         }
 
         init() {
-            // Event Listeners para flechas
+            // Click Events
             if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prev());
             if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.next());
             this.dots.forEach((dot, index) => dot.addEventListener('click', () => this.goTo(index)));
 
-            // Lógica Swipe (Táctil)
+            // Touch / Swipe Logic
             let startX = 0;
-            this.track.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX, { passive: true });
-            this.track.addEventListener('touchend', e => {
+            this.wrapper.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX, { passive: true });
+            this.wrapper.addEventListener('touchend', e => {
                 const diff = startX - e.changedTouches[0].screenX;
                 if (diff > 50) this.next();
                 if (diff < -50) this.prev();
             }, { passive: true });
 
-            // Recalcular al cambiar tamaño de pantalla
+            // Responsive Resize
             window.addEventListener('resize', () => this.updateCarousel());
 
-            // --- CALIBRACIÓN INICIAL ---
-            // Ejecutamos varias veces para asegurar que cargaron las fuentes y estilos
-            this.updateCarousel();
-            window.addEventListener('load', () => this.updateCarousel());
-            setTimeout(() => this.updateCarousel(), 100);
-            setTimeout(() => this.updateCarousel(), 500);
+            // Inicialización retardada para asegurar carga de estilos
+            setTimeout(() => this.updateCarousel(), 50);
         }
 
         goTo(index) {
-            // Loop infinito
+            // Lógica circular infinita
             if (index < 0) index = this.cards.length - 1;
             if (index >= this.cards.length) index = 0;
 
             this.currentIndex = index;
             this.updateCarousel();
         }
+
         next() { this.goTo(this.currentIndex + 1); }
         prev() { this.goTo(this.currentIndex - 1); }
 
         updateCarousel() {
-            if (!this.wrapper || this.cards.length === 0) return;
+            if (!this.wrapper || !this.cards.length) return;
 
-            // 1. MEDICIÓN REAL (No adivinamos)
-            const containerWidth = this.wrapper.offsetWidth;
-            const cardWidth = this.cards[0].offsetWidth; // Medimos la tarjeta real
+            // 1. Obtener dimensiones reales
+            const cardWidth = this.cards[0].offsetWidth;
+            const style = window.getComputedStyle(this.track);
+            const gap = parseFloat(style.gap) || 0;
 
-            // Obtenemos el GAP real del CSS (si es 20px, 30px, etc)
-            const trackStyle = window.getComputedStyle(this.track);
-            const gap = parseFloat(trackStyle.gap) || 20;
+            // 2. CALCULAR DESPLAZAMIENTO
+            // Como usamos padding-left: 50vw en CSS para poner el inicio en el centro,
+            // solo necesitamos movernos a la izquierda la suma de las tarjetas anteriores.
+            const moveAmount = this.currentIndex * (cardWidth + gap);
 
-            // 2. CÁLCULO DEL CENTRO
-            // Distancia desde el inicio del track hasta la tarjeta actual
-            const currentCardPosition = this.currentIndex * (cardWidth + gap);
+            // 3. Aplicar
+            this.track.style.transform = `translateX(-${moveAmount}px)`;
 
-            // Espacio sobrante a los lados para que quede centrada
-            const centerOffset = (containerWidth / 2) - (cardWidth / 2);
-
-            // Movimiento final
-            const translate = centerOffset - currentCardPosition;
-
-            // Aplicar movimiento
-            this.track.style.transform = `translateX(${translate}px)`;
-
-            // Actualizar Clases (Active)
+            // 4. Clases Activas (Estilo visual)
             this.cards.forEach((c, i) => c.classList.toggle('active', i === this.currentIndex));
             this.dots.forEach((d, i) => d.classList.toggle('active', i === this.currentIndex));
         }
