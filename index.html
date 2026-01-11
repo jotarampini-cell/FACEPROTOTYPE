@@ -889,51 +889,8 @@
         <!-- Pagination Dots -->
         <div class="apple-pagination" id="apple-dots"></div>
 
-        <div class="pro-modal-overlay" id="pro-modal">
-            <div class="pro-modal-card">
-
-                <button class="pro-close" onclick="closeProModal()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-
-                <div class="pro-modal-body">
-                    <div class="modal-header-row">
-                        <span class="pro-category">ANATOMÍA DE LA INNOVACIÓN</span>
-                        <h3 class="pro-title" id="pm-title">
-                        </h3>
-                    </div>
-
-                    <div class="pro-divider-modal"></div>
-
-                    <div class="analysis-grid">
-
-                        <div class="analysis-step">
-                            <span class="step-icon">01</span>
-                            <span class="step-label">LA OBSERVACIÓN</span>
-                            <p class="step-desc" id="pm-source">
-                            </p>
-                        </div>
-
-                        <div class="analysis-step">
-                            <span class="step-icon">02</span>
-                            <span class="step-label">LA ADAPTACIÓN</span>
-                            <p class="step-desc" id="pm-bridge">
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <div class="analysis-result">
-                        <span class="result-label">RESULTADO FINAL</span>
-                        <h4 class="result-text" id="pm-result">
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Pagination Dots -->
+        <div class="apple-pagination" id="apple-dots"></div>
     </section>
 
     <!-- LOAD APPLE EXPERIENCE ASSETS -->
@@ -3244,24 +3201,78 @@
 
     <!-- Failsafe Splash Screen Removal -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const splash = document.getElementById('splash');
-            if (splash) {
-                setTimeout(() => {
-                    splash.style.opacity = '0';
-                    setTimeout(() => splash.style.display = 'none', 500);
-                }, 500); // Wait 0.5s then fade out
-            }
-        });
-        // Fallback in case DOMContentLoaded already fired or hangs
-        window.addEventListener('load', () => {
-            const splash = document.getElementById('splash');
-            if (splash) {
-                splash.style.opacity = '0';
-                setTimeout(() => splash.style.display = 'none', 500);
-            }
+        if (splash) {
+            splash.style.opacity = '0';
+            setTimeout(() => splash.remove(), 500);
+        }
         });
     </script>
+
+    <!-- MOVED MODAL TO BODY END FOR Z-INDEX FIX -->
+    <div class="pro-modal-overlay" id="pro-modal">
+        <div class="pro-modal-card">
+
+            <button class="pro-close" onclick="closeProModal()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="pro-modal-body">
+                <div class="modal-header-row">
+                    <span class="pro-category">ANATOMÍA DE LA INNOVACIÓN</span>
+                    <h3 class="pro-title" id="pm-title">
+                    </h3>
+                </div>
+
+                <div class="pro-divider-modal"></div>
+
+                <div class="analysis-grid">
+
+                    <div class="analysis-step">
+                        <span class="step-icon">01</span>
+                        <span class="step-label">LA OBSERVACIÓN</span>
+                        <p class="step-desc" id="pm-source">
+                        </p>
+                    </div>
+
+                    <div class="analysis-step">
+                        <span class="step-icon">02</span>
+                        <span class="step-label">LA ADAPTACIÓN</span>
+                        <p class="step-desc" id="pm-bridge">
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="analysis-result">
+                    <span class="result-label">RESULTADO FINAL</span>
+                    <h4 class="result-text" id="pm-result">
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+setTimeout(() => {
+splash.style.opacity = '0';
+setTimeout(() => splash.style.display = 'none', 500);
+}, 500); // Wait 0.5s then fade out
+}
+});
+// Fallback in case DOMContentLoaded already fired or hangs
+window.addEventListener('load', () => {
+const splash = document.getElementById('splash');
+if (splash) {
+splash.style.opacity = '0';
+setTimeout(() => splash.style.display = 'none', 500);
+}
+});
+</script>
 </body>
 
 </html>
