@@ -108,11 +108,27 @@ function closeProModal() {
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('pro-modal');
 
-    // Cerrar al tocar fuera
     if (modal) {
+        // 1. Cerrar al hacer click fuera del contenido (Overlay)
         modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeProModal();
+            if (e.target === modal) {
+                console.log('Click on overlay: Closing Modal');
+                closeProModal();
+            }
         });
+
+        // 2. Binding explícito al botón de cerrar (Mayor robustez)
+        const closeBtn = modal.querySelector('.pro-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevenir comportamientos default
+                e.stopPropagation(); // Evitar propagación
+                console.log('Click on Close Button');
+                closeProModal();
+            });
+        }
+    } else {
+        console.error('CRITICAL: #pro-modal not found in DOM');
     }
 
     // Cerrar con tecla ESC
@@ -125,6 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initProgramsPagination();
     initVideoHover();
 });
+
+// Exponer globalmente para onclick en HTML (Failsafe)
+window.closeProModal = closeProModal;
+window.openFaceModal = openFaceModal;
+
 
 
 // --- LEGACY NAVIGATION LOGIC (KEEPING THIS FOR CAROUSEL FUNCTIONALITY) ---
