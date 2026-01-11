@@ -1,0 +1,223 @@
+/* --- SECCIÓN RESULTADOS WHITE (Estilo Referencia) --- */
+
+.white-results-section {
+    background-color: #ffffff;
+    /* Fondo Blanco Puro */
+    color: #000000;
+    /* Texto Negro */
+    padding: 100px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.results-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Dos columnas en desktop */
+    gap: 60px;
+    align-items: center;
+}
+
+/* --- COLUMNA IZQUIERDA (TEXTO) --- */
+.results-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.results-lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 50px;
+    max-width: 500px;
+}
+
+/* Grid de Estadísticas */
+.stats-block-grid {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.stat-num-large {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    line-height: 1;
+}
+
+.stat-label-text {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.stat-label-text strong {
+    font-weight: 700;
+}
+
+.stat-source-small {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+/* Botón CTA Normal */
+.results-cta-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #f0f0f0;
+    /* Gris muy claro */
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.results-cta-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* --- COLUMNA DERECHA (VIDEO) --- */
+.video-portrait-container {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    /* Aspect ratio vertical similar a la referencia */
+    aspect-ratio: 3 / 4;
+    background: #000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+/* --- EFECTO GLASSMORPHISM (El Botón del Video) --- */
+.glass-play-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    /* La magia del Glassmorphism */
+    background: rgba(255, 255, 255, 0.25);
+    /* Fondo blanco semi-transparente */
+    backdrop-filter: blur(12px);
+    /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(12px);
+    /* Soporte Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Borde sutil */
+
+    padding: 12px 24px;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.glass-play-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+/* Tipografía del programa DENTRO del botón glass */
+.glass-btn-text {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+/* BRANDING INTERNO DEL VIDEO (Abajo izquierda) */
+.video-internal-branding {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: #fff;
+    text-align: left;
+    z-index: 5;
+}
+
+.brand-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.brand-main {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.5px;
+}
+
+/* TESTIMONIO DEBAJO DEL VIDEO */
+.testimonial-below-video {
+    margin-top: 30px;
+    padding-left: 10px;
+}
+
+.quote-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.quote-author {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 900px) {
+    .results-container {
+        grid-template-columns: 1fr;
+        /* Una columna en móvil */
+        gap: 40px;
+    }
+
+    .stats-block-grid {
+        flex-direction: column;
+        /* Estadísticas una debajo de otra */
+        gap: 30px;
+    }
+
+    .video-portrait-container {
+        aspect-ratio: auto;
+        height: 500px;
+        /* Altura fija en móvil */
+    }
+
+    .results-heading {
+        font-size: 2.2rem;
+    }
+}
