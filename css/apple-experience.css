@@ -361,51 +361,163 @@
     line-height: 1.3;
 }
 
-/* --- MODAL (FICHA TÉCNICA - PRO) --- */
+/* --- MODAL DE LUJO CON ANIMACIÓN Y SOPORTE MÓVIL (MASTER CSS) --- */
+
+/* 1. EL FONDO (OVERLAY) */
 .pro-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    /* Fondo muy oscuro para enfocar */
-    backdrop-filter: blur(15px);
-    /* Desenfoque del fondo */
     z-index: 9999;
-    display: none;
+
+    /* Configuración Flex para centrado en escritorio */
+    display: flex;
     align-items: center;
     justify-content: center;
+
+    /* ESTADO INICIAL (Cerrado) */
+    background: rgba(0, 0, 0, 0);
+    /* Empieza transparente */
+    backdrop-filter: blur(0px);
+    /* Sin desenfoque */
+    visibility: hidden;
+    /* No interactuable */
     opacity: 0;
-    transition: opacity 0.3s ease;
+
+    /* TRANSICIÓN SUAVE (Curva Apple) */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.pro-modal-overlay.active {
-    display: flex;
-    opacity: 1;
-}
-
+/* 2. LA TARJETA (CARD) */
 .pro-modal-card {
     background: #0a0a0a;
-    /* Negro casi puro */
     border: 1px solid #333;
-    /* Borde sutil */
     width: 90%;
     max-width: 800px;
     padding: 60px;
     position: relative;
-    box-shadow: 0 50px 100px rgba(0, 0, 0, 1);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
     border-radius: 4px;
-    /* Bordes técnicos */
-    transform: translateY(20px);
-    transition: transform 0.4s ease;
+    /* Bordes técnicos en escritorio */
+
+    /* ESTADO INICIAL (Cerrado) */
+    transform: scale(0.95) translateY(30px);
+    /* Un poco más pequeño y abajo */
+    opacity: 0;
+
+    /* TRANSICIÓN */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0.05s;
+    /* Pequeño retraso para que primero oscurezca el fondo */
+}
+
+/* --- ESTADO ACTIVO (ABIERTO) --- */
+.pro-modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    /* Desenfoque progresivo */
 }
 
 .pro-modal-overlay.active .pro-modal-card {
-    transform: translateY(0);
+    transform: scale(1) translateY(0);
+    /* Posición final perfecta */
+    opacity: 1;
 }
 
-/* Tipografía Interna */
+/* 3. ANIMACIÓN EN CASCADA DEL CONTENIDO */
+/* Esto hace que el texto entre "flotando" después de la tarjeta */
+.pro-modal-overlay.active .analysis-step,
+.pro-modal-overlay.active .analysis-result {
+    opacity: 0;
+    animation: contentFadeUp 0.6s ease forwards;
+}
+
+.pro-modal-overlay.active .analysis-step:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.pro-modal-overlay.active .analysis-step:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.pro-modal-overlay.active .analysis-result {
+    animation-delay: 0.4s;
+}
+
+@keyframes contentFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- 4. ADAPTACIÓN MÓVIL (BOTTOM SHEET) --- */
+@media (max-width: 768px) {
+    .pro-modal-overlay {
+        align-items: flex-end;
+        /* Alineamos al fondo */
+        padding: 0;
+    }
+
+    .pro-modal-card {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 85vh;
+        /* Ocupa 85% de la pantalla */
+        overflow-y: auto;
+        /* Scroll interno si es necesario */
+
+        /* ESTILO "SHEET" */
+        border-radius: 24px 24px 0 0;
+        /* Redondeado solo arriba */
+        border-bottom: none;
+        padding: 40px 25px;
+
+        /* ESTADO INICIAL MÓVIL (Escondido abajo) */
+        transform: translateY(100%);
+        opacity: 1;
+        /* Opacidad siempre 1 para que no parpadee al subir */
+    }
+
+    /* ESTADO ACTIVO MÓVIL (Sube) */
+    .pro-modal-overlay.active .pro-modal-card {
+        transform: translateY(0);
+    }
+
+    /* BOTÓN CERRAR MÁS ACCESIBLE */
+    .pro-close {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        /* Círculo de contraste */
+        backdrop-filter: blur(5px);
+        border: none;
+    }
+
+    /* Tipografía ajustada para móvil */
+    .pro-title {
+        font-size: 2.2rem;
+    }
+
+    .analysis-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* --- ESTILOS GENERALES DEL INTERIOR (Ya los tenías, mantenlos igual) --- */
 .pro-category {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem;
@@ -431,8 +543,6 @@
     margin: 0 5px;
 }
 
-/* El signo + en dorado */
-
 .pro-divider-modal {
     width: 100%;
     height: 1px;
@@ -440,7 +550,6 @@
     margin: 40px 0;
 }
 
-/* Grid de Pasos */
 .analysis-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -462,7 +571,6 @@
     display: block;
     font-size: 0.8rem;
     color: #c5a059;
-    /* Dorado sutil */
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -477,7 +585,6 @@
     font-weight: 300;
 }
 
-/* Resultado */
 .analysis-result {
     background: #111;
     padding: 25px;
@@ -502,7 +609,6 @@
     letter-spacing: 1px;
 }
 
-/* Botón Cerrar */
 .pro-close {
     position: absolute;
     top: 30px;
@@ -518,31 +624,12 @@
     justify-content: center;
     cursor: pointer;
     transition: 0.3s;
-    z-index: 100;
-    /* Safety Z-Index */
+    z-index: 200;
 }
 
 .pro-close:hover {
     background: #fff;
     color: #000;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .analysis-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .pro-title {
-        font-size: 2.5rem;
-    }
-
-    .pro-modal-card {
-        padding: 30px;
-        max-height: 85vh;
-        overflow-y: auto;
-    }
 }
 
 /* --- PAGINATION DOTS --- */
