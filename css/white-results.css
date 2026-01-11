@@ -22,12 +22,15 @@
 
 /* --- COLUMNA IZQUIERDA (TEXTO) --- */
 .results-heading {
-    font-family: 'Oswald', sans-serif;
-    font-size: 3rem;
-    line-height: 1.1;
-    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    color: #000;
+    text-transform: none;
+    /* Face title doesn't force uppercase in CSS, usually */
     margin-bottom: 30px;
-    letter-spacing: -1px;
 }
 
 .results-lead {
