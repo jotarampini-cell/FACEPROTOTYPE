@@ -172,20 +172,37 @@
 .brand-sub {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.7rem;
-    letter-spacing: 3px;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
     display: block;
-    margin-bottom: 5px;
-    opacity: 0.8;
 }
 
 .brand-main {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem;
+    color: #fff;
     margin: 0;
-    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     line-height: 1;
-    letter-spacing: -0.5px;
+}
+
+.brand-main .serif-part {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin-bottom: 2px;
+}
+
+.brand-main .sans-part {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* TESTIMONIO DEBAJO DEL VIDEO */
