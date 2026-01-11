@@ -1,36 +1,36 @@
-/* --- STATS SECTION: MONOCHROME POWER (MOBILE FIRST) --- */
+/* === STATS SECTION: TRUE EDITORIAL EDITION === */
 
 .stats-section-mono {
     background-color: #000000;
-    padding: 80px 0;
+    padding: 100px 0;
     border-top: 1px solid #1a1a1a;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
     overflow: hidden;
+    width: 100%;
     position: relative;
 }
 
 .stats-container {
     width: 100%;
     margin: 0 auto;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* TÍTULOS */
+/* --- HEADER (Centrado para introducir) --- */
 .stats-header {
-    margin-bottom: 60px;
-    max-width: 800px;
+    text-align: center;
+    margin-bottom: 70px;
     padding: 0 20px;
-    z-index: 2;
-    position: relative;
+    z-index: 5;
+    max-width: 900px;
 }
 
 .stats-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #fff;
     text-transform: uppercase;
     margin: 0 0 15px 0;
@@ -38,106 +38,118 @@
 }
 
 .stats-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #888;
     font-weight: 300;
+    letter-spacing: 1px;
 }
 
-/* --- CARRUSEL WRAPPER --- */
+/* --- CAROUSEL STAGE --- */
 .stats-carousel-wrapper {
     position: relative;
     width: 100%;
+    height: 550px;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Altura base móvil */
-    height: 550px;
 }
 
 .stats-track-container {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* Corta lo que sale de la pantalla */
-    display: flex;
-    align-items: center;
     position: relative;
+    /* Máscara suave */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
-/* PISTA (TRACK) */
 .stats-track {
     display: flex;
-    gap: 20px;
-    /* Gap móvil */
+    gap: 40px;
     width: max-content;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+    align-items: center;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 
-    /* CENTRADO MATEMÁTICO */
+    /* Centrado Matemático Inicial */
     padding-left: 50%;
     margin-left: 0;
-    /* JS calculará el desplazamiento */
 }
 
-/* --- TARJETA BASE (MOBILE STYLE) --- */
+/* --- TARJETA EDITORIAL (DISPOSICIÓN IZQUIERDA) --- */
 .stat-card {
-    width: 85vw;
-    /* Gigante en móvil */
-    min-width: 85vw;
-    height: 480px;
-    background: #0d0d0d;
-    border: 1px solid #333;
-    border-radius: 20px;
-    padding: 40px 30px;
+    background: #080808;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 50px 40px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    /* Estado Inactivo */
-    opacity: 0.3;
+    /* CLAVE EDITORIAL: ALINEACIÓN IZQUIERDA */
+    align-items: flex-start;
+    text-align: left;
+
+    opacity: 0.4;
     transform: scale(0.9);
     filter: grayscale(100%);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: pointer;
 }
 
 /* Estado Activo */
 .stat-card.active {
     opacity: 1;
-    transform: scale(1);
-    background: #050505;
-    border-color: #fff;
-    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.05);
-    z-index: 10;
+    transform: scale(1.1);
+    background: linear-gradient(145deg, #111111 0%, #000000 100%);
+    border-color: #ffffff;
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.08);
+    z-index: 20;
+    filter: grayscale(0%);
 }
 
-/* TIPOGRAFÍA */
+/* TYPO */
 .stat-number {
     font-family: 'Oswald', sans-serif;
-    font-size: 5.5rem;
-    /* Gigante móvil */
     color: #fff;
     line-height: 0.9;
     margin-bottom: 20px;
     font-weight: 700;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
+    /* Borde inferior sutil - Toque Editorial */
+    padding-bottom: 20px;
+    border-bottom: 2px solid #333;
+    width: 100%;
+}
+
+.stat-card.active .stat-number {
+    border-bottom-color: #fff;
 }
 
 .stat-desc {
-    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
     color: #999;
-    line-height: 1.5;
+    line-height: 1.6;
+    font-weight: 400;
+    font-size: 1.1rem;
+    max-width: 95%;
 }
 
 .stat-card.active .stat-desc {
     color: #fff;
+    font-weight: 500;
 }
 
 .stat-footer {
-    border-top: 1px solid #333;
+    margin-top: auto;
     padding-top: 25px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 8px;
+    align-items: flex-start;
+    width: 100%;
 }
 
 .stat-label {
@@ -149,33 +161,63 @@
 }
 
 .stat-brand {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #fff;
     display: block;
 }
 
-/* NAV & DOTS */
+/* --- NAVIGATION --- */
 .stats-nav {
-    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: #000;
+    border: 1px solid #333;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-/* Oculto en móvil */
+.stats-nav:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: translateY(-50%) scale(1.1);
+}
 
+.stats-nav.prev {
+    left: 5%;
+}
+
+.stats-nav.next {
+    right: 5%;
+}
+
+/* DOTS */
 .stats-dots {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 12px;
+    margin-top: 40px;
     flex-wrap: wrap;
-    max-width: 300px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .stat-dot {
     width: 6px;
     height: 6px;
     background: #333;
-    border-radius: 50%;
     border: none;
+    border-radius: 50%;
     padding: 0;
     cursor: pointer;
     transition: 0.3s;
@@ -188,112 +230,92 @@
 
 
 /* ========================================= */
-/* === DESKTOP FIX (LA MEJORA CLAVE) === */
+/* === RESPONSIVE RULES === */
 /* ========================================= */
-@media (min-width: 769px) {
 
-    .stats-header {
-        margin-bottom: 80px;
+/* MÓVIL (Autoridad con alineación izquierda) */
+@media (max-width: 768px) {
+    .stats-section-mono {
+        padding: 60px 0;
     }
-
-    .stats-title {
-        font-size: 4rem;
-    }
-
-    /* Título más grande */
 
     .stats-carousel-wrapper {
         height: 500px;
-        max-width: 1600px;
-        /* Ancho máximo controlado */
-        margin: 0 auto;
+    }
 
-        /* Máscara suave solo en los bordes extremos */
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-        mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    .stats-track-container {
+        -webkit-mask-image: none;
+        mask-image: none;
     }
 
     .stats-track {
-        gap: 60px;
-        /* Más aire entre tarjetas */
+        gap: 15px;
+        padding-left: 50%;
     }
 
-    /* TARJETA DESKTOP (Tamaño Editorial) */
     .stat-card {
-        width: 420px;
-        /* Ancho fijo perfecto para lectura */
-        min-width: 420px;
-        height: 420px;
-        /* Cuadrada */
-        padding: 50px 40px;
+        width: 85vw;
+        min-width: 85vw;
+        height: 450px;
+        padding: 40px 30px;
 
-        /* El estado inactivo es MÁS VISIBLE ahora */
-        opacity: 0.25;
-        transform: scale(0.85);
-        filter: grayscale(100%);
-        /* Sin Blur, solo grises */
-    }
-
-    /* ESTADO ACTIVO DESKTOP */
-    .stat-card.active {
-        opacity: 1;
-        transform: scale(1.1);
-        /* Pop evidente */
-        background: #000;
-        border: 1px solid #fff;
-        box-shadow: 0 30px 100px rgba(255, 255, 255, 0.08);
-        /* Glow de lujo */
+        /* Asegura alineación izquierda en móvil */
+        text-align: left;
+        align-items: flex-start;
     }
 
     .stat-number {
-        font-size: 6.5rem;
+        font-size: 5rem;
+        margin-bottom: 20px;
     }
 
-    /* Número Masivo */
+    .stat-desc {
+        font-size: 1.1rem;
+    }
 
-    /* FLECHAS VISIBLES Y ELEGANTES */
+    .stat-footer {
+        align-items: flex-start;
+        border-top: none;
+    }
+
     .stats-nav {
-        display: flex;
-        /* Mostrar flechas */
-        position: absolute;
-        width: 70px;
-        height: 70px;
-        background: rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
-        font-size: 1.5rem;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        color: #fff;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        z-index: 50;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .stats-nav:hover {
-        background: #fff;
-        color: #000;
-        border-color: #fff;
-        transform: translateY(-50%) scale(1.1);
-    }
-
-    .stats-nav.prev {
-        left: 5%;
-    }
-
-    .stats-nav.next {
-        right: 5%;
+        display: none;
     }
 }
 
-/* --- LOGOS (Estilos específicos) --- */
+/* DESKTOP (PANORÁMICO) */
+@media (min-width: 769px) {
+    .stats-carousel-wrapper {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    .stat-card {
+        width: 420px;
+        min-width: 420px;
+        height: 420px;
+    }
+
+    .stat-number {
+        font-size: 6rem;
+    }
+
+    @media (min-width: 1400px) {
+        .stats-nav.prev {
+            left: 10%;
+        }
+
+        .stats-nav.next {
+            right: 10%;
+        }
+    }
+}
+
+/* LOGOS */
 .logo-adobe {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    letter-spacing: -1px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
 }
 
 .logo-forbes {
@@ -303,24 +325,30 @@
     font-size: 1.6rem;
 }
 
+.logo-salesforce {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
 .logo-mckinsey {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-style: italic;
-    font-size: 1.8rem;
-}
-
-.logo-ibm {
-    font-family: 'Roboto Slab', serif;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-size: 1.7rem;
 }
 
 .logo-gallup {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     letter-spacing: 4px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+}
+
+.logo-ibm {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .logo-bcg {
@@ -341,7 +369,6 @@
     color: #fff;
 }
 
-/* Punto blanco */
 .logo-hbr {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
@@ -365,12 +392,6 @@
     font-weight: 700;
     text-transform: lowercase;
     font-size: 1.6rem;
-}
-
-.logo-salesforce {
-    font-family: 'Varela Round', sans-serif;
-    font-weight: 700;
-    font-style: italic;
 }
 
 .logo-pwc {
