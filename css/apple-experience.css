@@ -518,6 +518,8 @@
     justify-content: center;
     cursor: pointer;
     transition: 0.3s;
+    z-index: 100;
+    /* Safety Z-Index */
 }
 
 .pro-close:hover {

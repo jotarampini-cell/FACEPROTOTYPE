@@ -67,84 +67,75 @@ function openFaceModal(element) {
         return;
     }
 
-    // 3. Inyectar datos en el Nuevo Modal (Pro Modal)
-    // Título con formato especial "+"
-    const titleParts = caseData.t.split('+');
-    const pmTitle = document.getElementById('pm-title');
-
-    if (pmTitle) {
-        if (titleParts.length > 1) {
-            pmTitle.innerHTML = `${titleParts[0]}<span class="gold-plus">+</span>${titleParts[1]}`;
-        } else {
-            pmTitle.innerText = caseData.t;
-        }
-    }
-
-    const pmSource = document.getElementById('pm-source');
-    const pmBridge = document.getElementById('pm-bridge');
-    const pmResult = document.getElementById('pm-result');
-
-    if (pmSource) pmSource.innerText = caseData.source;
-    if (pmBridge) pmBridge.innerText = caseData.bridge;
-    if (pmResult) pmResult.innerText = caseData.result;
-
-    // 4. Mostrar Modal
-    const modal = document.getElementById('pro-modal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Bloquear scroll
-    }
-}
-
-function closeProModal() {
-    const modal = document.getElementById('pro-modal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restaurar scroll
-    }
-}
-
-// Inicialización de Listeners cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('pro-modal');
-
-    if (modal) {
-        // 1. Cerrar al hacer click fuera del contenido (Overlay)
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                console.log('Click on overlay: Closing Modal');
-                closeProModal();
+    // 3. Inyectar datos en TODAS las instancias del modal (Robustez contra duplicados)
+    const modals = document.querySelectorAll('.pro-modal-overlay');
+    modals.forEach(modal => {
+        // Título
+        const pmTitle = modal.querySelector('.pro-title');
+        if (pmTitle) {
+            const titleParts = caseData.t.split('+');
+            if (titleParts.length > 1) {
+                pmTitle.innerHTML = `${titleParts[0]}<span class="gold-plus">+</span>${titleParts[1]}`;
+            } else {
+                pmTitle.innerText = caseData.t;
             }
-        });
-
-        // 2. Binding explícito al botón de cerrar (Mayor robustez)
-        const closeBtn = modal.querySelector('.pro-close');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevenir comportamientos default
-                e.stopPropagation(); // Evitar propagación
-                console.log('Click on Close Button');
-                closeProModal();
-            });
         }
-    } else {
-        console.error('CRITICAL: #pro-modal not found in DOM');
-    }
 
-    // Cerrar con tecla ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeProModal();
+        // Textos (Busqueda por ID dentro del modal para evitar conflictos globales)
+        const pmSource = modal.querySelector('#pm-source');
+        const pmBridge = modal.querySelector('#pm-bridge');
+        const pmResult = modal.querySelector('#pm-result');
+
+        if (pmSource) pmSource.innerText = caseData.source;
+        if (pmBridge) pmBridge.innerText = caseData.bridge;
+        if (pmResult) pmResult.innerText = caseData.result;
+
+        // 4. Mostrar Modal
+        modal.classList.add('active');
     });
 
+    document.body.style.overflow = 'hidden'; // Bloquear scroll
+}
+
+/* --- SOLUCIÓN DE CIERRE (GLOBAL & ROBUSTA - BLINDAJE TOTAL) --- */
+
+// 1. Definir la función directamente en window para que el HTML la vea SIEMPRE
+window.closeProModal = function () {
+    // Robustez: Usamos querySelectorAll para cerrar cualquier instancia (incluso si hay duplicados)
+    const modals = document.querySelectorAll('.pro-modal-overlay');
+    modals.forEach(modal => {
+        modal.classList.remove('active');
+    });
+    document.body.style.overflow = ''; // Restaurar scroll
+};
+
+// 2. Agregar Escucha de Teclado (Tecla ESC) - UX Profesional
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') window.closeProModal();
+});
+
+// 3. Delegación de Eventos (Para atrapar clics dinámicos)
+// Esto asegura que el botón funcione aunque se cree dinámicamente
+document.addEventListener('click', (e) => {
+    // Si lo que se clickeó (o su padre) es el botón de cerrar
+    if (e.target.closest('.pro-close')) {
+        e.preventDefault(); // Prevenir navegación si fuera un link
+        window.closeProModal();
+    }
+
+    // Si se clickeó el fondo oscuro (overlay)
+    if (e.target.classList.contains('pro-modal-overlay')) {
+        window.closeProModal();
+    }
+});
+
+// Inicialización de Listeners Generales (Paginación, Video)
+document.addEventListener('DOMContentLoaded', () => {
     // Initialize pagination logic (Legacy support kept for functionality)
     initPagination();
     initProgramsPagination();
     initVideoHover();
 });
-
-// Exponer globalmente para onclick en HTML (Failsafe)
-window.closeProModal = closeProModal;
-window.openFaceModal = openFaceModal;
 
 
 
