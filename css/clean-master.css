@@ -1,0 +1,2189 @@
+/* --- VARIABLES --- */
+        :root {
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --hero-mobile-height: calc(100vh - 30px);
+            --page-bg: #000000;
+        }
+
+        /* 1. CONTENEDOR MAESTRO */
+        .tr-layout-master {
+            position: relative;
+            width: 100%;
+            background-color: var(--page-bg);
+            padding: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========================================
+           BLOQUE 1: HERO CAPSULE (BANNER)
+           ========================================= */
+        .tr-hero-capsule {
+            position: relative;
+            width: 100%;
+            height: var(--hero-mobile-height);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            margin-bottom: 40px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-bg-layer {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .hero-overlay-gradient {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 20, 70, 0.4) 50%,
+                    rgba(0, 30, 100, 0.8) 85%,
+                    #000000 100%);
+        }
+
+        .hero-text-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            padding: 30px 20px 60px;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero-headline {
+            font-family: var(--font-sans);
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-hero-white {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #fff;
+            color: #000;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 100px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .btn-hero-white:hover {
+            transform: scale(1.05) translateY(-2px);
+        }
+
+        /* =========================================
+           BLOQUE 2: TARJETA (MÓVIL SEPARADO)
+           ========================================= */
+        .tr-floating-card-section {
+            position: relative;
+            width: 100%;
+            padding: 0 5px;
+            z-index: 5;
+        }
+
+        /* Etiqueta Superior */
+        .event-status-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            padding-left: 5px;
+            justify-content: flex-start;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff66;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff66;
+            animation: pulse 2s infinite;
+        }
+
+        .status-text {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Tarjeta de Video */
+        .glass-video-card {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #111;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-media {
+            position: absolute;
+            inset: 0;
+        }
+
+        .card-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+        }
+
+        .card-info {
+            position: absolute;
+            inset: 0;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .card-brand {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            line-height: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .serif-part {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 900;
+            font-size: 1.8rem;
+        }
+
+        .sans-part {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            color: #ddd;
+        }
+
+        .btn-glass-watch {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 5px 16px 5px 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-glass-watch:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .icon-circle {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+        }
+
+        .icon-circle svg {
+            width: 12px;
+            height: 12px;
+            margin-left: 2px;
+        }
+
+        /* =========================================================
+           DESKTOP TRANSFORMATION (AQUÍ UNIMOS TODO) - Min-width 992px
+           ========================================================= */
+        @media (min-width: 992px) {
+
+            .tr-layout-master {
+                padding: 0;
+                height: 100vh;
+                min-height: 700px;
+                display: block;
+            }
+
+            /* 1. HERO EXPANSIVO */
+            .tr-hero-capsule {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 0;
+                border-radius: 0;
+                align-items: center;
+                justify-content: flex-start;
+                text-align: left;
+            }
+
+            /* Gradiente lateral para Desktop */
+            .hero-overlay-gradient {
+                background: radial-gradient(circle at 70% 50%, transparent 0%, rgba(0, 0, 0, 0.8) 100%),
+                    linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
+            }
+
+            .hero-text-content {
+                max-width: 700px;
+                padding-left: 6vw;
+                text-align: left;
+            }
+
+            .hero-headline {
+                font-size: clamp(3.5rem, 5.5vw, 5.5rem);
+                letter-spacing: -0.04em;
+                line-height: 0.95;
+            }
+
+            /* 2. TARJETA FLOTANTE (ABSOLUTA) */
+            .tr-floating-card-section {
+                position: absolute;
+                bottom: 50px;
+                right: 50px;
+                width: 380px;
+                padding: 0;
+                z-index: 20;
+            }
+
+            .event-status-row {
+                justify-content: flex-end;
+                margin-right: 5px;
+            }
+
+            .glass-video-card {
+                height: 240px;
+                border-radius: 28px;
+                box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+                transition: transform 0.4s ease;
+            }
+
+            .glass-video-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .card-info {
+                align-items: flex-start;
+                justify-content: flex-end;
+            }
+
+            .serif-part {
+                font-size: 2rem;
+            }
+
+            .sans-part {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+
+    <!-- Hero Section End -->
+
+
+
+
+    <!-- Section: Programs Showcase (Apple Reel Style) -->
+    <section class="apple-experience-section" id="programs-showcase">
+        <div class="tr-container">
+            <div class="apple-header">
+                <h2 class="apple-title">
+                    <span class="title-top">Libera la innovación en</span>
+                    <span class="title-main">Tu Empresa</span>
+                </h2>
+                <p class="apple-subtitle">Descubre nuestros programas <span class="arrow-icon">→</span></p>
+            </div>
+        </div>
+
+        <div class="apple-reel-wrapper">
+            <!-- Navigation Arrows (Desktop Only) -->
+            <button class="apple-nav-arrow prev" onclick="scrollAppleReel('prev', 'programs-showcase')"
+                aria-label="Anterior">
+                <svg viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+            </button>
+
+            <div class="apple-reel">
+
+                <!-- Program 1: Reto de Ingenio -->
+                <a href="innova-desde-adentro.html" class="program-card" id="card-innova">
+                    <video muted loop playsinline preload="auto" class="card-bg" poster="assets/images/reto-innova.jpg"
+                        id="video-innova">
+                        <source src="assets/videos/innova-adentro.mp4" type="video/mp4">
+                    </video>
+                    <div class="card-overlay">
+                        <span class="card-tag">PROGRAMA INSIGNIA</span>
+                        <h3 class="editorial-title">
+                            <span class="font-serif">INNOVA</span>
+                            <span class="font-sans">DESDE ADENTRO</span>
+                        </h3>
+                        <p class="card-benefit">Transforma tu empresa en 10 días</p>
+                    </div>
+                </a>
+
+                <!-- Program 2: Mentoría Ejecutiva -->
+                <a href="programas.html#mentoria" class="program-card">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800&q=80"
+                        class="card-bg" alt="Mentoría Ejecutiva">
+                    <div class="card-overlay">
+                        <span class="card-tag">DESARROLLO EJECUTIVO</span>
+                        <h3 class="editorial-title style-mentoria">
+                            <span class="font-serif">MENTORÍA</span>
+                            <span class="font-sans">EJECUTIVA</span>
+                        </h3>
+                        <p class="card-benefit">Acelera tu liderazgo innovador</p>
+                    </div>
+                </a>
+
+                <!-- Program 3: Talleres Corporativos -->
+                <a href="programas.html#talleres" class="program-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+                        class="card-bg" alt="Talleres Corporativos">
+                    <div class="card-overlay">
+                        <span class="card-tag">TRANSFORMACIÓN CULTURAL</span>
+                        <h3 class="editorial-title style-talleres">
+                            <span class="font-serif">TALLERES</span>
+                            <span class="font-sans">CORPORATIVOS</span>
+                        </h3>
+                        <p class="card-benefit">Activa el mindset de tu equipo</p>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Next Arrow -->
+            <button class="apple-nav-arrow next" onclick="scrollAppleReel('next', 'programs-showcase')"
+                aria-label="Siguiente">
+                <svg viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="apple-pagination" id="programs-dots"></div>
+    </section>
+    <!-- DNA Innovator Widget - HIDDEN TO REMOVE GAP -->
+    <div style="display:none;">
+        <!-- DNA Innovator Widget (Diagnostic Test) -->
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="var(--tr-accent)"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+        </path>
+        </svg>
+        <h3 id="loader-text-dynamic" class="tr-loader-text">Analizando patrones...</h3>
+    </div>
+
+    <div id="screen-email" class="tr-screen hidden" style="text-align: center;">
+        <h2 class="tr-headline">DIAGNÓSTICO COMPLETADO</h2>
+        <p class="tr-subheadline" style="max-width: 800px;">Hemos detectado <strong>3 bloqueos
+                críticos</strong>. Ingresa tus datos para generar la Hoja de Ruta F.A.C.E. y desbloquear tu
+            resultado.</p>
+
+        <form id="simulated-form" onsubmit="simulateSubmit(event)" style="max-width: 500px; margin: 0 auto;">
+            <div class="tr-input-group">
+                <input type="text" id="user-name" placeholder="Tu Nombre Completo" required class="tr-input-field">
+            </div>
+            <div class="tr-input-group">
+                <input type="email" id="user-email" placeholder="Tu Mejor Correo Electrónico" required
+                    class="tr-input-field">
+            </div>
+            <button type="submit" class="tr-btn-submit" id="btn-submit-email">
+                REVELAR MI ADN INNOVADOR
+            </button>
+        </form>
+        <p class="tr-privacy-text">🔒 Tus datos están seguros. Privacidad garantizada.</p>
+    </div>
+
+    <div id="screen-result" class="tr-screen hidden">
+        <div class="tr-result-header">
+            <span class="tr-badge-gold">ARQUETIPO IDENTIFICADO</span>
+            <h1 id="result-title-dynamic">EL TÍTULO AQUÍ</h1>
+        </div>
+
+        <div class="tr-result-content">
+            <div class="tr-pain-box">
+                <h4><svg class="tr-box-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="var(--tr-accent)">
+                        <path fill-rule="evenodd"
+                            d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                            clip-rule="evenodd" />
+                    </svg> TU REALIDAD ACTUAL (EL FRENO)</h4>
+                <p id="result-pain-dynamic">Texto de dolor...</p>
+            </div>
+
+            <div class="tr-solution-box">
+                <h4><svg class="tr-box-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="var(--tr-gold)">
+                        <path fill-rule="evenodd"
+                            d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z"
+                            clip-rule="evenodd" />
+                    </svg> TU RECETA F.A.C.E. (LA ACCIÓN)</h4>
+                <ul id="result-recipe-dynamic">
+                </ul>
+            </div>
+
+            <button class="tr-btn-submit" onclick="alert('Redirigir a checkout o agenda')">SOLICITAR SESIÓN
+                ESTRATÉGICA</button>
+        </div>
+    </div>
+
+    </div>
+    </section>
+    </div>
+    <!-- Section: Hero Video - Full Screen Background -->
+    <section class="hero-video-section">
+        <video autoplay muted loop playsinline preload="metadata" class="bg-video"
+            poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
+            aria-label="Video de fondo mostrando innovación empresarial">
+            <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <div class="video-overlay"></div>
+
+        <div class="hero-content tr-container">
+            <h1 class="hero-title">Innova en cada área de tu empresa</h1>
+            <p class="hero-subtitle">Rompe con viejas ideas y falta de progreso con estrategias de innovación</p>
+            <a href="evaluacion.html" class="btn-hero">INICIAR AHORA</a>
+        </div>
+    </section>
+
+    <script>
+        // Ensure video plays on mobile devices
+        (function () {
+            const heroVideo = document.querySelector('.hero-video-section .bg-video');
+            if (heroVideo) {
+                // Try to play immediately
+                heroVideo.play().catch(() => {
+                    // If autoplay fails, try again on user interaction
+                    const playOnInteraction = () => {
+                        heroVideo.play();
+                        document.removeEventListener('touchstart', playOnInteraction);
+                        document.removeEventListener('click', playOnInteraction);
+                    };
+                    document.addEventListener('touchstart', playOnInteraction, { once: true });
+                    document.addEventListener('click', playOnInteraction, { once: true });
+                });
+            }
+        })();
+    </script>
+
+    <!-- Section: Pillars (Interactive Typography) - White Background -->
+    <section class="pillars-section">
+        <div class="pillars-container">
+
+            <div class="pillars-wrapper">
+                <!-- Columna de Texto (Izquierda en Desktop) -->
+                <div class="pillars-text">
+                    <div class="pillars-header">
+                        <span class="dot">•</span> PILARES DE UNA EMPRESA INNOVADORA
+                    </div>
+
+                    <ul class="pillars-list">
+                        <li><a href="#innovacion" class="active">Innovación</a></li>
+                        <li><a href="#cultura">Cultura empresarial</a></li>
+                        <li><a href="#ventas">Ventas</a></li>
+                        <li><a href="#marketing">Marketing</a></li>
+                        <li><a href="#procesos">Procesos</a></li>
+                        <li><a href="#organizacion">Organización</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna de Imagen (Derecha en Desktop) -->
+                <div class="pillars-image">
+                    <div class="pillars-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Presentación en escenario" class="pillars-img p-img">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section: The Apple Experience (Master Version) -->
+    <section class="apple-experience-section" id="apple-experience">
+        <div class="tr-container">
+            <div class="apple-header">
+                <h2 class="apple-title">MINDSET DE INNOVACIÓN</h2>
+                <p class="apple-subtitle">Descubre casos de éxito <span class="arrow-icon">→</span></p>
+            </div>
+        </div>
+
+        <div class="apple-reel-wrapper">
+            <!-- Navigation Arrows (Desktop Only) -->
+            <button class="apple-nav-arrow prev" onclick="scrollAppleReel('prev', 'apple-experience')"
+                aria-label="Anterior">
+                <svg viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+            </button>
+
+            <div class="apple-reel">
+
+                <!-- CASO 01 -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80"
+                    data-title="TOYOTA & FORD"
+                    data-context="Ford había perfeccionado las líneas de ensamblaje. Los supermercados japoneses reponían productos solo cuando se agotaban."
+                    data-innovation="Toyota combinó ambos sistemas: producir solo lo necesario, justo cuando se necesita. Crearon el Just-in-Time."
+                    data-face="Combina lo mejor de dos industrias diferentes. La innovación vive en la intersección.">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>TOYOTA</h3>
+                        <p class="card-description">Eficiencia que revolucionó la industria</p>
+                    </div>
+                </div>
+
+                <!-- CASO 02 -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=600&q=80"
+                    data-title="NETFLIX & CORREO"
+                    data-context="Blockbuster cobraba multas que frustraban a los clientes. El servicio postal funcionaba de manera confiable."
+                    data-innovation="Aplicaron el modelo de suscripción de gimnasios al alquiler de películas por correo. Sin fechas de devolución, sin multas."
+                    data-face="Un modelo de negocio de otra industria puede destruir a tu competencia.">
+                    <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>NETFLIX</h3>
+                        <p class="card-description">Conveniencia que destrozó al gigante</p>
+                    </div>
+                </div>
+
+                <!-- CASO 03 -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
+                    data-title="STEVE JOBS & XEROX"
+                    data-context="Xerox PARC inventó la interfaz gráfica y el mouse en 1973, pero no lo comercializaron."
+                    data-innovation="Jobs visitó Xerox, vio el potencial y lo adaptó para usuarios comunes, no solo ingenieros."
+                    data-face="La mejor tecnología está en laboratorios sin explotar. Obsérvalas y adáptalas.">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>APPLE</h3>
+                        <p class="card-description">Visión que democratizó la tecnología</p>
+                    </div>
+                </div>
+
+                <!-- CASO 04 -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80"
+                    data-title="MCDONALD'S"
+                    data-context="Henry Ford había perfeccionado las líneas de ensamblaje para producir autos en masa."
+                    data-innovation="Los hermanos McDonald aplicaron los mismos principios de manufactura a la cocina."
+                    data-face="Los procesos de manufactura pueden aplicarse a servicios. Piensa en tu negocio como una fábrica.">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>MCDONALD'S</h3>
+                    </div>
+                </div>
+
+                <!-- CASO 05 -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80"
+                    data-title="SPOTIFY"
+                    data-context="Napster ofrecía música instantánea gratis, pero era ilegal. La industria musical estaba en crisis."
+                    data-innovation="Replicaron la velocidad y el acceso de Napster, pero legalmente, con licencias de las discográficas."
+                    data-face="Si no puedes vencer al mercado negro, copia su conveniencia y hazlo legal.">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>SPOTIFY</h3>
+                    </div>
+                </div>
+
+                <!-- CASO 06 -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80"
+                    data-title="UBER"
+                    data-context="Millones de autos privados estaban vacíos la mayor parte del día. Los smartphones tenían GPS integrado."
+                    data-innovation="Conectaron la capacidad ociosa de vehículos con personas que necesitaban transporte usando tecnología existente."
+                    data-face="No crees activos. Conecta oferta subutilizada con demanda insatisfecha.">
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>UBER</h3>
+                    </div>
+                </div>
+
+                <!-- CASO 07 -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80"
+                    data-title="AIRBNB"
+                    data-context="Habitaciones vacías en millones de casas. Craigslist permitía publicar anuncios pero era inseguro."
+                    data-innovation="Añadieron fotos profesionales, reseñas verificadas, sistema de pago seguro y seguro de daños."
+                    data-face="Mejora mercados existentes añadiendo confianza y experiencia de usuario.">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>AIRBNB</h3>
+                    </div>
+                </div>
+
+                <!-- CASO 08 -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80"
+                    data-title="INSTAGRAM"
+                    data-context="Burbn era una app compleja con 20 funciones: check-ins, juegos, fotos, comentarios."
+                    data-innovation="Analizaron los datos. La gente solo usaba fotos y filtros. Eliminaron todo lo demás."
+                    data-face="Menos es más. Identifica la única función que aman y elimina el resto.">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>INSTAGRAM</h3>
+                    </div>
+                </div>
+
+                <!-- CASO 09 -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
+                    data-title="FORD"
+                    data-context="Los mataderos de Chicago usaban cintas transportadoras para desarmar cerdos eficientemente."
+                    data-innovation="Henry Ford invirtió el concepto: en vez de desarmar animales, ensambló autos en línea."
+                    data-face="Invierte procesos de otras industrias. Lo que divide, puede unir y viceversa.">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>FORD</h3>
+                    </div>
+                </div>
+
+                <!-- CASO 10 -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=600&q=80"
+                    data-title="CIRQUE DU SOLEIL"
+                    data-context="Los circos tradicionales competían en precio con animales caros. El teatro cobraba precios premium."
+                    data-innovation="Eliminaron los animales. Añadieron arte escénico de teatro, música en vivo y narrativa emocional."
+                    data-face="Elimina lo costoso. Añade lo artístico. Compite en valor, no en precio.">
+                    <img src="https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>CIRQUE...</h3>
+                    </div>
+                </div>
+
+                <!-- Items 11-25 added for completeness would go here, user can duplicate pattern -->
+                <div class="apple-card" onclick="openFaceModal(this)"
+                    data-img="https://images.unsplash.com/photo-1512418490979-92798cec1380?auto=format&fit=crop&w=600&q=80"
+                    data-title="NESPRESSO"
+                    data-context="El café casero era malo. El café de barista era excelente pero lento y caro."
+                    data-innovation="Encapsularon la técnica del barista en una cápsula sellada con presión y temperatura perfectas."
+                    data-face="Empaqueta experiencia experta en un producto que cualquiera pueda usar.">
+                    <img src="https://images.unsplash.com/photo-1512418490979-92798cec1380?auto=format&fit=crop&w=600&q=80"
+                        class="card-bg">
+                    <div class="card-overlay">
+                        <span class="card-tag">CASO DE ÉXITO</span>
+                        <h3>NESPRESSO</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Next Arrow -->
+            <button class="apple-nav-arrow next" onclick="scrollAppleReel('next', 'apple-experience')"
+                aria-label="Siguiente">
+                <svg viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="apple-pagination" id="apple-dots"></div>
+
+        <div class="face-modal-overlay" id="faceModal">
+            <div class="face-modal-card">
+                <button class="close-face" onclick="closeFaceModal()">✕</button>
+
+                <div class="face-grid">
+                    <div class="fg-header">
+                        <span class="fg-tag">ANÁLISIS FACE</span>
+                        <h3 id="f-title">TÍTULO</h3>
+                    </div>
+
+                    <div class="fg-item">
+                        <span class="fg-label">El Contexto</span>
+                        <p id="f-context">...</p>
+                    </div>
+
+                    <div class="fg-item">
+                        <span class="fg-label">La Innovación</span>
+                        <p id="f-innovation">...</p>
+                    </div>
+
+                    <div class="fg-item full-width face-highlight">
+                        <span class="fg-label-gold">Filosofía FACE</span>
+                        <p id="f-face">...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOAD APPLE EXPERIENCE ASSETS -->
+    <link rel="stylesheet" href="css/apple-experience.css">
+    <!-- No external data source needed! -->
+    <script src="js/apple-experience.js"></script>
+
+    <!-- Section: Premium Testimonials Slider (Tony Robbins Style) -->
+    <section class="tony-cinematic-slider">
+
+        <div class="slider-backgrounds">
+            <div class="bg-overlay"></div>
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1920&q=80"
+                class="sync-bg active" data-id="0" alt="Background Maria">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1920&q=80"
+                class="sync-bg" data-id="1" alt="Background Carlos">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1920&q=80"
+                class="sync-bg" data-id="2" alt="Background Ana">
+        </div>
+
+        <div class="content-layer">
+            <div class="reviews-wrapper">
+
+                <div class="sync-review active" data-id="0">
+                    <h2 class="sync-quote">
+                        &ldquo;FACE transformó completamente nuestra cultura. Los resultados fueron inmediatos y
+                        medibles.&rdquo;
+                    </h2>
+                    <div class="sync-author">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+                            class="author-img" alt="María González">
+                        <div class="author-details">
+                            <span class="name">María González</span>
+                            <span class="role">CEO, Innovatech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sync-review" data-id="1">
+                    <h2 class="sync-quote">
+                        &ldquo;El programa nos ayudó a descubrir oportunidades de innovación que teníamos frente a
+                        nosotros.&rdquo;
+                    </h2>
+                    <div class="sync-author">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80"
+                            class="author-img" alt="Carlos Méndez">
+                        <div class="author-details">
+                            <span class="name">Carlos Méndez</span>
+                            <span class="role">Director de Innovación, TechCorp</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sync-review" data-id="2">
+                    <h2 class="sync-quote">
+                        &ldquo;Una experiencia transformadora que cambió la forma en que pensamos sobre el
+                        futuro.&rdquo;
+                    </h2>
+                    <div class="sync-author">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
+                            class="author-img" alt="Ana Rodríguez">
+                        <div class="author-details">
+                            <span class="name">Ana Rodríguez</span>
+                            <span class="role">VP Estrategia, Global Solutions</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="sync-controls">
+            <div class="avatar-carousel">
+
+                <div class="avatar-nav-item active" onclick="goToSlide(0)">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+                        class="avatar-nav-img" alt="María González">
+                    <div class="avatar-nav-info">
+                        <span class="avatar-nav-name">María González</span>
+                        <span class="avatar-nav-role">CEO de Innovatech, Experta en Transformación Digital, 15 años
+                            liderando innovación empresarial</span>
+                    </div>
+                </div>
+
+                <div class="avatar-nav-item" onclick="goToSlide(1)">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80"
+                        class="avatar-nav-img" alt="Carlos Méndez">
+                    <div class="avatar-nav-info">
+                        <span class="avatar-nav-name">Carlos Méndez</span>
+                        <span class="avatar-nav-role">Director de Innovación en TechCorp, Pionero en metodologías
+                            ágiles, Speaker internacional</span>
+                    </div>
+                </div>
+
+                <div class="avatar-nav-item" onclick="goToSlide(2)">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
+                        class="avatar-nav-img" alt="Ana Rodríguez">
+                    <div class="avatar-nav-info">
+                        <span class="avatar-nav-name">Ana Rodríguez</span>
+                        <span class="avatar-nav-role">VP de Estrategia en Global Solutions, MBA Harvard, Mentora de
+                            startups tecnológicas</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Load Testimonials Slider Assets -->
+    <link rel="stylesheet" href="css/testimonials-slider.css">
+    <script src="js/testimonials-slider.js"></script>
+
+    <!-- FACE MASTER SECTION (PIXEL PERFECT) -->
+    <section class="face-master-section">
+        <div class="face-container">
+
+            <h2 class="face-title">
+                ¿Quieres ver a tu empresa innovando y rompiendo viejos esquemas?
+            </h2>
+
+            <div class="face-description">
+                <p>
+                    Creemos que todas las empresas tienen el potencial de innovar y destacarse en sus industrias.
+                    Queremos acelerar la adaptación de la innovación en tu empresa para que se convierta en tu nueva
+                    realidad.
+                </p>
+                <a href="#face" class="face-pill-btn">Conoce FACE</a>
+            </div>
+
+            <div class="face-image-card">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80"
+                    alt="Tony Robbins Style" class="face-img">
+            </div>
+
+            <div class="face-video-card">
+                <div class="video-overlay-content">
+                    <button class="face-play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                        Watch video
+                    </button>
+                </div>
+                <video class="video-bg" autoplay muted loop playsinline
+                    poster="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80">
+                    <source src="assets/videos/face-feature.mp4" type="video/mp4">
+                    <!-- Fallback image if video fails -->
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+                        alt="Video" class="video-img">
+                </video>
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        /* Cleanup */
+        /* --- SHARED HEADER STYLES --- */
+        .galaxy-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .galaxy-tag {
+            display: inline-block;
+            color: #c5a059;
+            /* Gold */
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .galaxy-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #ffffff;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .galaxy-sub {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- 3. UNIVERSO DE IDEAS --- */
+        .galaxy-universe {
+            position: relative;
+            height: 600px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .star-card {
+            position: absolute;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .star-card:hover {
+            background: rgba(197, 160, 89, 0.9);
+            color: #000;
+            border-color: #c5a059;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.5);
+            z-index: 100 !important;
+            transform: translate(-50%, -50%) scale(1.15) !important;
+        }
+
+        /* --- 4. MODAL --- */
+        .pro-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+
+        .pro-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .pro-modal-card {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            width: 100%;
+            max-width: 750px;
+            padding: 60px 50px;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 1);
+            transform: translateY(30px) scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin: auto;
+        }
+
+        .pro-modal-overlay.active .pro-modal-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .pro-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: 1px solid #333;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .pro-close:hover {
+            background: #c5a059;
+            border-color: #c5a059;
+            color: black;
+        }
+
+        .pro-category {
+            color: #c5a059;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .pro-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: white;
+            margin: 0 0 10px 0;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .pro-divider {
+            height: 2px;
+            width: 60px;
+            background: #c5a059;
+            margin: 20px 0 35px 0;
+        }
+
+        /* Secciones del Modal */
+        .modal-section {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .modal-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 35px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            stroke: #c5a059;
+            flex-shrink: 0;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            color: #c5a059;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .section-content {
+            color: #d4d4d4;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 300;
+            font-family: 'Montserrat', sans-serif;
+            padding-left: 36px;
+        }
+
+        /* Lección FACE destacada */
+        .lesson-section {
+            background: rgba(197, 160, 89, 0.03);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            margin-top: 10px;
+        }
+
+        .lesson-section .section-header {
+            margin-bottom: 14px;
+        }
+
+        .lesson-content {
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: #e8e8e8;
+            font-style: italic;
+        }
+
+        .pro-footer {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 25px;
+            margin-top: 10px;
+            color: #555;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pro-modal-card {
+                padding: 40px 25px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .pro-title {
+                font-size: 1.8rem;
+            }
+
+            .section-content {
+                font-size: 0.95rem;
+                padding-left: 0;
+            }
+
+            .lesson-content {
+                font-size: 1rem;
+            }
+
+            .lesson-section {
+                padding: 15px;
+            }
+        }
+
+        /* --- OPTIMIZACIÓN MÓVIL --- */
+        @keyframes spaceFloat {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) translateY(0px);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) translateY(-15px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .galaxy-section {
+                min-height: auto;
+                padding: 80px 0;
+            }
+
+            .galaxy-universe {
+                height: 600px;
+            }
+
+            .star-card {
+                animation: spaceFloat var(--duration, 4s) ease-in-out infinite;
+                padding: 10px 18px;
+                font-size: 0.8rem;
+                border-radius: 50px;
+            }
+
+            .pro-modal-card {
+                width: 95%;
+                padding: 30px 20px;
+                max-height: 85vh;
+                overflow-y: auto;
+            }
+
+            .pro-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* === MEJORAS VISUALES === */
+
+        /* Animación de entrada para tarjetas */
+        .star-card {
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            opacity: 0.8;
+            /* Visible por defecto en desktop */
+        }
+
+        /* Hover effect para desktop */
+        .star-card:hover {
+            opacity: 1;
+        }
+
+        /* En móviles, usar animación de entrada y flotación */
+        @media (max-width: 768px) {
+
+            /* Estado inicial (antes de aparecer) en móvil */
+            .star-card:not(.revealed) {
+                opacity: 0 !important;
+                transform: translate(-50%, -50%) scale(0) rotate(120deg) !important;
+                pointer-events: none;
+            }
+
+            /* Flotación en móvil cuando están reveladas */
+            .star-card.revealed {
+                animation: spaceFloat var(--duration, 4s) ease-in-out infinite;
+            }
+        }
+    </style>
+
+    <script>
+        // Mensajes mejorados con estructura de 4 partes
+        const galaxyIdeas = [
+            {
+                t: "Toyota & Ford",
+                context: "Ford había perfeccionado las líneas de ensamblaje. Los supermercados japoneses reponían productos solo cuando se agotaban.",
+                adaptation: "Toyota combinó ambos sistemas: producir solo lo necesario, justo cuando se necesita. Crearon el Just-in-Time.",
+                impact: "Inventario reducido en 90%. Cero desperdicio. Dominaron la industria automotriz global por décadas.",
+                lesson: "Combina lo mejor de dos industrias diferentes. La innovación vive en la intersección."
+            },
+            {
+                t: "Netflix & Correos",
+                context: "Blockbuster cobraba multas que frustraban a los clientes. El servicio postal funcionaba de manera confiable.",
+                adaptation: "Aplicaron el modelo de suscripción de gimnasios al alquiler de películas por correo. Sin fechas de devolución, sin multas.",
+                impact: "Retención del 93% de clientes. Blockbuster cerró. Netflix vale más de $150B hoy.",
+                lesson: "Un modelo de negocio de otra industria puede destruir a tu competencia."
+            },
+            {
+                t: "Steve Jobs & Xerox",
+                context: "Xerox PARC inventó la interfaz gráfica y el mouse en 1973, pero no lo comercializaron.",
+                adaptation: "Jobs visitó Xerox, vio el potencial y lo adaptó para usuarios comunes, no solo ingenieros.",
+                impact: "Macintosh revolucionó la computación personal. Xerox perdió miles de millones.",
+                lesson: "La mejor tecnología está en laboratorios sin explotar. Obsérvalas y adáptalas."
+            },
+            {
+                t: "McDonald's & Fábricas",
+                context: "Henry Ford había perfeccionado las líneas de ensamblaje para producir autos en masa.",
+                adaptation: "Los hermanos McDonald aplicaron los mismos principios de manufactura a la cocina.",
+                impact: "Hamburguesas en 30 segundos. Inventaron la 'comida rápida'. Imperio global con 40,000 restaurantes.",
+                lesson: "Los procesos de manufactura pueden aplicarse a servicios. Piensa en tu negocio como una fábrica."
+            },
+            {
+                t: "Spotify & Piratería",
+                context: "Napster ofrecía música instantánea gratis, pero era ilegal. La industria musical estaba en crisis.",
+                adaptation: "Replicaron la velocidad y el acceso de Napster, pero legalmente, con licencias de las discográficas.",
+                impact: "500M de usuarios. Salvaron la industria musical. El streaming es ahora el estándar.",
+                lesson: "Si no puedes vencer al mercado negro, copia su conveniencia y hazlo legal."
+            },
+            {
+                t: "Uber & GPS",
+                context: "Millones de autos privados estaban vacíos la mayor parte del día. Los smartphones tenían GPS integrado.",
+                adaptation: "Conectaron la capacidad ociosa de vehículos con personas que necesitaban transporte usando tecnología existente.",
+                impact: "Valuación de $90B sin poseer un solo auto. Revolucionaron el transporte urbano global.",
+                lesson: "No crees activos. Conecta oferta subutilizada con demanda insatisfecha."
+            },
+            {
+                t: "Airbnb & Craigslist",
+                context: "Habitaciones vacías en millones de casas. Craigslist permitía publicar anuncios pero era inseguro.",
+                adaptation: "Añadieron fotos profesionales, reseñas verificadas, sistema de pago seguro y seguro de daños.",
+                impact: "Mayor inventario que Marriott sin construir nada. Valuación de $100B+.",
+                lesson: "Mejora mercados existentes añadiendo confianza y experiencia de usuario."
+            },
+            {
+                t: "Instagram & Simplificación",
+                context: "Burbn era una app compleja con 20 funciones: check-ins, juegos, fotos, comentarios.",
+                adaptation: "Analizaron los datos. La gente solo usaba fotos y filtros. Eliminaron todo lo demás.",
+                impact: "1M de usuarios en 2 meses. Vendida a Facebook por $1B en 2 años.",
+                lesson: "Menos es más. Identifica la única función que aman y elimina el resto."
+            },
+            {
+                t: "Ford & Mataderos",
+                context: "Los mataderos de Chicago usaban cintas transportadoras para desarmar cerdos eficientemente.",
+                adaptation: "Henry Ford invirtió el concepto: en vez de desarmar animales, ensambló autos en línea.",
+                impact: "Tiempo de ensamblaje redujo de 12 horas a 93 minutos. Autos accesibles para la clase media.",
+                lesson: "Invierte procesos de otras industrias. Lo que divide, puede unir y viceversa."
+            },
+            {
+                t: "Cirque du Soleil",
+                context: "Los circos tradicionales competían en precio con animales caros. El teatro cobraba precios premium.",
+                adaptation: "Eliminaron los animales. Añadieron arte escénico de teatro, música en vivo y narrativa emocional.",
+                impact: "Cobraron $150 vs $20 del circo tradicional. Crearon un océano azul sin competencia.",
+                lesson: "Elimina lo costoso. Añade lo artístico. Compite en valor, no en precio."
+            },
+            {
+                t: "Nespresso & Baristas",
+                context: "El café casero era malo. El café de barista era excelente pero lento y caro.",
+                adaptation: "Encapsularon la técnica del barista en una cápsula sellada con presión y temperatura perfectas.",
+                impact: "Café premium en casa en 30 segundos. Convirtieron un commodity en un producto de lujo.",
+                lesson: "Empaqueta experiencia experta en un producto que cualquiera pueda usar."
+            },
+            {
+                t: "IKEA & Logística",
+                context: "Enviar muebles armados era costoso: 70% del paquete era aire. Almacenamiento ocupaba espacio masivo.",
+                adaptation: "Inventaron el paquete plano. El cliente arma. IKEA ahorra transporte, almacén y mano de obra.",
+                impact: "Precios 40% más bajos que la competencia. Expansión global. Líder en muebles económicos.",
+                lesson: "Transfiere trabajo al cliente a cambio de precio bajo. Hazlo sentir como logro (DIY)."
+            },
+            {
+                t: "Zara & Velocidad",
+                context: "Las tendencias de moda de París tardaban 6 meses en llegar de la pasarela a las tiendas.",
+                adaptation: "Copiaron las tendencias, produjeron rápido en España y distribuyeron a tiendas en 2 semanas.",
+                impact: "Ropa de moda con velocidad ultra-rápida. Inditex convirtió a Amancio Ortega en multimillonario.",
+                lesson: "No diseñes desde cero. Copia rápido y distribuye más rápido que nadie."
+            },
+            {
+                t: "Amazon & Librerías",
+                context: "Las librerías físicas solo podían almacenar 100,000 títulos por limitaciones de espacio.",
+                adaptation: "Usaron internet para listar millones de libros sin necesidad de inventario físico inicial.",
+                impact: "Catálogo infinito. Dominaron el retail mundial. Jeff Bezos entre los más ricos del mundo.",
+                lesson: "Internet elimina restricciones físicas. Ofrece lo que es imposible en formato físico."
+            },
+            {
+                t: "Google & Academia",
+                context: "En la academia, los papers importantes reciben más citas de otros papers. Así se mide la relevancia.",
+                adaptation: "Aplicaron el mismo principio a internet: las páginas con más enlaces entrantes son más importantes (PageRank).",
+                impact: "Búsqueda 100x mejor que competidores. Google se convirtió en verbo. Valuación de $2 trillones.",
+                lesson: "Los sistemas de reputación de la academia funcionan en los negocios digitales."
+            },
+            {
+                t: "Dyson & Ciclones Industriales",
+                context: "Los aserraderos usaban ciclones gigantes para separar aserrín del aire en fábricas.",
+                adaptation: "James Dyson miniaturizó esta tecnología industrial para crear aspiradoras caseras sin pérdida de succión.",
+                impact: "Aspiradora sin bolsas, sin pérdida de potencia. Dyson vendió su empresa en $5B.",
+                lesson: "La tecnología industrial puede miniaturizarse para consumo masivo."
+            },
+            {
+                t: "Nintendo & Evolución",
+                context: "Nintendo fabricaba naipes (cartas de juego) desde 1889. Era su único negocio.",
+                adaptation: "Mantuvieron su esencia (entretenimiento y juegos) pero pivotaron el medio: de papel a electrónica.",
+                impact: "Game Boy, NES, Switch. Líder en videojuegos por 40+ años. Valuación de $85B.",
+                lesson: "No abandones tu esencia. Cambia el medio, conserva el propósito y valores."
+            },
+            {
+                t: "Starbucks & Italia",
+                context: "Los bares italianos ofrecían espresso de calidad, ambiente social y 'tercer lugar' entre casa y trabajo.",
+                adaptation: "Howard Schultz importó la experiencia completa a EEUU: no solo el café, sino la cultura.",
+                impact: "Café pasó de $0.50 a $5. 35,000 tiendas. El café se convirtió en estilo de vida.",
+                lesson: "No vendas solo producto. Importa cultura y experiencia de otro país."
+            },
+            {
+                t: "Tesla & Baterías de Laptop",
+                context: "Las baterías de litio de laptops eran baratas y probadas. Los autos deportivos Lotus Elise eran ligeros.",
+                adaptation: "Empaquetaron 7,000 baterías de laptop en el chasis de un Lotus Elise modificado.",
+                impact: "Primer auto eléctrico sexy con 400km de autonomía. Revolucionaron la industria automotriz.",
+                lesson: "Combina componentes masivos existentes de forma novedosa para crear algo nuevo."
+            },
+            {
+                t: "Wikipedia & Multitudes",
+                context: "La Enciclopedia Británica tenía editores expertos. Era lenta, costosa y limitada a 120,000 artículos.",
+                adaptation: "Reemplazaron expertos pagados por 'sabiduría de multitudes' con edición abierta y colaborativa.",
+                impact: "60M de artículos gratis vs 120K pagados. La Británica cerró su edición impresa.",
+                lesson: "El crowdsourcing puede superar a expertos si tienes escala masiva y buen sistema."
+            },
+            {
+                t: "Zoom & Simplicidad",
+                context: "Skype y WebEx requerían instalación, cuenta, configuración. Eran al menos 20 clicks para empezar.",
+                adaptation: "Crearon un solo enlace. Click y entras. Sin registro, sin descargas, sin fricción.",
+                impact: "300M de usuarios diarios en pandemia. 'Zoom' se convirtió en verbo. Valuación de $100B.",
+                lesson: "Elimina fricción obsesivamente. Cada click extra mata conversión y adopción."
+            },
+            {
+                t: "Duolingo & Gaming",
+                context: "Los videojuegos eran adictivos con vidas, niveles y rachas. La educación tradicional era aburrida.",
+                adaptation: "Aplicaron mecánicas de videojuegos (Candy Crush) al aprendizaje de idiomas.",
+                impact: "500M de usuarios. Aprender se siente como jugar. IPO con valuación de $6B.",
+                lesson: "Gamifica lo aburrido. La psicología de los juegos funciona en cualquier industria."
+            },
+            {
+                t: "Slack & Pivote",
+                context: "Glitch era un videojuego que fracasó completamente. Pero la herramienta de chat interno funcionaba increíble.",
+                adaptation: "El juego murió. Extrajeron el chat interno que habían creado y lo vendieron como producto independiente.",
+                impact: "Slack vendido a Salesforce por $28B. Reemplazó al email en miles de empresas.",
+                lesson: "Tus herramientas internas pueden valer más que tu producto principal. Obsérvalas."
+            },
+            {
+                t: "WhatsApp & Infraestructura",
+                context: "Los SMS cobraban $0.10 por mensaje. Internet móvil ilimitado estaba emergiendo globalmente.",
+                adaptation: "Enviaron mensajes usando datos (internet) en vez de la red SMS tradicional.",
+                impact: "Mensajería gratis. 2B de usuarios. Vendido a Facebook por $19B.",
+                lesson: "Usa infraestructura nueva para hacer gratis lo que antes costaba dinero."
+            },
+            {
+                t: "Youtube & Apertura",
+                context: "Empezó como sitio de citas en video. Nadie subía videos de citas. La idea original fracasó totalmente.",
+                adaptation: "Abrieron la plataforma a cualquier tipo de video. Dejaron que los usuarios decidieran el uso.",
+                impact: "Plataforma #1 de video mundial. Vendida a Google por $1.65B. 2B+ de usuarios activos.",
+                lesson: "Si tu idea inicial falla, abre las puertas. Deja que los usuarios definan el producto."
+            }
+        ];
+
+        const universe = document.getElementById('universe-container');
+        const proModal = document.getElementById('pro-modal');
+        const pmTitle = document.getElementById('pm-title');
+
+        galaxyIdeas.sort(() => Math.random() - 0.5);
+
+        galaxyIdeas.forEach((idea, i) => {
+            const el = document.createElement('div');
+            el.classList.add('star-card');
+            el.innerText = idea.t;
+
+            const angle = Math.random() * Math.PI * 2;
+            const radius = Math.random() * 40 + 10;
+
+            const x = 50 + radius * Math.cos(angle);
+            const y = 50 + radius * Math.sin(angle);
+
+            el.style.left = x + '%';
+            el.style.top = y + '%';
+
+            const depth = Math.random();
+            el.dataset.depth = depth;
+
+            const scale = 0.8 + (depth * 0.4);
+            const blur = (1 - depth) * 2;
+            const opacity = 0.6 + (depth * 0.4);
+
+            el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            el.style.filter = `blur(${blur}px)`;
+            el.style.opacity = opacity;
+
+            el.style.setProperty('--duration', (Math.random() * 4 + 3) + 's');
+
+            el.onclick = () => {
+                pmTitle.innerText = idea.t;
+                document.getElementById('pm-context').innerText = idea.context;
+                document.getElementById('pm-adaptation').innerText = idea.adaptation;
+                document.getElementById('pm-impact').innerText = idea.impact;
+                document.getElementById('pm-lesson').innerText = idea.lesson;
+                proModal.classList.add('active');
+            };
+
+            universe.appendChild(el);
+        });
+
+        const section = document.getElementById('galaxy-section');
+
+        // Parallax removido para simplificar desktop
+        // Las tarjetas ahora son estáticas en desktop y flotantes en móvil
+
+        function closeProModal() {
+            proModal.classList.remove('active');
+        }
+
+        proModal.addEventListener('click', (e) => {
+            if (e.target === proModal) closeProModal();
+        });
+
+
+        // === ANIMACIÓN DE ENTRADA DRAMÁTICA ===
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const galaxyObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const cards = document.querySelectorAll('.star-card');
+                    cards.forEach((card, i) => {
+                        setTimeout(() => {
+                            card.classList.add('revealed');
+                        }, i * 50); // Aparecen escalonadas (50ms entre cada una)
+                    });
+                    galaxyObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        if (galaxySection) {
+            galaxyObserver.observe(galaxySection);
+        }
+
+    </script>
+
+    <!-- Stats Section: Innovar sin inventar -->
+    <section class="tony-stats-section">
+        <div class="stats-container">
+
+            <div class="content-side">
+                <h2 class="stats-title">Innovar sin inventar</h2>
+
+                <p class="stats-desc">
+                    Según la 28ª Encuesta Anual Global de Directores Ejecutivos de PwC, el 42% de los CEOs cree que su
+                    empresa no será viable más allá de los próximos 10 años sin reinventarse. Por esta razón, hoy más
+                    que nunca las organizaciones deben mantenerse ágiles.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="42">0%</span>
+                        <span class="stat-label">de los CEOs cree que su empresa no sobrevivirá</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-label">Años es el tiempo límite de viabilidad sin reinventarse</span>
+                    </div>
+                </div>
+
+                <a href="#face" class="stats-pill-btn">Conoce FACE</a>
+            </div>
+
+            <div class="media-side">
+
+                <div class="vertical-video-card">
+
+                    <div class="floating-watch-btn">
+                        <button class="glass-play-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            Watch
+                        </button>
+                    </div>
+
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+                        alt="Innovación FACE" class="video-poster">
+
+                    <div class="video-brand-stamp">
+                        <span class="brand-eyebrow">METODOLOGÍA FACE</span>
+                        <h3 class="brand-title">
+                            INNOVA
+                            <span class="brand-subtitle">DESDE ADENTRO</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="video-testimonial">
+                    <p>"Mi parte favorita de este evento ha sido conectar con la realidad de mi industria..."</p>
+                    <cite>Carlos M., Director de Innovación</cite>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const stats = document.querySelectorAll('.stat-number');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = parseInt(target.getAttribute('data-target'));
+                        const isPercentage = target.innerText.includes('%') || target.nextElementSibling?.innerText.includes('%') || finalValue === 42;
+
+                        let start = 0;
+                        const duration = 2000;
+                        const step = duration / finalValue;
+
+                        let timer = setInterval(() => {
+                            start++;
+                            target.innerText = isPercentage ? start + "%" : start;
+
+                            if (start >= finalValue) clearInterval(timer);
+                        }, step);
+
+                        observer.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            stats.forEach(stat => observer.observe(stat));
+        });
+    </script>
+
+    <!-- Service Section: La Plataforma de Aliados (Professional Grade) -->
+    <section class="clean-master-section">
+        <div class="clean-bg-grid"></div>
+
+        <div class="clean-container">
+
+            <div class="promo-block reveal-on-scroll">
+                <div class="promo-badge">ACCESO LIBERADO</div>
+
+                <h2 class="promo-title">
+                    QUEREMOS VERTE <span class="text-gradient-cyan">INNOVAR.</span>
+                </h2>
+
+                <p class="promo-description">
+                    Sabemos que el camino del cambio puede sentirse solitario. <strong>No tienes que hacerlo sin
+                        apoyo.</strong>
+                    <br>
+                    Hemos desbloqueado nuestro programa insignia <strong>"INNOVAR DESDE ADENTRO"</strong> totalmente
+                    gratis en esta plataforma. Es tu caja de herramientas táctica para vencer la burocracia y activar a
+                    tu equipo hoy mismo.
+                </p>
+
+                <div class="promo-cta-box">
+                    <a href="#curso-gratis" class="btn-clean-primary">
+                        ACCEDER AL CURSO GRATIS <span class="arrow">→</span>
+                    </a>
+                    <p class="cta-note">Disponible inmediatamente para tu equipo.</p>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="stats-block reveal-on-scroll">
+                <div class="stats-header">
+                    <h3 class="stats-subtitle">LA EVIDENCIA DEL MERCADO</h3>
+                    <p class="stats-text">Datos globales que confirman la urgencia de actuar.</p>
+                </div>
+
+                <div class="stats-carousel-wrapper">
+                    <button class="carousel-nav prev">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button class="carousel-nav next">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="carousel-track-wrapper">
+                        <div class="carousel-track">
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                                        <path d="M13 17l-4-4" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">70%</h4>
+                                <p class="card-desc">De las transformaciones fallan por resistencia cultural.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: MCKINSEY & CO.</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card active">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">3x</h4>
+                                <p class="card-desc">Retorno para accionistas en empresas resilientes.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: BCG CONSULTING</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">34%</h4>
+                                <p class="card-desc">Empleados renuncian antes que expresar preocupaciones.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: UKG WORKFORCE</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 7v14M5 12l7-7 7 7" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">19%</h4>
+                                <p class="card-desc">Empresas familiares sobreviven a la 3ra generación.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: FAMILY BUSINESS INST.</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 9h.01M12 9h.01M16 9h.01" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">60%</h4>
+                                <p class="card-desc">Sienten que sus opiniones son ignoradas sistemáticamente.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: WORKFORCE INST.</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">40%</h4>
+                                <p class="card-desc">Más rápido es el "Time-to-Market" con métodos ágiles.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: MCKINSEY AGILE</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M16 16v-4m0 0v-4m0 4h4m-4 0h-4m-8 4h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2z" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">+21%</h4>
+                                <p class="card-desc">Mayor rentabilidad en equipos altamente comprometidos.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: GALLUP</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">8 de 10</h4>
+                                <p class="card-desc">Empleados tienen ideas de ahorro, pero nadie pregunta.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: ESTUDIOS DE INNOVACIÓN</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="carousel-dots clean-dots">
+                        <button class="dot active"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* --- ESTRUCTURA GENERAL --- */
+        .clean-master-section {
+            background-color: #ffffff;
+            /* Blanco Puro */
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            color: #1a1a1a;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* Grid de fondo muy sutil (Tech Vibe) */
+        .clean-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .clean-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        /* --- BLOQUE 1: EL REGALO --- */
+        .promo-block {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .promo-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #00bcd4;
+            color: white;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.2);
+        }
+
+        .promo-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            line-height: 1.1;
+            color: #111;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .text-gradient-cyan {
+            color: #00bcd4;
+            display: block;
+            background: -webkit-linear-gradient(45deg, #00bcd4, #0097a7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .promo-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .promo-description strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Botón CTA Principal */
+        .btn-clean-primary {
+            background: #111;
+            color: #fff;
+            padding: 18px 45px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-clean-primary:hover {
+            background: #00bcd4;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .cta-note {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- SEPARADOR --- */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+            margin: 80px 0;
+        }
+
+        /* --- BLOQUE 2: ESTADÍSTICAS --- */
+        .stats-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .stats-subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .stats-text {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* CARRUSEL */
+        .stats-carousel-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .carousel-track-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 50px 0;
+            margin: -50px 0;
+            /* Máscara suave */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            width: max-content;
+            padding: 0 50vw;
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* TARJETAS CON DEGRADADO (Sin Imágenes) */
+        .gradient-stat-card {
+            width: 300px;
+            min-width: 300px;
+            height: 380px;
+            flex-shrink: 0;
+            /* Degradado Sutil Tech */
+            background: linear-gradient(135deg, #ffffff 0%, #f0faff 100%);
+            border: 1px solid #eef2f5;
+            border-radius: 20px;
+            padding: 40px 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            opacity: 0.6;
+            transform: scale(0.92);
+            filter: grayscale(80%);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Línea superior decorativa */
+        .gradient-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #00bcd4;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .gradient-stat-card.active {
+            opacity: 1;
+            transform: scale(1.05);
+            filter: grayscale(0%);
+            z-index: 10;
+            background: #ffffff;
+            box-shadow: 0 20px 50px rgba(0, 188, 212, 0.12);
+        }
+
+        .gradient-stat-card.active::before {
+            opacity: 1;
+        }
+
+        /* Elementos Tarjeta */
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: #e0f7fa;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00bcd4;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .active .card-icon {
+            background: #00bcd4;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .card-num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            line-height: 1;
+            color: #1a1a1a;
+            margin: 0 0 10px 0;
+        }
+
+        .active .card-num {
+            color: #00bcd4;
+        }
+
+        .card-desc {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: auto;
+        }
+
+        .card-footer {
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 20px;
+        }
+
+        .card-source {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        /* CONTROLES */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            cursor: pointer;
+            z-index: 20;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .carousel-nav:hover {
+            color: #00bcd4;
+            border-color: #00bcd4;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev {
+            left: 40px;
+        }
+
+        .carousel-nav.next {
+            right: 40px;
+        }
+
+        /* DOTS */
+        .clean-dots {
+            gap: 12px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .clean-dots .dot {
+            width: 10px;
+            height: 10px;
+            background: #ddd;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .clean-dots .dot.active {
+            background: #00bcd4;
+            transform: scale(1.3);
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 900px) {
+            .clean-master-section {
+                padding: 60px 0;
+            }
+
+            .promo-title {
+                font-size: 2.2rem;
+            }
+
+            .gradient-stat-card {
+                width: 260px;
+                min-width: 260px;
+                height: 360px;
+                opacity: 0.7;
+                /* Más visibles en móvil */
+            }
+
+            .carousel-track-wrapper {
+                -webkit-mask-image: none;
+                mask-image: none;
+                padding: 40px 0;
+            }
+
+            .carousel-nav {
+                display: none;
+            }
+        }
