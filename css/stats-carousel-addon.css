@@ -1,4 +1,4 @@
-/* === STATS SECTION: 3D FIXED & CENTERED === */
+/* === STATS SECTION: VISIBILITY FIX === */
 
 .stats-section-mono {
     background-color: #000000;
@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-/* HEADER PEGAJOSO */
+/* HEADER */
 .stats-header {
     text-align: center;
     margin-bottom: 20px;
@@ -47,10 +47,10 @@
 .stats-carousel-wrapper {
     position: relative;
     width: 100%;
-    height: 480px;
+    /* Aumentamos altura para que quepa la sombra completa */
+    height: 520px;
     display: flex;
     align-items: center;
-    /* Quitamos justify-content center para dejar al JS trabajar */
     overflow: hidden;
 }
 
@@ -58,29 +58,28 @@
     width: 100%;
     height: 100%;
     overflow: visible;
-    /* Clave para ver tarjetas laterales */
     position: relative;
+
+    /* MÁSCARA SOLO EN DESKTOP (En móvil la quitamos abajo) */
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 .stats-track {
     display: flex;
     gap: 0;
-    /* Controlado por márgenes */
     width: max-content;
     height: 100%;
     align-items: center;
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    /* Curva más física */
-
-    /* IMPORTANTE: Eliminamos el padding-left: 50%. El JS se encarga. */
     padding-left: 0;
 }
 
-/* --- TARJETA BASE --- */
+/* --- TARJETA (BASE) --- */
 .stat-card {
-    background: #0a0a0a;
-    border: 1px solid #1a1a1a;
-    /* Borde muy sutil inactivo */
+    background: #111;
+    /* Un poco más gris base */
+    border: 1px solid #222;
     border-radius: 18px;
     padding: 40px 30px;
 
@@ -95,40 +94,38 @@
     align-items: flex-start;
     text-align: left;
 
-    /* INACTIVO: Muy oscuro para contraste */
-    opacity: 0.2;
-    transform: scale(0.85) translateY(10px);
-    /* Un poco más abajo */
-    filter: grayscale(100%) blur(1px);
-    /* Blur ligero para profundidad */
+    /* INACTIVO: Subimos opacidad para que SE VEAN */
+    opacity: 0.5;
+    /* Antes 0.2 (invisible), ahora 0.5 (visible) */
+    transform: scale(0.9);
+    filter: grayscale(100%);
     transition: all 0.5s ease;
     cursor: pointer;
-
     margin: 0 20px;
-    /* Separación física */
 }
 
-/* --- ESTADO ACTIVO (3D REAL) --- */
+/* --- ESTADO ACTIVO (SOLUCIÓN BORDE INFERIOR) --- */
 .stat-card.active {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: scale(1);
 
-    /* Fondo: Casi negro pero con luz arriba */
-    background: linear-gradient(180deg, #151515 0%, #000000 100%);
+    /* FONDO CORREGIDO: No termina en negro puro (#000), sino en gris muy oscuro (#0a0a0a) */
+    /* Esto evita que se "corte" visualmente contra el fondo negro de la web */
+    background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
 
-    /* BORDES DE LUZ (RIM LIGHT) - CLAVE DEL 3D */
-    border: 1px solid #333;
+    /* BORDES COMPLETOS: Luz arriba y borde sutil abajo para delimitar */
     border-top: 1px solid rgba(255, 255, 255, 0.5);
-    /* Luz cenital */
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    /* Borde blanco sutil abajo */
+    border-left: 1px solid #222;
+    border-right: 1px solid #222;
 
-    /* Sombra de elevación */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 1),
-        0 0 30px rgba(255, 255, 255, 0.05);
-    /* Glow suave */
+    /* SOMBRA */
+    box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 1),
+        0 0 20px rgba(255, 255, 255, 0.03);
 
     z-index: 20;
-    filter: grayscale(0%) blur(0);
+    filter: grayscale(0%);
 }
 
 /* TYPO */
@@ -143,8 +140,7 @@
     border-bottom: 2px solid #333;
     width: 100%;
     padding-bottom: 20px;
-    /* Efecto metalizado sutil */
-    background: linear-gradient(to bottom, #fff 40%, #888 100%);
+    background: linear-gradient(to bottom, #fff 40%, #999 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -171,7 +167,7 @@
 
 .stat-label {
     font-size: 0.6rem;
-    color: #444;
+    color: #555;
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 800;
@@ -185,7 +181,7 @@
     margin-top: 5px;
 }
 
-/* Flechas */
+/* NAV & DOTS */
 .stats-nav {
     position: absolute;
     top: 50%;
@@ -218,13 +214,12 @@
     right: 10px;
 }
 
-/* Dots */
 .stats-dots {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: -20px;
-    /* Pegados arriba */
+    margin-top: 10px;
+    /* Un poco de aire */
     position: relative;
     z-index: 30;
 }
@@ -245,34 +240,142 @@
     box-shadow: 0 0 10px #fff;
 }
 
-/* --- MÓVIL (EL FIX DEFINITIVO) --- */
+/* LOGOS */
+.logo-adobe {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+}
+
+.logo-forbes {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 1.6rem;
+}
+
+.logo-salesforce {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.logo-mckinsey {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.7rem;
+}
+
+.logo-gallup {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    letter-spacing: 4px;
+    font-size: 1.3rem;
+}
+
+.logo-ibm {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo-bcg {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 1.8rem;
+}
+
+.logo-deloitte {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logo-deloitte::after {
+    content: '.';
+    color: #fff;
+}
+
+.logo-hbr {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 2rem;
+}
+
+.logo-gartner {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.logo-mit {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.logo-accenture {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: lowercase;
+    font-size: 1.6rem;
+}
+
+.logo-pwc {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    text-transform: lowercase;
+    font-size: 1.8rem;
+}
+
+.logo-google {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/* ========================================= */
+/* === MÓVIL (CORRECCIONES FINALES) === */
+/* ========================================= */
 @media (max-width: 768px) {
     .stats-section-mono {
-        padding: 40px 0 50px 0;
+        padding: 40px 0 60px 0;
     }
 
     .stats-title {
         font-size: 2.2rem;
     }
 
+    /* Altura suficiente para que no se corte la sombra abajo */
     .stats-carousel-wrapper {
-        height: 420px;
+        height: 460px;
+    }
+
+    /* QUITAMOS LA MÁSCARA EN MÓVIL */
+    /* Esto permite que los vecinos se vean completamente, sin difuminarse */
+    .stats-track-container {
+        mask-image: none;
+        -webkit-mask-image: none;
+        overflow: visible;
+        /* Aseguramos que nada corte */
     }
 
     .stat-card {
-        /* 70vw = Espacio visible a los lados (15% izq + 15% der) */
         width: 70vw;
         min-width: 70vw;
         height: 380px;
         padding: 30px 25px;
         margin: 0 10px;
-        /* Margen reducido para ver mejor las vecinas */
     }
 
-    /* Inactivas: Muy pequeñas para efecto profundidad */
+    /* INACTIVAS: Opacidad 0.5 para verlas claramente */
     .stat-card:not(.active) {
-        transform: scale(0.8);
-        opacity: 0.2;
+        transform: scale(0.85);
+        /* Un poco más grandes para que se noten */
+        opacity: 0.5;
+        /* VISIBLES */
     }
 
     .stat-number {
