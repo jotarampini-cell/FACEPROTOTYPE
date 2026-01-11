@@ -1065,7 +1065,9 @@
 
                 <div class="stats-block-grid">
                     <div class="stat-unit">
-                        <h3 class="stat-num-large">42%</h3>
+                        <h3 class="stat-num-large">
+                            <span class="counter" data-target="42">0</span>%
+                        </h3>
                         <p class="stat-label-text">
                             De los CEOs creen que su modelo de negocio actual <strong>no será viable en 10
                                 años.</strong>
@@ -1074,7 +1076,9 @@
                     </div>
 
                     <div class="stat-unit">
-                        <h3 class="stat-num-large">52%</h3>
+                        <h3 class="stat-num-large">
+                            <span class="counter" data-target="52">0</span>%
+                        </h3>
                         <p class="stat-label-text">
                             De las empresas Fortune 500 del año 2000 <strong>ya no existen hoy.</strong>
                         </p>
@@ -2266,7 +2270,8 @@
                                 toggleStickyPlay();
                             } else {
                                 // Default to first episode if nothing playing
-                                playStickyEpiso               }
+                                playStickyEpiso
+                            }
                         }
                     </script>
 
@@ -2391,10 +2396,10 @@
                         };
                         document.addEventListener('touchstart', playOnInteraction, { once: true });
                         document.addEventListener('click', playOnInteraction, { once: true });
-                });
+                    });
                 }
-   
-        })();
+
+            })();
     </script>
 
     <!-- Responsive Mobile -->
@@ -2428,37 +2433,37 @@
 
     <!-- Splash screen auto-hide (Robust) -->
     <script>
-        function removeSplash() {
-            const idsToRemove = ['splash', 'skeleton-loader'];
+            function removeSplash() {
+                const idsToRemove = ['splash', 'skeleton-loader'];
 
-            idsToRemove.forEach(id => {
-                const el = document.getElementById(id);
+                idsToRemove.forEach(id => {
+                    const el = document.getElementById(id);
 
-                if (el && !el.classList.contains('getting-removed')) {
-                    el.classList.add('getting-removed');
-                    el.classList.add('fade-out'); // Ensure CSS transition handles opacity
-                    el.style.opacity = '0'; // Force opacity 0 in case class missing
-                    el.style.pointerEvents = 'none'; // Unlock clicks immediately
+                    if (el && !el.classList.contains('getting-removed')) {
+                        el.classList.add('getting-removed');
+                        el.classList.add('fade-out'); // Ensure CSS transition handles opacity
+                        el.style.opacity = '0'; // Force opacity 0 in case class missing
+                        el.style.pointerEvents = 'none'; // Unlock clicks immediately
 
-                    setTimeout(() => {
-                        if (el.parentNode) el.parentNode.removeChild(el);
+                        setTimeout(() => {
+                            if (el.parentNode) el.parentNode.removeChild(el);
+                        }
+
+                            , 500);
                     }
+                });
+            }
 
-                        , 500);
-                }
-            });
-        }
+            // Attempt removal immediately, short delay, and long delay
+            setTimeout(removeSplash, 100);
+            setTimeout(removeSplash, 2000);
+            setTimeout(removeSplash, 5000); // Super failsafe
 
-        // Attempt removal immediately, short delay, and long delay
-        setTimeout(removeSplash, 100);
-        setTimeout(removeSplash, 2000);
-        setTimeout(removeSplash, 5000); // Super failsafe
+            // Also remove on window load to be sure
+            window.addEventListener('load', () => setTimeout(removeSplash, 500));
 
-        // Also remove on window load to be sure
-        window.addEventListener('load', () => setTimeout(removeSplash, 500));
-
-        // Failsafe for errors
-        window.aentListener('error', () => setTimeout(removeSplash, 100));
+            // Failsafe for errors
+            window.aentListener('error', () => setTimeout(removeSplash, 100));
     </script>
     <!-- Footer -->
     <footer
@@ -2522,35 +2527,36 @@
     <script src="script.js?v=accordionFix3"></script>
     <script src="js/accordion.js"></script>
     <script src="mobile.js"></script>
+    <script src="js/stats-counter.js"></script>
     <!-- Emergency Accordion Script (Inline to ensure execution) -->
 
     <!-- Pillars Click Interaction Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const pillarLinks = document.querySelectorAll('.pillars-list a');
+            document.addEventListener('DOMContentLoaded', function () {
+                const pillarLinks = document.querySelectorAll('.pillars-list a');
 
-            pillarLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault(); // Evitar navegación
+                pillarLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault(); // Evitar navegación
 
-                    // Remover clase active de todos los links
-                    pillarLinks.forEach(l => l.classList.remove('active'));
+                        // Remover clase active de todos los links
+                        pillarLinks.forEach(l => l.classList.remove('active'));
 
-                    // Agregar clase active al link clickeado
-                    this.classList.'acti          });
-            });
-        });
+                        // Agregar clase active al link clickeado
+                        this.classList.'acti          });
+                    });
+                });
     </script>
 
     <script src="js/stats-carousel.js"></script>
 
     <!-- Failsafe Splash Screen Removal -->
     <script>
-        if (splash) {
-            splash.style.opacity = '0';
-           Timeout(() => splash.remove(), 500);
-        }
-   ;
+                if (splash) {
+                    splash.style.opacity = '0';
+                    Timeout(() => splash.remove(), 500);
+                }
+                ;
     </script>
 
     <!-- MOVED MODAL TO BODY END FOR Z-INDEX FIX -->

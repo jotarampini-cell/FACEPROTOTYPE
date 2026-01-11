@@ -54,6 +54,14 @@
     font-weight: 700;
     margin: 0 0 15px 0;
     line-height: 1;
+
+    /* Mantiene el ancho de los números estable mientras se animan */
+    font-variant-numeric: tabular-nums;
+
+    /* Opcional: Un gradiente sutil al texto para darle profundidad */
+    background: -webkit-linear-gradient(#000, #444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .stat-label-text {
