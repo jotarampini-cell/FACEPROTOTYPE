@@ -1,4 +1,4 @@
-/* --- ESTILOS MONOCROMÁTICOS + NAVEGACIÓN --- */
+/* --- STATS MONOCHROME POWER EDITION --- */
 
 .stats-section-mono {
     background-color: #000000;
@@ -21,6 +21,7 @@
     color: #fff;
     text-transform: uppercase;
     margin: 0 0 10px 0;
+    letter-spacing: -1px;
 }
 
 .stats-subtitle {
@@ -29,13 +30,14 @@
     margin-bottom: 50px;
 }
 
-/* WRAPPER DEL CARRUSEL */
+/* WRAPPER */
 .stats-carousel-wrapper {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 450px;
+    height: 520px;
+    /* Altura aumentada para impacto */
 }
 
 .stats-track-container {
@@ -46,111 +48,215 @@
     align-items: center;
 }
 
-/* LA PISTA (TRACK) - MATEMÁTICA DE CENTRADO */
 .stats-track {
     display: flex;
     gap: 40px;
     width: max-content;
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-
-    /* TRUCO DE CENTRADO: Empieza al 50% de la pantalla */
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     padding-left: 50%;
-    /* Resta la mitad del ancho de la tarjeta (350px / 2 = 175px) */
-    margin-left: -175px;
+    /* Ajuste inicial (se sobreescribe con JS, pero bueno para fallback) */
+    margin-left: -200px;
 }
 
-/* TARJETAS */
+/* --- TARJETA PODEROSA --- */
 .stat-card {
-    width: 350px;
-    min-width: 350px;
-    height: 320px;
+    width: 400px;
+    /* Ancho Desktop: GRANDE */
+    min-width: 400px;
+    height: 400px;
+    /* Cuadrada/Alta */
     background: #0d0d0d;
     border: 1px solid #333;
-    border-radius: 12px;
-    padding: 40px 30px;
+    border-radius: 20px;
+    /* Bordes más modernos */
+    padding: 50px 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    /* INACTIVAS */
+    /* Estado Inactivo */
     opacity: 0.3;
-    transform: scale(0.9);
+    transform: scale(0.85);
     filter: grayscale(100%);
-    transition: all 0.5s ease;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ACTIVAS */
 .stat-card.active {
     opacity: 1;
-    transform: scale(1.1);
-    background: #111;
+    transform: scale(1.05);
+    background: #000;
+    /* Fondo negro puro */
     border-color: #ffffff;
-    box-shadow: 0 20px 50px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 80px rgba(255, 255, 255, 0.08);
+    /* Sombra blanca masiva */
     z-index: 10;
 }
 
+/* NÚMERO EDITORIAL */
 .stat-number {
     font-family: 'Oswald', sans-serif;
-    font-size: 4rem;
+    font-size: 6rem;
+    /* NÚMERO GIGANTE */
     color: #fff;
-    line-height: 1;
-    margin-bottom: 15px;
+    line-height: 0.9;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -3px;
 }
 
 .stat-desc {
-    font-size: 1rem;
-    color: #bbb;
+    font-size: 1.1rem;
+    color: #999;
     line-height: 1.5;
+    font-weight: 400;
 }
 
 .stat-card.active .stat-desc {
     color: #fff;
 }
 
+/* FOOTER LOGOS */
 .stat-footer {
     border-top: 1px solid #333;
-    padding-top: 20px;
+    padding-top: 25px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
+    gap: 8px;
 }
 
 .stat-label {
     font-size: 0.6rem;
-    color: #666;
-    letter-spacing: 2px;
+    color: #555;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
 }
 
+/* --- LOGOS TIPOGRÁFICOS REALISTAS (Estilos Específicos) --- */
 .stat-brand {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #fff;
+    line-height: 1;
+    display: block;
+}
+
+.logo-adobe {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
     text-transform: uppercase;
+    letter-spacing: 0px;
+    color: #fff;
+}
+
+.logo-forbes {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: -0.5px;
+    font-size: 1.5rem;
+}
+
+.logo-mckinsey {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 0px;
+    font-size: 1.6rem;
+}
+
+.logo-ibm {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo-gallup {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1.2rem;
+}
+
+.logo-bcg {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 1.6rem;
+}
+
+.logo-deloitte {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 
-/* --- FLECHAS DE NAVEGACIÓN (DESKTOP) --- */
+.logo-hbr {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-style: italic;
+    font-size: 1.8rem;
+}
+
+.logo-gartner {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.logo-mit {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.logo-accenture {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: lowercase;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.logo-salesforce {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.logo-pwc {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    text-transform: lowercase;
+    font-size: 1.6rem;
+    letter-spacing: -1px;
+}
+
+.logo-google {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* NAV & DOTS */
 .stats-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #444;
+    color: #fff;
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.1);
-    /* Cristal oscuro */
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    color: #fff;
+    cursor: pointer;
+    z-index: 20;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    z-index: 20;
-    transition: all 0.3s ease;
+    position: absolute;
+    transition: 0.3s;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .stats-nav:hover {
@@ -167,56 +273,73 @@
     right: 5%;
 }
 
-/* --- PUNTOS (DOTS) --- */
 .stats-dots {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin: 20px auto;
 }
 
 .stat-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background: #333;
-    /* Gris oscuro inactivo */
-    border: none;
     border-radius: 50%;
+    border: none;
+    padding: 0;
     cursor: pointer;
     transition: 0.3s;
-    padding: 0;
 }
 
 .stat-dot.active {
     background: #fff;
-    /* Blanco activo */
     transform: scale(1.5);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* --- MÓVIL (AJUSTES CLAVE) --- */
-@media (max-width: 768px) {
 
-    /* 1. Ocultamos las flechas en móvil */
+/* --- MÓVIL IMPONENTE (AQUÍ ESTÁ EL CAMBIO CLAVE) --- */
+@media (max-width: 768px) {
+    .stats-carousel-wrapper {
+        height: 550px;
+        /* Más altura para que no se corte */
+    }
+
+    .stats-track {
+        /* Centrado para tarjeta variable */
+        margin-left: 0;
+        padding-left: 50%;
+        gap: 15px;
+    }
+
+    /* TARJETA GIGANTE EN MÓVIL */
+    .stat-card {
+        width: 88vw;
+        /* 88% del ancho de la pantalla: ENORME */
+        min-width: 88vw;
+        height: 480px;
+        /* Muy alta */
+        padding: 40px 30px;
+    }
+
+    /* Texto ajustado pero grande */
+    .stat-number {
+        font-size: 5.5rem;
+    }
+
+    /* Sigue siendo masivo */
+    .stat-desc {
+        font-size: 1.1rem;
+    }
+
     .stats-nav {
         display: none;
     }
 
-    /* 2. Ajustamos tamaño de tarjeta */
-    .stat-card {
-        width: 300px;
-        min-width: 300px;
-        height: 300px;
-    }
-
-    /* 3. Recalculamos el centrado para tarjeta de 300px */
-    .stats-track {
-        /* Mitad de 300px es 150px */
-        margin-left: -150px;
-        gap: 20px;
-    }
-
-    .stat-number {
-        font-size: 3rem;
+    /* Ajuste de logo en móvil */
+    .stat-brand {
+        font-size: 1.3rem;
     }
 }
