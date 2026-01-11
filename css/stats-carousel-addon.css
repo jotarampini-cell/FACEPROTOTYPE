@@ -1,8 +1,8 @@
-/* === STATS SECTION: TRUE EDITORIAL EDITION === */
-
+/* === STATS SECTION: INTERACTIVE EDITORIAL EDITION === */
 .stats-section-mono {
     background-color: #000000;
-    padding: 100px 0;
+    /* REDUCIDO: Padding superior ajustado para compactar */
+    padding: 60px 0 80px 0;
     border-top: 1px solid #1a1a1a;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
@@ -19,10 +19,11 @@
     align-items: center;
 }
 
-/* --- HEADER (Centrado para introducir) --- */
+/* --- HEADER COMPACTO --- */
 .stats-header {
     text-align: center;
-    margin-bottom: 70px;
+    /* REDUCIDO: De 70px a 30px para pegar el título a las tarjetas */
+    margin-bottom: 30px;
     padding: 0 20px;
     z-index: 5;
     max-width: 900px;
@@ -33,7 +34,8 @@
     font-size: 3.5rem;
     color: #fff;
     text-transform: uppercase;
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
+    /* Margen reducido */
     letter-spacing: -1px;
 }
 
@@ -42,86 +44,100 @@
     color: #888;
     font-weight: 300;
     letter-spacing: 1px;
+    margin: 0;
 }
 
 /* --- CAROUSEL STAGE --- */
 .stats-carousel-wrapper {
     position: relative;
     width: 100%;
-    height: 550px;
+    /* Altura ajustada para acomodar la escala */
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Padding lateral para asegurar que no se corten las sombras */
+    padding: 0 2%;
+    box-sizing: border-box;
 }
 
 .stats-track-container {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /* VISIBLE: Para que se vean las tarjetas saliendo por los lados */
+    overflow: visible;
     position: relative;
-    /* Máscara suave */
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 .stats-track {
     display: flex;
-    gap: 40px;
+    /* CAMBIO: Gap a 0, usaremos márgenes en las tarjetas */
+    gap: 0;
     width: max-content;
     height: 100%;
     align-items: center;
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 
-    /* Centrado Matemático Inicial */
+    /* Centrado Inicial: Mantenemos esto para que el JS funcione bien */
     padding-left: 50%;
-    margin-left: 0;
 }
 
-/* --- TARJETA EDITORIAL (DISPOSICIÓN IZQUIERDA) --- */
+/* --- TARJETA (EFECTO PEEKABOO) --- */
 .stat-card {
     background: #080808;
     border: 1px solid #222;
     border-radius: 12px;
     padding: 50px 40px;
 
+    /* Dimensiones Desktop */
+    width: 400px;
+    /* Ligeramente más angosta para ver vecinas */
+    min-width: 400px;
+    height: 420px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    /* CLAVE EDITORIAL: ALINEACIÓN IZQUIERDA */
     align-items: flex-start;
     text-align: left;
 
+    /* ESTADO INACTIVO POR DEFECTO */
     opacity: 0.4;
-    transform: scale(0.9);
+    transform: scale(0.85);
+    /* Más pequeñas las de los lados */
     filter: grayscale(100%);
-    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     cursor: pointer;
+
+    /* MARGEN LATERAL (Reemplaza al gap) */
+    margin: 0 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Estado Activo */
+/* ESTADO ACTIVO */
 .stat-card.active {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1);
+    /* Tamaño completo */
     background: linear-gradient(145deg, #111111 0%, #000000 100%);
     border-color: #ffffff;
-    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 80px rgba(255, 255, 255, 0.08);
     z-index: 20;
     filter: grayscale(0%);
 }
 
-/* TYPO */
 .stat-number {
     font-family: 'Oswald', sans-serif;
     color: #fff;
+    font-size: 6rem;
     line-height: 0.9;
     margin-bottom: 20px;
     font-weight: 700;
     letter-spacing: -3px;
-    /* Borde inferior sutil - Toque Editorial */
-    padding-bottom: 20px;
     border-bottom: 2px solid #333;
     width: 100%;
+    padding-bottom: 20px;
 }
 
 .stat-card.active .stat-number {
@@ -132,41 +148,28 @@
     font-family: 'Montserrat', sans-serif;
     color: #999;
     line-height: 1.6;
-    font-weight: 400;
     font-size: 1.1rem;
-    max-width: 95%;
 }
 
 .stat-card.active .stat-desc {
     color: #fff;
-    font-weight: 500;
 }
 
 .stat-footer {
-    margin-top: auto;
-    padding-top: 25px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     align-items: flex-start;
-    width: 100%;
-}
-
-.stat-label {
-    font-size: 0.6rem;
-    color: #555;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 800;
 }
 
 .stat-brand {
     font-size: 1.4rem;
     color: #fff;
     display: block;
+    margin-top: 5px;
 }
 
-/* --- NAVIGATION --- */
+/* --- NAVEGACIÓN --- */
 .stats-nav {
     position: absolute;
     top: 50%;
@@ -189,127 +192,17 @@
     background: #fff;
     color: #000;
     border-color: #fff;
-    transform: translateY(-50%) scale(1.1);
+    transform: scale(1.1);
 }
 
 .stats-nav.prev {
-    left: 5%;
+    left: 2%;
 }
 
 .stats-nav.next {
-    right: 5%;
+    right: 2%;
 }
 
-/* DOTS */
-.stats-dots {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.stat-dot {
-    width: 6px;
-    height: 6px;
-    background: #333;
-    border: none;
-    border-radius: 50%;
-    padding: 0;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.stat-dot.active {
-    background: #fff;
-    transform: scale(1.5);
-}
-
-
-/* ========================================= */
-/* === RESPONSIVE RULES === */
-/* ========================================= */
-
-/* MÓVIL (Autoridad con alineación izquierda) */
-@media (max-width: 768px) {
-    .stats-section-mono {
-        padding: 60px 0;
-    }
-
-    .stats-carousel-wrapper {
-        height: 500px;
-    }
-
-    .stats-track-container {
-        -webkit-mask-image: none;
-        mask-image: none;
-    }
-
-    .stats-track {
-        gap: 15px;
-        padding-left: 50%;
-    }
-
-    .stat-card {
-        width: 85vw;
-        min-width: 85vw;
-        height: 450px;
-        padding: 40px 30px;
-
-        /* Asegura alineación izquierda en móvil */
-        text-align: left;
-        align-items: flex-start;
-    }
-
-    .stat-number {
-        font-size: 5rem;
-        margin-bottom: 20px;
-    }
-
-    .stat-desc {
-        font-size: 1.1rem;
-    }
-
-    .stat-footer {
-        align-items: flex-start;
-        border-top: none;
-    }
-
-    .stats-nav {
-        display: none;
-    }
-}
-
-/* DESKTOP (PANORÁMICO) */
-@media (min-width: 769px) {
-    .stats-carousel-wrapper {
-        max-width: 1600px;
-        margin: 0 auto;
-    }
-
-    .stat-card {
-        width: 420px;
-        min-width: 420px;
-        height: 420px;
-    }
-
-    .stat-number {
-        font-size: 6rem;
-    }
-
-    @media (min-width: 1400px) {
-        .stats-nav.prev {
-            left: 10%;
-        }
-
-        .stats-nav.next {
-            right: 10%;
-        }
-    }
-}
 
 /* LOGOS */
 .logo-adobe {
@@ -405,4 +298,77 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     letter-spacing: -1px;
+}
+
+/* DOTS */
+.stats-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stat-dot {
+    width: 6px;
+    height: 6px;
+    background: #333;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.stat-dot.active {
+    background: #fff;
+    transform: scale(1.5);
+}
+
+
+/* --- MÓVIL (CAMBIOS CRÍTICOS) --- */
+@media (max-width: 768px) {
+    .stats-section-mono {
+        padding: 50px 0 60px 0;
+    }
+
+    .stats-header {
+        margin-bottom: 20px;
+    }
+
+    .stats-title {
+        font-size: 2.5rem;
+    }
+
+    .stats-track {
+        /* Ajuste fino para centrado móvil */
+        padding-left: 50%;
+    }
+
+    .stat-card {
+        /* ANCHO REDUCIDO: 75vw permite ver las tarjetas de los lados */
+        width: 75vw;
+        min-width: 75vw;
+        height: 400px;
+        padding: 30px 25px;
+        margin: 0 10px;
+        /* Menor separación en móvil */
+    }
+
+    /* Las inactivas en móvil se hacen aún más pequeñas */
+    .stat-card:not(.active) {
+        transform: scale(0.85);
+        opacity: 0.3;
+    }
+
+    .stat-number {
+        font-size: 4.5rem;
+    }
+
+    .stats-nav {
+        display: none;
+    }
 }

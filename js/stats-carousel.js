@@ -1,47 +1,52 @@
-document.addEventListener('DOMContentLoaded', () => {
 
+document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('statsTrack');
     const cards = Array.from(document.querySelectorAll('.stat-card'));
     const dotsContainer = document.querySelector('.stats-dots');
     const prevBtn = document.querySelector('.stats-nav.prev');
     const nextBtn = document.querySelector('.stats-nav.next');
-    const wrapper = document.querySelector('.stats-carousel-wrapper');
 
-    // Generar dots dinámicamente si faltan (para las 14 tarjetas)
+    // Generar dots dinámicamente
     if (dotsContainer && dotsContainer.children.length < cards.length) {
-        dotsContainer.innerHTML = ''; // Limpiar
+        dotsContainer.innerHTML = '';
         cards.forEach((_, i) => {
             const btn = document.createElement('button');
             btn.className = i === 0 ? 'stat-dot active' : 'stat-dot';
-            btn.setAttribute('aria-label', `Ir a slide ${i + 1}`);
             dotsContainer.appendChild(btn);
         });
     }
     const dots = Array.from(document.querySelectorAll('.stat-dot'));
 
     let currentIndex = 0;
+
     if (!track || cards.length === 0) return;
 
     function updateCarousel() {
+        // 1. Obtener ancho base de la tarjeta (incluye padding y border)
         const cardWidth = cards[0].offsetWidth;
-        const style = window.getComputedStyle(track);
-        const gap = parseFloat(style.gap) || 40;
 
-        // CÁLCULO DE CENTRADO DINÁMICO
-        // Queremos que el centro de la tarjeta activa esté en el centro de la pantalla.
-        // CSS tiene padding-left: 50%.
-        // Debemos restar: (mitad de la tarjeta) + (todas las tarjetas anteriores + gaps)
+        // 2. Obtener márgenes computados (ya que reemplazamos el gap por margin)
+        const style = window.getComputedStyle(cards[0]);
+        const marginLeft = parseFloat(style.marginLeft) || 0;
+        const marginRight = parseFloat(style.marginRight) || 0;
 
-        const centerOffset = cardWidth / 2;
-        const previousItemsWidth = currentIndex * (cardWidth + gap);
+        // Ancho total que ocupa un elemento en el track
+        const fullItemWidth = cardWidth + marginLeft + marginRight;
+
+        // 3. CÁLCULO DE CENTRADO
+        // Como tenemos padding-left: 50% en el track, el punto "0" es el centro de pantalla.
+        // Debemos restar la mitad de la tarjeta activa (cardWidth/2)
+        // Y restar todo el espacio de las tarjetas anteriores.
+
+        // Nota: Agregamos marginLeft a la mitad para centrar visualmente incluyendo el espacio
+        const centerOffset = (cardWidth / 2) + marginLeft;
+        const previousItemsWidth = currentIndex * fullItemWidth;
 
         const moveAmount = previousItemsWidth + centerOffset;
 
-        // Aplicamos transform (más fluido que margin)
-        track.style.marginLeft = '0'; // Reset margin
         track.style.transform = `translateX(-${moveAmount}px)`;
 
-        // Actualizar Activos
+        // Actualizar Activos (Esto dispara la animación CSS de escala)
         cards.forEach((c, i) => c.classList.toggle('active', i === currentIndex));
         dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
     }
@@ -60,18 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextBtn) nextBtn.addEventListener('click', next);
     if (prevBtn) prevBtn.addEventListener('click', prev);
 
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentIndex = index;
-            updateCarousel();
-        });
-    });
-
-    // Touch Swipe
+    // Swipe Support
     let startX = 0;
-    if (wrapper) {
-        wrapper.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX, { passive: true });
-        wrapper.addEventListener('touchend', e => {
+    if (track.parentElement) {
+        track.parentElement.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX, { passive: true });
+        track.parentElement.addEventListener('touchend', e => {
             const diff = startX - e.changedTouches[0].screenX;
             if (diff > 50) next();
             if (diff < -50) prev();
