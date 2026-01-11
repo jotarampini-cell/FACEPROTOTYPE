@@ -1,8 +1,9 @@
-/* === STATS SECTION: INTERACTIVE EDITORIAL EDITION === */
+/* === STATS SECTION: INTERACTIVE & COMPACT FIX === */
+
 .stats-section-mono {
     background-color: #000000;
-    /* REDUCIDO: Padding superior ajustado para compactar */
-    padding: 60px 0 80px 0;
+    /* COMPACTACIÓN: Reduje el padding superior/inferior */
+    padding: 50px 0;
     border-top: 1px solid #1a1a1a;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
@@ -19,11 +20,11 @@
     align-items: center;
 }
 
-/* --- HEADER COMPACTO --- */
+/* --- HEADER PEGAJOSO --- */
 .stats-header {
     text-align: center;
-    /* REDUCIDO: De 70px a 30px para pegar el título a las tarjetas */
-    margin-bottom: 30px;
+    /* CRÍTICO: Margen reducido al mínimo para pegar título a tarjetas */
+    margin-bottom: 20px;
     padding: 0 20px;
     z-index: 5;
     max-width: 900px;
@@ -31,107 +32,103 @@
 
 .stats-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     color: #fff;
     text-transform: uppercase;
-    margin: 0 0 10px 0;
-    /* Margen reducido */
+    margin: 0 0 5px 0;
     letter-spacing: -1px;
 }
 
 .stats-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #888;
     font-weight: 300;
     letter-spacing: 1px;
-    margin: 0;
 }
 
 /* --- CAROUSEL STAGE --- */
 .stats-carousel-wrapper {
     position: relative;
     width: 100%;
-    /* Altura ajustada para acomodar la escala */
-    height: 500px;
+    /* CRÍTICO: Altura reducida para subir los puntos */
+    height: 480px;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Padding lateral para asegurar que no se corten las sombras */
-    padding: 0 2%;
-    box-sizing: border-box;
 }
 
 .stats-track-container {
     width: 100%;
     height: 100%;
-    /* VISIBLE: Para que se vean las tarjetas saliendo por los lados */
+    /* CRÍTICO: Overflow visible para ver las tarjetas salir */
     overflow: visible;
     position: relative;
+    /* Máscara suave lateral */
     mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 .stats-track {
     display: flex;
-    /* CAMBIO: Gap a 0, usaremos márgenes en las tarjetas */
-    gap: 0;
+    gap: 20px;
+    /* Gap físico */
     width: max-content;
     height: 100%;
     align-items: center;
     transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 
-    /* Centrado Inicial: Mantenemos esto para que el JS funcione bien */
+    /* CENTRADO MATEMÁTICO */
     padding-left: 50%;
 }
 
-/* --- TARJETA (EFECTO PEEKABOO) --- */
+/* --- TARJETA BASE --- */
 .stat-card {
-    background: #080808;
+    background: #0a0a0a;
     border: 1px solid #222;
-    border-radius: 12px;
-    padding: 50px 40px;
+    border-radius: 16px;
+    padding: 40px 30px;
 
-    /* Dimensiones Desktop */
+    /* DESKTOP DEFAULT */
     width: 400px;
-    /* Ligeramente más angosta para ver vecinas */
     min-width: 400px;
-    height: 420px;
+    height: 400px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    /* Alineación izquierda editorial */
     text-align: left;
 
-    /* ESTADO INACTIVO POR DEFECTO */
-    opacity: 0.4;
+    /* ESTADO INACTIVO (POR DEFECTO) */
+    opacity: 0.3;
     transform: scale(0.85);
     /* Más pequeñas las de los lados */
     filter: grayscale(100%);
     transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     cursor: pointer;
-
-    /* MARGEN LATERAL (Reemplaza al gap) */
-    margin: 0 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* ESTADO ACTIVO */
+/* --- ESTADO ACTIVO (EL EFECTO 3D REAL) --- */
 .stat-card.active {
     opacity: 1;
     transform: scale(1);
-    background: linear-gradient(145deg, #151515 0%, #050505 100%);
-    /* Un poco más claro arriba para dar volumen */
+    /* Degradado sutil para volumen */
+    background: linear-gradient(145deg, #151515 0%, #000000 100%);
     border-color: #ffffff;
-    /* SOMBRA MÁS FUERTE PARA QUE FLOTE */
-    box-shadow: 0 20px 50px rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+    /* SOLUCIÓN 3D: Sombra BLANCA (glow) en lugar de negra */
+    box-shadow: 0 15px 50px rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05);
+
     z-index: 20;
     filter: grayscale(0%);
 }
 
+/* Tipografía */
 .stat-number {
     font-family: 'Oswald', sans-serif;
     color: #fff;
-    font-size: 6rem;
+    font-size: 5.5rem;
     line-height: 0.9;
     margin-bottom: 20px;
     font-weight: 700;
@@ -148,8 +145,8 @@
 .stat-desc {
     font-family: 'Montserrat', sans-serif;
     color: #999;
-    line-height: 1.6;
-    font-size: 1.1rem;
+    line-height: 1.5;
+    font-size: 1rem;
 }
 
 .stat-card.active .stat-desc {
@@ -158,25 +155,32 @@
 
 .stat-footer {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    margin-top: auto;
+}
+
+.stat-label {
+    font-size: 0.6rem;
+    color: #555;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 800;
+    display: block;
 }
 
 .stat-brand {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: #fff;
     display: block;
     margin-top: 5px;
 }
 
-/* --- NAVEGACIÓN --- */
+/* Flechas */
 .stats-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: #000;
     border: 1px solid #333;
     border-radius: 50%;
@@ -192,18 +196,41 @@
 .stats-nav:hover {
     background: #fff;
     color: #000;
-    border-color: #fff;
-    transform: scale(1.1);
 }
 
 .stats-nav.prev {
-    left: 2%;
+    left: 10px;
 }
 
 .stats-nav.next {
-    right: 2%;
+    right: 10px;
 }
 
+/* Puntos (Dots) */
+.stats-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    /* CRÍTICO: Margen negativo para subir los puntos cerca de la tarjeta */
+    margin-top: -20px;
+    position: relative;
+    z-index: 30;
+}
+
+.stat-dot {
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    transition: 0.3s;
+}
+
+.stat-dot.active {
+    background: #fff;
+    transform: scale(1.4);
+}
 
 /* LOGOS */
 .logo-adobe {
@@ -301,98 +328,48 @@
     letter-spacing: -1px;
 }
 
-/* DOTS */
-.stats-dots {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.stat-dot {
-    width: 6px;
-    height: 6px;
-    background: #333;
-    border: none;
-    border-radius: 50%;
-    padding: 0;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.stat-dot.active {
-    background: #fff;
-    transform: scale(1.5);
-}
-
-
 /* ========================================= */
-/* === MÓVIL: EL ARREGLO DEL "PEEKABOO" === */
+/* === AJUSTES MÓVIL (LA CLAVE DEL ÉXITO) === */
 /* ========================================= */
 @media (max-width: 768px) {
     .stats-section-mono {
-        padding: 40px 0 60px 0;
-        /* Más compacto arriba */
+        padding: 40px 0 50px 0;
     }
 
-    .stats-header {
-        margin-bottom: 20px;
-        /* Pegamos el título a las tarjetas */
-        padding: 0 15px;
-    }
-
-    /* Título un poco más pequeño para que no compita tanto */
     .stats-title {
         font-size: 2.2rem;
     }
 
     .stats-carousel-wrapper {
-        height: 460px;
-        /* Altura ajustada */
-        /* IMPORTANTE: Padding lateral para dejar ver los vecinos */
-        padding: 0;
-    }
-
-    .stats-track {
-        /* Esto centra el elemento activo matemáticamente */
-        padding-left: 50%;
+        height: 420px;
+        /* Aún más compacto en móvil */
     }
 
     .stat-card {
-        /* --- EL CAMBIO CLAVE --- */
-        /* Reducimos el ancho al 75% de la pantalla. */
-        /* Esto deja un 12.5% de espacio a cada lado para ver la tarjeta siguiente/anterior */
-        width: 72vw;
-        min-width: 72vw;
-
-        height: 400px;
+        /* SOLUCIÓN PEEKABOO: 
+           70vw deja 15% de espacio a cada lado. 
+           Esto OBLIGA a ver las tarjetas vecinas. */
+        width: 70vw;
+        min-width: 70vw;
+        height: 380px;
+        /* Altura controlada */
         padding: 30px 25px;
-        margin: 0 10px;
-        /* Espacio entre tarjetas */
-
-        /* Alineación */
-        text-align: left;
-        align-items: flex-start;
     }
 
-    /* Las tarjetas inactivas se hacen más pequeñas y transparentes */
+    /* En móvil las inactivas se hacen muy pequeñas para dar contraste */
     .stat-card:not(.active) {
-        transform: scale(0.85);
-        opacity: 0.3;
+        transform: scale(0.8);
+        opacity: 0.25;
     }
 
     .stat-number {
         font-size: 4rem;
         margin-bottom: 15px;
+        padding-bottom: 15px;
     }
 
     .stat-desc {
-        font-size: 1rem;
-        line-height: 1.4;
+        font-size: 0.95rem;
     }
 
     .stats-nav {
