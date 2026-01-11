@@ -1,10 +1,10 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('statsTrack');
     const cards = Array.from(document.querySelectorAll('.stat-card'));
     const dotsContainer = document.querySelector('.stats-dots');
     const prevBtn = document.querySelector('.stats-nav.prev');
     const nextBtn = document.querySelector('.stats-nav.next');
+    const wrapper = document.querySelector('.stats-carousel-wrapper');
 
     // Generar dots dinámicamente
     if (dotsContainer && dotsContainer.children.length < cards.length) {
@@ -22,31 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!track || cards.length === 0) return;
 
     function updateCarousel() {
-        // 1. Obtener ancho base de la tarjeta (incluye padding y border)
-        const cardWidth = cards[0].offsetWidth;
+        // 1. Encontrar el centro del contenedor (la pantalla visible)
+        const wrapperCenter = wrapper.offsetWidth / 2;
 
-        // 2. Obtener márgenes computados (ya que reemplazamos el gap por margin)
-        const style = window.getComputedStyle(cards[0]);
-        const marginLeft = parseFloat(style.marginLeft) || 0;
-        const marginRight = parseFloat(style.marginRight) || 0;
+        // 2. Encontrar la tarjeta activa
+        const activeCard = cards[currentIndex];
 
-        // Ancho total que ocupa un elemento en el track
-        const fullItemWidth = cardWidth + marginLeft + marginRight;
+        // 3. Encontrar el centro de la tarjeta activa (su posición izquierda + mitad de su ancho)
+        // offsetLeft nos dice exactamente dónde está la tarjeta dentro del track
+        const cardCenter = activeCard.offsetLeft + (activeCard.offsetWidth / 2);
 
-        // 3. CÁLCULO DE CENTRADO
-        // Como tenemos padding-left: 50% en el track, el punto "0" es el centro de pantalla.
-        // Debemos restar la mitad de la tarjeta activa (cardWidth/2)
-        // Y restar todo el espacio de las tarjetas anteriores.
+        // 4. Calcular el movimiento exacto
+        // Queremos que el cardCenter coincida con wrapperCenter
+        const moveAmount = wrapperCenter - cardCenter;
 
-        // Nota: Agregamos marginLeft a la mitad para centrar visualmente incluyendo el espacio
-        const centerOffset = (cardWidth / 2) + marginLeft;
-        const previousItemsWidth = currentIndex * fullItemWidth;
+        // Aplicamos el movimiento (sin signo negativo forzado, la resta nos da el signo correcto)
+        track.style.transform = `translateX(${moveAmount}px)`;
 
-        const moveAmount = previousItemsWidth + centerOffset;
-
-        track.style.transform = `translateX(-${moveAmount}px)`;
-
-        // Actualizar Activos (Esto dispara la animación CSS de escala)
+        // Clases Activas
         cards.forEach((c, i) => c.classList.toggle('active', i === currentIndex));
         dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
     }
@@ -65,18 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextBtn) nextBtn.addEventListener('click', next);
     if (prevBtn) prevBtn.addEventListener('click', prev);
 
-    // Swipe Support
+    // Swipe Logic (Mejorada)
     let startX = 0;
-    if (track.parentElement) {
-        track.parentElement.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX, { passive: true });
-        track.parentElement.addEventListener('touchend', e => {
+    if (wrapper) {
+        wrapper.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX, { passive: true });
+        wrapper.addEventListener('touchend', e => {
             const diff = startX - e.changedTouches[0].screenX;
-            if (diff > 50) next();
-            if (diff < -50) prev();
+            if (diff > 40) next(); // Sensibilidad ajustada
+            if (diff < -40) prev();
         }, { passive: true });
     }
 
-    // Inicializar
+    // Inicializar (Esperamos un poco más para asegurar renderizado móvil)
     setTimeout(updateCarousel, 100);
     window.addEventListener('resize', updateCarousel);
 });

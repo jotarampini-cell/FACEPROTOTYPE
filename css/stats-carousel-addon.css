@@ -1,15 +1,13 @@
-/* === STATS SECTION: INTERACTIVE & COMPACT FIX === */
+/* === STATS SECTION: 3D FIXED & CENTERED === */
 
 .stats-section-mono {
     background-color: #000000;
-    /* COMPACTACIÓN: Reduje el padding superior/inferior */
     padding: 50px 0;
     border-top: 1px solid #1a1a1a;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
     overflow: hidden;
     width: 100%;
-    position: relative;
 }
 
 .stats-container {
@@ -20,10 +18,9 @@
     align-items: center;
 }
 
-/* --- HEADER PEGAJOSO --- */
+/* HEADER PEGAJOSO */
 .stats-header {
     text-align: center;
-    /* CRÍTICO: Margen reducido al mínimo para pegar título a tarjetas */
     margin-bottom: 20px;
     padding: 0 20px;
     z-index: 5;
@@ -46,49 +43,48 @@
     letter-spacing: 1px;
 }
 
-/* --- CAROUSEL STAGE --- */
+/* CAROUSEL STAGE */
 .stats-carousel-wrapper {
     position: relative;
     width: 100%;
-    /* CRÍTICO: Altura reducida para subir los puntos */
     height: 480px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* Quitamos justify-content center para dejar al JS trabajar */
+    overflow: hidden;
 }
 
 .stats-track-container {
     width: 100%;
     height: 100%;
-    /* CRÍTICO: Overflow visible para ver las tarjetas salir */
     overflow: visible;
+    /* Clave para ver tarjetas laterales */
     position: relative;
-    /* Máscara suave lateral */
-    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 .stats-track {
     display: flex;
-    gap: 20px;
-    /* Gap físico */
+    gap: 0;
+    /* Controlado por márgenes */
     width: max-content;
     height: 100%;
     align-items: center;
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Curva más física */
 
-    /* CENTRADO MATEMÁTICO */
-    padding-left: 50%;
+    /* IMPORTANTE: Eliminamos el padding-left: 50%. El JS se encarga. */
+    padding-left: 0;
 }
 
 /* --- TARJETA BASE --- */
 .stat-card {
     background: #0a0a0a;
-    border: 1px solid #222;
-    border-radius: 16px;
+    border: 1px solid #1a1a1a;
+    /* Borde muy sutil inactivo */
+    border-radius: 18px;
     padding: 40px 30px;
 
-    /* DESKTOP DEFAULT */
+    /* Desktop */
     width: 400px;
     min-width: 400px;
     height: 400px;
@@ -97,34 +93,45 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    /* Alineación izquierda editorial */
     text-align: left;
 
-    /* ESTADO INACTIVO (POR DEFECTO) */
-    opacity: 0.3;
-    transform: scale(0.85);
-    /* Más pequeñas las de los lados */
-    filter: grayscale(100%);
-    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* INACTIVO: Muy oscuro para contraste */
+    opacity: 0.2;
+    transform: scale(0.85) translateY(10px);
+    /* Un poco más abajo */
+    filter: grayscale(100%) blur(1px);
+    /* Blur ligero para profundidad */
+    transition: all 0.5s ease;
     cursor: pointer;
+
+    margin: 0 20px;
+    /* Separación física */
 }
 
-/* --- ESTADO ACTIVO (EL EFECTO 3D REAL) --- */
+/* --- ESTADO ACTIVO (3D REAL) --- */
 .stat-card.active {
     opacity: 1;
-    transform: scale(1);
-    /* Degradado sutil para volumen */
-    background: linear-gradient(145deg, #151515 0%, #000000 100%);
-    border-color: #ffffff;
+    transform: scale(1) translateY(0);
 
-    /* SOLUCIÓN 3D: Sombra BLANCA (glow) en lugar de negra */
-    box-shadow: 0 15px 50px rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    /* Fondo: Casi negro pero con luz arriba */
+    background: linear-gradient(180deg, #151515 0%, #000000 100%);
+
+    /* BORDES DE LUZ (RIM LIGHT) - CLAVE DEL 3D */
+    border: 1px solid #333;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    /* Luz cenital */
+    border-bottom: 1px solid #000;
+
+    /* Sombra de elevación */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 1),
+        0 0 30px rgba(255, 255, 255, 0.05);
+    /* Glow suave */
 
     z-index: 20;
-    filter: grayscale(0%);
+    filter: grayscale(0%) blur(0);
 }
 
-/* Tipografía */
+/* TYPO */
 .stat-number {
     font-family: 'Oswald', sans-serif;
     color: #fff;
@@ -136,6 +143,10 @@
     border-bottom: 2px solid #333;
     width: 100%;
     padding-bottom: 20px;
+    /* Efecto metalizado sutil */
+    background: linear-gradient(to bottom, #fff 40%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .stat-card.active .stat-number {
@@ -144,13 +155,13 @@
 
 .stat-desc {
     font-family: 'Montserrat', sans-serif;
-    color: #999;
+    color: #888;
     line-height: 1.5;
     font-size: 1rem;
 }
 
 .stat-card.active .stat-desc {
-    color: #fff;
+    color: #ddd;
 }
 
 .stat-footer {
@@ -160,7 +171,7 @@
 
 .stat-label {
     font-size: 0.6rem;
-    color: #555;
+    color: #444;
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 800;
@@ -181,8 +192,8 @@
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background: #000;
-    border: 1px solid #333;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     color: #fff;
     cursor: pointer;
@@ -191,6 +202,7 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 .stats-nav:hover {
@@ -206,20 +218,20 @@
     right: 10px;
 }
 
-/* Puntos (Dots) */
+/* Dots */
 .stats-dots {
     display: flex;
     justify-content: center;
     gap: 10px;
-    /* CRÍTICO: Margen negativo para subir los puntos cerca de la tarjeta */
     margin-top: -20px;
+    /* Pegados arriba */
     position: relative;
     z-index: 30;
 }
 
 .stat-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background: #333;
     border: none;
     border-radius: 50%;
@@ -229,108 +241,11 @@
 
 .stat-dot.active {
     background: #fff;
-    transform: scale(1.4);
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #fff;
 }
 
-/* LOGOS */
-.logo-adobe {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-}
-
-.logo-forbes {
-    font-family: 'Libre Baskerville', serif;
-    font-weight: 700;
-    letter-spacing: -1px;
-    font-size: 1.6rem;
-}
-
-.logo-salesforce {
-    font-family: 'Varela Round', sans-serif;
-    font-weight: 700;
-    font-style: italic;
-}
-
-.logo-mckinsey {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-style: italic;
-    font-size: 1.7rem;
-}
-
-.logo-gallup {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    letter-spacing: 4px;
-    font-size: 1.3rem;
-}
-
-.logo-ibm {
-    font-family: 'Roboto Slab', serif;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.logo-bcg {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    letter-spacing: -1px;
-    font-size: 1.8rem;
-}
-
-.logo-deloitte {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.logo-deloitte::after {
-    content: '.';
-    color: #fff;
-}
-
-.logo-hbr {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-style: italic;
-    font-size: 2rem;
-}
-
-.logo-gartner {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-}
-
-.logo-mit {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-.logo-accenture {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    text-transform: lowercase;
-    font-size: 1.6rem;
-}
-
-.logo-pwc {
-    font-family: 'Georgia', serif;
-    font-weight: 700;
-    text-transform: lowercase;
-    font-size: 1.8rem;
-}
-
-.logo-google {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    letter-spacing: -1px;
-}
-
-/* ========================================= */
-/* === AJUSTES MÓVIL (LA CLAVE DEL ÉXITO) === */
-/* ========================================= */
+/* --- MÓVIL (EL FIX DEFINITIVO) --- */
 @media (max-width: 768px) {
     .stats-section-mono {
         padding: 40px 0 50px 0;
@@ -342,34 +257,28 @@
 
     .stats-carousel-wrapper {
         height: 420px;
-        /* Aún más compacto en móvil */
     }
 
     .stat-card {
-        /* SOLUCIÓN PEEKABOO: 
-           70vw deja 15% de espacio a cada lado. 
-           Esto OBLIGA a ver las tarjetas vecinas. */
+        /* 70vw = Espacio visible a los lados (15% izq + 15% der) */
         width: 70vw;
         min-width: 70vw;
         height: 380px;
-        /* Altura controlada */
         padding: 30px 25px;
+        margin: 0 10px;
+        /* Margen reducido para ver mejor las vecinas */
     }
 
-    /* En móvil las inactivas se hacen muy pequeñas para dar contraste */
+    /* Inactivas: Muy pequeñas para efecto profundidad */
     .stat-card:not(.active) {
         transform: scale(0.8);
-        opacity: 0.25;
+        opacity: 0.2;
     }
 
     .stat-number {
         font-size: 4rem;
         margin-bottom: 15px;
         padding-bottom: 15px;
-    }
-
-    .stat-desc {
-        font-size: 0.95rem;
     }
 
     .stats-nav {
