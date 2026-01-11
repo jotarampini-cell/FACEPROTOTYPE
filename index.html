@@ -895,8 +895,11 @@
 
     <!-- LOAD APPLE EXPERIENCE ASSETS -->
     <link rel="stylesheet" href="css/apple-experience.css">
+    <link rel="stylesheet" href="css/stats-carousel-addon.css">
     <!-- No external data source needed! -->
     <script src="js/apple-experience.js?v=fix_close_final"></script>
+    <script src="js/stats-carousel.js"></script>
+
 
     <!-- Section: Premium Testimonials Slider (Tony Robbins Style) -->
     <section class="tony-cinematic-slider">
@@ -1048,6 +1051,7 @@
     </section>
 
 
+
     <!-- Stats Section: Innovar sin inventar -->
     <section class="tony-stats-section">
         <div class="stats-container">
@@ -1061,89 +1065,85 @@
                     que nunca las organizaciones deben mantenerse ágiles.
                 </p>
 
-                <div class="stats-grid">
+                <div class="stats-carousel-wrapper">
+                    <button class="carousel-nav prev">‹</button>
+                    <div class="carousel-track">
 
-                    <div class="evidence-card">
-                        <div class="card-content">
-                            <h3 class="card-number">78%</h3>
-                            <p class="card-description">De empresas que invierten en creatividad aumentan su
-                                productividad.</p>
+                        <div class="evidence-card active">
+                            <div class="card-content">
+                                <h3 class="card-number">78%</h3>
+                                <p class="card-description">De empresas que invierten en creatividad aumentan su
+                                    productividad.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="source-label">FUENTE</span>
+                                <div class="brand-typo logo-adobe">ADOBE</div>
+                            </div>
                         </div>
-                        <div class="card-footer">
-                            <span class="source-label">FUENTE</span>
-                            <div class="brand-typo logo-adobe">ADOBE</div>
+
+                        <div class="evidence-card">
+                            <div class="card-content">
+                                <h3 class="card-number">52%</h3>
+                                <p class="card-description">De las Fortune 500 del año 2000 ya no existen hoy.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="source-label">FUENTE</span>
+                                <div class="brand-typo logo-forbes">Forbes</div>
+                            </div>
                         </div>
+
+                        <div class="evidence-card">
+                            <div class="card-content">
+                                <h3 class="card-number">50%</h3>
+                                <p class="card-description">Mejora en eficiencia operativa al adoptar metodologías
+                                    ágiles.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="source-label">FUENTE</span>
+                                <div class="brand-typo logo-mckinsey logo-small">McKinsey</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="card-content">
+                                <h3 class="card-number">1.5x</h3>
+                                <p class="card-description">Mayor crecimiento de ingresos al priorizar la experiencia
+                                    del empleado.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="source-label">FUENTE</span>
+                                <div class="brand-typo logo-ibm">IBM</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="card-content">
+                                <h3 class="card-number">86%</h3>
+                                <p class="card-description">Ejecutivos culpan a la falta de colaboración por fallos en
+                                    proyectos.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="source-label">FUENTE</span>
+                                <div class="brand-typo logo-salesforce">Salesforce</div>
+                            </div>
+                        </div>
+
                     </div>
-
-                    <div class="evidence-card">
-                        <div class="card-content">
-                            <h3 class="card-number">52%</h3>
-                            <p class="card-description">De las Fortune 500 del año 2000 ya no existen hoy.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="source-label">FUENTE</span>
-                            <div class="brand-typo logo-forbes">Forbes</div>
-                        </div>
-                    </div>
-
-                    <div class="evidence-card">
-                        <div class="card-content">
-                            <h3 class="card-number">50%</h3>
-                            <p class="card-description">Mejora en eficiencia operativa al adoptar metodologías
-                                ágiles.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="source-label">FUENTE</span>
-                            <div class="brand-typo logo-mckinsey logo-small">McKinsey</div>
-                        </div>
-                    </div>
-
-                    <div class="evidence-card">
-                        <div class="card-content">
-                            <h3 class="card-number">1.5x</h3>
-                            <p class="card-description">Mayor crecimiento de ingresos al priorizar la experiencia
-                                del empleado.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="source-label">FUENTE</span>
-                            <div class="brand-typo logo-ibm">IBM</div>
-                        </div>
-                    </div>
-
-                    <div class="evidence-card">
-                        <div class="card-content">
-                            <h3 class="card-number">86%</h3>
-                            <p class="card-description">Ejecutivos culpan a la falta de colaboración por fallos en
-                                proyectos.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="source-label">FUENTE</span>
-                            <div class="brand-typo logo-salesforce">Salesforce</div>
-                        </div>
-                    </div>
-
+                    <button class="carousel-nav next">›</button>
                 </div>
+
             </div>
 
-            <div class="carousel-dots pro-dots">
+            <div class="carousel-dots">
                 <button class="dot active"></button>
                 <button class="dot"></button>
                 <button class="dot"></button>
                 <button class="dot"></button>
                 <button class="dot"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
             </div>
         </div>
-        </div>
     </section>
+
 
     <style>
         /* --- SECCIÓN BLANCA (CLEAN MASTER) --- */
