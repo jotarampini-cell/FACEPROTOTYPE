@@ -26,6 +26,8 @@
     /* CLAVE: Centrado estilo Robbins */
     padding: 0;
     z-index: 10;
+    order: 1;
+    /* Fuerza que el texto aparezca primero en móvil */
 }
 
 .pillars-header {
@@ -79,15 +81,33 @@
 
     /* Eliminar desplazamiento lateral en móvil */
     transform: translateX(0);
+
+    /* CRÍTICO: Eliminar el efecto tap-highlight dorado del navegador */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 /* ESTADO ACTIVO (NEGRO PURO) */
 .pillar-link.active,
 .pillar-link:hover {
-    color: #000000;
-    /* Negro Intenso */
+    color: #000000 !important;
+    /* Negro Intenso - !important para sobrescribir cualquier estilo */
     transform: scale(1.05);
     /* Pequeño zoom en lugar de mover a la derecha */
+}
+
+/* Eliminar cualquier efecto de focus */
+.pillar-link:focus {
+    outline: none;
+    color: #000000;
+}
+
+/* Eliminar tap highlight en iOS/Android */
+.pillar-link:active {
+    color: #000000;
+    background-color: transparent;
 }
 
 
@@ -101,6 +121,8 @@
     overflow: hidden;
     margin-top: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    order: 2;
+    /* Fuerza que la imagen aparezca DESPUÉS del texto en móvil */
 }
 
 .p-img {
@@ -134,10 +156,11 @@
         gap: 80px;
     }
 
-    /* En desktop alineamos a la izquierda o centro según prefieras */
-    /* Robbins suele centrar también en desktop, o alinear izquierda */
+    /* En desktop alineamos a la izquierda */
     .pillars-text {
         text-align: left;
+        order: 0;
+        /* Reset order para desktop */
     }
 
     .pillars-header {
@@ -154,5 +177,7 @@
         height: 650px;
         /* Imagen alta */
         margin-top: 0;
+        order: 0;
+        /* Reset order para desktop */
     }
 }
