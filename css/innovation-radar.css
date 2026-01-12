@@ -31,7 +31,7 @@
 }
 
 .news-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 2.5rem;
     color: #000;
     margin: 0;
@@ -105,7 +105,7 @@
 }
 
 .featured-headline {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.8rem;
     line-height: 1.2;
     margin-bottom: 10px;
@@ -206,7 +206,7 @@
 }
 
 .slide-headline {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.3rem;
     margin-bottom: 10px;
     color: #000;
