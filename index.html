@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="premium-menu.css?v=ux_fix_final_20251230_1700">
     <link rel="stylesheet" href="css/podcast-home.css?v=ux_fix_final_20251230_1700">
     <link rel="stylesheet" href="css/innovation-radar.css">
+    <link rel="stylesheet" href="pillars_new.css">
 
     <link rel="stylesheet" href="css/monolith.css">
     <link rel="stylesheet" href="css/white-results.css">
@@ -656,36 +657,42 @@
         })();
     </script>
 
-    <!-- Section: Pillars (Interactive Typography) - White Background -->
+    <!-- Section: Pillars (Dynamic Gallery Edition) - White Background -->
     <section class="pillars-section">
         <div class="pillars-container">
-
             <div class="pillars-wrapper">
-                <!-- Columna de Texto (Izquierda en Desktop) -->
+
                 <div class="pillars-text">
                     <div class="pillars-header">
                         <span class="dot">•</span> PILARES DE UNA EMPRESA INNOVADORA
                     </div>
 
                     <ul class="pillars-list">
-                        <li><a href="#innovacion" class="active">Innovación</a></li>
-                        <li><a href="#cultura">Cultura empresarial</a></li>
-                        <li><a href="#ventas">Ventas</a></li>
-                        <li><a href="#marketing">Marketing</a></li>
-                        <li><a href="#procesos">Procesos</a></li>
-                        <li><a href="#organizacion">Organización</a></li>
+                        <li><a href="#innovacion" class="pillar-link active" data-index="0">Innovación</a></li>
+                        <li><a href="#cultura" class="pillar-link" data-index="1">Cultura empresarial</a></li>
+                        <li><a href="#ventas" class="pillar-link" data-index="2">Ventas</a></li>
+                        <li><a href="#marketing" class="pillar-link" data-index="3">Marketing</a></li>
+                        <li><a href="#procesos" class="pillar-link" data-index="4">Procesos</a></li>
+                        <li><a href="#organizacion" class="pillar-link" data-index="5">Organización</a></li>
                     </ul>
                 </div>
 
-                <!-- Columna de Imagen (Derecha en Desktop) -->
-                <div class="pillars-image">
-                    <div class="pillars-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-                            alt="Presentación en escenario" class="pillars-img p-img">
-                    </div>
+                <div class="pillars-image-stack">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+                        class="p-img active" data-index="0" alt="Innovación">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop"
+                        class="p-img" data-index="1" alt="Cultura">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2000&auto=format&fit=crop"
+                        class="p-img" data-index="2" alt="Ventas">
+                    <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=2000&auto=format&fit=crop"
+                        class="p-img" data-index="3" alt="Marketing">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop"
+                        class="p-img" data-index="4" alt="Procesos">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2000&auto=format&fit=crop"
+                        class="p-img" data-index="5" alt="Organización">
                 </div>
-            </div>
 
+            </div>
         </div>
     </section>
 
@@ -2528,37 +2535,21 @@
     <!-- Accordion Fix Version -->
     <script src="script.js?v=accordionFix3"></script>
     <script src="js/accordion.js"></script>
+    <!-- Pillars Interactive Gallery -->
+    <script src="js/pillars-interaction.js"></script>
     <script src="mobile.js"></script>
     <script src="js/stats-counter.js"></script>
     <!-- Emergency Accordion Script (Inline to ensure execution) -->
-
-    <!-- Pillars Click Interaction Script -->
-    <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const pillarLinks = document.querySelectorAll('.pillars-list a');
-
-                pillarLinks.forEach(link => {
-                    link.addEventListener('click', function (e) {
-                        e.preventDefault(); // Evitar navegación
-
-                        // Remover clase active de todos los links
-                        pillarLinks.forEach(l => l.classList.remove('active'));
-
-                        // Agregar clase active al link clickeado
-                        this.classList.'acti          });
-                    });
-                });
-    </script>
 
     <script src="js/stats-carousel.js"></script>
 
     <!-- Failsafe Splash Screen Removal -->
     <script>
-                if (splash) {
-                    splash.style.opacity = '0';
-                    Timeout(() => splash.remove(), 500);
-                }
-                ;
+            if (splash) {
+                splash.style.opacity = '0';
+                Timeout(() => splash.remove(), 500);
+            }
+            ;
     </script>
 
     <!-- MOVED MODAL TO BODY END FOR Z-INDEX FIX -->
