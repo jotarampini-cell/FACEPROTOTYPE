@@ -194,7 +194,7 @@
                 <div class="tr-col">
                     <h4 class="tr-heading">Nosotros</h4>
                     <ul class="tr-links">
-                        <li><a href="index.html#manifesto">Manifiesto</a></li>
+                        <li><a href="/home#manifesto">Manifiesto</a></li>
                         <li><a href="/metodologia">Metodología FACE</a></li>
                         <li><a href="/home">Nuestra Historia</a></li>
                         <li><a href="/blog">Blog</a></li>
@@ -206,7 +206,7 @@
                     <ul class="tr-links">
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/podcasts">Podcast</a></li>
-                        <li><a href="index.html#galaxy-section">Casos de Éxito</a></li>
+                        <li><a href="/home#galaxy-section">Casos de Éxito</a></li>
                         <li><a href="/evaluacion">Diagnósticos</a></li>
                     </ul>
                 </div>
