@@ -195,28 +195,28 @@
                     <h4 class="tr-heading">Nosotros</h4>
                     <ul class="tr-links">
                         <li><a href="index.html#manifesto">Manifiesto</a></li>
-                        <li><a href="metodologia-face.html">Metodología FACE</a></li>
-                        <li><a href="index.html">Nuestra Historia</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="/metodologia">Metodología FACE</a></li>
+                        <li><a href="/home">Nuestra Historia</a></li>
+                        <li><a href="/blog">Blog</a></li>
                     </ul>
                 </div>
 
                 <div class="tr-col">
                     <h4 class="tr-heading">Recursos</h4>
                     <ul class="tr-links">
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="podcasts.html">Podcast</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/podcasts">Podcast</a></li>
                         <li><a href="index.html#galaxy-section">Casos de Éxito</a></li>
-                        <li><a href="evaluacion.html">Diagnósticos</a></li>
+                        <li><a href="/evaluacion">Diagnósticos</a></li>
                     </ul>
                 </div>
 
                 <div class="tr-col">
                     <h4 class="tr-heading">Programas</h4>
                     <ul class="tr-links">
-                        <li><a href="innova-desde-adentro.html">Innova desde Adentro</a></li>
-                        <li><a href="programas.html">Todos los Programas</a></li>
-                        <li><a href="evaluacion.html">Evaluación de Perfil</a></li>
+                        <li><a href="/innova">Innova desde Adentro</a></li>
+                        <li><a href="/programas">Todos los Programas</a></li>
+                        <li><a href="/evaluacion">Evaluación de Perfil</a></li>
                     </ul>
                 </div>
 

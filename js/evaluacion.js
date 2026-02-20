@@ -99,7 +99,7 @@ const steps = [
         title: '¡Listo! Tu diagnóstico está en camino',
         subtitle: 'Nos pondremos en contacto contigo en las próximas 24-48 horas para agendar tu sesión estratégica personalizada.',
         cta: 'EXPLORAR PROGRAMAS',
-        link: 'programas.html'
+        link: '/programas'
     }
 ];
 

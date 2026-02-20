@@ -10,7 +10,7 @@ function initAuthUI() {
 
     // Only show bottom nav on app.html, not on landing page
     const isLandingPage = window.location.pathname === '/' ||
-        window.location.pathname.endsWith('index.html') ||
+        window.location.pathname.endsWith('/home') ||
         window.location.pathname === '';
 
     if (!isLandingPage) {

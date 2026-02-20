@@ -34,7 +34,7 @@ function updateUserHeader(user) {
 function handleSignOut() {
     if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
         auth.signOut();
-        window.location.href = 'index.html';
+        window.location.href = '/home';
     }
 }
 

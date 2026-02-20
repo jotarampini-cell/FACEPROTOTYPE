@@ -17,7 +17,7 @@
         <div class="related-grid" id="relatedGrid">
 
             <!-- Japanese Innovation Article -->
-            <a href="blog-innovation-japonesa.html" class="related-card">
+            <a href="/blog/innovacion-japonesa" class="related-card">
                 <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                     class="related-img">
                 <div class="related-body">
@@ -28,7 +28,7 @@
             </a>
 
             <!-- React vs Create Future -->
-            <a href="blog-post.html" class="related-card">
+            <a href="/blog/post" class="related-card">
                 <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                     class="related-img">
                 <div class="related-body">

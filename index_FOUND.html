@@ -26,22 +26,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&family=Playfair+Display:wght@700;900&family=Merriweather:wght@900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/face-master.css">
     <link rel="stylesheet" href="css/stats-section.css">
     <link rel="stylesheet" href="style.css?v=ux_fix_final_20251230_1700">
     <link rel="stylesheet" href="premium-menu.css?v=ux_fix_final_20251230_1700">
     <link rel="stylesheet" href="css/podcast-home.css?v=ux_fix_final_20251230_1700">
-    <link rel="stylesheet" href="css/innovation-radar.css">
-    <link rel="stylesheet" href="pillars_new.css">
-
-    <link rel="stylesheet" href="css/monolith.css">
-    <link rel="stylesheet" href="css/white-results.css">
 </head>
 
 <body>
-    <!-- Splash Screen -->
     <!-- Splash Screen -->
     <div class="splash-screen" id="splash">
         <div class="face-logo-animated">
@@ -92,7 +86,7 @@
                     El próximo nivel<br>para tu empresa<br>te espera
                 </h1>
                 <div class="hero-actions">
-                    <a href="/innova" class="btn-hero-white">Comenzar ahora</a>
+                    <a href="innova-desde-adentro.html" class="btn-hero-white">Comenzar ahora</a>
                 </div>
             </div>
         </div>
@@ -406,13 +400,10 @@
                 text-align: left;
             }
 
-            /* Gradiente azul consistente con móvil */
+            /* Gradiente lateral para Desktop */
             .hero-overlay-gradient {
-                background: linear-gradient(180deg,
-                        rgba(0, 0, 0, 0) 0%,
-                        rgba(0, 20, 70, 0.4) 50%,
-                        rgba(0, 30, 100, 0.8) 85%,
-                        #000000 100%);
+                background: radial-gradient(circle at 70% 50%, transparent 0%, rgba(0, 0, 0, 0.8) 100%),
+                    linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
             }
 
             .hero-text-content {
@@ -422,14 +413,9 @@
             }
 
             .hero-headline {
-                /* Tipografía minimalista para desktop */
-                font-size: clamp(2.5rem, 4vw, 3.5rem);
-                font-weight: 600;
-                /* Más ligero que el bold por defecto */
-                letter-spacing: -0.02em;
-                /* Menos tracking negativo */
-                line-height: 1.1;
-                /* Más espacioso */
+                font-size: clamp(3.5rem, 5.5vw, 5.5rem);
+                letter-spacing: -0.04em;
+                line-height: 0.95;
             }
 
             /* 2. TARJETA FLOTANTE (ABSOLUTA) */
@@ -502,7 +488,7 @@
             <div class="apple-reel">
 
                 <!-- Program 1: Reto de Ingenio -->
-                <a href="/innova" class="program-card" id="card-innova">
+                <a href="innova-desde-adentro.html" class="program-card" id="card-innova">
                     <video muted loop playsinline preload="auto" class="card-bg" poster="assets/images/reto-innova.jpg"
                         id="video-innova">
                         <source src="assets/videos/innova-adentro.mp4" type="video/mp4">
@@ -632,16 +618,16 @@
         <video autoplay muted loop playsinline preload="metadata" class="bg-video"
             poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
             aria-label="Video de fondo mostrando innovación empresarial">
-            <source src="assets/videos/hero-innovacion.mp4" type="video/mp4">
+            <source src="assets/videos/hero-bg.mp4" type="video/mp4">
             Tu navegador no soporta videos HTML5.
         </video>
 
         <div class="video-overlay"></div>
 
-        <div class="hero-content">
+        <div class="hero-content tr-container">
             <h1 class="hero-title">Innova en cada área de tu empresa</h1>
             <p class="hero-subtitle">Rompe con viejas ideas y falta de progreso con estrategias de innovación</p>
-            <a href="/evaluacion" class="btn-hero">INICIAR AHORA</a>
+            <a href="evaluacion.html" class="btn-hero">INICIAR AHORA</a>
         </div>
     </section>
 
@@ -665,42 +651,36 @@
         })();
     </script>
 
-    <!-- Section: Pillars (Dynamic Gallery Edition) - White Background -->
+    <!-- Section: Pillars (Interactive Typography) - White Background -->
     <section class="pillars-section">
         <div class="pillars-container">
-            <div class="pillars-wrapper">
 
+            <div class="pillars-wrapper">
+                <!-- Columna de Texto (Izquierda en Desktop) -->
                 <div class="pillars-text">
                     <div class="pillars-header">
                         <span class="dot">•</span> PILARES DE UNA EMPRESA INNOVADORA
                     </div>
 
                     <ul class="pillars-list">
-                        <li><a href="#innovacion" class="pillar-link active" data-index="0">Innovación</a></li>
-                        <li><a href="#cultura" class="pillar-link" data-index="1">Cultura</a></li>
-                        <li><a href="#ventas" class="pillar-link" data-index="2">Ventas</a></li>
-                        <li><a href="#marketing" class="pillar-link" data-index="3">Marketing</a></li>
-                        <li><a href="#procesos" class="pillar-link" data-index="4">Procesos</a></li>
-                        <li><a href="#organizacion" class="pillar-link" data-index="5">Organización</a></li>
+                        <li><a href="#innovacion" class="active">Innovación</a></li>
+                        <li><a href="#cultura">Cultura empresarial</a></li>
+                        <li><a href="#ventas">Ventas</a></li>
+                        <li><a href="#marketing">Marketing</a></li>
+                        <li><a href="#procesos">Procesos</a></li>
+                        <li><a href="#organizacion">Organización</a></li>
                     </ul>
                 </div>
 
-                <div class="pillars-image-stack">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
-                        class="p-img active" data-index="0" alt="Innovación">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop"
-                        class="p-img" data-index="1" alt="Cultura">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2000&auto=format&fit=crop"
-                        class="p-img" data-index="2" alt="Ventas">
-                    <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=2000&auto=format&fit=crop"
-                        class="p-img" data-index="3" alt="Marketing">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop"
-                        class="p-img" data-index="4" alt="Procesos">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2000&auto=format&fit=crop"
-                        class="p-img" data-index="5" alt="Organización">
+                <!-- Columna de Imagen (Derecha en Desktop) -->
+                <div class="pillars-image">
+                    <div class="pillars-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Presentación en escenario" class="pillars-img p-img">
+                    </div>
                 </div>
-
             </div>
+
         </div>
     </section>
 
@@ -725,7 +705,7 @@
             <div class="apple-reel">
 
                 <!-- CASO 01 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="ford"
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80"
                     data-title="TOYOTA & FORD"
                     data-context="Ford había perfeccionado las líneas de ensamblaje. Los supermercados japoneses reponían productos solo cuando se agotaban."
@@ -741,7 +721,7 @@
                 </div>
 
                 <!-- CASO 02 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="netflix"
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=600&q=80"
                     data-title="NETFLIX & CORREO"
                     data-context="Blockbuster cobraba multas que frustraban a los clientes. El servicio postal funcionaba de manera confiable."
@@ -757,7 +737,7 @@
                 </div>
 
                 <!-- CASO 03 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="apple"
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
                     data-title="STEVE JOBS & XEROX"
                     data-context="Xerox PARC inventó la interfaz gráfica y el mouse en 1973, pero no lo comercializaron."
@@ -773,7 +753,7 @@
                 </div>
 
                 <!-- CASO 04 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="mcdonalds"
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80"
                     data-title="MCDONALD'S"
                     data-context="Henry Ford había perfeccionado las líneas de ensamblaje para producir autos en masa."
@@ -788,7 +768,7 @@
                 </div>
 
                 <!-- CASO 05 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="spotify"
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80"
                     data-title="SPOTIFY"
                     data-context="Napster ofrecía música instantánea gratis, pero era ilegal. La industria musical estaba en crisis."
@@ -803,7 +783,7 @@
                 </div>
 
                 <!-- CASO 06 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="uber"
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80"
                     data-title="UBER"
                     data-context="Millones de autos privados estaban vacíos la mayor parte del día. Los smartphones tenían GPS integrado."
@@ -818,7 +798,7 @@
                 </div>
 
                 <!-- CASO 07 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="airbnb"
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80"
                     data-title="AIRBNB"
                     data-context="Habitaciones vacías en millones de casas. Craigslist permitía publicar anuncios pero era inseguro."
@@ -833,7 +813,7 @@
                 </div>
 
                 <!-- CASO 08 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="instagram"
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80"
                     data-title="INSTAGRAM"
                     data-context="Burbn era una app compleja con 20 funciones: check-ins, juegos, fotos, comentarios."
@@ -848,7 +828,7 @@
                 </div>
 
                 <!-- CASO 09 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="ford"
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
                     data-title="FORD"
                     data-context="Los mataderos de Chicago usaban cintas transportadoras para desarmar cerdos eficientemente."
@@ -863,7 +843,7 @@
                 </div>
 
                 <!-- CASO 10 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="cirque"
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=600&q=80"
                     data-title="CIRQUE DU SOLEIL"
                     data-context="Los circos tradicionales competían en precio con animales caros. El teatro cobraba precios premium."
@@ -877,8 +857,8 @@
                     </div>
                 </div>
 
-                <!-- Items 11-25 added for completeness would go here,                <!-- CASO 11 -->
-                <div class="apple-card" onclick="openFaceModal(this)" data-id="nespresso"
+                <!-- Items 11-25 added for completeness would go here, user can duplicate pattern -->
+                <div class="apple-card" onclick="openFaceModal(this)"
                     data-img="https://images.unsplash.com/photo-1512418490979-92798cec1380?auto=format&fit=crop&w=600&q=80"
                     data-title="NESPRESSO"
                     data-context="El café casero era malo. El café de barista era excelente pero lento y caro."
@@ -906,17 +886,39 @@
         <!-- Pagination Dots -->
         <div class="apple-pagination" id="apple-dots"></div>
 
-        <!-- Pagination Dots -->
-        <div class="apple-pagination" id="apple-dots"></div>
+        <div class="face-modal-overlay" id="faceModal">
+            <div class="face-modal-card">
+                <button class="close-face" onclick="closeFaceModal()">✕</button>
+
+                <div class="face-grid">
+                    <div class="fg-header">
+                        <span class="fg-tag">ANÁLISIS FACE</span>
+                        <h3 id="f-title">TÍTULO</h3>
+                    </div>
+
+                    <div class="fg-item">
+                        <span class="fg-label">El Contexto</span>
+                        <p id="f-context">...</p>
+                    </div>
+
+                    <div class="fg-item">
+                        <span class="fg-label">La Innovación</span>
+                        <p id="f-innovation">...</p>
+                    </div>
+
+                    <div class="fg-item full-width face-highlight">
+                        <span class="fg-label-gold">Filosofía FACE</span>
+                        <p id="f-face">...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- LOAD APPLE EXPERIENCE ASSETS -->
     <link rel="stylesheet" href="css/apple-experience.css">
-    <link rel="stylesheet" href="css/stats-carousel-addon.css">
     <!-- No external data source needed! -->
-    <script src="js/apple-experience.js?v=fix_close_final"></script>
-    <script src="js/stats-carousel.js"></script>
-
+    <script src="js/apple-experience.js"></script>
 
     <!-- Section: Premium Testimonials Slider (Tony Robbins Style) -->
     <section class="tony-cinematic-slider">
@@ -1067,435 +1069,915 @@
         </div>
     </section>
 
-    <!-- SECCIÓN RESULTADOS WHITE -->
-    <section class="white-results-section">
-        <div class="results-container">
+    <style>
+        /* Cleanup */
+        /* --- SHARED HEADER STYLES --- */
+        .galaxy-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+        }
 
-            <div class="results-content-side">
-                <h2 class="results-heading">La innovación no es opcional, es supervivencia.</h2>
-                <p class="results-lead">
-                    El mercado no espera. Las empresas que no activan la inteligencia colectiva de sus equipos están
-                    condenadas a la irrelevancia. Los datos confirman la urgencia de cambiar el modelo mental ahora.
-                </p>
+        .galaxy-tag {
+            display: inline-block;
+            color: #c5a059;
+            /* Gold */
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
 
-                <div class="stats-block-grid">
-                    <div class="stat-unit">
-                        <h3 class="stat-num-large">
-                            <span class="counter" data-target="42">0</span>%
-                        </h3>
-                        <p class="stat-label-text">
-                            De los CEOs creen que su modelo de negocio actual <strong>no será viable en 10
-                                años.</strong>
-                        </p>
-                        <span class="stat-source-small">Fuente: PwC Global CEO Survey</span>
-                    </div>
+        .galaxy-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #ffffff;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
 
-                    <div class="stat-unit">
-                        <h3 class="stat-num-large">
-                            <span class="counter" data-target="52">0</span>%
-                        </h3>
-                        <p class="stat-label-text">
-                            De las empresas Fortune 500 del año 2000 <strong>ya no existen hoy.</strong>
-                        </p>
-                        <span class="stat-source-small">Fuente: Forbes</span>
-                    </div>
-                </div>
+        .galaxy-sub {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-                <a href="#programa-innova" class="results-cta-btn">Conocer el Programa</a>
-            </div>
+        /* --- 3. UNIVERSO DE IDEAS --- */
+        .galaxy-universe {
+            position: relative;
+            height: 600px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
 
-            <div class="results-video-side">
-                <div class="video-portrait-container">
-                    <img src="assets/images/reto-innova.jpg" alt="Video Innova Desde Adentro" class="video-thumbnail">
+        .star-card {
+            position: absolute;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-                    <button class="glass-play-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="play-icon">
-                            <path d="M8 5v14l11-7z" />
-                        </svg>
-                        <span class="glass-btn-text">VER PROGRAMA</span>
-                    </button>
+        .star-card:hover {
+            background: rgba(197, 160, 89, 0.9);
+            color: #000;
+            border-color: #c5a059;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.5);
+            z-index: 100 !important;
+            transform: translate(-50%, -50%) scale(1.15) !important;
+        }
 
-                    <div class="video-internal-branding">
-                        <span class="brand-sub">PROGRAMA</span>
-                        <h4 class="brand-main">
-                            <span class="serif-part">INNOVA</span>
-                            <span class="sans-part">DESDE ADENTRO</span>
-                        </h4>
-                    </div>
-                </div>
+        /* --- 4. MODAL --- */
+        .pro-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
 
-                <div class="testimonial-below-video">
-                    <p class="quote-text">"Implementar esta metodología fue el punto de inflexión. Dejamos de apagar
-                        incendios y empezamos a construir el futuro de la empresa."</p>
-                    <span class="quote-author">Alejandro Betancourt, CEO Industrial</span>
-                </div>
-            </div>
+        .pro-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
 
-        </div>
-    </section>
+        .pro-modal-card {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            width: 100%;
+            max-width: 750px;
+            padding: 60px 50px;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 1);
+            transform: translateY(30px) scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin: auto;
+        }
+
+        .pro-modal-overlay.active .pro-modal-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .pro-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: 1px solid #333;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .pro-close:hover {
+            background: #c5a059;
+            border-color: #c5a059;
+            color: black;
+        }
+
+        .pro-category {
+            color: #c5a059;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .pro-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: white;
+            margin: 0 0 10px 0;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .pro-divider {
+            height: 2px;
+            width: 60px;
+            background: #c5a059;
+            margin: 20px 0 35px 0;
+        }
+
+        /* Secciones del Modal */
+        .modal-section {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .modal-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 35px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            stroke: #c5a059;
+            flex-shrink: 0;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            color: #c5a059;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .section-content {
+            color: #d4d4d4;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 300;
+            font-family: 'Montserrat', sans-serif;
+            padding-left: 36px;
+        }
+
+        /* Lección FACE destacada */
+        .lesson-section {
+            background: rgba(197, 160, 89, 0.03);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            margin-top: 10px;
+        }
+
+        .lesson-section .section-header {
+            margin-bottom: 14px;
+        }
+
+        .lesson-content {
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: #e8e8e8;
+            font-style: italic;
+        }
+
+        .pro-footer {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 25px;
+            margin-top: 10px;
+            color: #555;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pro-modal-card {
+                padding: 40px 25px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .pro-title {
+                font-size: 1.8rem;
+            }
+
+            .section-content {
+                font-size: 0.95rem;
+                padding-left: 0;
+            }
+
+            .lesson-content {
+                font-size: 1rem;
+            }
+
+            .lesson-section {
+                padding: 15px;
+            }
+        }
+
+        /* --- OPTIMIZACIÓN MÓVIL --- */
+        @keyframes spaceFloat {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) translateY(0px);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) translateY(-15px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .galaxy-section {
+                min-height: auto;
+                padding: 80px 0;
+            }
+
+            .galaxy-universe {
+                height: 600px;
+            }
+
+            .star-card {
+                animation: spaceFloat var(--duration, 4s) ease-in-out infinite;
+                padding: 10px 18px;
+                font-size: 0.8rem;
+                border-radius: 50px;
+            }
+
+            .pro-modal-card {
+                width: 95%;
+                padding: 30px 20px;
+                max-height: 85vh;
+                overflow-y: auto;
+            }
+
+            .pro-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* === MEJORAS VISUALES === */
+
+        /* Animación de entrada para tarjetas */
+        .star-card {
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            opacity: 0.8;
+            /* Visible por defecto en desktop */
+        }
+
+        /* Hover effect para desktop */
+        .star-card:hover {
+            opacity: 1;
+        }
+
+        /* En móviles, usar animación de entrada y flotación */
+        @media (max-width: 768px) {
+
+            /* Estado inicial (antes de aparecer) en móvil */
+            .star-card:not(.revealed) {
+                opacity: 0 !important;
+                transform: translate(-50%, -50%) scale(0) rotate(120deg) !important;
+                pointer-events: none;
+            }
+
+            /* Flotación en móvil cuando están reveladas */
+            .star-card.revealed {
+                animation: spaceFloat var(--duration, 4s) ease-in-out infinite;
+            }
+        }
+    </style>
+
+    <script>
+        // Mensajes mejorados con estructura de 4 partes
+        const galaxyIdeas = [
+            {
+                t: "Toyota & Ford",
+                context: "Ford había perfeccionado las líneas de ensamblaje. Los supermercados japoneses reponían productos solo cuando se agotaban.",
+                adaptation: "Toyota combinó ambos sistemas: producir solo lo necesario, justo cuando se necesita. Crearon el Just-in-Time.",
+                impact: "Inventario reducido en 90%. Cero desperdicio. Dominaron la industria automotriz global por décadas.",
+                lesson: "Combina lo mejor de dos industrias diferentes. La innovación vive en la intersección."
+            },
+            {
+                t: "Netflix & Correos",
+                context: "Blockbuster cobraba multas que frustraban a los clientes. El servicio postal funcionaba de manera confiable.",
+                adaptation: "Aplicaron el modelo de suscripción de gimnasios al alquiler de películas por correo. Sin fechas de devolución, sin multas.",
+                impact: "Retención del 93% de clientes. Blockbuster cerró. Netflix vale más de $150B hoy.",
+                lesson: "Un modelo de negocio de otra industria puede destruir a tu competencia."
+            },
+            {
+                t: "Steve Jobs & Xerox",
+                context: "Xerox PARC inventó la interfaz gráfica y el mouse en 1973, pero no lo comercializaron.",
+                adaptation: "Jobs visitó Xerox, vio el potencial y lo adaptó para usuarios comunes, no solo ingenieros.",
+                impact: "Macintosh revolucionó la computación personal. Xerox perdió miles de millones.",
+                lesson: "La mejor tecnología está en laboratorios sin explotar. Obsérvalas y adáptalas."
+            },
+            {
+                t: "McDonald's & Fábricas",
+                context: "Henry Ford había perfeccionado las líneas de ensamblaje para producir autos en masa.",
+                adaptation: "Los hermanos McDonald aplicaron los mismos principios de manufactura a la cocina.",
+                impact: "Hamburguesas en 30 segundos. Inventaron la 'comida rápida'. Imperio global con 40,000 restaurantes.",
+                lesson: "Los procesos de manufactura pueden aplicarse a servicios. Piensa en tu negocio como una fábrica."
+            },
+            {
+                t: "Spotify & Piratería",
+                context: "Napster ofrecía música instantánea gratis, pero era ilegal. La industria musical estaba en crisis.",
+                adaptation: "Replicaron la velocidad y el acceso de Napster, pero legalmente, con licencias de las discográficas.",
+                impact: "500M de usuarios. Salvaron la industria musical. El streaming es ahora el estándar.",
+                lesson: "Si no puedes vencer al mercado negro, copia su conveniencia y hazlo legal."
+            },
+            {
+                t: "Uber & GPS",
+                context: "Millones de autos privados estaban vacíos la mayor parte del día. Los smartphones tenían GPS integrado.",
+                adaptation: "Conectaron la capacidad ociosa de vehículos con personas que necesitaban transporte usando tecnología existente.",
+                impact: "Valuación de $90B sin poseer un solo auto. Revolucionaron el transporte urbano global.",
+                lesson: "No crees activos. Conecta oferta subutilizada con demanda insatisfecha."
+            },
+            {
+                t: "Airbnb & Craigslist",
+                context: "Habitaciones vacías en millones de casas. Craigslist permitía publicar anuncios pero era inseguro.",
+                adaptation: "Añadieron fotos profesionales, reseñas verificadas, sistema de pago seguro y seguro de daños.",
+                impact: "Mayor inventario que Marriott sin construir nada. Valuación de $100B+.",
+                lesson: "Mejora mercados existentes añadiendo confianza y experiencia de usuario."
+            },
+            {
+                t: "Instagram & Simplificación",
+                context: "Burbn era una app compleja con 20 funciones: check-ins, juegos, fotos, comentarios.",
+                adaptation: "Analizaron los datos. La gente solo usaba fotos y filtros. Eliminaron todo lo demás.",
+                impact: "1M de usuarios en 2 meses. Vendida a Facebook por $1B en 2 años.",
+                lesson: "Menos es más. Identifica la única función que aman y elimina el resto."
+            },
+            {
+                t: "Ford & Mataderos",
+                context: "Los mataderos de Chicago usaban cintas transportadoras para desarmar cerdos eficientemente.",
+                adaptation: "Henry Ford invirtió el concepto: en vez de desarmar animales, ensambló autos en línea.",
+                impact: "Tiempo de ensamblaje redujo de 12 horas a 93 minutos. Autos accesibles para la clase media.",
+                lesson: "Invierte procesos de otras industrias. Lo que divide, puede unir y viceversa."
+            },
+            {
+                t: "Cirque du Soleil",
+                context: "Los circos tradicionales competían en precio con animales caros. El teatro cobraba precios premium.",
+                adaptation: "Eliminaron los animales. Añadieron arte escénico de teatro, música en vivo y narrativa emocional.",
+                impact: "Cobraron $150 vs $20 del circo tradicional. Crearon un océano azul sin competencia.",
+                lesson: "Elimina lo costoso. Añade lo artístico. Compite en valor, no en precio."
+            },
+            {
+                t: "Nespresso & Baristas",
+                context: "El café casero era malo. El café de barista era excelente pero lento y caro.",
+                adaptation: "Encapsularon la técnica del barista en una cápsula sellada con presión y temperatura perfectas.",
+                impact: "Café premium en casa en 30 segundos. Convirtieron un commodity en un producto de lujo.",
+                lesson: "Empaqueta experiencia experta en un producto que cualquiera pueda usar."
+            },
+            {
+                t: "IKEA & Logística",
+                context: "Enviar muebles armados era costoso: 70% del paquete era aire. Almacenamiento ocupaba espacio masivo.",
+                adaptation: "Inventaron el paquete plano. El cliente arma. IKEA ahorra transporte, almacén y mano de obra.",
+                impact: "Precios 40% más bajos que la competencia. Expansión global. Líder en muebles económicos.",
+                lesson: "Transfiere trabajo al cliente a cambio de precio bajo. Hazlo sentir como logro (DIY)."
+            },
+            {
+                t: "Zara & Velocidad",
+                context: "Las tendencias de moda de París tardaban 6 meses en llegar de la pasarela a las tiendas.",
+                adaptation: "Copiaron las tendencias, produjeron rápido en España y distribuyeron a tiendas en 2 semanas.",
+                impact: "Ropa de moda con velocidad ultra-rápida. Inditex convirtió a Amancio Ortega en multimillonario.",
+                lesson: "No diseñes desde cero. Copia rápido y distribuye más rápido que nadie."
+            },
+            {
+                t: "Amazon & Librerías",
+                context: "Las librerías físicas solo podían almacenar 100,000 títulos por limitaciones de espacio.",
+                adaptation: "Usaron internet para listar millones de libros sin necesidad de inventario físico inicial.",
+                impact: "Catálogo infinito. Dominaron el retail mundial. Jeff Bezos entre los más ricos del mundo.",
+                lesson: "Internet elimina restricciones físicas. Ofrece lo que es imposible en formato físico."
+            },
+            {
+                t: "Google & Academia",
+                context: "En la academia, los papers importantes reciben más citas de otros papers. Así se mide la relevancia.",
+                adaptation: "Aplicaron el mismo principio a internet: las páginas con más enlaces entrantes son más importantes (PageRank).",
+                impact: "Búsqueda 100x mejor que competidores. Google se convirtió en verbo. Valuación de $2 trillones.",
+                lesson: "Los sistemas de reputación de la academia funcionan en los negocios digitales."
+            },
+            {
+                t: "Dyson & Ciclones Industriales",
+                context: "Los aserraderos usaban ciclones gigantes para separar aserrín del aire en fábricas.",
+                adaptation: "James Dyson miniaturizó esta tecnología industrial para crear aspiradoras caseras sin pérdida de succión.",
+                impact: "Aspiradora sin bolsas, sin pérdida de potencia. Dyson vendió su empresa en $5B.",
+                lesson: "La tecnología industrial puede miniaturizarse para consumo masivo."
+            },
+            {
+                t: "Nintendo & Evolución",
+                context: "Nintendo fabricaba naipes (cartas de juego) desde 1889. Era su único negocio.",
+                adaptation: "Mantuvieron su esencia (entretenimiento y juegos) pero pivotaron el medio: de papel a electrónica.",
+                impact: "Game Boy, NES, Switch. Líder en videojuegos por 40+ años. Valuación de $85B.",
+                lesson: "No abandones tu esencia. Cambia el medio, conserva el propósito y valores."
+            },
+            {
+                t: "Starbucks & Italia",
+                context: "Los bares italianos ofrecían espresso de calidad, ambiente social y 'tercer lugar' entre casa y trabajo.",
+                adaptation: "Howard Schultz importó la experiencia completa a EEUU: no solo el café, sino la cultura.",
+                impact: "Café pasó de $0.50 a $5. 35,000 tiendas. El café se convirtió en estilo de vida.",
+                lesson: "No vendas solo producto. Importa cultura y experiencia de otro país."
+            },
+            {
+                t: "Tesla & Baterías de Laptop",
+                context: "Las baterías de litio de laptops eran baratas y probadas. Los autos deportivos Lotus Elise eran ligeros.",
+                adaptation: "Empaquetaron 7,000 baterías de laptop en el chasis de un Lotus Elise modificado.",
+                impact: "Primer auto eléctrico sexy con 400km de autonomía. Revolucionaron la industria automotriz.",
+                lesson: "Combina componentes masivos existentes de forma novedosa para crear algo nuevo."
+            },
+            {
+                t: "Wikipedia & Multitudes",
+                context: "La Enciclopedia Británica tenía editores expertos. Era lenta, costosa y limitada a 120,000 artículos.",
+                adaptation: "Reemplazaron expertos pagados por 'sabiduría de multitudes' con edición abierta y colaborativa.",
+                impact: "60M de artículos gratis vs 120K pagados. La Británica cerró su edición impresa.",
+                lesson: "El crowdsourcing puede superar a expertos si tienes escala masiva y buen sistema."
+            },
+            {
+                t: "Zoom & Simplicidad",
+                context: "Skype y WebEx requerían instalación, cuenta, configuración. Eran al menos 20 clicks para empezar.",
+                adaptation: "Crearon un solo enlace. Click y entras. Sin registro, sin descargas, sin fricción.",
+                impact: "300M de usuarios diarios en pandemia. 'Zoom' se convirtió en verbo. Valuación de $100B.",
+                lesson: "Elimina fricción obsesivamente. Cada click extra mata conversión y adopción."
+            },
+            {
+                t: "Duolingo & Gaming",
+                context: "Los videojuegos eran adictivos con vidas, niveles y rachas. La educación tradicional era aburrida.",
+                adaptation: "Aplicaron mecánicas de videojuegos (Candy Crush) al aprendizaje de idiomas.",
+                impact: "500M de usuarios. Aprender se siente como jugar. IPO con valuación de $6B.",
+                lesson: "Gamifica lo aburrido. La psicología de los juegos funciona en cualquier industria."
+            },
+            {
+                t: "Slack & Pivote",
+                context: "Glitch era un videojuego que fracasó completamente. Pero la herramienta de chat interno funcionaba increíble.",
+                adaptation: "El juego murió. Extrajeron el chat interno que habían creado y lo vendieron como producto independiente.",
+                impact: "Slack vendido a Salesforce por $28B. Reemplazó al email en miles de empresas.",
+                lesson: "Tus herramientas internas pueden valer más que tu producto principal. Obsérvalas."
+            },
+            {
+                t: "WhatsApp & Infraestructura",
+                context: "Los SMS cobraban $0.10 por mensaje. Internet móvil ilimitado estaba emergiendo globalmente.",
+                adaptation: "Enviaron mensajes usando datos (internet) en vez de la red SMS tradicional.",
+                impact: "Mensajería gratis. 2B de usuarios. Vendido a Facebook por $19B.",
+                lesson: "Usa infraestructura nueva para hacer gratis lo que antes costaba dinero."
+            },
+            {
+                t: "Youtube & Apertura",
+                context: "Empezó como sitio de citas en video. Nadie subía videos de citas. La idea original fracasó totalmente.",
+                adaptation: "Abrieron la plataforma a cualquier tipo de video. Dejaron que los usuarios decidieran el uso.",
+                impact: "Plataforma #1 de video mundial. Vendida a Google por $1.65B. 2B+ de usuarios activos.",
+                lesson: "Si tu idea inicial falla, abre las puertas. Deja que los usuarios definan el producto."
+            }
+        ];
+
+        const universe = document.getElementById('universe-container');
+        const proModal = document.getElementById('pro-modal');
+        const pmTitle = document.getElementById('pm-title');
+
+        galaxyIdeas.sort(() => Math.random() - 0.5);
+
+        galaxyIdeas.forEach((idea, i) => {
+            const el = document.createElement('div');
+            el.classList.add('star-card');
+            el.innerText = idea.t;
+
+            const angle = Math.random() * Math.PI * 2;
+            const radius = Math.random() * 40 + 10;
+
+            const x = 50 + radius * Math.cos(angle);
+            const y = 50 + radius * Math.sin(angle);
+
+            el.style.left = x + '%';
+            el.style.top = y + '%';
+
+            const depth = Math.random();
+            el.dataset.depth = depth;
+
+            const scale = 0.8 + (depth * 0.4);
+            const blur = (1 - depth) * 2;
+            const opacity = 0.6 + (depth * 0.4);
+
+            el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            el.style.filter = `blur(${blur}px)`;
+            el.style.opacity = opacity;
+
+            el.style.setProperty('--duration', (Math.random() * 4 + 3) + 's');
+
+            el.onclick = () => {
+                pmTitle.innerText = idea.t;
+                document.getElementById('pm-context').innerText = idea.context;
+                document.getElementById('pm-adaptation').innerText = idea.adaptation;
+                document.getElementById('pm-impact').innerText = idea.impact;
+                document.getElementById('pm-lesson').innerText = idea.lesson;
+                proModal.classList.add('active');
+            };
+
+            universe.appendChild(el);
+        });
+
+        const section = document.getElementById('galaxy-section');
+
+        // Parallax removido para simplificar desktop
+        // Las tarjetas ahora son estáticas en desktop y flotantes en móvil
+
+        function closeProModal() {
+            proModal.classList.remove('active');
+        }
+
+        proModal.addEventListener('click', (e) => {
+            if (e.target === proModal) closeProModal();
+        });
 
 
-    <!-- Monolito CTA Section -->
-    <section class="monolith-section">
-        <div class="monolith-container">
-            <div class="monolith-card">
+        // === ANIMACIÓN DE ENTRADA DRAMÁTICA ===
+        const observerOptions = {
+            threshold: 0.2
+        };
 
-                <div class="monolith-content">
-                    <span class="monolith-tag">NUESTRA MISIÓN ES TU EVOLUCIÓN</span>
+        const galaxyObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const cards = document.querySelectorAll('.star-card');
+                    cards.forEach((card, i) => {
+                        setTimeout(() => {
+                            card.classList.add('revealed');
+                        }, i * 50); // Aparecen escalonadas (50ms entre cada una)
+                    });
+                    galaxyObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-                    <h2 class="monolith-title">QUEREMOS VERTE <br> INNOVAR.</h2>
+        if (galaxySection) {
+            galaxyObserver.observe(galaxySection);
+        }
 
-                    <div class="monolith-divider"></div>
+    </script>
 
-                    <p class="monolith-desc">
-                        Ese es el espíritu que nos mueve. Sabemos que la teoría no basta, necesitas ver el "cómo".
-                        <br><br>
-                        Por eso, hemos condensado nuestra metodología en una <strong>serie de videos de entrenamiento
-                            paso a paso</strong> de acceso libre.
-                        Es la guía visual definitiva para ejecutar el programa <strong>"Innova desde Adentro"</strong>:
-                        Rompe las reglas burocráticas y aumenta tus ganancias con el equipo que ya tienes.
-                    </p>
-
-                    <a href="#programa-innova" class="monolith-btn">VER EL PRIMER VIDEO</a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!-- Stats Section: Monolito Digital -->
-    <section class="stats-section-mono">
+    <!-- Stats Section: Innovar sin inventar -->
+    <section class="tony-stats-section">
         <div class="stats-container">
 
-            <div class="stats-header">
-                <h2 class="stats-title">Estadísticas de Innovación</h2>
-                <p class="stats-subtitle">Los números hablan.</p>
-            </div>
+            <div class="content-side">
+                <h2 class="stats-title">Innovar sin inventar</h2>
 
-            <div class="stats-carousel-wrapper">
+                <p class="stats-desc">
+                    Según la 28ª Encuesta Anual Global de Directores Ejecutivos de PwC, el 42% de los CEOs cree que su
+                    empresa no será viable más allá de los próximos 10 años sin reinventarse. Por esta razón, hoy más
+                    que nunca las organizaciones deben mantenerse ágiles.
+                </p>
 
-                <button class="stats-nav prev" aria-label="Anterior">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M15 18l-6-6 6-6" />
-                    </svg>
-                </button>
-
-                <div class="stats-track-container">
-                    <div class="stats-track" id="statsTrack">
-
-                        <div class="stat-card active">
-                            <div class="stat-body">
-                                <h3 class="stat-number">78%</h3>
-                                <p class="stat-desc">De empresas que invierten en creatividad aumentan su productividad.
-                                </p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-adobe">Adobe</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">52%</h3>
-                                <p class="stat-desc">De las Fortune 500 del año 2000 ya no existen hoy.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-forbes">Forbes</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">50%</h3>
-                                <p class="stat-desc">Mejora en eficiencia operativa al adoptar metodologías ágiles.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-mckinsey">McKinsey</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">1.5x</h3>
-                                <p class="stat-desc">Mayor crecimiento de ingresos al priorizar la experiencia del
-                                    empleado.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-ibm">IBM</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">+21%</h3>
-                                <p class="stat-desc">Mayor rentabilidad en equipos altamente comprometidos.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-gallup">GALLUP</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">+260%</h3>
-                                <p class="stat-desc">Retorno total para accionistas en empresas innovadoras.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-bcg">BCG</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">5.5x</h3>
-                                <p class="stat-desc">Más probabilidad de retener talento clave en culturas innovadoras.
-                                </p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-deloitte">Deloitte.</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">80%</h3>
-                                <p class="stat-desc">Del potencial de mejora reside en ideas de empleados de primera
-                                    línea.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-hbr">HBR</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">2x</h3>
-                                <p class="stat-desc">Las empresas innovadoras crecen al doble de velocidad que sus
-                                    rivales.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-gartner">Gartner.</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">10x</h3>
-                                <p class="stat-desc">La cultura tóxica predice la renuncia 10 veces más que el salario.
-                                </p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-mit">MITSloan</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">84%</h3>
-                                <p class="stat-desc">Ejecutivos afirman que la innovación es crítica para su
-                                    crecimiento.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-accenture">Accenture</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">86%</h3>
-                                <p class="stat-desc">Ejecutivos culpan a la falta de colaboración por fallos en
-                                    proyectos.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-salesforce">salesforce</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">60%</h3>
-                                <p class="stat-desc">De los CEOs creen que su modelo de negocio actual no será viable en
-                                    10 años.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-pwc">pwc</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-body">
-                                <h3 class="stat-number">20%</h3>
-                                <p class="stat-desc">Del tiempo laboral dedicado a proyectos personales genera el 50% de
-                                    los productos exitosos.</p>
-                            </div>
-                            <div class="stat-footer">
-                                <span class="stat-label">FUENTE</span>
-                                <span class="stat-brand logo-google">Google</span>
-                            </div>
-                        </div>
-
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="42">0%</span>
+                        <span class="stat-label">de los CEOs cree que su empresa no sobrevivirá</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-label">Años es el tiempo límite de viabilidad sin reinventarse</span>
                     </div>
                 </div>
 
-                <button class="stats-nav next" aria-label="Siguiente">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg>
-                </button>
-
+                <a href="#face" class="stats-pill-btn">Conoce FACE</a>
             </div>
 
-            <div class="stats-dots">
-                <!-- Dots will be generated dynamically by JavaScript -->
+            <div class="media-side">
+
+                <div class="vertical-video-card">
+
+                    <div class="floating-watch-btn">
+                        <button class="glass-play-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            Watch
+                        </button>
+                    </div>
+
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+                        alt="Innovación FACE" class="video-poster">
+
+                    <div class="video-brand-stamp">
+                        <span class="brand-eyebrow">METODOLOGÍA FACE</span>
+                        <h3 class="brand-title">
+                            INNOVA
+                            <span class="brand-subtitle">DESDE ADENTRO</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="video-testimonial">
+                    <p>"Mi parte favorita de este evento ha sido conectar con la realidad de mi industria..."</p>
+                    <cite>Carlos M., Director de Innovación</cite>
+                </div>
             </div>
 
         </div>
     </section>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const stats = document.querySelectorAll('.stat-number');
 
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = parseInt(target.getAttribute('data-target'));
+                        const isPercentage = target.innerText.includes('%') || target.nextElementSibling?.innerText.includes('%') || finalValue === 42;
+
+                        let start = 0;
+                        const duration = 2000;
+                        const step = duration / finalValue;
+
+                        let timer = setInterval(() => {
+                            start++;
+                            target.innerText = isPercentage ? start + "%" : start;
+
+                            if (start >= finalValue) clearInterval(timer);
+                        }, step);
+
+                        observer.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            stats.forEach(stat => observer.observe(stat));
+        });
+    </script>
+
+    <!-- Service Section: La Plataforma de Aliados (Professional Grade) -->
+    <section class="clean-master-section">
+        <div class="clean-bg-grid"></div>
+
+        <div class="clean-container">
+
+            <div class="promo-block reveal-on-scroll">
+                <div class="promo-badge">ACCESO LIBERADO</div>
+
+                <h2 class="promo-title">
+                    QUEREMOS VERTE <span class="text-gradient-cyan">INNOVAR.</span>
+                </h2>
+
+                <p class="promo-description">
+                    Sabemos que el camino del cambio puede sentirse solitario. <strong>No tienes que hacerlo sin
+                        apoyo.</strong>
+                    <br>
+                    Hemos desbloqueado nuestro programa insignia <strong>"INNOVAR DESDE ADENTRO"</strong> totalmente
+                    gratis en esta plataforma. Es tu caja de herramientas táctica para vencer la burocracia y activar a
+                    tu equipo hoy mismo.
+                </p>
+
+                <div class="promo-cta-box">
+                    <a href="#curso-gratis" class="btn-clean-primary">
+                        ACCEDER AL CURSO GRATIS <span class="arrow">→</span>
+                    </a>
+                    <p class="cta-note">Disponible inmediatamente para tu equipo.</p>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="stats-block reveal-on-scroll">
+                <div class="stats-header">
+                    <h3 class="stats-subtitle">LA EVIDENCIA DEL MERCADO</h3>
+                    <p class="stats-text">Datos globales que confirman la urgencia de actuar.</p>
+                </div>
+
+                <div class="stats-carousel-wrapper">
+                    <button class="carousel-nav prev">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button class="carousel-nav next">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="carousel-track-wrapper">
+                        <div class="carousel-track">
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                                        <path d="M13 17l-4-4" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">70%</h4>
+                                <p class="card-desc">De las transformaciones fallan por resistencia cultural.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: MCKINSEY & CO.</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card active">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">3x</h4>
+                                <p class="card-desc">Retorno para accionistas en empresas resilientes.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: BCG CONSULTING</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">34%</h4>
+                                <p class="card-desc">Empleados renuncian antes que expresar preocupaciones.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: UKG WORKFORCE</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 7v14M5 12l7-7 7 7" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">19%</h4>
+                                <p class="card-desc">Empresas familiares sobreviven a la 3ra generación.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: FAMILY BUSINESS INST.</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 9h.01M12 9h.01M16 9h.01" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">60%</h4>
+                                <p class="card-desc">Sienten que sus opiniones son ignoradas sistemáticamente.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: WORKFORCE INST.</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">40%</h4>
+                                <p class="card-desc">Más rápido es el "Time-to-Market" con métodos ágiles.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: MCKINSEY AGILE</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M16 16v-4m0 0v-4m0 4h4m-4 0h-4m-8 4h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2z" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">+21%</h4>
+                                <p class="card-desc">Mayor rentabilidad en equipos altamente comprometidos.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: GALLUP</span>
+                                </div>
+                            </div>
+
+                            <div class="gradient-stat-card">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                </div>
+                                <h4 class="card-num">8 de 10</h4>
+                                <p class="card-desc">Empleados tienen ideas de ahorro, pero nadie pregunta.</p>
+                                <div class="card-footer">
+                                    <span class="card-source">FUENTE: ESTUDIOS DE INNOVACIÓN</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="carousel-dots clean-dots">
+                        <button class="dot active"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <style>
-        /* --- SECCIÓN BLANCA (CLEAN MASTER) --- */
+        /* --- ESTRUCTURA GENERAL --- */
         .clean-master-section {
             background-color: #ffffff;
+            /* Blanco Puro */
             padding: 100px 0;
             position: relative;
             overflow: hidden;
             font-family: 'Montserrat', sans-serif;
             color: #1a1a1a;
+            border-top: 1px solid #f0f0f0;
         }
 
+        /* Grid de fondo muy sutil (Tech Vibe) */
         .clean-bg-grid {
-            display: none;
-        }
-
-        /* --- LUXURY PROMO SECTION (Monolith Design) --- */
-        .luxury-promo-section {
-            background-color: #ffffff;
-            padding: 100px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .luxury-container {
-            width: 100%;
-            max-width: 900px;
-        }
-
-        /* --- EL MONOLITO (Tarjeta Negra) --- */
-        .monolith-card {
-            background-color: #000000;
-            color: #ffffff;
-            border-radius: 30px;
-            padding: 80px 60px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
-            border: 1px solid #1a1a1a;
-        }
-
-        .monolith-card::before {
-            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* --- BADGE --- */
-        .monolith-badge {
-            display: inline-block;
-            border: 1px solid #ffffff;
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 10px 20px;
-            border-radius: 50px;
-            margin-bottom: 35px;
-            background: transparent;
-        }
-
-        /* --- TIPOGRAFÍA --- */
-        .monolith-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 4rem;
-            line-height: 1;
-            color: #ffffff;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
-        .text-white-bold {
-            font-weight: 700;
-            font-style: italic;
-        }
-
-        .monolith-desc {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #cccccc;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            font-weight: 300;
-        }
-
-        .monolith-desc strong {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        /* --- BOTÓN DE LUJO (Blanco) --- */
-        .btn-luxury-white {
-            display: inline-block;
-            background-color: #ffffff;
-            color: #000000;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 22px 50px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .btn-luxury-white:hover {
-            background-color: #e6e6e6;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
-        }
-
-        .monolith-note {
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: #666;
-            letter-spacing: 0.5px;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+            pointer-events: none;
         }
 
         .clean-container {
@@ -1506,37 +1988,11 @@
             padding: 0 20px;
         }
 
-        /* --- CÁPSULA DE VALOR (PROMO BLOCK) --- */
+        /* --- BLOQUE 1: EL REGALO --- */
         .promo-block {
-            position: relative;
             text-align: center;
-            max-width: 900px;
-            margin: 40px auto 100px;
-
-            border-radius: 60px;
-            background: linear-gradient(180deg, #f0fcff 0%, #ffffff 80%);
-            border: 1px solid #dbeef5;
-            padding: 70px 50px;
-
-            box-shadow:
-                0 20px 50px -15px rgba(0, 188, 212, 0.15),
-                inset 0 4px 15px rgba(255, 255, 255, 0.8),
-                inset 0 -4px 15px rgba(0, 188, 212, 0.03);
-
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        .promo-block::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 20%;
-            right: 20%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00bcd4, transparent);
-            opacity: 0.4;
-            filter: blur(2px);
+            max-width: 800px;
+            margin: 0 auto 60px;
         }
 
         .promo-badge {
@@ -1545,153 +2001,105 @@
             justify-content: center;
             background: #00bcd4;
             color: white;
-            font-weight: 800;
-            padding: 8px 24px;
+            font-weight: 700;
+            padding: 6px 16px;
             border-radius: 50px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-family: 'Oswald', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 2px;
-            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.25);
-            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.2);
         }
 
         .promo-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 3.2rem;
-            line-height: 1.05;
+            font-size: 3rem;
+            line-height: 1.1;
             color: #111;
             margin-bottom: 25px;
             text-transform: uppercase;
         }
 
         .text-gradient-cyan {
+            color: #00bcd4;
             display: block;
-            background: linear-gradient(90deg, #00bcd4 0%, #008ba3 100%);
+            background: -webkit-linear-gradient(45deg, #00bcd4, #0097a7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .promo-description {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            color: #444;
-            margin: 0 auto 45px;
-            max-width: 750px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 40px;
         }
 
         .promo-description strong {
             color: #000;
-            font-weight: 700;
+            font-weight: 600;
         }
 
+        /* Botón CTA Principal */
         .btn-clean-primary {
-            background: #000;
+            background: #111;
             color: #fff;
-            padding: 20px 50px;
-            border-radius: 8px;
+            padding: 18px 45px;
+            border-radius: 6px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             font-family: 'Oswald', sans-serif;
             font-weight: 700;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .btn-clean-primary:hover {
             background: #00bcd4;
             color: white;
-            box-shadow: 0 20px 40px rgba(0, 188, 212, 0.4);
-            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+            transform: translateY(-3px);
         }
 
         .cta-note {
             font-size: 0.8rem;
             color: #888;
-            margin-top: 20px;
+            margin-top: 15px;
             letter-spacing: 0.5px;
         }
 
+        /* --- SEPARADOR --- */
         .section-divider {
             width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, #eee, transparent);
+            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
             margin: 80px 0;
         }
 
-        /* RESPONSIVE PARA CLEAN SECTION */
-        @media (max-width: 900px) {
-            .clean-master-section {
-                padding: 60px 0;
-            }
-
-            .promo-block {
-                border-radius: 35px;
-                padding: 50px 25px;
-                margin: 20px auto 80px;
-                width: auto;
-            }
-
-            .promo-title {
-                font-size: 2.4rem;
-            }
-
-            .promo-description {
-                font-size: 1rem;
-            }
-        }
-
-        /* --- FON DO NEGRO PURO --- */
-        .authority-dark-section {
-            background-color: #000000;
-            padding: 100px 0;
-            position: relative;
-            font-family: 'Montserrat', sans-serif;
-            color: #ffffff;
-            /* Separador sutil */
-            border-top: 1px solid #1a1a1a;
-            border-bottom: 1px solid #1a1a1a;
-        }
-
-        .authority-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* --- HEADER --- */
-        .authority-header {
+        /* --- BLOQUE 2: ESTADÍSTICAS --- */
+        .stats-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
-        .auth-title {
+        .stats-subtitle {
             font-family: 'Oswald', sans-serif;
-            font-size: 3rem;
-            line-height: 1.1;
-            color: #fff;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #888;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
-        .text-cyan {
-            color: #ffffff !important;
-            /* BLANCO PURO - Sin cyan */
+        .stats-text {
+            font-size: 1rem;
+            color: #666;
         }
 
-        .auth-subtitle {
-            font-size: 1.1rem;
-            color: #999;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* --- CARRUSEL --- */
+        /* CARRUSEL */
         .stats-carousel-wrapper {
             position: relative;
             width: 100%;
@@ -1700,215 +2108,126 @@
         .carousel-track-wrapper {
             overflow: hidden;
             width: 100%;
-            /* Padding vertical para que el Scale no corte la tarjeta */
-            padding: 60px 0;
-            margin: -60px 0;
+            padding: 50px 0;
+            margin: -50px 0;
+            /* Máscara suave */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
         }
 
         .carousel-track {
             display: flex;
-            gap: 20px;
+            gap: 30px;
             align-items: center;
             width: max-content;
-            /* IMPORTANTE: Padding 0 para que JS controle todo */
-            padding: 0;
+            padding: 0 50vw;
             transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        /* --- TARJETA EVIDENCE (MONOCROMO GIGANTE) --- */
-        .evidence-card {
-            width: 290px;
-            min-width: 290px;
-            min-height: 440px;
+        /* TARJETAS CON DEGRADADO (Sin Imágenes) */
+        .gradient-stat-card {
+            width: 300px;
+            min-width: 300px;
+            height: 380px;
             flex-shrink: 0;
-            background-color: #121212;
-            border: 1px solid #333;
-            border-radius: 24px;
-            padding: 40px 35px;
+            /* Degradado Sutil Tech */
+            background: linear-gradient(135deg, #ffffff 0%, #f0faff 100%);
+            border: 1px solid #eef2f5;
+            border-radius: 20px;
+            padding: 40px 30px;
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            opacity: 0.4;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            opacity: 0.6;
             transform: scale(0.92);
+            filter: grayscale(80%);
             transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .evidence-card.active {
+        /* Línea superior decorativa */
+        .gradient-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #00bcd4;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .gradient-stat-card.active {
             opacity: 1;
             transform: scale(1.05);
+            filter: grayscale(0%);
             z-index: 10;
-            background-color: #1c1c1e;
-            border-color: #ffffff;
-            /* BLANCO PURO - Sin cyan */
-            box-shadow: 0 20px 50px rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            background: #ffffff;
+            box-shadow: 0 20px 50px rgba(0, 188, 212, 0.12);
         }
 
-        /* CONTENIDO TEXTO - GIGANTE */
-        .card-number {
-            font-family: 'Oswald', sans-serif;
-            font-size: 5rem !important;
-            /* Reducido para evitar desbordamiento */
-            line-height: 0.9;
-            font-weight: 700;
-            letter-spacing: -2px;
-            color: #ffffff !important;
-            /* BLANCO PURO - Sin cyan nunca */
-            margin: 0 0 25px 0;
-            text-shadow: none !important;
-        }
-
-        .evidence-card.active .card-number {
-            color: #ffffff !important;
-            /* Blanco incluso cuando activa */
-        }
-
-        .card-description {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.35rem !important;
-            /* Texto grande y legible */
-            line-height: 1.4;
-            font-weight: 500;
-            color: #f0f0f0 !important;
-            /* Blanco casi puro */
-            font-weight: 400;
-        }
-
-        /* FOOTER Y LOGOS TIPOGRÁFICOS */
-        .card-footer {
-            margin-top: auto;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        /* --- ESTILOS DE LOGOS TIPOGRÁFICOS --- */
-
-        /* Base para todos los logos */
-        .brand-typo {
-            font-size: 1.6rem !important;
-            /* Logos más grandes */
-            line-height: 1;
-            color: #FFFFFF !important;
-            margin-bottom: 0;
-            display: inline-block;
-            white-space: nowrap;
+        .gradient-stat-card.active::before {
             opacity: 1;
         }
 
-        /* 1. McKINSEY & CO (Serifa Clásica Elegante) */
-        .logo-mckinsey {
-            font-family: 'Playfair Display', 'Georgia', serif;
-            font-weight: 700;
-            font-style: normal;
-            letter-spacing: -0.5px;
+        /* Elementos Tarjeta */
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: #e0f7fa;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00bcd4;
+            margin-bottom: 25px;
+            transition: 0.3s;
         }
 
-        /* 2. BCG (Sans Serif Bold, Geométrica) */
-        .logo-bcg {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            letter-spacing: -1px;
-            text-transform: uppercase;
+        .active .card-icon {
+            background: #00bcd4;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
         }
 
-        /* 3. DELOITTE (Sans Serif Clean + Punto Verde) */
-        .logo-deloitte {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
         }
 
-        .logo-deloitte::after {
-            content: '.';
-            color: #86bc25;
-        }
-
-        /* 4. FORBES (Serifa Gruesa) */
-        .logo-forbes {
-            font-family: 'Merriweather', serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 1.4rem;
-        }
-
-        /* 5. GALLUP (Sans Simple y Moderna) */
-        .logo-gallup {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 1.3rem;
-        }
-
-        /* 6. HBR (Negra y Condensada) */
-        .logo-hbr {
+        .card-num {
             font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-style: italic;
-            text-transform: uppercase;
+            font-size: 4rem;
+            line-height: 1;
+            color: #1a1a1a;
+            margin: 0 0 10px 0;
         }
 
-        /* 7. GARTNER (Sans Serif Tech) */
-        .logo-gartner {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+        .active .card-num {
+            color: #00bcd4;
         }
 
-        /* 8. MIT SLOAN */
-        .logo-mit {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .card-desc {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: auto;
         }
 
-        /* 9. ACCENTURE */
-        .logo-accenture {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-transform: lowercase;
-            letter-spacing: -0.5px;
-            font-size: 1.6rem;
+        .card-footer {
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 20px;
         }
 
-        /* 10. ADOBE (Rojo característico) */
-        .logo-adobe {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #ff0000 !important;
-        }
-
-        /* 11. IBM */
-        .logo-ibm {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* 12. SALESFORCE */
-        .logo-salesforce {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-style: italic;
-        }
-
-        /* Clase especial para logos largos */
-        .logo-small {
-            font-size: 1.3rem !important;
-            /* Más pequeño para evitar desbordamiento */
-        }
-
-        /* Label pequeño arriba del logo */
-        .source-label {
+        .card-source {
+            font-family: 'Oswald', sans-serif;
             font-size: 0.7rem;
-            color: #888;
-            text-transform: uppercase;
+            color: #999;
             letter-spacing: 1px;
         }
 
@@ -1919,120 +2238,88 @@
             transform: translateY(-50%);
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.1);
+            background: #fff;
+            border: 1px solid #eee;
             border-radius: 50%;
-            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
+            color: #333;
             cursor: pointer;
             z-index: 20;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
         .carousel-nav:hover {
-            background: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
+            color: #00bcd4;
+            border-color: #00bcd4;
+            transform: translateY(-50%) scale(1.1);
         }
 
         .carousel-nav.prev {
-            left: 20px;
+            left: 40px;
         }
 
         .carousel-nav.next {
-            right: 20px;
+            right: 40px;
         }
 
-        /* Dots */
-        .pro-dots {
-            gap: 10px;
+        /* DOTS */
+        .clean-dots {
+            gap: 12px;
             margin-top: 40px;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
         }
 
-        .pro-dots .dot {
-            width: 8px;
-            height: 8px;
-            background: #333;
-            border-radius: 50%;
+        .clean-dots .dot {
+            width: 10px;
+            height: 10px;
+            background: #ddd;
             border: none;
+            border-radius: 50%;
             cursor: pointer;
+            transition: 0.3s;
         }
 
-        .pro-dots .dot.active {
-            background: #ffffff !important;
-            /* BLANCO PURO */
+        .clean-dots .dot.active {
+            background: #00bcd4;
             transform: scale(1.3);
         }
 
-        /* --- MÓVIL CRÍTICO --- */
+        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 900px) {
-            .authority-header {
-                margin-bottom: 40px;
+            .clean-master-section {
+                padding: 60px 0;
             }
 
-            .auth-title {
+            .promo-title {
                 font-size: 2.2rem;
             }
 
-            .evidence-card {
-                /* Usamos un ancho relativo máximo para evitar desbordes en pantallas muy pequeñas */
-                width: 85vw;
-                max-width: 300px;
-                min-width: 280px;
-                min-height: 400px;
-                opacity: 0.5;
+            .gradient-stat-card {
+                width: 260px;
+                min-width: 260px;
+                height: 360px;
+                opacity: 0.7;
+                /* Más visibles en móvil */
             }
 
-            .evidence-card.active {
-                transform: scale(1);
-                /* En móvil no agrandar tanto */
-            }
-
-            /* Texto gigante pero ajustado para móvil */
-            .card-number {
-                font-size: 4rem !important;
-            }
-
-            .card-description {
-                font-size: 1.2rem !important;
+            .carousel-track-wrapper {
+                -webkit-mask-image: none;
+                mask-image: none;
+                padding: 40px 0;
             }
 
             .carousel-nav {
                 display: none;
             }
-
-            /* MONOLITH RESPONSIVE */
-            .monolith-card {
-                padding: 50px 25px;
-                border-radius: 20px;
-            }
-
-            .monolith-title {
-                font-size: 2.8rem;
-            }
-
-            .monolith-desc {
-                font-size: 1rem;
-            }
-
-            .btn-luxury-white {
-                width: 100%;
-                padding: 18px 0;
-            }
-        }
-
-        background: #0f0f0f;
-        }
-
-        .carousel-nav {
-            display: none;
-        }
         }
     </style>
+
+
+
 
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
     <!-- Section: The Manifesto (Code of Honor) - Dark/Gold -->
@@ -2045,93 +2332,6 @@
 
 
 
-
-    <!-- INNOVATION RADAR SECTION (Editorial Style) -->
-    <section class="news-radar-section">
-        <div class="news-container">
-
-            <div class="news-header">
-                <span class="news-label">INTELIGENCIA DE NEGOCIOS</span>
-                <h2 class="news-title">RADAR DE INNOVACIÓN</h2>
-                <div class="news-divider"></div>
-            </div>
-
-            <div class="news-grid-layout">
-
-                <article class="news-featured">
-                    <div class="featured-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop"
-                            alt="BCG Innovation" class="featured-img">
-                    </div>
-                    <div class="featured-content">
-                        <div class="news-meta">
-                            <span class="news-source">BCG REPORT</span>
-                            <span class="news-date">EDICIÓN 2024</span>
-                        </div>
-                        <h3 class="featured-headline">Las 50 empresas más innovadoras: ¿Qué hacen diferente?</h3>
-                        <p class="featured-excerpt">
-                            Mientras la mayoría recorta gastos por la recesión, los líderes de esta lista invierten
-                            agresivamente en talento y tecnología.
-                        </p>
-                        <a href="https://web-assets.bcg.com/3c/34/1957256543e390d33630cc67774b/bcg-most-innovative-companies-2023-reaching-new-heights-in-uncertain-times-may-2023.pdf"
-                            target="_blank" class="news-link-action">
-                            LEER ANÁLISIS &rarr;
-                        </a>
-                    </div>
-                </article>
-
-                <div class="news-slider-container">
-                    <p class="slider-hint">DESLIZA PARA VER MÁS &rarr;</p>
-
-                    <div class="news-slider-track">
-
-                        <article class="news-slide-card">
-                            <div class="news-meta">
-                                <span class="news-source">McKINSEY</span>
-                            </div>
-                            <h4 class="slide-headline">Technology Trends Outlook 2024.</h4>
-                            <p class="slide-excerpt">
-                                Desde la IA generativa hasta la bioingeniería. El mapa para no perderse.
-                            </p>
-                            <a href="https://www.mckinsey.com/~/media/mckinsey/business%20functions/mckinsey%20digital/our%20insights/the%20top%20trends%20in%20tech%202024/mckinsey-technology-trends-outlook-2024.pdf"
-                                target="_blank" class="news-link-sm">Descargar PDF</a>
-                        </article>
-
-                        <article class="news-slide-card">
-                            <div class="news-meta">
-                                <span class="news-source">DELOITTE</span>
-                            </div>
-                            <h4 class="slide-headline">La elevación de la experiencia humana.</h4>
-                            <p class="slide-excerpt">
-                                La tecnología ya no es herramienta, es entorno. Interfaces espaciales.
-                            </p>
-                            <a href="https://www2.deloitte.com/content/dam/Deloitte/us/Documents/technology/us-tech-trends-2024.pdf"
-                                target="_blank" class="news-link-sm">Ver Tendencias</a>
-                        </article>
-
-                        <article class="news-slide-card">
-                            <div class="news-meta">
-                                <span class="news-source">DOBLIN</span>
-                            </div>
-                            <h4 class="slide-headline">Los 10 Tipos de Innovación.</h4>
-                            <p class="slide-excerpt">
-                                Innovar no es solo crear productos. Aprende a innovar en tu modelo de negocio.
-                            </p>
-                            <a href="https://www.peterfisk.com/wp-content/uploads/2017/02/10-Types-of-Innovation.pdf"
-                                target="_blank" class="news-link-sm">Ver Framework</a>
-                        </article>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="news-footer">
-                <a href="/recursos" class="btn-news-pill">EXPLORAR BIBLIOTECA COMPLETA</a>
-            </div>
-
-        </div>
-    </section>
 
     <!-- NUEVA SECCIÓN PODCAST - TONY ROBBINS STYLE -->
     <section id="podcast-section" style="background: #f5f5f5; padding: 80px 20px;">
@@ -2149,7 +2349,7 @@
                         Innovación<br>Empresarial
                     </span>
                 </h2>
-                <a href="/podcasts"
+                <a href="podcasts.html"
                     style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;">
                     Explorar episodios
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2287,7 +2487,7 @@
                                 toggleStickyPlay();
                             } else {
                                 // Default to first episode if nothing playing
-                                playStickyEpiso
+                                playStickyEpisode(1);
                             }
                         }
                     </script>
@@ -2379,46 +2579,6 @@
         </div>
     </section>
 
-    <!-- Section: Hero Video CTA - Duplicate for Bottom of Page -->
-    <section class="hero-video-section">
-        <video autoplay muted loop playsinline preload="metadata" class="bg-video"
-            poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
-            aria-label="Video de fondo mostrando innovación empresarial">
-            <source src="assets/videos/hero-bg.mp4" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
-        </video>
-
-        <div class="video-overlay"></div>
-
-        <div class="hero-content tr-container">
-            <h1 class="hero-title">¿Listo para crear innovación para tu empresa?</h1>
-            <p class="hero-subtitle">Ahora es tu momento, conecta con nosotros para conocer más.</p>
-            <a href="/evaluacion" class="btn-hero">CONOCER MÁS</a>
-        </div>
-    </section>
-
-    <script>
-        // Ensure video plays oices
-        (function () {
-            const heroVideos = document.querySelectorAll('.hero-video-section .bg-video');
-            heroVideos.forEach(heroVideo => {
-                if (heroVideo) {
-                    // Try to play immediately
-                    heroVideo.play().catch(() => {
-                        // If autoplay fails, try again on user interaction
-                        const playOnInteraction = () => {
-                            heroVideo.play();
-                            document.removeEventListener('touchstart', playOnInteraction);
-                            document.removeEventListener('click', playOnInteraction);
-                        };
-                        document.addEventListener('touchstart', playOnInteraction, { once: true });
-                        document.addEventListener('click', playOnInteraction, { once: true });
-                    });
-                }
-
-            })();
-    </script>
-
     <!-- Responsive Mobile -->
     <style>
         @media (max-width: 900px) {
@@ -2450,37 +2610,37 @@
 
     <!-- Splash screen auto-hide (Robust) -->
     <script>
-            function removeSplash() {
-                const idsToRemove = ['splash', 'skeleton-loader'];
+        function removeSplash() {
+            const idsToRemove = ['splash', 'skeleton-loader'];
 
-                idsToRemove.forEach(id => {
-                    const el = document.getElementById(id);
+            idsToRemove.forEach(id => {
+                const el = document.getElementById(id);
 
-                    if (el && !el.classList.contains('getting-removed')) {
-                        el.classList.add('getting-removed');
-                        el.classList.add('fade-out'); // Ensure CSS transition handles opacity
-                        el.style.opacity = '0'; // Force opacity 0 in case class missing
-                        el.style.pointerEvents = 'none'; // Unlock clicks immediately
+                if (el && !el.classList.contains('getting-removed')) {
+                    el.classList.add('getting-removed');
+                    el.classList.add('fade-out'); // Ensure CSS transition handles opacity
+                    el.style.opacity = '0'; // Force opacity 0 in case class missing
+                    el.style.pointerEvents = 'none'; // Unlock clicks immediately
 
-                        setTimeout(() => {
-                            if (el.parentNode) el.parentNode.removeChild(el);
-                        }
-
-                            , 500);
+                    setTimeout(() => {
+                        if (el.parentNode) el.parentNode.removeChild(el);
                     }
-                });
-            }
 
-            // Attempt removal immediately, short delay, and long delay
-            setTimeout(removeSplash, 100);
-            setTimeout(removeSplash, 2000);
-            setTimeout(removeSplash, 5000); // Super failsafe
+                        , 500);
+                }
+            });
+        }
 
-            // Also remove on window load to be sure
-            window.addEventListener('load', () => setTimeout(removeSplash, 500));
+        // Attempt removal immediately, short delay, and long delay
+        setTimeout(removeSplash, 100);
+        setTimeout(removeSplash, 2000);
+        setTimeout(removeSplash, 5000); // Super failsafe
 
-            // Failsafe for errors
-            window.aentListener('error', () => setTimeout(removeSplash, 100));
+        // Also remove on window load to be sure
+        window.addEventListener('load', () => setTimeout(removeSplash, 500));
+
+        // Failsafe for errors
+        window.addEventListener('error', () => setTimeout(removeSplash, 100));
     </script>
     <!-- Footer -->
     <footer
@@ -2500,11 +2660,11 @@
                         style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
                         Navegación</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;"><a href="/home"
+                        <li style="margin-bottom: 10px;"><a href="index.html"
                                 style="color: #999; text-decoration: none; transition: 0.3s;">Inicio</a></li>
-                        <li style="margin-bottom: 10px;"><a href="/programas"
+                        <li style="margin-bottom: 10px;"><a href="programas.html"
                                 style="color: #999; text-decoration: none; transition: 0.3s;">Programas</a></li>
-                        <li style="margin-bottom: 10px;"><a href="/blog"
+                        <li style="margin-bottom: 10px;"><a href="blog.html"
                                 style="color: #999; text-decoration: none; transition: 0.3s;">Blog</a></li>
                         <li style="margin-bottom: 10px;"><a href="#manifesto"
                                 style="color: #999; text-decoration: none; transition: 0.3s;">Manifiesto</a></li>
@@ -2515,7 +2675,7 @@
                         style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
                         Programas</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;"><a href="/innova"
+                        <li style="margin-bottom: 10px;"><a href="innova-desde-adentro.html"
                                 style="color: #999; text-decoration: none; transition: 0.3s;">Coeficiente de Ingenio</a>
                         </li>
                     </ul>
@@ -2543,69 +2703,30 @@
     <!-- Accordion Fix Version -->
     <script src="script.js?v=accordionFix3"></script>
     <script src="js/accordion.js"></script>
-    <!-- Pillars Interactive Gallery -->
-    <script src="js/pillars-interaction.js"></script>
     <script src="mobile.js"></script>
-    <script src="js/stats-counter.js"></script>
     <!-- Emergency Accordion Script (Inline to ensure execution) -->
+
+    <!-- Pillars Click Interaction Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const pillarLinks = document.querySelectorAll('.pillars-list a');
+
+            pillarLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault(); // Evitar navegación
+
+                    // Remover clase active de todos los links
+                    pillarLinks.forEach(l => l.classList.remove('active'));
+
+                    // Agregar clase active al link clickeado
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 
     <script src="js/stats-carousel.js"></script>
 
-    <!-- Failsafe Splash Screen Removal -->
-    <script>
-            if (splash) {
-                splash.style.opacity = '0';
-                Timeout(() => splash.remove(), 500);
-            }
-            ;
-    </script>
-
-    <!-- MOVED MODAL TO BODY END FOR Z-INDEX FIX -->
-    <div class="pro-modal-overlay" id="pro-modal">
-        <div class="pro-modal-card">
-
-            <button class="pro-close" onclick="closeProModal()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-
-            <div class="pro-modal-body">
-                <div class="modal-header-row">
-                    <span class="pro-category">ANATOMÍA DE LA INNOVACIÓN</span>
-                    <h3 class="pro-title" id="pm-title">
-                    </h3>
-                </div>
-
-                <div class="pro-divider-modal"></div>
-
-                <div class="analysis-grid">
-
-                    <div class="analysis-step">
-                        <span class="step-icon">01</span>
-                        <span class="step-label">LA OBSERVACIÓN</span>
-                        <p class="step-desc" id="pm-source">
-                        </p>
-                    </div>
-
-                    <div class="analysis-step">
-                        <span class="step-icon">02</span>
-                        <span class="step-label">LA ADAPTACIÓN</span>
-                        <p class="step-desc" id="pm-bridge">
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="analysis-result">
-                    <span class="result-label">RESULTADO FINAL</span>
-                    <h4 class="result-text" id="pm-result">
-                    </h4>
-                </div>
-            </div>
-        </div>
-    </div>
-
+</body>
 
 </html>

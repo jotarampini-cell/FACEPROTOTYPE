@@ -1,0 +1,19 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/home",              "destination": "/index.html" },
+    { "source": "/blog",              "destination": "/blog.html" },
+    { "source": "/programas",         "destination": "/programas.html" },
+    { "source": "/metodologia",       "destination": "/metodologia-face.html" },
+    { "source": "/evaluacion",        "destination": "/evaluacion.html" },
+    { "source": "/quiz",              "destination": "/quiz.html" },
+    { "source": "/quiz-diagnostico",  "destination": "/quiz-diagnostico.html" },
+    { "source": "/quiz-reto-ingenio", "destination": "/quiz-reto-ingenio.html" },
+    { "source": "/podcasts",          "destination": "/podcasts.html" },
+    { "source": "/podcast-detalle",   "destination": "/podcast-detail.html" },
+    { "source": "/recursos",          "destination": "/recursos-gratis.html" },
+    { "source": "/innova",            "destination": "/innova-desde-adentro.html" },
+    { "source": "/blog/innovacion-japonesa", "destination": "/blog-innovation-japonesa.html" },
+    { "source": "/blog/post",         "destination": "/blog-post.html" }
+  ]
+}

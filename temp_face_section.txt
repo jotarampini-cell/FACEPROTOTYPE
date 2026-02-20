@@ -1,0 +1,497 @@
+﻿
+  <!DOCTYPE html>
+  <html lang="es">
+  
+  <head>
+      <meta 
+charset="UTF-8">
+      <meta 
+name="viewport" conte
+nt="width=device-widt
+h, 
+initial-scale=1.0, 
+maximum-scale=5.0, 
+user-scalable=yes">
+  
+      <!-- 
+Anti-cache meta tags 
+-->
+      <meta http-equi
+v="Cache-Control" 
+content="no-cache, 
+no-store, 
+must-revalidate">
+      <meta 
+http-equiv="Pragma" 
+content="no-cache">
+      <meta 
+http-equiv="Expires" 
+content="0">
+  
+      <meta 
+name="description"
+          
+content="FACE 
+Innovation - 
+Metodolog├¡a para 
+innovar sin 
+inventar. 
+Transformamos ideas 
+en resultados 
+mediante Foco, 
+Adaptaci├│n, Cultura 
+y Ejecuci├│n.">
+      <meta 
+name="theme-color" 
+content="#0066FF">
+      <meta name="app
+le-mobile-web-app-cap
+able" content="yes">
+      <meta name="app
+le-mobile-web-app-sta
+tus-bar-style" 
+content="default">
+      <meta name="app
+le-mobile-web-app-tit
+le" content="FACE">
+      <title>FACE - 
+Innovaci├│n sin 
+Inventar</title>
+  
+      <!-- PWA 
+Manifest -->
+      <link 
+rel="manifest" 
+href="manifest.json">
+  
+      <!-- Google 
+Fonts -->
+      <link 
+rel="preconnect" href
+="https://fonts.googl
+eapis.com">
+      <link 
+rel="preconnect" href
+="https://fonts.gstat
+ic.com" crossorigin>
+      <link href="htt
+ps://fonts.googleapis
+.com/css2?family=Inte
+r:wght@400;600;700;80
+0&display=swap" 
+rel="stylesheet">
+      <link
+          href="https
+://fonts.googleapis.c
+om/css2?family=Montse
+rrat:wght@300;400;500
+;600;700;800&family=O
+swald:wght@300;400;50
+0;700&family=Playfair
++Display:wght@700;900
+&family=Merriweather:
+wght@900&display=swap
+"
+          
+rel="stylesheet">
+>     <link 
+rel="stylesheet" href
+="css/face-master.css
+">
+      <link 
+rel="stylesheet" href
+="css/stats-section.c
+ss">
+      <link 
+rel="stylesheet" href
+="style.css?v=ux_fix_
+final_20251230_1700">
+      <link 
+rel="stylesheet" href
+="premium-menu.css?v=
+ux_fix_final_20251230
+_1700">
+      <link 
+rel="stylesheet" href
+="css/podcast-home.cs
+s?v=ux_fix_final_2025
+1230_1700">
+  </head>
+  
+  <body>
+      <!-- Splash 
+Screen -->
+      <div class="spl
+ash-screen" 
+id="splash">
+          <div class=
+"face-logo-animated">
+              <span c
+lass="letter">F</span
+>
+              <span c
+lass="letter">A</span
+>
+              <span c
+lass="letter">C</span
+>
+              <span c
+lass="letter">E</span
+>
+          </div>
+          <div 
+class="loading-bar">
+              <div cl
+ass="loading-fill"></
+div>
+          </div>
+      </div>
+  
+      <!-- Skeleton 
+Loader -->
+      <div 
+id="skeleton-loader" 
+class="skeleton-loade
+r">
+          <div class=
+"skeleton-face">
+              <span c
+lass="skeleton-letter
+">F</span>
+              <span c
+lass="skeleton-letter
+">A</span>
+              <span c
+lass="skeleton-letter
+">C</span>
+              <span c
+lass="skeleton-letter
+">E</span>
+          </div>
+      </div>
+  
+      <!-- Reading 
+Progress Bar -->
+      <div id="readin
+g-progress" class="re
+ading-progress"></div
+>
+  
+      <!-- Header -->
+      <!-- Global 
+Header & Menu 
+(Injected by JS) -->
+      <!-- See 
+menu.js for source 
+-->
+  
+  
+  
+      <link 
+rel="preconnect" href
+="https://fonts.googl
+eapis.com">
+      <link 
+rel="preconnect" href
+="https://fonts.gstat
+ic.com" crossorigin>
+      <link
+          href="https
+://fonts.googleapis.c
+om/css2?family=Inter:
+wght@400;600;700;800&
+family=Playfair+Displ
+ay:ital,wght@1,700&di
+splay=swap"
+          
+rel="stylesheet">
+  
+      <section class=
+"tr-layout-master">
+  
+          <div class=
+"tr-hero-capsule">
+              <div cl
+ass="hero-bg-layer" s
+tyle="background-imag
+e: url('assets/images
+/hero-background.jpg'
+);"></div>
+              <div cl
+ass="hero-overlay-gra
+dient"></div>
+                     
+     </div>
+                     
+ </div>
+                  
+</div>
+  
+              </div>
+          </div>
+  
+          <div class=
+"sync-controls">
+              <div cl
+ass="avatar-carousel"
+>
+  
+                  
+<div class="avatar-na
+v-item active" onclic
+k="goToSlide(0)">
+                     
+ <img src="https://im
+ages.unsplash.com/pho
+to-1573496359142-b8d8
+7734a5a2?auto=format&
+fit=crop&w=200&q=80"
+                     
+     class="avatar-na
+v-img" alt="Mar├¡a 
+Gonz├ílez">
+                     
+ <div class="avatar-n
+av-info">
+                     
+     <span class="ava
+tar-nav-name">Mar├¡a 
+Gonz├ílez</span>
+                     
+     <span class="ava
+tar-nav-role">CEO de 
+Innovatech, Experta 
+en Transformaci├│n 
+Digital, 15 a├▒os
+                     
+         liderando 
+innovaci├│n 
+empresarial</span>
+                     
+ </div>
+                  
+</div>
+  
+                  
+<div class="avatar-na
+v-item" onclick="goTo
+Slide(1)">
+                     
+ <img src="https://im
+ages.unsplash.com/pho
+to-1560250097-0b93528
+c311a?auto=format&fit
+=crop&w=200&q=80"
+                     
+     class="avatar-na
+v-img" alt="Carlos 
+M├®ndez">
+                     
+ <div class="avatar-n
+av-info">
+                     
+     <span class="ava
+tar-nav-name">Carlos 
+M├®ndez</span>
+                     
+     <span class="ava
+tar-nav-role">Directo
+r de Innovaci├│n en 
+TechCorp, Pionero en 
+metodolog├¡as
+                     
+         ├ígiles, 
+Speaker 
+internacional</span>
+                     
+ </div>
+                  
+</div>
+  
+                  
+<div class="avatar-na
+v-item" onclick="goTo
+Slide(2)">
+                     
+ <img src="https://im
+ages.unsplash.com/pho
+to-1580489944761-15a1
+9d654956?auto=format&
+fit=crop&w=200&q=80"
+                     
+     class="avatar-na
+v-img" alt="Ana 
+Rodr├¡guez">
+                     
+ <div class="avatar-n
+av-info">
+                     
+     <span class="ava
+tar-nav-name">Ana 
+Rodr├¡guez</span>
+                     
+     <span class="ava
+tar-nav-role">VP de 
+Estrategia en Global 
+Solutions, MBA 
+Harvard, Mentora de
+                     
+         startups 
+tecnol├│gicas</span>
+                     
+ </div>
+                  
+</div>
+  
+              </div>
+          </div>
+  
+      </section>
+  
+      <!-- Load 
+Testimonials Slider 
+Assets -->
+      <link 
+rel="stylesheet" href
+="css/testimonials-sl
+ider.css">
+      <script src="js
+/testimonials-slider.
+js"></script>
+  
+      <!-- FACE 
+MASTER SECTION 
+(PIXEL PERFECT) -->
+>     <section class=
+"face-master-section"
+>
+          <div class=
+"face-container">
+  
+              <h2 
+class="face-title">
+                  
+┬┐Quieres ver a tu 
+empresa innovando y 
+rompiendo viejos 
+esquemas?
+              </h2>
+  
+              <div cl
+ass="face-description
+">
+                  <p>
+                     
+ Creemos que todas 
+las empresas tienen 
+el potencial de 
+innovar y destacarse 
+en sus industrias.
+                     
+ Queremos acelerar 
+la adaptaci├│n de la 
+innovaci├│n en tu 
+empresa para que se 
+convierta en tu nueva
+                     
+ realidad.
+                  
+</p>
+                  <a 
+href="#face" class="f
+ace-pill-btn">Conoce 
+FACE</a>
+              </div>
+  
+              <div cl
+ass="face-image-card"
+>
+                  
+<img src="https://ima
+ges.unsplash.com/phot
+o-1556761175-5973dc0f
+32e7?auto=format&fit=
+crop&w=1200&q=80"
+                     
+ alt="Tony Robbins 
+Style" 
+class="face-img">
+              </div>
+  
+              <div cl
+ass="face-video-card"
+>
+                  
+<div class="video-ove
+rlay-content">
+                     
+ <button class="face-
+play-btn">
+                     
+     <svg viewBox="0 
+0 24 24" 
+fill="currentColor">
+                     
+         <path d="M8 
+5v14l11-7z" />
+                     
+     </svg>
+                     
+     Watch video
+                     
+ </button>
+                  
+</div>
+                  
+<video 
+class="video-bg" 
+autoplay muted loop 
+playsinline
+                     
+ poster="https://imag
+es.unsplash.com/photo
+-1516321318423-f06f85
+e504b3?auto=format&fi
+t=crop&w=800&q=80">
+                     
+ <source src="assets/
+videos/face-feature.m
+p4" type="video/mp4">
+                     
+ <!-- Fallback image 
+if video fails -->
+                     
+ <img src="https://im
+ages.unsplash.com/pho
+to-1516321318423-f06f
+85e504b3?auto=format&
+fit=crop&w=800&q=80"
+                     
+     alt="Video" 
+class="video-img">
+                  
+</video>
+              </div>
+  
+          </div>
+      </section>
+  
+      <style>
+          /* Cleanup 
+*/
+          /* --- 
+SHARED HEADER STYLES 
+--- */
+          
+.galaxy-header {
+              
+text-align: center;
+              
+margin-bottom: 40px;
+              
+position: relative;
+              
+z-index: 10;
+          }
+
+

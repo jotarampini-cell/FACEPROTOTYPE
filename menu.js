@@ -7,8 +7,8 @@ const MASTER_MENU_HTML = `
     <!-- Header -->
     <header id="main-header" class="main-header">
         <div class="header-container">
-            <a href="index.html" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">FACE</a>
-            <a href="evaluacion.html" class="nav-cta-btn">Iniciar ahora</a>
+            <a href="/home" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">FACE</a>
+            <a href="/evaluacion" class="nav-cta-btn">Iniciar ahora</a>
             <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
@@ -22,7 +22,7 @@ const MASTER_MENU_HTML = `
         <nav>
             <div class="tr-menu-header">
                 <div class="tr-menu-logo">FACE</div>
-                <a href="evaluacion.html" class="tr-header-cta">Iniciar ahora</a>
+                <a href="/evaluacion" class="tr-header-cta">Iniciar ahora</a>
                 <button class="tr-menu-close" aria-label="Cerrar menú">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -33,20 +33,20 @@ const MASTER_MENU_HTML = `
 
             <ul class="tr-mobile-list">
                 <li class="tr-menu-item">
-                    <a href="index.html" class="menu-link">Inicio</a>
+                    <a href="/home" class="menu-link">Inicio</a>
                 </li>
                 <li class="tr-menu-item">
-                    <a href="metodologia-face.html" class="menu-link">Metodología FACE</a>
+                    <a href="/metodologia" class="menu-link">Metodología FACE</a>
                 </li>
                 <li class="tr-menu-item menu-parent">
-                    <a href="programas.html" class="menu-link menu-parent-link">
+                    <a href="/programas" class="menu-link menu-parent-link">
                         Programas
                     </a>
                     <svg class="chevron-icon" onclick="toggleSubmenu(event, 'programas-submenu')" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <ul class="tr-submenu" id="programas-submenu">
-                        <li><a href="innova-desde-adentro.html" class="menu-link menu-sublink">Innova desde Adentro</a></li>
+                        <li><a href="/innova" class="menu-link menu-sublink">Innova desde Adentro</a></li>
                     </ul>
                 </li>
                 <li class="tr-menu-item menu-parent">
@@ -57,16 +57,16 @@ const MASTER_MENU_HTML = `
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <ul class="tr-submenu" id="explorar-submenu">
-                        <li><a href="blog.html" class="menu-link menu-sublink">Blog</a></li>
-                        <li><a href="podcasts.html" class="menu-link menu-sublink">Podcast</a></li>
-                        <li><a href="recursos-gratis.html" class="menu-link menu-sublink">Recursos Gratis</a></li>
-                        <li><a href="quiz.html" class="menu-link menu-sublink">Diagnóstico (Quiz)</a></li>
+                        <li><a href="/blog" class="menu-link menu-sublink">Blog</a></li>
+                        <li><a href="/podcasts" class="menu-link menu-sublink">Podcast</a></li>
+                        <li><a href="/recursos" class="menu-link menu-sublink">Recursos Gratis</a></li>
+                        <li><a href="/quiz" class="menu-link menu-sublink">Diagnóstico (Quiz)</a></li>
                     </ul>
                 </li>
             </ul>
 
             <div class="tr-menu-footer">
-                <a href="evaluacion.html" class="tr-btn-primary">Iniciar ahora</a>
+                <a href="/evaluacion" class="tr-btn-primary">Iniciar ahora</a>
                 <a href="#login" class="tr-btn-secondary">Log in</a>
             </div>
         </nav>
