@@ -36,7 +36,7 @@ const MASTER_MENU_HTML = `
                     <a href="/home" class="menu-link">Inicio</a>
                 </li>
                 <li class="tr-menu-item">
-                    <a href="/metodologia" class="menu-link">Metodología FACE</a>
+                    <a href="/metodologia-face" class="menu-link">Metodología FACE</a>
                 </li>
                 <li class="tr-menu-item menu-parent">
                     <a href="/programas" class="menu-link menu-parent-link">
@@ -46,7 +46,7 @@ const MASTER_MENU_HTML = `
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <ul class="tr-submenu" id="programas-submenu">
-                        <li><a href="/innova" class="menu-link menu-sublink">Innova desde Adentro</a></li>
+                        <li><a href="/innova-desde-adentro" class="menu-link menu-sublink">Innova desde Adentro</a></li>
                     </ul>
                 </li>
                 <li class="tr-menu-item menu-parent">
@@ -59,7 +59,7 @@ const MASTER_MENU_HTML = `
                     <ul class="tr-submenu" id="explorar-submenu">
                         <li><a href="/blog" class="menu-link menu-sublink">Blog</a></li>
                         <li><a href="/podcasts" class="menu-link menu-sublink">Podcast</a></li>
-                        <li><a href="/recursos" class="menu-link menu-sublink">Recursos Gratis</a></li>
+                        <li><a href="/recursos-gratis" class="menu-link menu-sublink">Recursos Gratis</a></li>
                         <li><a href="/quiz" class="menu-link menu-sublink">Diagnóstico (Quiz)</a></li>
                     </ul>
                 </li>
@@ -194,7 +194,7 @@ function scrollToWidget() {
     if (widget) {
         setTimeout(() => widget.scrollIntoView({ behavior: 'smooth' }), 300);
     } else {
-        window.location.href = 'index.html#adn-innovador-section';
+        window.location.href = '/home#adn-innovador-section';
     }
 }
 

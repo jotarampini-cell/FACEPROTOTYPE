@@ -195,7 +195,7 @@
                     <h4 class="tr-heading">Nosotros</h4>
                     <ul class="tr-links">
                         <li><a href="/home#manifesto">Manifiesto</a></li>
-                        <li><a href="/metodologia">Metodología FACE</a></li>
+                        <li><a href="/metodologia-face">Metodología FACE</a></li>
                         <li><a href="/home">Nuestra Historia</a></li>
                         <li><a href="/blog">Blog</a></li>
                     </ul>
@@ -214,7 +214,7 @@
                 <div class="tr-col">
                     <h4 class="tr-heading">Programas</h4>
                     <ul class="tr-links">
-                        <li><a href="/innova">Innova desde Adentro</a></li>
+                        <li><a href="/innova-desde-adentro">Innova desde Adentro</a></li>
                         <li><a href="/programas">Todos los Programas</a></li>
                         <li><a href="/evaluacion">Evaluación de Perfil</a></li>
                     </ul>
