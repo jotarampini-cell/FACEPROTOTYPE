@@ -10,7 +10,7 @@ const MASTER_MENU_HTML = `
             <a href="/home" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">
                 <img src="assets/images/Logo%20principal.png" alt="FACE Logo" class="header-img-logo">
             </a>
-            <a href="/evaluacion" class="nav-cta-btn">Iniciar ahora</a>
+            <a href="/evaluacion" class="nav-cta-btn" style="text-transform: none !important;">Iniciar ahora</a>
             <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
@@ -26,7 +26,7 @@ const MASTER_MENU_HTML = `
                 <div class="tr-menu-logo">
                     <img src="assets/images/Logo%20principal.png" alt="FACE Logo" class="header-img-logo">
                 </div>
-                <a href="/evaluacion" class="tr-header-cta">Iniciar ahora</a>
+                <a href="/evaluacion" class="tr-header-cta" style="text-transform: none !important;">Iniciar ahora</a>
                 <button class="tr-menu-close" aria-label="Cerrar menú">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="18" y1="6" x2="6" y2="18"></line>

@@ -264,3 +264,61 @@
     }
 }
 
+
+/* --- TONY ROBBINS STYLE MOBILE HEADER --- */
+@media (max-width: 768px) {
+    .main-header {
+        top: 0 !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+        background: #000 !important; /* Solid black like Tony */
+        padding: 10px 15px !important;
+    }
+
+    .header-container {
+        padding: 0 !important;
+        gap: 10px !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .logo {
+        flex-grow: 1; /* Pushes everything else to the right */
+        display: flex;
+        align-items: center;
+    }
+
+    .header-img-logo {
+        height: 18px !important; /* Keep it Tony-small */
+        margin-top: 0 !important;
+    }
+
+    .nav-cta-btn {
+        background-color: #fff !important;
+        color: #000 !important;
+        padding: 6px 14px !important;
+        border-radius: 20px !important; /* Pill shape */
+        font-size: 0.75rem !important;
+        font-weight: 700 !important;
+        text-transform: none !important; /* Not uppercase, like Tony's 'Start now' */
+        letter-spacing: 0 !important;
+        margin: 0 !important;
+    }
+
+    .menu-icon {
+        width: 30px !important;
+        height: 30px !important;
+        background: transparent !important; /* No background */
+        padding: 0 !important;
+        margin-left: 5px !important;
+    }
+
+    .menu-icon span {
+        background: #fff !important;
+        height: 2px !important;
+        width: 24px !important;
+        margin: 2px 0 !important;
+        border-radius: 0 !important; /* Sharp edges */
+    }
+}
+
