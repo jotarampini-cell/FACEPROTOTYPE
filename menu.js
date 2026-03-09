@@ -8,7 +8,7 @@ const MASTER_MENU_HTML = `
     <header id="main-header" class="main-header">
         <div class="header-container">
             <a href="/home" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">
-                <img src="assets/images/Logo%20principal.png" alt="FACE Logo" style="height: 40px; width: auto; vertical-align: middle;">
+                <img src="assets/images/Logo%20principal.png" alt="FACE Logo" class="header-img-logo">
             </a>
             <a href="/evaluacion" class="nav-cta-btn">Iniciar ahora</a>
             <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
@@ -24,7 +24,7 @@ const MASTER_MENU_HTML = `
         <nav>
             <div class="tr-menu-header">
                 <div class="tr-menu-logo">
-                    <img src="assets/images/Logo%20principal.png" alt="FACE Logo" style="height: 40px; width: auto; vertical-align: middle;">
+                    <img src="assets/images/Logo%20principal.png" alt="FACE Logo" class="header-img-logo">
                 </div>
                 <a href="/evaluacion" class="tr-header-cta">Iniciar ahora</a>
                 <button class="tr-menu-close" aria-label="Cerrar menú">

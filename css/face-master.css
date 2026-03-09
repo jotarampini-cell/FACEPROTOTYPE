@@ -196,3 +196,16 @@
         object-position: center left;
     }
 }
+/* --- HEADER LOGO SIZING --- */
+.header-img-logo {
+    height: 40px;
+    width: auto;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .header-img-logo {
+        height: 28px;
+    }
+}
+
