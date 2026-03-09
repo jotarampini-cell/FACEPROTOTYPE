@@ -7,26 +7,40 @@ const MASTER_MENU_HTML = `
     <!-- Header -->
     <header id="main-header" class="main-header">
         <div class="header-container">
-            <a href="/home" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">
+            <!-- Logo (Left) -->
+            <a href="/home" class="logo" style="text-decoration: none; cursor: pointer; flex-shrink: 0;">
                 <img src="assets/images/Logo%20principal.png" alt="FACE Logo" class="header-img-logo">
             </a>
-            <a href="/evaluacion" class="nav-cta-btn" style="text-transform: none !important;">Iniciar ahora</a>
-            <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+
+            <!-- Desktop Center Nav Links (hidden on mobile) -->
+            <nav class="desktop-nav">
+                <a href="/metodologia-face" class="desktop-nav-link">Metodología</a>
+                <a href="/programas" class="desktop-nav-link">Programas</a>
+                <a href="/blog" class="desktop-nav-link">Blog</a>
+                <a href="/podcasts" class="desktop-nav-link">Podcast</a>
+                <a href="/quiz" class="desktop-nav-link">Diagnóstico</a>
+            </nav>
+
+            <!-- Right Side: CTA + Hamburger -->
+            <div class="header-right">
+                <a href="/evaluacion" class="nav-cta-btn">Iniciar ahora</a>
+                <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- Full Screen Menu -->
+    <!-- Full Screen Menu (Mobile & Desktop Overlay) -->
     <div id="fullscreen-menu" class="fullscreen-menu">
         <nav>
             <div class="tr-menu-header">
                 <div class="tr-menu-logo">
                     <img src="assets/images/Logo%20principal.png" alt="FACE Logo" class="header-img-logo">
                 </div>
-                <a href="/evaluacion" class="tr-header-cta" style="text-transform: none !important;">Iniciar ahora</a>
+                <a href="/evaluacion" class="tr-header-cta">Iniciar ahora</a>
                 <button class="tr-menu-close" aria-label="Cerrar menú">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -96,45 +110,32 @@ function injectGlobalMenu() {
  * Initializes Menu Logic (Open/Close, Submenus)
  */
 function initMenuEvents() {
-    // Toggle Button
     const menuToggle = document.getElementById('menu-toggle');
-    if (menuToggle) {
-        menuToggle.addEventListener('click', openMenu);
-    }
+    if (menuToggle) menuToggle.addEventListener('click', openMenu);
 
-    // Close Button
     const menuClose = document.querySelector('.tr-menu-close');
-    if (menuClose) {
-        menuClose.addEventListener('click', closeMenu);
-    }
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
 
-    // Click outside to close
     const fullscreenMenu = document.getElementById('fullscreen-menu');
     if (fullscreenMenu) {
         fullscreenMenu.addEventListener('click', function (e) {
-            if (e.target.id === 'fullscreen-menu') {
-                closeMenu();
-            }
+            if (e.target.id === 'fullscreen-menu') closeMenu();
         });
     }
 
-    // Link clicks should close menu
-    const links = document.querySelectorAll('.menu-link');
-    links.forEach(link => {
+    document.querySelectorAll('.menu-link').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // ESC Key
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeMenu();
     });
 
-    // Init Sticky Header Scroll Logic
     initStickyHeader();
 }
 
 /**
- * Handles Sticky Header Effect on Scroll
+ * Sticky Header Scroll Effect
  */
 function initStickyHeader() {
     const header = document.getElementById('main-header');
@@ -149,7 +150,6 @@ function initStickyHeader() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    // Trigger once on load in case we start scrolled down
     handleScroll();
 }
 
@@ -179,7 +179,6 @@ function toggleSubmenu(event, submenuId) {
     const parentLi = submenu.closest('.menu-parent');
     if (!parentLi) return;
 
-    // Close others
     document.querySelectorAll('.menu-parent').forEach(parent => {
         if (parent !== parentLi) {
             parent.classList.remove('active');
@@ -187,7 +186,6 @@ function toggleSubmenu(event, submenuId) {
         }
     });
 
-    // Toggle current
     parentLi.classList.toggle('active');
     submenu.classList.toggle('active');
 }
@@ -202,10 +200,9 @@ function scrollToWidget() {
     }
 }
 
-// Auto-Run on Load (Robust Check)
+// Auto-Run on Load
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', injectGlobalMenu);
 } else {
     injectGlobalMenu();
 }
-
