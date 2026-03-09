@@ -12,11 +12,6 @@
       "permanent": false
     },
     {
-      "source": "/metodologia-face",
-      "destination": "/metodologia-face",
-      "permanent": false
-    },
-    {
       "source": "/innova",
       "destination": "/innova-desde-adentro",
       "permanent": false
@@ -48,7 +43,7 @@
     },
     {
       "source": "/quiz-diagnostico",
-      "destination": "/quiz-diagnostico",
+      "destination": "/quiz-diagnostico.html",
       "permanent": false
     }
   ],
