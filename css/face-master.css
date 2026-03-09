@@ -231,3 +231,36 @@
     }
 }
 
+
+/* --- HEADER FIX PROPORCIONES MOVILES --- */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 !important; /* Remove 40px desktop padding */
+        gap: 8px !important;
+        align-items: center !important; /* Force vertical center */
+    }
+
+    .main-header {
+        padding: 10px 15px !important; /* Proper outer padding */
+    }
+
+    .header-img-logo {
+        height: 18px !important; /* Smaller logo */
+        margin-top: 2px !important; /* Micro adjust vertical centering */
+    }
+
+    .nav-cta-btn {
+        padding: 4px 12px !important; /* Very small button */
+        font-size: 0.65rem !important;
+        margin-right: 0 !important;
+        margin-left: auto !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    .menu-icon {
+        width: 35px !important;
+        height: 35px !important;
+        margin-left: 0 !important;
+    }
+}
+
