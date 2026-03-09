@@ -49,46 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // MOBILE MENU
     // ==========================================
 
-    // Create hamburger button
-    const hamburger = document.createElement('div');
-    hamburger.className = 'hamburger';
-    hamburger.innerHTML = '<span></span><span></span><span></span>';
-
-    // Insert hamburger into navigation
-    const nav = document.querySelector('nav');
-    if (nav) {
-        nav.appendChild(hamburger);
-    }
-
-    // Create mobile menu overlay
-    const mobileMenu = document.createElement('div');
-    mobileMenu.className = 'mobile-menu-overlay';
-    mobileMenu.innerHTML = `
-        <nav>
-            <a href="#hero">Inicio</a>
-            <a href="#about-face">Metodología</a>
-            <a href="#educacion">Educación</a>
-            <a href="#manifesto">Manifiesto</a>
-            <a href="#services">Servicios</a>
-        </nav>
-    `;
-    document.body.appendChild(mobileMenu);
-
-    // Toggle mobile menu
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-    });
-
-    // Close menu when link clicked
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
+    // Note: Old mobile menu overlay injection removed.
+    // The main menu is now handled entirely by menu.js.
 
     // ==========================================
     // TOUCH FEEDBACK
