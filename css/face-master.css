@@ -505,3 +505,18 @@ body.dark-hero-page {
     background-color: #000000;
 }
 
+
+/* ============================================
+   GLOBAL FONT: Inter para todo el sitio
+   ============================================ */
+:root {
+    --font-heading: 'Inter', sans-serif !important;
+    --font-italic: 'Inter', sans-serif !important;
+    --font-body: 'Inter', sans-serif !important;
+    --font-title: 'Inter', sans-serif !important;
+}
+
+*, *::before, *::after {
+    font-family: 'Inter', sans-serif !important;
+}
+
