@@ -7,7 +7,9 @@ const MASTER_MENU_HTML = `
     <!-- Header -->
     <header id="main-header" class="main-header">
         <div class="header-container">
-            <a href="/home" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">FACE</a>
+            <a href="/home" class="logo" style="text-decoration: none; color: #ffffff; cursor: pointer;">
+                <img src="assets/images/Logo%20principal.png" alt="FACE Logo" style="height: 40px; width: auto; vertical-align: middle;">
+            </a>
             <a href="/evaluacion" class="nav-cta-btn">Iniciar ahora</a>
             <button class="menu-icon" id="menu-toggle" aria-label="Abrir menú">
                 <span></span>
@@ -21,7 +23,9 @@ const MASTER_MENU_HTML = `
     <div id="fullscreen-menu" class="fullscreen-menu">
         <nav>
             <div class="tr-menu-header">
-                <div class="tr-menu-logo">FACE</div>
+                <div class="tr-menu-logo">
+                    <img src="assets/images/Logo%20principal.png" alt="FACE Logo" style="height: 40px; width: auto; vertical-align: middle;">
+                </div>
                 <a href="/evaluacion" class="tr-header-cta">Iniciar ahora</a>
                 <button class="tr-menu-close" aria-label="Cerrar menú">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
