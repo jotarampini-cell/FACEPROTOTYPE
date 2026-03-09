@@ -513,3 +513,95 @@ footer, footer * {
     font-family: 'Inter', sans-serif !important;
 }
 
+
+/* ============================================
+   APPLE / TONY ROBBINS STYLE FLOATING HERO CARD
+   ============================================ */
+
+/* Mobile: full-bleed black bg, card floats with inset + shadow */
+@media (max-width: 991px) {
+
+    /* Page wrapper: tight padding sides so card floats */
+    .tr-layout-master {
+        background-color: #000 !important;
+        padding: 10px 10px 0 10px !important;
+    }
+
+    /* The hero card: big radius + shadow = 'floating' Apple feel */
+    .tr-hero-capsule {
+        width: 100% !important;
+        border-radius: 22px !important;
+        overflow: hidden !important;
+        box-shadow:
+            0 8px 40px rgba(0, 0, 0, 0.6),
+            0 2px 8px rgba(0, 0, 0, 0.4) !important;
+        /* Fill near-full viewport height like TR reference */
+        height: calc(100svh - 80px) !important;
+        min-height: 520px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Background image: zoom-in on person like TR */
+    .hero-bg-layer {
+        background-size: cover !important;
+        background-position: center top !important;
+        transform: scale(1.02); /* subtle zoom, avoids white edges */
+    }
+
+    /* Gradient: darker at bottom so text pops */
+    .hero-overlay-gradient {
+        background: linear-gradient(
+            180deg,
+            rgba(0,0,0,0)     0%,
+            rgba(0,0,0,0)     40%,
+            rgba(0,20,60,0.5) 65%,
+            rgba(0,10,40,0.9) 88%,
+            #000              100%
+        ) !important;
+    }
+
+    /* Text: aligned left like TR, at bottom of card */
+    .hero-text-content {
+        text-align: left !important;
+        padding: 20px 22px 36px !important;
+    }
+
+    .hero-headline {
+        font-size: clamp(2.2rem, 9vw, 3rem) !important;
+        line-height: 1.05 !important;
+        letter-spacing: -0.03em !important;
+        margin-bottom: 18px !important;
+    }
+
+    .hero-eyebrow {
+        font-size: 0.72rem !important;
+        letter-spacing: 2.5px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .btn-hero-white {
+        padding: 14px 34px !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+/* Desktop: keep the card centered with a max-width, same floating feel */
+@media (min-width: 992px) {
+    .tr-layout-master {
+        background-color: #000 !important;
+        padding: 16px 24px 0 !important;
+        max-width: 100% !important;
+    }
+
+    .tr-hero-capsule {
+        border-radius: 20px !important;
+        box-shadow: 0 12px 60px rgba(0,0,0,0.5) !important;
+        height: 88vh !important;
+    }
+
+    .hero-text-content {
+        text-align: left !important;
+        padding: 40px 60px 70px !important;
+    }
+}
+
