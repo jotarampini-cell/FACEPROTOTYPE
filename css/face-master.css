@@ -210,20 +210,20 @@
 }
 
 
-/* --- HEADER ENHANCEMENTS PARA MÓVIL --- */
+/* --- HEADER ENHANCEMENTS PARA Mï¿½VIL --- */
 @media (max-width: 768px) {
-    /* Separar logo del botón y menú */
+    /* Separar logo del botï¿½n y menï¿½ */
     .header-container {
         justify-content: space-between;
         gap: 15px;
     }
     
-    /* Hacer el logo más pequeño */
+    /* Hacer el logo mï¿½s pequeï¿½o */
     .header-img-logo {
         height: 24px;
     }
 
-    /* Reducir botón pilar (Iniciar Ahora) en Móvil */
+    /* Reducir botï¿½n pilar (Iniciar Ahora) en Mï¿½vil */
     .nav-cta-btn {
         padding: 6px 14px !important;
         font-size: 0.75rem !important;
@@ -466,7 +466,7 @@
    Header is solid black, hero image starts below
    ============================================ */
 @media (max-width: 991px) {
-    /* Solid black header — not transparent */
+    /* Solid black header ï¿½ not transparent */
     .main-header {
         background: #000000 !important;
         position: fixed !important;
@@ -490,14 +490,18 @@
     }
 
     /* The hero capsule already has border-radius: 24px, so it naturally
-       looks like Tony Robbins' rounded card — no change needed there */
+       looks like Tony Robbins' rounded card ï¿½ no change needed there */
 }
 
 
 /* ============================================
    FIX: White fringe between header and hero
    ============================================ */
-html, body {
-    background-color: #000000 !important;
+/* background-color: #000 removed - was overriding other pages */
+
+
+/* Black background ONLY for dark hero pages (e.g. home) */
+body.dark-hero-page {
+    background-color: #000000;
 }
 
