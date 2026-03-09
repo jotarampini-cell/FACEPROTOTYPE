@@ -7,6 +7,16 @@
       "permanent": false
     },
     {
+      "source": "/modelo-face",
+      "destination": "/metodologia-face",
+      "permanent": false
+    },
+    {
+      "source": "/metodologia-face",
+      "destination": "/metodologia-face",
+      "permanent": false
+    },
+    {
       "source": "/innova",
       "destination": "/innova-desde-adentro",
       "permanent": false
@@ -41,5 +51,15 @@
       "destination": "/quiz-diagnostico",
       "permanent": false
     }
+  ],
+  "rewrites": [
+    { "source": "/programas", "destination": "/programas.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/podcasts", "destination": "/podcasts.html" },
+    { "source": "/quiz", "destination": "/quiz.html" },
+    { "source": "/evaluacion", "destination": "/evaluacion.html" },
+    { "source": "/recursos-gratis", "destination": "/recursos-gratis.html" },
+    { "source": "/innova-desde-adentro", "destination": "/innova-desde-adentro.html" },
+    { "source": "/metodologia-face", "destination": "/metodologia-face.html" }
   ]
 }

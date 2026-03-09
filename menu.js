@@ -14,7 +14,7 @@ const MASTER_MENU_HTML = `
 
             <!-- Desktop Center Nav Links (hidden on mobile) -->
             <nav class="desktop-nav">
-                <a href="/metodologia-face" class="desktop-nav-link">Metodología</a>
+                <a href="/metodologia-face" class="desktop-nav-link">Modelo FACE</a>
                 <a href="/programas" class="desktop-nav-link">Programas</a>
                 <a href="/blog" class="desktop-nav-link">Blog</a>
                 <a href="/podcasts" class="desktop-nav-link">Podcast</a>
@@ -54,7 +54,7 @@ const MASTER_MENU_HTML = `
                     <a href="/home" class="menu-link">Inicio</a>
                 </li>
                 <li class="tr-menu-item">
-                    <a href="/metodologia-face" class="menu-link">Metodología FACE</a>
+                    <a href="/metodologia-face" class="menu-link">Modelo FACE</a>
                 </li>
                 <li class="tr-menu-item menu-parent">
                     <a href="/programas" class="menu-link menu-parent-link">
