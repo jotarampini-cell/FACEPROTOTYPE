@@ -209,3 +209,25 @@
     }
 }
 
+
+/* --- HEADER ENHANCEMENTS PARA MÓVIL --- */
+@media (max-width: 768px) {
+    /* Separar logo del botón y menú */
+    .header-container {
+        justify-content: space-between;
+        gap: 15px;
+    }
+    
+    /* Hacer el logo más pequeño */
+    .header-img-logo {
+        height: 24px;
+    }
+
+    /* Reducir botón pilar (Iniciar Ahora) en Móvil */
+    .nav-cta-btn {
+        padding: 6px 14px !important;
+        font-size: 0.75rem !important;
+        margin-left: auto; /* Empujarlo a la derecha si hay espacio */
+    }
+}
+
