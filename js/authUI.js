@@ -8,12 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initAuthUI() {
     createAuthModals();
 
-    // Only show bottom nav on app.html, not on landing page
-    const isLandingPage = window.location.pathname === '/' ||
-        window.location.pathname.endsWith('/home') ||
-        window.location.pathname === '';
+    // Only show bottom nav on the actual app dashboard (app.html)
+    const isAppPage = window.location.pathname.endsWith('/app') ||
+        window.location.pathname.endsWith('/app.html');
 
-    if (!isLandingPage) {
+    if (isAppPage) {
         createBottomNav();
     }
 
