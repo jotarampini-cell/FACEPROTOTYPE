@@ -842,3 +842,26 @@ footer, footer * {
     letter-spacing: 0.01em !important;
 }
 
+
+/* ============================================
+   UPDATED DROPDOWN HOVER: Text fades to grey
+   Clean, modern, like Tony Robbins reference
+   ============================================ */
+.nav-dropdown-item {
+    font-weight: 700 !important;
+    color: #111111 !important;
+    border-left: none !important;
+    padding-left: 24px !important;
+    letter-spacing: normal !important;
+    transition: color 0.2s ease !important;
+    background: transparent !important;
+}
+
+.nav-dropdown-item:hover {
+    color: #999999 !important;
+    background: transparent !important;
+    border-left: none !important;
+    padding-left: 24px !important;
+    letter-spacing: normal !important;
+}
+
