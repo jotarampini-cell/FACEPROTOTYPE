@@ -235,14 +235,14 @@
 }
 
 .tr-menu-item a {
-    color: white !important;
-    font-family: 'Montserrat', sans-serif !important;
+    color: #ffffff !important;
+    font-family: 'Inter', sans-serif !important;
     font-size: 1rem !important;
-    font-weight: 400 !important;
+    font-weight: 700 !important;
     text-decoration: none !important;
     flex-grow: 1;
     text-transform: none !important;
-    letter-spacing: -0.01em;
+    letter-spacing: 0em;
     text-align: left !important;
     line-height: 1.2 !important;
     padding: 0 !important;
@@ -259,11 +259,16 @@
 .chevron-icon {
     width: 20px !important;
     height: 20px !important;
-    color: white;
-    opacity: 0.6 !important;
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
     flex-shrink: 0;
-    transition: transform 0.3s ease, opacity 0.2s ease;
+    transition: transform 0.3s ease;
     margin-left: auto;
+}
+
+.chevron-icon polyline {
+    stroke: #ffffff !important;
 }
 
 .menu-parent.active .chevron-icon {
@@ -271,16 +276,19 @@
 }
 
 .tr-menu-item:hover .chevron-icon {
-    opacity: 0.9;
+    opacity: 1 !important;
 }
 
 /* Submenus */
 .tr-submenu {
     list-style: none;
-    padding-left: 20px;
-    margin: 16px 0 0 0;
+    padding: 6px 0 !important;
+    margin: 8px 0 4px 0 !important;
     display: none;
     width: 100%;
+    background: #1e1e1e !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
 }
 
 .tr-submenu.active {
@@ -288,17 +296,23 @@
 }
 
 .tr-submenu li {
-    padding: 14px 0 !important;
+    padding: 0 !important;
     border-bottom: none !important;
 }
 
 .tr-submenu a {
-    font-size: 0.9rem !important;
-    font-weight: 300 !important;
-    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
     text-align: left !important;
     display: block !important;
     line-height: 1.2 !important;
+    padding: 9px 20px !important;
+    transition: color 0.2s !important;
+}
+
+.tr-submenu a:hover {
+    color: #aaaaaa !important;
 }
 
 .menu-arrow {
