@@ -386,7 +386,7 @@
         .related-card:hover {
             transform: translateY(-5px);
             background: #ffffff;
-            border-color: #c5a059;
+            border-color: #0051ff;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
@@ -403,7 +403,7 @@
         .related-tag {
             font-family: 'Oswald', sans-serif;
             font-size: 0.75rem;
-            color: #c5a059;
+            color: #0051ff;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -463,12 +463,12 @@
             }
 
             .related-grid::-webkit-scrollbar-thumb {
-                background: #c5a059;
+                background: #0051ff;
                 border-radius: 10px;
             }
 
             .related-grid::-webkit-scrollbar-thumb:hover {
-                background: #b08f4a;
+                background: #0039cc;
             }
         }
 
@@ -504,7 +504,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(197, 160, 89, 0.3) 100%);
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.92) 0%, rgba(0, 0, 0, 0.75) 100%);
             z-index: 2;
         }
 
@@ -536,22 +536,24 @@
         .btn-gold {
             display: inline-block;
             padding: 18px 45px;
-            background: #c5a059;
-            color: #000;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
+            background: #ffffff;
+            color: #000000;
+            font-family: 'Inter', 'Montserrat', sans-serif;
+            font-size: 1rem;
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 50px;
             transition: all 0.3s ease;
             letter-spacing: 1px;
+            border: 2px solid #ffffff;
         }
 
         .btn-gold:hover {
-            background: #e0b461;
+            background: transparent;
+            color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.4);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.15);
         }
 
         /* RESPONSIVE */
@@ -788,14 +790,14 @@
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
                 <div>
                     <h3
-                        style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 15px; color: #c5a059;">
+                        style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 15px; color: #ffffff;">
                         FACE</h3>
                     <p style="color: #999; line-height: 1.6; font-size: 0.95rem;">Innovación sin inventar. Transformamos
                         el ingenio de tus colaboradores en ventaja competitiva.</p>
                 </div>
                 <div>
                     <h4
-                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        style="font-family: 'Inter', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #ffffff;">
                         Navegación</h4>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px;"><a href="/home"
@@ -810,7 +812,7 @@
                 </div>
                 <div>
                     <h4
-                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        style="font-family: 'Inter', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #ffffff;">
                         Programas</h4>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px;"><a href="/innova"
@@ -820,7 +822,7 @@
                 </div>
                 <div>
                     <h4
-                        style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #c5a059;">
+                        style="font-family: 'Inter', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; color: #ffffff;">
                         Contacto</h4>
                     <p style="color: #999; margin-bottom: 10px; font-size: 0.95rem;">info@faceinnovation.com</p>
                     <p style="color: #999; font-size: 0.95rem;">Caracas, Venezuela</p>
@@ -866,7 +868,7 @@
             const successMsg = form.querySelector('.notify-success');
             if (successMsg) {
                 successMsg.textContent = '¡Gracias! Te notificaremos cuando esté disponible.';
-                successMsg.style.color = '#c5a059';
+                successMsg.style.color = '#0051ff';
                 successMsg.style.marginTop = '10px';
                 form.reset();
 
@@ -903,7 +905,7 @@
             transform: translateX(-50%);
             width: 1000px;
             height: 1000px;
-            background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 81, 255, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -937,21 +939,21 @@
             padding: 40px 20px;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 16px;
-            border: 1px solid rgba(197, 160, 89, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
 
         .proof-metric:hover {
-            background: rgba(197, 160, 89, 0.1);
-            border-color: rgba(197, 160, 89, 0.4);
+            background: rgba(0, 81, 255, 0.08);
+            border-color: rgba(0, 81, 255, 0.3);
             transform: translateY(-5px);
         }
 
         .proof-number {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Inter', 'Oswald', sans-serif;
             font-size: 4rem;
             font-weight: 800;
-            color: #c5a059;
+            color: #0051ff;
             line-height: 1;
             margin-bottom: 15px;
         }
@@ -995,7 +997,7 @@
         }
 
         .client-logo:hover {
-            color: #c5a059;
+            color: #0051ff;
         }
 
         /* PROXIMITY MODAL */
@@ -1036,7 +1038,7 @@
         }
 
         .modal-close:hover {
-            color: #c5a059;
+            color: #0051ff;
         }
 
         .modal-content h3 {
