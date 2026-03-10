@@ -865,3 +865,63 @@ footer, footer * {
     letter-spacing: normal !important;
 }
 
+
+/* ============================================
+   MOBILE FULLSCREEN MENU - TONY ROBBINS STYLE
+   White bold links + grey submenu background
+   ============================================ */
+
+/* Main menu items: white bold text */
+.tr-mobile-list .menu-link,
+.tr-mobile-list .menu-parent-link {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 0.01em !important;
+}
+
+/* Chevron arrows: white */
+.chevron-icon {
+    stroke: #ffffff !important;
+    width: 20px !important;
+    height: 20px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Submenu container: dark grey background rounded card */
+.tr-submenu {
+    background: #1e1e1e !important;
+    border-radius: 12px !important;
+    margin: 8px 0 4px 0 !important;
+    padding: 6px 0 !important;
+    list-style: none !important;
+    overflow: hidden !important;
+}
+
+/* Submenu items: white text */
+.tr-submenu li a,
+.menu-sublink {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+    display: block !important;
+    padding: 12px 24px !important;
+    text-decoration: none !important;
+    transition: color 0.2s !important;
+}
+
+.tr-submenu li a:hover,
+.menu-sublink:hover {
+    color: #aaaaaa !important;
+}
+
+/* Separator line between main menu items */
+.tr-menu-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    padding: 4px 0 !important;
+}
+
+.tr-menu-item:last-child {
+    border-bottom: none !important;
+}
+
