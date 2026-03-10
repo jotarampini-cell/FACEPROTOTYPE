@@ -936,3 +936,22 @@ footer, footer * {
     color: #ffffff !important;
 }
 
+
+/* ============================================
+   FIX: White fringe below fixed header on inner pages
+   The body padding-top was showing the white default body bg
+   ============================================ */
+html, body {
+    background-color: #000000 !important;
+}
+
+
+/* ============================================
+   FIX: White fringe on pages with dark first sections
+   body bg only visible in the 70px header-padding gap
+   Each section still controls its own background
+   ============================================ */
+body {
+    background-color: #000000;
+}
+
