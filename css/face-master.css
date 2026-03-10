@@ -915,15 +915,8 @@ footer, footer * {
     color: #aaaaaa !important;
 }
 
-/* Separator line between main menu items */
-.tr-menu-item {
-    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-    padding: 4px 0 !important;
-}
 
-.tr-menu-item:last-child {
-    border-bottom: none !important;
-}
+
 
 
 /* Submenu items: smaller text, tighter spacing */
