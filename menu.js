@@ -14,11 +14,36 @@ const MASTER_MENU_HTML = `
 
             <!-- Desktop Center Nav Links (hidden on mobile) -->
             <nav class="desktop-nav">
+                <a href="/home" class="desktop-nav-link">Inicio</a>
+
                 <a href="/metodologia-face" class="desktop-nav-link">Modelo FACE</a>
-                <a href="/programas" class="desktop-nav-link">Programas</a>
-                <a href="/blog" class="desktop-nav-link">Blog</a>
-                <a href="/podcasts" class="desktop-nav-link">Podcast</a>
-                <a href="/quiz" class="desktop-nav-link">Diagnóstico</a>
+
+                <div class="desktop-nav-item has-dropdown">
+                    <a href="/programas" class="desktop-nav-link">
+                        Programas
+                        <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="/innova-desde-adentro" class="nav-dropdown-item">Innova desde Adentro</a>
+                    </div>
+                </div>
+
+                <div class="desktop-nav-item has-dropdown">
+                    <a href="#" class="desktop-nav-link">
+                        Explorar
+                        <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="/blog" class="nav-dropdown-item">Blog</a>
+                        <a href="/podcasts" class="nav-dropdown-item">Podcast</a>
+                        <a href="/recursos-gratis" class="nav-dropdown-item">Recursos Gratis</a>
+                        <a href="/quiz" class="nav-dropdown-item">Diagnóstico (Quiz)</a>
+                    </div>
+                </div>
             </nav>
 
             <!-- Right Side: CTA + Hamburger -->
