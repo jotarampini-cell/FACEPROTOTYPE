@@ -933,3 +933,13 @@ footer, footer * {
     padding: 8px 20px !important;
 }
 
+
+/* Mobile menu chevron arrows: force white */
+.tr-mobile-list .chevron-icon,
+.tr-mobile-list .chevron-icon polyline,
+.fullscreen-menu .chevron-icon,
+.fullscreen-menu .chevron-icon polyline {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+}
+
