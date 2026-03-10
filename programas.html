@@ -72,13 +72,16 @@
 
         .prog-title {
             font-family: var(--prog-font);
-            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-size: clamp(2.2rem, 5vw, 5rem);
             font-weight: 800;
             color: var(--prog-white);
-            line-height: 1.0;
+            line-height: 1.05;
             letter-spacing: -0.03em;
             margin: 0 0 20px;
             text-transform: uppercase;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
         }
 
         .prog-subtitle {
@@ -260,12 +263,15 @@
         @media (max-width: 900px) {
             .prog-container { padding: 0 20px; }
             .prog-hero { padding: 60px 0 40px; }
-            .prog-grid { grid-template-columns: 1fr; }
+            .prog-grid { grid-template-columns: 1fr; gap: 14px; }
             .prog-card--featured { grid-column: 1; height: 460px; }
             .prog-card { height: 420px; }
             .prog-card-content { padding: 28px 24px; }
             .prog-card-title { font-size: 1.6rem !important; }
             .prog-card-desc { font-size: 0.95rem; }
+            .prog-title { font-size: 1.9rem !important; letter-spacing: -0.02em !important; }
+            .prog-intro { padding-left: 18px; }
+            .prog-grid-section { padding: 12px 0 40px; }
         }
 
         @media (max-width: 500px) {
@@ -342,6 +348,7 @@
         </div>
     </section>
 
+    <style>
         .related-section {
             background: #ffffff;
             padding: 80px 30px;
