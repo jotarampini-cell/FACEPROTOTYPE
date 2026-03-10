@@ -760,3 +760,54 @@ footer, footer * {
     color: rgba(255,255,255,0.8) !important;
 }
 
+
+/* ============================================
+   FIX: Dropdown stays open when moving mouse to items
+   Bridge gap between trigger and dropdown card
+   ============================================ */
+
+/* Use padding-top instead of top gap so hover area is continuous */
+.nav-dropdown {
+    top: 100% !important;
+    padding-top: 12px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* The actual visible white card is an inner wrapper */
+.nav-dropdown::after {
+    content: '';
+    position: absolute;
+    inset: 12px 0 0 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.1);
+    z-index: -1;
+}
+
+/* Remove the old arrow that was done via ::before - redo it */
+.nav-dropdown::before {
+    content: '' !important;
+    top: 6px !important;
+    background: #fff !important;
+    box-shadow: -2px -2px 4px rgba(0,0,0,0.04) !important;
+}
+
+/* Dropdown items still need to sit on top of the ::after card */
+.nav-dropdown-item {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+}
+
+/* First item gets top rounded corners via padding */
+.nav-dropdown-item:first-child {
+    margin-top: 0;
+    border-radius: 12px 12px 0 0;
+}
+
+.nav-dropdown-item:last-child {
+    border-radius: 0 0 12px 12px;
+}
+
