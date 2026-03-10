@@ -955,3 +955,75 @@ body {
     background-color: #000000;
 }
 
+
+/* ============================================
+   FIX 1: Related Articles nav arrows - remove gold
+   ============================================ */
+.nav-btn:hover {
+    background: #0051ff !important;
+    color: #ffffff !important;
+    border-color: #0051ff !important;
+}
+
+/* ============================================
+   FIX 2: Related Articles mobile - compact header,
+   no title overflow, better spacing
+   ============================================ */
+@media (max-width: 768px) {
+    .related-section {
+        padding: 40px 0 !important;
+    }
+
+    .related-header {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 16px !important;
+        margin-bottom: 16px !important;
+        gap: 10px !important;
+    }
+
+    .related-title {
+        font-size: 1.1rem !important;
+        margin-bottom: 0 !important;
+        white-space: nowrap !important;
+        letter-spacing: 0 !important;
+    }
+
+    .related-grid {
+        padding: 0 16px 16px !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .related-card {
+        min-width: 260px !important;
+        max-width: 260px !important;
+        scroll-snap-align: center !important;
+    }
+}
+
+/* ============================================
+   FIX 3: Video CTA - center text on desktop
+   ============================================ */
+.video-cta-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.video-content {
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+.video-title,
+.video-desc {
+    text-align: center !important;
+}
+
