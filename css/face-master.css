@@ -925,3 +925,11 @@ footer, footer * {
     border-bottom: none !important;
 }
 
+
+/* Submenu items: smaller text, tighter spacing */
+.tr-submenu li a,
+.menu-sublink {
+    font-size: 0.88rem !important;
+    padding: 8px 20px !important;
+}
+
